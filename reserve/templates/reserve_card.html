@@ -1,0 +1,74 @@
+<div class="relative break-inside-avoid">
+    <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 transform transition-all duration-300 hover:scale-105 hover:translate-x-2 hover:translate-y-2">
+  
+      <div class="p-4 text-left"> 
+        <div class="flex items-left justify-left mb-4"> 
+
+        <p style="display: inline-flex; align-items: center;">
+            <i class="fas fa-user" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+            <span style="font-size: 16px;">{{ reserve_entry.name }}</span>
+        </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-calendar-alt" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.date }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-clock" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.time }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-users" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.guest_quantity }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-envelope" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.email }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-phone" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.phone }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-clipboard" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
+            </p>
+        </div>
+
+        
+
+      </div>
+  
+      <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
+      <div class="flex space-x-4 justify-center mt-4 mb-4">
+        <!-- Tombol Edit -->
+        <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}" 
+           class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-md border-2 border-yellow-700 transition duration-300 shadow-md">
+          Edit Reservation
+        </a>
+        <!-- Tombol Delete -->
+        <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" 
+           class="bg-red-500 hover:bg-red-600 text-black px-4 py-2 rounded-md border-2 border-red-700 transition duration-300 shadow-md">
+          Cancel Reservation
+        </a>
+      </div>
+      
+    </div>
+  </div>
