@@ -5,49 +5,56 @@
         <div class="flex items-left justify-left mb-4"> 
 
         <p style="display: inline-flex; align-items: center;">
-            <i class="fas fa-user" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+            <i class="fas fa-user" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
             <span style="font-size: 16px;">{{ reserve_entry.name }}</span>
         </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-calendar-alt" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-calendar-alt" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.date }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-clock" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.time }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-users" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-users" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.guest_quantity }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-envelope" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-envelope" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.email }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-phone" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-phone" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.phone }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-clipboard" style="margin-right: 8px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-clipboard" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-clipboard" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
             </p>
         </div>
@@ -72,3 +79,16 @@
       
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const reserveCards = document.querySelectorAll('[id^="reserve-card-"]');
+        const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+
+        reserveCards.forEach(card => {
+            const reserveDate = card.querySelector('span').innerText; // Ambil tanggal dari elemen span
+            if (reserveDate < today) {
+                card.style.display = 'none'; // Sembunyikan card jika tanggal sudah lewat
+            }
+        });
+    });
+</script>
