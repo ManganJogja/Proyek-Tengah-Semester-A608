@@ -1,19 +1,38 @@
-{% extends 'base.html' %} 
-{% block content %}
-<h1>Add New Reserve Entry</h1>
+{% extends 'base.html' %}
+{% load static %}
 
-<form method="POST">
-  {% csrf_token %}
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
 
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Reserve Entry" />
-      </td>
-    </tr>
-  </table>
-</form>
+<div class="flex flex-col min-h-screen bg-white">
+    <div class="container mx-auto px-4 py-8 mt-16 max-w-xl" style="font-family: Abhaya Libre SemiBold;">
+        <h1 class="text-3xl font-bold text-center mb-8 text-[#3E190E]" style="font-family: Abhaya Libre SemiBold;">Reserve Your Restaurant</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6 form-style">
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="flex flex-col">
+                    <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-[#3E190E]">{{ field.label }}</label>
+                    {{ field }}
+                    <script>
+                        document.getElementById('{{ field.id_for_label }}').style.width = "495px";
+                    </script>
+                </div>
+                {% endfor %}
 
-{% endblock %}
+                <!-- Tombol submit -->
+                <div class="flex justify-left mt-6">
+                    <button type="submit" style="width: 500px; font-family: 'Abhaya Libre Semibold';" class="bg-[#E7DBC6] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#784B39] hover:text-white transition duration-300 ease-in-out w-full">
+                        Create Mood Entry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

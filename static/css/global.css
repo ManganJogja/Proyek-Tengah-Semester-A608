@@ -1,11 +1,13 @@
+
 .form-style form input, form textarea, form select {
     width: 400px;
     padding: 0.5rem;
     border: 2px solid #b07347;
+    background: #dfd3c5;
     border-radius: 0.375rem;
 }
 .form-style form input:focus, form textarea:focus, form select:focus {
-    background: #e5e7eb;
+    background: #dfd3c5;
     color: #1f2937;
     outline: none;
     border-color: #3e190e;
@@ -45,6 +47,3 @@
     outline: none; /* Menghilangkan outline default */
     border-color: #784b39; /* Warna border saat fokus */
   }
-  
-  
-

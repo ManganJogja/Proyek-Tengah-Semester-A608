@@ -1,7 +1,6 @@
 <div class="relative break-inside-avoid">
-    <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 transform transition-all duration-300 hover:scale-105 hover:translate-x-2 hover:translate-y-2">
-  
-      <div class="p-4 text-left"> 
+    <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
+      <div class="text-left"> 
         <div class="flex items-left justify-left mb-4"> 
 
         <p style="display: inline-flex; align-items: center;">
@@ -27,7 +26,14 @@
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-users" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.guest_quantity }}</span>
+                <span style="font-size: 16px;">
+                    {{ reserve_entry.guest_quantity }} 
+                    {% if reserve_entry.guest_quantity == 1 %}
+                        person
+                    {% else %}
+                        people
+                    {% endif %}                
+                </span>
             </p>
         </div>
 
@@ -47,48 +53,45 @@
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-clipboard" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
             </p>
         </div>
-
-        <div class="flex items-left justify-left mb-4"> 
-            <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-clipboard" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
-            </p>
-        </div>
-
-        
-
       </div>
   
       <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
       <div class="flex space-x-4 justify-center mt-4 mb-4">
         <!-- Tombol Edit -->
-        <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}" 
-           class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-md border-2 border-yellow-700 transition duration-300 shadow-md">
-          Edit Reservation
-        </a>
-        <!-- Tombol Delete -->
-        <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" 
-           class="bg-red-500 hover:bg-red-600 text-black px-4 py-2 rounded-md border-2 border-red-700 transition duration-300 shadow-md">
-          Cancel Reservation
-        </a>
+        <p>
+            <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}"  class="font-medium text-[#AC7853] hover:text-[#3E190E] cursor-pointer">
+                Click here
+            </a> 
+            to EDIT/CANCEL your reservation
+        </p>
+        
+        
       </div>
       
     </div>
   </div>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const reserveCards = document.querySelectorAll('[id^="reserve-card-"]');
-        const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+    const reserveCards = document.querySelectorAll('[id^="reserve-card-"]');
+    const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
 
-        reserveCards.forEach(card => {
-            const reserveDate = card.querySelector('span').innerText; // Ambil tanggal dari elemen span
-            if (reserveDate < today) {
-                card.style.display = 'none'; // Sembunyikan card jika tanggal sudah lewat
-            }
-        });
+    reserveCards.forEach(card => {
+        const reserveDateElement = card.querySelector('.fas.fa-calendar-alt + span'); // Temukan elemen tanggal berdasarkan ikon kalender
+        const reserveDate = reserveDateElement.innerText.trim(); // Ambil teks dari elemen dan hilangkan spasi
+
+        // Konversi reserveDate ke format YYYY-MM-DD
+        const parsedReserveDate = new Date(reserveDate).toISOString().split('T')[0];
+
+        if (parsedReserveDate < today) {
+            card.style.display = 'none'; // Sembunyikan card jika tanggal sudah lewat
+        }
     });
+});
+
 </script>
+
