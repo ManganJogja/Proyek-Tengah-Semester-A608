@@ -3,8 +3,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from main.models import ManganJogja
@@ -54,17 +54,22 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # if user.is_admin:
-            #     login(request, user)
-            #     # Ini sesuaiin sama main page admin
-            #     response = HttpResponseRedirect(reverse("management:admin")) 
-            #     response.set_cookie('last_login', str(datetime.datetime.now()))
-            #     return response
+            if user.is_staff:
+                auth_login(request, user)
+                # Ini sesuaiin sama main page admin
+                response = HttpResponseRedirect(reverse("admin_dashboard:admin_dashboard")) 
+                response.set_cookie('last_login', str(datetime.datetime.now()))
+                return response
             
-            login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main")) 
-            response.set_cookie('last_login', str(datetime.datetime.now()))
-            return response
+            # auth_login(request, user)
+            # if user.is_staff:
+            #     response = HttpResponseRedirect(reverse("admin_dashboard:admin_dashboard"))
+            else:
+                auth_login(request, user)
+                response = HttpResponseRedirect(reverse("main:show_main")) 
+                response.set_cookie('last_login', str(datetime.datetime.now()))
+                return response
+            
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
@@ -72,7 +77,7 @@ def login_user(request):
 
 
 def logout_user(request):
-    logout(request)
+    auth_logout(request)
     response = HttpResponseRedirect(reverse('main:show_main'))
     return response
 
