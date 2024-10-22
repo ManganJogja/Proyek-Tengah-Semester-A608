@@ -1,0 +1,43 @@
+<form method="POST">
+    {% csrf_token %}
+    <label>Rating:</label>
+    <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5">⭐⭐⭐⭐⭐</label><br>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4">⭐⭐⭐⭐</label><br>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3">⭐⭐⭐</label><br>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2">⭐⭐</label><br>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1">⭐</label><br>
+    </div>
+
+    <label for="comment">Write Your Review Here:</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+
+    <button type="submit">Add Review</button>
+</form>
+
+<div id="reviewResult"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#addReviewForm').on('submit', function(e) {
+        e.preventDefault();  // Mencegah submit form secara default
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'add_review' %}",
+            data: $(this).serialize(),  // Kirim data form
+            success: function(response) {
+                $('#reviewResult').html("<p>Review submitted successfully!</p>");
+                // Tambahkan kode untuk menambahkan ulasan baru ke DOM jika diperlukan
+            },
+            error: function(response) {
+                $('#reviewResult').html("<p>There was an error submitting your review.</p>");
+            }
+        });
+    });
+</script>

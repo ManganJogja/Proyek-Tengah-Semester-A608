@@ -1,0 +1,25 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Review</button>
+</form>
+
+<div id="editResult"></div>
+
+<script>
+    $('#editReviewForm').on('submit', function(e) {
+        e.preventDefault();  // Mencegah submit form secara default
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'edit_review' review.id %}",
+            data: $(this).serialize(),
+            success: function(response) {
+                $('#editResult').html("<p>Review updated successfully!</p>");
+            },
+            error: function(response) {
+                $('#editResult').html("<p>There was an error updating your review.</p>");
+            }
+        });
+    });
+</script>

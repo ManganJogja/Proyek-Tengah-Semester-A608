@@ -1,0 +1,26 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this review?</p>
+    <button type="submit">Delete</button>
+</form>
+
+<div id="deleteResult"></div>
+
+<script>
+    $('#deleteReviewForm').on('submit', function(e) {
+        e.preventDefault();  // Mencegah submit form secara default
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'delete_review' review.id %}",
+            data: $(this).serialize(),
+            success: function(response) {
+                $('#deleteResult').html("<p>Review deleted successfully!</p>");
+                // Tambahkan kode untuk menghapus ulasan dari DOM jika diperlukan
+            },
+            error: function(response) {
+                $('#deleteResult').html("<p>There was an error deleting the review.</p>");
+            }
+        });
+    });
+</script>
