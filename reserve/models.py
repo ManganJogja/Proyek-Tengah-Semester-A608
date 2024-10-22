@@ -4,7 +4,7 @@ from main.models import User
 
 
 class ReserveEntry(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # tambahkan baris ini
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     date = models.DateField()    
