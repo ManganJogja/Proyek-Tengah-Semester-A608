@@ -1,22 +1,43 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block content %}
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
 
-<h1>Edit Reserve</h1>
+<div class="flex flex-col min-h-screen bg-white">
+    <div class="container mx-auto px-4 py-8 mt-16 max-w-xl" style="font-family: Abhaya Libre SemiBold;">
+        <h1 class="text-3xl font-bold text-center mb-8 text-[#3E190E]" style="font-family: Abhaya Libre SemiBold;">Reserve Your Restaurant</h1>
+    
+        <div class="bg-white shadow-md rounded-lg p-6 form-style">
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="flex flex-col">
+                    <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-[#3E190E]">{{ field.label }}</label>
+                    {{ field }}
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Edit Reserve"/>
-            </td>
-        </tr>
-    </table>
-</form>
+                    {% if field.help_text %}
+                        <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+                    {% endfor %}
+                    <script>
+                        document.getElementById('{{ field.id_for_label }}').style.width = "495px";
+                    </script>
+                    
+                </div>
+                {% endfor %}
 
-{% endblock %}
+                <!-- Tombol submit -->
+                
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -17,10 +17,10 @@
 
   <!-- Left Side: Form Register -->
   <div class="w-full md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-16 px-4 md:pl-40">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold text-[#3e190e]">
+    <h2 class="text-center text-3xl md:text-4xl font-extrabold text-[#3e190e]" style="font-family: Abhaya Libre SemiBold;">
       Register Yourself
     </h2>
-    <p class="text-center text-md md:text-lg text-[#3e190e] mt-2">
+    <p class="text-center text-md md:text-lg text-[#3e190e] mt-2" style="font-family: Abhaya Libre SemiBold;">
       Begin your journey with us today
     </p>
 
@@ -33,7 +33,7 @@
         
         {% for field in form %}
           <div class="{% if not forloop.first %}mt-4{% endif %}">
-            <label for="{{ field.id_for_label }}" class="font-semibold text-[#3E190E]">
+            <label for="{{ field.id_for_label }}" class="font-semibold text-[#3E190E]" style="font-family: Abhaya Libre SemiBold;">
               {{ field.label }}
             </label>
             <div class="relative">
@@ -56,7 +56,7 @@
       </div>
       <!-- Submit Button -->
       <div>
-        <button type="submit" style="width: 430px;" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-[#E7DBC6] bg-[#3e190e] hover:bg-[#6d4235] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#784b39]">
+        <button type="submit" style="width: 430px; font-family: Abhaya Libre SemiBold;" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-[#E7DBC6] bg-[#3e190e] hover:bg-[#6d4235] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#784b39]">
           Sign Up
         </button>
       </div>
@@ -82,8 +82,8 @@
     </div>
     {% endif %}
     
-    <p class="text-center text-sm text-[#3E190E] mt-6">
-      Already signed up? <a href="{% url 'main:login' %}" class="font-bold text-[#3e190e] hover:underline">Click Here</a>
+    <p class="text-center text-sm text-[#3E190E] mt-6" style="font-family: Abhaya Libre SemiBold;">
+      Already signed up? <a href="{% url 'main:login' %}" class="font-bold text-[#3e190e] hover:underline" style="font-family: Abhaya Libre SemiBold;">Click Here</a>
     </p>
   </div>
 

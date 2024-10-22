@@ -13,3 +13,4 @@ class ReserveEntry(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
     notes = models.CharField(max_length=255)
+    
