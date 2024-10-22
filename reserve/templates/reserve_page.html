@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
+
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+    
+    <div style="color: #3E190E; font-size: 64px; font-family: Abhaya Libre SemiBold; font-weight: 600; word-wrap: break-word">
+        Your Reservations</div>
+    {% if not reserve_entries %}
+    <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+        <p class="text-center text-gray-600 mt-4">Book you reservation.</p>
+    </div>
+    {% else %}
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
+        {% for reserve_entry in reserve_entries %}
+            {% include 'reserve_card.html' with reserve_entry=reserve_entry %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

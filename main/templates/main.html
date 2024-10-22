@@ -1,1 +1,7 @@
-<h1>main page</h1>
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'reserve:create_reserve_entry' %}">
+  <button>Reserve Resto</button>
+</a>
+{% endblock content %}
