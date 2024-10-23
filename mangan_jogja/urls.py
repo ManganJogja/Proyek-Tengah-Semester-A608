@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('auth/', include('authentication.urls')),
     path('reserve/', include('reserve.urls')),
+    path('wishlist/', include('wishlist.urls')),
     
 
 ]
