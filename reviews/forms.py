@@ -4,7 +4,7 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['restaurant_name', 'rating', 'comment']
+        fields = ['restaurant', 'rating', 'comment']
         widgets = {
             'rating': forms.RadioSelect(choices=[(i, str(i)) for i in range(1, 6)])
         }

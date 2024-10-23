@@ -1,0 +1,17 @@
+<h2>Reviews</h2>
+<div class="reviews-container">
+    {% for review in reviews %}
+        <div class="review-card">
+            <p><strong>{{ review.user.username }}</strong></p>
+            <p>
+                {% for i in 1|to:review.rating %}
+                ⭐
+                {% endfor %}
+            </p>
+            <p>{{ review.comment }}</p>
+            <p><small>Posted on {{ review.created_at|date:"F d, Y" }}</small></p>
+        </div>
+    {% empty %}
+        <p>No reviews yet. Be the first to add a review!</p>
+    {% endfor %}
+</div>

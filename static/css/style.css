@@ -1,49 +1,170 @@
-.reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.review-card {
-    flex: 1 1 calc(33.333% - 20px); /* Tiga kolom */
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.review-card {
-    flex: 1 1 calc(33.333% - 20px);
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
-.review-card p {
-    margin: 10px 0;
-}
-
-.btn {
-    display: block;
-    width: 200px;
-    margin: 30px auto;
-    padding: 10px;
+/* Perbesar font pada label Rating dan Write Your Review Here */
+label {
+    font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
+    font-weight: 800; /* SemiBold */
+    font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
     text-align: center;
-    background-color: #A52A2A;
-    color: white;
-    text-decoration: none;
+}
+
+
+.review-title {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 800; 
+    font-size: 40px; /* Sesuaikan ukuran jika diperlukan */
+    text-align: center; /* Pusatkan judul */
+    margin-bottom: 20px; /* Memberikan jarak bawah */
+    color: #3E190E; /* Warna sesuai */
+}
+
+
+.rating {
+    display: flex;
+    justify-content: center; /* Agar elemen berada di tengah */
+    gap: 0px; /* Mengurangi jarak antar bintang */
+}
+
+.rating input[type="radio"] {
+    margin-right: 0px !important;
+    margin-left: 5px !important; /* Adjust this value to fine-tune spacing */
+}
+
+.rating label {
+    margin-right: 0px !important;
+    font-size: 20px; /* Ukuran bintang */
+}
+
+/* Pusatkan textarea dan tombol */
+.container {
+    text-align: center;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto; /* Untuk menengahkan textarea */
+    width: 80%; /* Lebar textarea agar lebih proporsional */
+    max-width: 600px; /* Batasi lebar maksimal */
+    padding: 10px; /* Tambahkan padding untuk jarak dalam */
+    border-radius: 5px; /* Sudut melengkung */
+    border: 1px solid #ddd; /* Border agar terlihat */
+    font-size: 16px; /* Ukuran font dalam textarea */
+}
+
+button.btn {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 600; /* SemiBold */
+    font-size: 35px;
+    background-color: #3E190E; /* Warna background */
+    color: #d4c8c8; /* Warna teks */
+    padding: 15px 40px; /* Padding */
+    border: none;
+    border-radius: 50px; /* Tombol melingkar penuh */
+    font-size: 1.2rem; /* Ukuran teks */
+    font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Efek hover */
+    display: inline-block;
+    margin: 20px auto; /* Pastikan tombol berada di tengah */
+}
+
+button.btn:hover {
+    background-color: #d5c3a1; /* Ubah warna latar belakang sedikit lebih gelap saat hover */
+    color: #000;
+}
+
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #3e190e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p, button {
+    font-family: 'Poppins', sans-serif;
+}
+
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.alert {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.alert-success {
+    background-color: #4CAF50;
+}
+
+.alert-error {
+    background-color: #f44336;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #555;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+.text-secondary {
+    color: #ddd !important;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Butoon add new review di review card */
+.add-review-btn {
+    display: inline-block;
+    background-color: #4b2a20; /* Warna coklat */
+    color: white; /* Warna teks putih */
+    font-size: 16px;
+    font-family: 'Abhaya Libre SemiBold', serif; /* Ganti dengan font yang kamu gunakan */
+    padding: 10px 30px;
+    border-radius: 30px; /* Membuat sudut tombol melingkar */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    transition: background-color 0.3s ease;
+}
+
+.add-review-btn:hover {
+    background-color: #d5c3a1; /* Ubah warna latar belakang sedikit lebih gelap saat hover */
+    color: #000;
 }

@@ -1,49 +1,49 @@
 
 .form-style form input, form textarea, form select {
-    width: 400px;
-    padding: 0.5rem;
-    border: 2px solid #b07347;
-    background: #dfd3c5;
-    border-radius: 0.375rem;
+  width: 400px;
+  padding: 0.5rem;
+  border: 2px solid #b07347;
+  background: #dfd3c5;
+  border-radius: 0.375rem;
 }
 .form-style form input:focus, form textarea:focus, form select:focus {
-    background: #dfd3c5;
-    color: #1f2937;
-    outline: none;
-    border-color: #3e190e;
-    box-shadow: 0 0 0 3px rgba(176, 115, 71, 0,5); /* Warna ring */
+  background: #dfd3c5;
+  color: #1f2937;
+  outline: none;
+  border-color: #3e190e;
+  box-shadow: 0 0 0 3px rgba(176, 115, 71, 0,5); /* Warna ring */
 }
 @keyframes shine {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 .animate-shine {
-    background: linear-gradient(120deg, rgba(231, 219, 198, 0), rgba(231, 219, 198, 0) 50%, rgba(231, 219, 198, 0));
-    background-size: 200% 100%;
-    animation: shine 3s infinite;
+  background: linear-gradient(120deg, rgba(231, 219, 198, 0), rgba(231, 219, 198, 0) 50%, rgba(231, 219, 198, 0));
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
 }
 
 .half-circle {
-    background: #dfd3c5; /* Set background color */
-    width: 200%; /* Set width larger than container to allow overflow */
-    height: 100%; /* Full height of the container */
-    position: absolute;
-    left: -150px; /* Position slightly off the left */
-    top: 0;  /* Align with the top */
-    border-radius: 100% 0 0 100%; /* Creates the curved half-circle effect */
-  }
+  background: #dfd3c5; /* Set background color */
+  width: 200%; /* Set width larger than container to allow overflow */
+  height: 100%; /* Full height of the container */
+  position: absolute;
+  left: -150px; /* Position slightly off the left */
+  top: 0;  /* Align with the top */
+  border-radius: 100% 0 0 100%; /* Creates the curved half-circle effect */
+}
 
-  input {
-    background-color: rgba(9, 4, 70, 0.20); /* Latar belakang transparan */
-    border: 1px solid #d1d5db; /* Border abu-abu */
-    border-radius: 0.375rem; /* Radius border */
-    padding: 0.75rem 1rem; /* Padding dalam input */
-    width: 430px; /* Lebar penuh */
-    height: 40px;
-    color: #1f2937; /* Warna teks */
-  }
-  
-  input:focus {
-    outline: none; /* Menghilangkan outline default */
-    border-color: #784b39; /* Warna border saat fokus */
-  }
+input {
+  background-color: rgba(9, 4, 70, 0.20); /* Latar belakang transparan */
+  border: 1px solid #d1d5db; /* Border abu-abu */
+  border-radius: 0.375rem; /* Radius border */
+  padding: 0.75rem 1rem; /* Padding dalam input */
+  width: 430px; /* Lebar penuh */
+  height: 40px;
+  color: #1f2937; /* Warna teks */
+}
+
+input:focus {
+  outline: none; /* Menghilangkan outline default */
+  border-color: #784b39; /* Warna border saat fokus */
+}

@@ -1,16 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block meta %} {% endblock meta %}
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=AbeeZee&family=Roboto&family=Lobster&family=Open+Sans&family=ADLaM+Display&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    {% block content %} {% endblock content %}
-  </body>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Content block for other pages -->
+    <div class="content">
+        {% block content %} 
+        <!-- Konten dari halaman lain akan dimuat di sini -->
+        {% endblock content %}
+    </div>
+
+    {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+    {% endif %}
+
+
+    <!-- Include footer -->
+    {% include 'footer.html' %}
+
+</body>
 </html>

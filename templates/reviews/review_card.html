@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>All Reviews ({{ reviews.count }})</h1>
+
+    <!-- Button untuk menuju halaman add_review -->
+    <div class="mb-3"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <a href="{% url 'add_review' %}" class="add-review-btn">Add New Review</a>
+    </div>
+
+    <div class="row" id="reviewsContainer">
+        <!-- Review-review yang sudah ada -->
+        {% for review in reviews %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ review.user.username }}</strong>
+                            <p class="text-muted">Posted on {{ review.created_at|date:"F d, Y" }}</p>
+                        </div>
+                        <div>
+                            {% for i in 1|add:0|slice:review.rating %}
+                            <span class="fa fa-star text-warning"></span>
+                            {% endfor %}
+                            {% for i in review.rating|add:0|slice:"5" %}
+                            <span class="fa fa-star text-secondary"></span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <p class="card-text">{{ review.comment }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

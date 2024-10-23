@@ -1,21 +1,27 @@
 <div class="container">
-    <h1>{{ restaurant_name }}</h1>
+    <h1>Reviews for {{ restaurant.name }}</h1>
     <h3>All Reviews ({{ reviews.count }})</h3>
     <div class="reviews-container">
         {% for review in reviews %}
+            {% include 'review_card.html' %}
         <div class="review-card">
             <p><strong>{{ review.user.username }}</strong></p>
             <p>
-                {% for i in 1|to:review.rating %}  <!-- Loop untuk menampilkan rating sebagai bintang -->
+                {% for i in 1|to:review.rating %}
                 ⭐
                 {% endfor %}
             </p>
             <p>{{ review.comment }}</p>
             <p><small>Posted on {{ review.created_at|date:"F d, Y" }}</small></p>
+            
+            {% if review.user == request.user %}
+                <a href="{% url 'edit_review' review.id %}">Edit</a> | 
+                <a href="{% url 'delete_review' review.id %}">Delete</a>
+            {% endif %}
         </div>
         {% empty %}
         <p>No reviews yet. Be the first to add a review!</p>
         {% endfor %}
     </div>
-    <a href="{% url 'add_review' %}" class="btn btn-primary">Add New Reviews</a>
+    <a href="{% url 'add_review' %}" class="btn btn-primary">Add New Review</a>
 </div>
