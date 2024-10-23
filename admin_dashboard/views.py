@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import MenuEntry, RestaurantEntry
 from .forms import MenuEntryForm, RestaurantEntryForm
 from django.contrib.auth.decorators import login_required
@@ -64,17 +64,6 @@ def delete_menu(request, id):
     menu.delete()
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
-def create_restaurant_entry(request):
-    form = RestaurantEntryForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        resto_entry = form.save(commit=False)
-        resto_entry.save()
-        return redirect('admin_dashboard:admin_dashboard')
-
-    context = {'form': form}
-    return render(request, "create_restaurant_entry.html", context)
-
 def edit_resto(request):
     resto = RestaurantEntry.objects.get(pk = id)
     form = RestaurantEntryForm(request.POST or None, instance=resto)
@@ -82,3 +71,12 @@ def edit_resto(request):
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
+
+def menu_page(request, no):
+    menu = get_object_or_404(MenuEntry, no=no)
+    restaurants = menu.restaurants.all()
+    context = {
+        'menu': menu,
+        'restaurants': restaurants
+    }
+    return render(request, 'menu_page.html', context)

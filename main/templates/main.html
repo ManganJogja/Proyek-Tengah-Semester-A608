@@ -25,6 +25,18 @@
     <p style="font-family: Abhaya Libre SemiBold; font-size: 30px">Mangan Jogja — Where Every Meal is a Journey!</p>
 </div>
 
+<h2 style="font-size: 40px; font-family:'Abhaya Libre SemiBold'; text-align: center; margin-top: 40px; color: #3E190E">- SUGGESTED MENU -</h2>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    {% for menu in menus %}
+    <div style="border: 1px solid #ccc; margin: 10px; padding: 20px; width: 200px; text-align: center;">
+        <h3>{{ menu.nama_menu }}</h3>
+        <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: auto;">
+        <p>Price: Rp {{ menu.range_harga }}</p>
+    </div>
+    {% endfor %}
+</div>
+
 {% include 'footer.html' %}
 {% endblock content %}
 
