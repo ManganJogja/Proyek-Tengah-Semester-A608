@@ -9,6 +9,7 @@ class ReserveEntryForm(forms.ModelForm):
         widget=forms.NumberInput(attrs={
             'min': 1,  # HTML 'min' attribute to prevent numbers less than 1
             'class': 'form-control'
+            
         })
     )
     class Meta:

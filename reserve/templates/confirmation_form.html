@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
+
+<div class="flex flex-col min-h-screen bg-white">
+    <div class="container mx-auto px-4 py-8 mt-16 max-w-xl" style="font-family: Abhaya Libre SemiBold;">
+        <div class="bg-[#784B39] rounded-t-lg p-6">
+            <h1 class="text-3xl font-bold text-center mb-8 text-white" style="font-family: Abhaya Libre SemiBold;">Nama Resto</h1>
+            <div class="flex justify-center items-center mb-4">
+                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: white; font-size: 24px"></i> 
+                <p class="text-3xl font-semibold  text-center text-lg mb-8 text-white" style="font-family: Abhaya Libre SemiBold; margin: 0;">Open 24 hours</p>
+            </div>
+        </div>        
+        <div class="bg-white shadow-md rounded-lg p-6 form-style">
+            <h1 style="font-family: Abhaya Libre SemiBold; font-size: 22px; margin-bottom: 10px; background-color: #B07347; padding: 10px; color: white; border-radius: 5px; text-align: center;">
+                Terms and Conditions
+            </h1>
+            <p style="font-family: Actor; font-size: 16px; padding: 10px; color: black; border-radius: 5px;">
+                1. Please plan to arrive 10 – 15 minutes before your reservation time - all guests are served at the same time for each seating.
+            </p>
+            <p style="font-family: Actor; font-size: 16px; padding: 10px; color: black; border-radius: 5px;">
+                2. Please inform us if you will be late, or any changes need to be made and we`ll do our best to accommodate.
+            </p>
+            <p style="font-family: Actor; font-size: 16px; padding: 10px; color: black; border-radius: 5px;">
+                3. I agree to do a minimum spend of Rp 200.000 per pax with this reservation.
+            </p>
+            
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <input type="checkbox" id="personalised-recommendations" style="margin-right: 10px; width: 15px; height: 15px;" required>
+                    <label for="personalised-recommendations" style="font-family: ABeeeZee; font-weight: bold; font-size: 14px;">
+                        By confirming this reservation, I agree to the Terms and Conditions.
+                    </label>
+                </div>
+            
+            
+                
+                <!-- Tombol submit -->
+                <div class="flex justify-left mt-6 gap-x-4">
+                    <a href="{% url 'main:show_main' %}" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
+                        Back
+                    </a>
+                    <a href="{% url 'reserve:create_reserve_entry' %}" class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
+                        Next
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

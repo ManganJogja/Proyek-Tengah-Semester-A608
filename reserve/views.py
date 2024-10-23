@@ -34,6 +34,9 @@ def create_reserve_entry(request):
     
     context = {'form': form}
     return render(request, "create_reserve_entry.html", context)
+    
+def confirmation_form(request):
+    return render(request, "confirmation_form.html")
 
 def edit_reserve(request,id):
     reserve = ReserveEntry.objects.get(pk = id)
@@ -51,7 +54,7 @@ def delete_reserve(request, id):
     return HttpResponseRedirect(reverse('reserve:show_reserve'))
 
 def show_json(request):
-    data = ReserveEntry.objects.all()
+    data = ReserveEntry.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_json_by_id(request, id):

@@ -8,9 +8,14 @@
 
 <div class="flex flex-col min-h-screen bg-white">
     <div class="container mx-auto px-4 py-8 mt-16 max-w-xl" style="font-family: Abhaya Libre SemiBold;">
-        <h1 class="text-3xl font-bold text-center mb-8 text-[#3E190E]" style="font-family: Abhaya Libre SemiBold;">Reserve Your Restaurant</h1>
-    
-        <div class="bg-white shadow-md rounded-lg p-6 form-style">
+        <div class="bg-[#784B39] rounded-t-lg p-6">
+            <h1 class="text-3xl font-bold text-center mb-8 text-white" style="font-family: Abhaya Libre SemiBold;">Nama Resto</h1>
+            <div class="flex justify-center items-center mb-4">
+                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: white; font-size: 24px"></i> 
+                <p class="text-3xl font-semibold  text-center text-lg mb-8 text-white" style="font-family: Abhaya Libre SemiBold; margin: 0;">Open 24 hours</p>
+            </div>
+        </div>
+        <div class="bg-white border-2 border-[#784B39] rounded-b-lg p-6 form-style">
             <form method="POST" class="space-y-6">
                 {% csrf_token %}
                 {% for field in form %}
@@ -20,15 +25,25 @@
                     <script>
                         document.getElementById('{{ field.id_for_label }}').style.width = "495px";
                     </script>
+                    {% if field.help_text %}
+                        <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+                    {% endfor %}
                 </div>
                 {% endfor %}
 
                 <!-- Tombol submit -->
-                <div class="flex justify-left mt-6">
-                    <button type="submit" style="width: 500px; font-family: 'Abhaya Libre Semibold';" class="bg-[#E7DBC6] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#784B39] hover:text-white transition duration-300 ease-in-out w-full">
-                        Create Mood Entry
+                <div class="flex justify-left mt-6 gap-x-4">
+                    <a href="{% url 'reserve:confirmation_form' %}" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
+                        Back
+                    </a>
+                    <button type="submit" style="font-family: 'Abhaya Libre Semibold';" class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2">
+                        Confirm Reservation
                     </button>
                 </div>
+                
             </form>
         </div>
     </div>
