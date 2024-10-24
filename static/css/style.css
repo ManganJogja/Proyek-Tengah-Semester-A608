@@ -6,7 +6,6 @@ label {
     text-align: center;
 }
 
-
 .review-title {
     font-family: 'Abhaya Libre', serif;
     font-weight: 800; 
@@ -15,7 +14,6 @@ label {
     margin-bottom: 20px; /* Memberikan jarak bawah */
     color: #3E190E; /* Warna sesuai */
 }
-
 
 .rating {
     display: flex;
@@ -100,10 +98,17 @@ p, button {
 }
 
 .messages {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.messages .success {
+    color: green;
+}
+
+.messages .error {
+    color: red;
 }
 
 .alert {

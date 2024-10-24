@@ -13,6 +13,7 @@
   border-color: #3e190e;
   box-shadow: 0 0 0 3px rgba(176, 115, 71, 0,5); /* Warna ring */
 }
+
 @keyframes shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
