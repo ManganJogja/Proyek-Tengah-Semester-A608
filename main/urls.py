@@ -15,7 +15,7 @@ urlpatterns = [
     path('xml/', show_xml, name='show_xml'),
     path('xml/<str:id>/', show_xml_by_id, name='show_xml_by_id'),
     path('json/<str:id>/', show_json_by_id, name='show_json_by_id'),
-    path('menu/<int:no>/', menu_page_user, name='menu_page_user'),
+    path('menu/<uuid:pk>/', menu_page_user, name='menu_page_user'),
     path('all-menus/', all_menus, name='all_menus'),
 
 ]

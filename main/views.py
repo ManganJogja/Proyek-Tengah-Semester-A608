@@ -104,8 +104,8 @@ def show_json_by_id(request, id):
     data = ManganJogja.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-def menu_page_user(request, no):
-    menu = get_object_or_404(MenuEntry, no=no)
+def menu_page_user(request, pk):
+    menu = get_object_or_404(MenuEntry, pk=pk)
     restaurants = menu.restaurants.all()  # Mendapatkan semua restoran terkait dengan menu
 
     context = {
