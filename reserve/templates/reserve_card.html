@@ -1,6 +1,12 @@
 <div class="relative break-inside-avoid">
+    
     <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
-      <div class="text-left"> 
+        <div class="bg-[#E7DBC6] rounded-lg p-4 mb-4">
+            <p class="text-center text-lg font-semibold text-[#3E190E]">
+              Nama Resto 
+            </p>
+          </div>
+        <div class="text-left"> 
         <div class="flex items-left justify-left mb-4"> 
 
         <p style="display: inline-flex; align-items: center;">
@@ -54,8 +60,14 @@
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
+                <span style="font-size: 16px;">
             </p>
+            {% if reserve_entry.notes %}
+                {{ reserve_entry.notes }}
+            {% else %}
+                -
+            {% endif %}
+        </span>
         </div>
       </div>
   

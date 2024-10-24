@@ -10,10 +10,18 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
-from django.utils import timezone
 
-@login_required(login_url='/login')
+def require_previous_page(view_func):
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.session.get('confirmation_form', False):
+            return redirect(reverse('confirmation_form'))  
+        return view_func(request, *args, **kwargs)
+    
+    return _wrapped_view
+
 def show_reserve(request):
+    request.session['confirmation_form'] = False
+    print(request.session.get('confirmation_form'))
     reserve_entries = ReserveEntry.objects.filter(user=request.user)
     context = {  
         'name': request.user.username,
@@ -24,6 +32,10 @@ def show_reserve(request):
 
 @login_required(login_url='/login')
 def create_reserve_entry(request):
+    if request.session.get('confirmation_form') == False:
+        print('halo')
+        return redirect('reserve:confirmation_form')
+
     form = ReserveEntryForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
@@ -32,20 +44,23 @@ def create_reserve_entry(request):
         reserve_entry.save()
         return redirect('reserve:show_reserve')
     
+    print('hala')
     context = {'form': form}
     return render(request, "create_reserve_entry.html", context)
     
 def confirmation_form(request):
+    request.session['confirmation_form'] = True
     return render(request, "confirmation_form.html")
 
-def edit_reserve(request,id):
+def edit_reserve(request, id):
     reserve = ReserveEntry.objects.get(pk = id)
     form = ReserveEntryForm(request.POST or None, instance=reserve)
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('reserve:show_reserve'))
 
-    context = {'form': form}
+    context = {'form': form,
+               'reserve':reserve}
     return render(request, "edit_reserve.html", context)
 
 def delete_reserve(request, id):

@@ -12,5 +12,5 @@ class ReserveEntry(models.Model):
     guest_quantity = models.IntegerField(default=1)
     email = models.EmailField()
     phone = models.IntegerField()
-    notes = models.CharField(max_length=255)
+    notes = models.TextField(max_length=255, blank=True)
     
