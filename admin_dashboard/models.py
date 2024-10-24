@@ -17,7 +17,6 @@ class RestaurantEntry(models.Model):
 
 class MenuEntry(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    no = models.IntegerField()
     nama_menu = models.CharField(max_length=100)
     deskripsi = models.TextField()
     image_url = models.URLField(max_length=200)
