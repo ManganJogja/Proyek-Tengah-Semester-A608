@@ -1,5 +1,5 @@
-from django.shortcuts import render, HttpResponse
-from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 
@@ -12,8 +12,11 @@ def login(request):
         
         if user is not None:
             if user.is_active:
-                login(request, user)
-                return HttpResponse(f"Login sukses untuk pengguna: {user.username}", status=200)
+                auth_login(request, user)
+                if user.is_superuser or user.is_staff:
+                    return redirect('admin_dashboard:admin_dashboard')
+                else:
+                    return HttpResponse(f"Login sukses untuk pengguna: {user.username}", status=200)
             else:
                 return HttpResponse("Login gagal, akun dinonaktifkan.", status=403)
         else:
@@ -25,7 +28,7 @@ def login(request):
 def logout(request):
     if request.user.is_authenticated:
         username = request.user.username
-        logout(request)
+        auth_logout(request)
         return HttpResponse(f"Logout berhasil untuk pengguna: {username}", status=200)
     
     return HttpResponse("Logout gagal. Tidak ada pengguna yang login.", status=400)
