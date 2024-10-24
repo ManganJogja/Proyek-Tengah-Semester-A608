@@ -25,12 +25,12 @@ def create_takeaway_order(request):
     if form.is_valid() and request.method == "POST":
         takeaway_order = form.save(commit=False)
         takeaway_order.user = request.user
-        takeaway_order.order_time = timezone.now()  # Add order timestamp
+        takeaway_order.order_time = timezone.now()  
         takeaway_order.save()
         return redirect('takeaway:show_takeaway_orders')
 
     context = {'form': form}
-    return render(request, "create_takeaway_order.html", context)
+    return render(request, "create_order_takeaway.html", context)
 
 @login_required(login_url='/login')
 def edit_takeaway_order(request, id):

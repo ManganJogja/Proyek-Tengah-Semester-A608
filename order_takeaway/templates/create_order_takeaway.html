@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takeaway Order</title>
+</head>
+<body>
+    <h1>Takeaway Order</h1>
+
+    <!-- Order List Section -->
+    <h2>Your Takeaway Orders</h2>
+    {% if takeaway_orders %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Restaurant</th>
+                    <th>Menu</th>
+                    <th>Quantity</th>
+                    <th>Pickup Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in takeaway_orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.restaurant.nama_resto }}</td>
+                        <td>{{ order.menu.nama_menu }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.pickup_time }}</td>
+                        <td>
+                            <a href="{% url 'order_takeaway:edit_takeaway_order' order.id %}">Edit</a> |
+                            <a href="{% url 'order_takeaway:delete_takeaway_order' order.id %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have no takeaway orders yet.</p>
+    {% endif %}
+
+    <!-- Order Creation Form Section -->
+    <h2>Create a New Takeaway Order</h2>
+    <form method="post" action="{% url 'order_takeaway:create_takeaway_order' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
