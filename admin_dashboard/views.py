@@ -87,7 +87,14 @@ def create_resto_entry(request):
     if form.is_valid() and request.method == "POST":
         resto_entry = form.save(commit=False)
         resto_entry.save()
-        return redirect('admin_dashboard:admin_dashboard')
+        
+        # Assuming that 'restaurants' is a many-to-many field and you need to associate them
+        restaurants = form.cleaned_data.get('restaurants')  # Make sure your form has this field
+        if restaurants:
+            resto_entry.restaurants.set(restaurants)  # Add the restaurants relation here
+        resto_entry.save()
+        
+        return redirect('admin_dashboard:menu_page')
 
     context = {'form': form}
     return render(request, "create_resto_entry.html", context)
