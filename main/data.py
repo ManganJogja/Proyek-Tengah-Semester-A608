@@ -15,7 +15,7 @@ def load_seed_data():
         # Check if the menu already exists, otherwise create it
         if item['nama_menu'] not in menu_cache:
             menu_entry = MenuEntry.objects.create(
-                no=item['no'],
+                id=item['pk'],
                 nama_menu=item['nama_menu'],
                 deskripsi=item['deskripsi'],
                 image_url=default_image_url,

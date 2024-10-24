@@ -45,8 +45,8 @@ def show_json_by_id(request, id):
     data = MenuEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-def edit_menu(request, no):
-    menu = MenuEntry.objects.get(no=no)
+def edit_menu(request, pk):
+    menu = MenuEntry.objects.get(pk=pk)
     form = MenuEntryForm(request.POST or None, instance=menu)
 
     if form.is_valid() and request.method == "POST":
@@ -56,24 +56,24 @@ def edit_menu(request, no):
     context = {'form': form}
     return render(request, "edit_menu.html", context)
 
-def delete_menu(request, no):
+def delete_menu(request, pk):
     if not request.user.is_staff:
         return redirect('login')
     
-    menu = MenuEntry.objects.get(no=no)
+    menu = MenuEntry.objects.get(pk=pk)
     menu.delete()
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
-def edit_resto(request, id):
-    resto = RestaurantEntry.objects.get(pk = id)
+def edit_resto(request, pk):
+    resto = RestaurantEntry.objects.get(pk = pk)
     form = RestaurantEntryForm(request.POST or None, instance=resto)
 
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
-def menu_page(request, no):
-    menu = get_object_or_404(MenuEntry, no=no)
+def menu_page(request, pk):
+    menu = get_object_or_404(MenuEntry, pk=pk)
     restaurants = menu.restaurants.all()
     context = {
         'menu': menu,
