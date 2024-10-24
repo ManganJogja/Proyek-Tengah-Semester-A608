@@ -23,5 +23,4 @@ urlpatterns = [
     path('auth/', include('authentication.urls')),
     path('reserve/', include('reserve.urls')),
     
-
 ]
