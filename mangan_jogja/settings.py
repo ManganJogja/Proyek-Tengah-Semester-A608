@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'authentication',
-    'admin_dashboard'
+    'admin_dashboard',
+    'order_takeaway',
     # 'reserve',
 ]
 
