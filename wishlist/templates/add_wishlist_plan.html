@@ -3,11 +3,10 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
 <div class="container mx-auto mt-8 p-4">
     <h1 class="text-3xl font-bold mb-4 text-center text-[#3E190E]">{{ restaurant.nama_resto }}</h1>
-    <div class="bg-[#F5E6D3] shadow-md rounded-lg p-6 max-w-md mx-auto">
-        <img src="{{ restaurant.image_url }}" alt="{{ restaurant.nama_resto }}" class="w-full h-48 object-cover rounded-md mb-4">
+    <div class="bg-[#F5E6D3] shadow-md rounded-lg p-6 w-[500px] mx-auto">
         <form method="post" class="space-y-4">
             {% csrf_token %}
             <div>
@@ -23,6 +22,7 @@
             </button>
         </form>
     </div>
+</div>
 </div>
 
 {% include 'footer.html' %}
