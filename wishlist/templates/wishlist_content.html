@@ -1,0 +1,7 @@
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;"></div>
+    {% for wishlist_item in wishlist_items %}
+        {% include 'card.html' with restaurant=wishlist_item.restaurant wishlist_item=wishlist_item %}
+    {% empty %}
+        <p>No items in your wishlist yet.</p>
+    {% endfor %}
+</div>

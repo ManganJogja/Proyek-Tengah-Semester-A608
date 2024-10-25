@@ -5,14 +5,8 @@
         <div class="p-4">
             <div class="flex justify-between items-center mb-2">
                 <h3 class="font-bold text-xl text-[#3E190E]">{{ restaurant.name }}</h3>
-                <div>
-                    <a href="{% url 'add_wishlist' restaurant.id %}" class="text-[#3E190E] mr-2">
-                        <i class="fas fa-plus-circle"></i> Add Plan
-                    </a>
-                    <a href="{% url 'delete_wishlist' restaurant.id %}" class="text-[#3E190E]">
-                        <i class="fas fa-trash-alt"></i> Delete
-                    </a>
-                </div>
+            
+                   
             </div>
             <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="w-24 h-24 object-cover rounded-md float-left mr-4 mb-2">
             <p class="text-[#3E190E] text-sm"><strong>Rating:</strong> {{ restaurant.rating }}/5</p>

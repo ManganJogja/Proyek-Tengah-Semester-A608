@@ -21,8 +21,8 @@
         {% for restaurant in restaurants %}
         <div style="font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
             <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
-                onclick="toggleWishlist({{ restaurant.id }}, this)"
-                data-added="false"
+                onclick="toggleWishlist('{{ restaurant.id }}', this)"
+                data-restaurant-id="{{ restaurant.id }}"
                 style="cursor: pointer; width: 24px; height: auto; position: absolute; top: 20px; right: 20px;">
             <h4 style="font-size: 23px; font-weight: bold;">{{ restaurant.nama_resto }}</h4>
             <p><strong>Location:</strong> {{ restaurant.alamat }}</p>
@@ -38,6 +38,58 @@
         {% endfor %}
     </div>
 </div>
+
+<script>
+   function toggleWishlist(restaurantId, element) {
+    fetch(`/wishlist/toggle/${restaurantId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({restaurant_id: restaurantId})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.added) {
+            element.src = "{% static 'image/heart_filled.png' %}";
+            element.alt = "Remove from Wishlist";
+            console.log("Added to wishlist");
+        } else {
+            element.src = "{% static 'image/heart_outline.png' %}";
+            element.alt = "Add to Wishlist";
+            console.log("Removed from wishlist");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+function updateWishlistView() {
+    fetch('/wishlist/')
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const wishlistContent = doc.querySelector('.mt-16');
+            document.querySelector('.mt-16').innerHTML = wishlistContent.innerHTML;
+        })
+        .catch(error => console.error('Error updating wishlist view:', error));
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
 
 {% include 'footer.html' %}
 {% endblock content %}

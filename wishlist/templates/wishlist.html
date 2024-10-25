@@ -11,16 +11,21 @@
 <div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
     <h1 style="color: #3E190E; font-size: 64px; font-family: Abhaya Libre SemiBold; font-weight: 600; word-wrap: break-word">Wishlist</h1>
     
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
-        {% for wishlist_item in wishlist_items %}
-            {% include 'card.html' with restaurant=wishlist_item.restaurant wishlist_item=wishlist_item %}
-        {% empty %}
-            <p>No items in your wishlist yet.</p>
-        {% endfor %}
+    <div id="wishlist-content">
+        {% include 'wishlist_content.html' %}
     </div>
 </div>
-<a href="{% url 'wishlist:add_wishlist' %}"></a>
-    <button>Add Wishlist</button>
-</a>
+
+<script>
+function updateWishlistView() {
+    fetch('/wishlist/content/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('wishlist-content').innerHTML = data.content;
+        })
+        .catch(error => console.error('Error updating wishlist view:', error));
+}
+</script>
+
 {% include 'footer.html' %}
 {% endblock content %}

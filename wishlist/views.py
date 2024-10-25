@@ -2,7 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from admin_dashboard.models import RestaurantEntry
 from .models import Wishlist
-from .forms import WishlistForm
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+import logging
+from django.template.loader import render_to_string
+
+
+logger = logging.getLogger(__name__)
 
 @login_required
 def show_wishlist(request):
@@ -37,3 +43,29 @@ def delete_wishlist(request, restaurant_id):
     wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
     wishlist_item.delete()
     return redirect('show_wishlist')
+
+
+@login_required
+@require_POST
+def toggle_wishlist(request, restaurant_id):
+    restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
+    wishlist_item, created = Wishlist.objects.get_or_create(
+        user=request.user,
+        restaurant=restaurant,
+        defaults={'date_plan': None}
+    )
+    
+    if not created:
+        wishlist_item.delete()
+        return JsonResponse({'added': False})
+    
+    return JsonResponse({'added': True})
+
+@login_required
+def get_wishlist_content(request):
+    wishlist_items = Wishlist.objects.filter(user=request.user).select_related('restaurant')
+    context = {
+        'wishlist_items': wishlist_items,
+    }
+    content = render_to_string('wishlist_content.html', context, request=request)
+    return JsonResponse({'content': content})

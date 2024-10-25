@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from main.views import *
 from main.views import show_main, register, login_user, logout_user
 from main.views import show_json, show_xml, show_xml_by_id, show_json_by_id, menu_page_user, all_menus, restaurant_list
@@ -18,5 +18,6 @@ urlpatterns = [
     path('menu/<uuid:pk>/', menu_page_user, name='menu_page_user'),
     path('all-menus/', all_menus, name='all_menus'),
     path('restaurants/', restaurant_list, name='restaurants'),
+    path('wishlist/', include('wishlist.urls')),
 
 ]
