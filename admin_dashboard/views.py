@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import MenuEntry, RestaurantEntry
 from .forms import MenuEntryForm, RestaurantEntryForm
 from django.contrib.auth.decorators import login_required
@@ -45,8 +45,8 @@ def show_json_by_id(request, id):
     data = MenuEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-def edit_product(request, id):
-    menu = MenuEntry.objects.get(pk = id)
+def edit_menu(request, pk):
+    menu = MenuEntry.objects.get(pk=pk)
     form = MenuEntryForm(request.POST or None, instance=menu)
 
     if form.is_valid() and request.method == "POST":
@@ -56,29 +56,45 @@ def edit_product(request, id):
     context = {'form': form}
     return render(request, "edit_menu.html", context)
 
-def delete_menu(request, id):
+def delete_menu(request, pk):
     if not request.user.is_staff:
         return redirect('login')
     
-    menu = MenuEntry.objects.get(pk=id)
+    menu = MenuEntry.objects.get(pk=pk)
     menu.delete()
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
-def create_restaurant_entry(request):
-    form = RestaurantEntryForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        resto_entry = form.save(commit=False)
-        resto_entry.save()
-        return redirect('admin_dashboard:admin_dashboard')
-
-    context = {'form': form}
-    return render(request, "create_restaurant_entry.html", context)
-
-def edit_resto(request):
-    resto = RestaurantEntry.objects.get(pk = id)
+def edit_resto(request, pk):
+    resto = RestaurantEntry.objects.get(pk = pk)
     form = RestaurantEntryForm(request.POST or None, instance=resto)
 
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
+
+def menu_page(request, pk):
+    menu = get_object_or_404(MenuEntry, pk=pk)
+    restaurants = menu.restaurants.all()
+    context = {
+        'menu': menu,
+        'restaurants': restaurants
+    }
+    return render(request, 'menu_page.html', context)
+
+def create_resto_entry(request):
+    form = RestaurantEntryForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        resto_entry = form.save(commit=False)
+        resto_entry.save()
+        
+        # Assuming that 'restaurants' is a many-to-many field and you need to associate them
+        restaurants = form.cleaned_data.get('restaurants')  # Make sure your form has this field
+        if restaurants:
+            resto_entry.restaurants.set(restaurants)  # Add the restaurants relation here
+        resto_entry.save()
+        
+        return redirect('admin_dashboard:menu_page')
+
+    context = {'form': form}
+    return render(request, "create_resto_entry.html", context)

@@ -2,15 +2,25 @@
 {% load static %}
 
 {% block meta %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 {% endblock meta %}
+
 {% block content %} 
 {% include 'navbar.html' %}
 
-
 <div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
     <h1 style="color: #3E190E; font-size: 64px; font-family: Abhaya Libre SemiBold; font-weight: 600; word-wrap: break-word">Wishlist</h1>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
+        {% for wishlist_item in wishlist_items %}
+            {% include 'card.html' with restaurant=wishlist_item.restaurant wishlist_item=wishlist_item %}
+        {% empty %}
+            <p>No items in your wishlist yet.</p>
+        {% endfor %}
+    </div>
 </div>
-
-
+<a href="{% url 'wishlist:add_wishlist' %}"></a>
+    <button>Add Wishlist</button>
+</a>
 {% include 'footer.html' %}
 {% endblock content %}

@@ -6,8 +6,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from main.models import ManganJogja
+from admin_dashboard.models import MenuEntry, RestaurantEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -16,14 +17,23 @@ from django.views.decorators.http import require_POST
 @login_required(login_url='/login')
 def show_main(request):
     product_entries = ManganJogja.objects.filter(user=request.user)
+    menus = MenuEntry.objects.all()[91:101]
     context = {
         'app' : 'Mangan Jogja',
         'name': request.user.username,
         'last_login': request.COOKIES['last_login'],
-        'product_entries':product_entries
+        'product_entries': product_entries,
+        'menus': menus
     }
 
     return render(request, "main.html", context)
+
+def all_menus(request):
+    menus = MenuEntry.objects.all() 
+    context = {
+        'menus': menus
+    }
+    return render(request, "all_menus.html", context)
 
 def create_product_entry(request):
     form = ManganJogja(request.POST or None)
@@ -61,9 +71,6 @@ def login_user(request):
                 response.set_cookie('last_login', str(datetime.datetime.now()))
                 return response
             
-            # auth_login(request, user)
-            # if user.is_staff:
-            #     response = HttpResponseRedirect(reverse("admin_dashboard:admin_dashboard"))
             else:
                 auth_login(request, user)
                 response = HttpResponseRedirect(reverse("main:show_main")) 
@@ -96,3 +103,18 @@ def show_xml_by_id(request, id):
 def show_json_by_id(request, id):
     data = ManganJogja.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def menu_page_user(request, pk):
+    menu = get_object_or_404(MenuEntry, pk=pk)
+    restaurants = menu.restaurants.all()  
+
+    context = {
+        'menu': menu,
+        'restaurants': restaurants,
+    }
+
+    return render(request, 'menu_page_user.html', context)
+
+def restaurant_list(request):
+    restaurants = RestaurantEntry.objects.all()  
+    return render(request, 'restaurants.html', {'restaurants': restaurants})

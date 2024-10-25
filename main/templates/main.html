@@ -1,18 +1,12 @@
 {% extends 'base.html' %}
-<<<<<<< HEAD
-{% block content %}
+{% load static %}
 
+{% block content %}
 <a href="{% url 'reserve:create_reserve_entry' %}">
   <button>Reserve Resto</button>
 </a>
-{% endblock content %}
-=======
-{% load static %}
 
-
-{% block content %}
 {% include 'navbar.html' %}
-
 
 <div style="background-color: #E7DBC6; height: 610px; text-align: center; color: white; padding: 20px; display: flex; justify-content: center; align-items: center;">
     <img src="{% static 'image/Logo.png' %}" alt="Logo" style="max-width: 38%; height: auto; margin-top: -50px;"/>
@@ -31,12 +25,23 @@
 
 <div style="background-color: #3E190E; color: white; text-align: center; padding: 15px;">
     <p style="font-family: Abhaya Libre SemiBold; font-size: 30px">Mangan Jogja — Where Every Meal is a Journey!</p>
-</div>
+</div><br>
+
+<h2 style="font-size: 35px; font-family:'Abhaya Libre SemiBold'; text-align: center; margin-top: 40px; color: #3E190E">- SUGGESTED MENU -</h2><br>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    {% for menu in menus %}
+    <div style="border: 1px solid #ccc; font-family: Abhaya Libre SemiBold; margin: 10px; padding: 20px; width: 200px; text-align: center; border-radius: 9px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <a href="{% url 'main:menu_page_user' menu.id %}">
+            <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: auto; border-radius: 9px;"><br>
+            <h3 style="font-size:20px;">{{ menu.nama_menu }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</div><br>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'main:all_menus' %}" style="background-color: #3E190E; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none;">View More</a>
+</div><br><br>
 
 {% include 'footer.html' %}
 {% endblock content %}
-
-
-
-
->>>>>>> e604a3241cd8e529b9f601f5afe6bea839982b55

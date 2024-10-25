@@ -25,5 +25,7 @@ urlpatterns = [
     path('reserve/', include('reserve.urls')),
     path('wishlist/', include('wishlist.urls')),
     
+    
+    
 
 ]

@@ -9,7 +9,7 @@ class RestaurantEntry(models.Model):
     nama_resto = models.CharField(max_length=255)
     alamat = models.TextField()
     jenis_kuliner = models.CharField(max_length=50)
-    lokasi_resto = models.DecimalField(max_digits=3, decimal_places=2)
+    lokasi_resto = models.CharField(max_length=10)
     range_harga = models.IntegerField()
     rating = models.DecimalField(max_digits=3, decimal_places=2)
     suasana = models.CharField(max_length=255)

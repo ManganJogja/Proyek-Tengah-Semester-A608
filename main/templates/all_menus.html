@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<br><br><h2 style="text-align: center; font-size: 35px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:60px">All Menus</h2>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    {% for menu in menus %}
+    <div style="border: 1px solid #ccc; font-family: Abhaya Libre SemiBold; margin: 10px; padding: 20px; width: 200px; text-align: center; border-radius: 9px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <a href="{% url 'main:menu_page_user' menu.id %}">
+            <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: auto; border-radius: 9px;"><br>
+            <h3 style="font-size:20px">{{ menu.nama_menu }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

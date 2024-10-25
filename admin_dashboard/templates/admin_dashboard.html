@@ -1,10 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 {% include 'navbar.html' %}
 
+<div style="padding: 30px;">
+    <br>
+    <br>
+    <div style="background-color: #3E190E; color: white; text-align: center; padding: 15px; margin-top: 40px;">
+        <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 35px; font-weight: bold;">Welcome, {{ name }}!</p>
+    </div><br>
+    <div class="flex justify-end mb-6">
+        <a href="{% url 'admin_dashboard:create_menu_entry' %}" style="font-family: 'Abhaya Libre', SemiBold;" class="bg-[#784B39] hover:bg-[#784B39] text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 mr-4">
+            Add New Menu Entry
+        </a>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        {% for menu in menus %}
+        <div style="border: 1px solid #ccc; font-family: Abhaya Libre SemiBold; margin: 10px; padding: 20px; width: 200px; text-align: center; border-radius: 9px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
+            <a href="{% url 'admin_dashboard:menu_page' menu.id %}">
+                <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: auto; border-radius: 9px;"><br>
+                <h3 style="font-size:20px">{{ menu.nama_menu }}</h3>
+            </a>
+            <div style="position: absolute; top: -14px; right: -10px; display: flex;">
+                <a href="{% url 'admin_dashboard:edit_menu' menu.id %}" style="background: #E7DBC6; border-radius: 50%; padding: 5px;">
+                    <img src="{% static 'image/edit.png' %}" alt="Edit" style="width: 20px; height: auto;">
+                </a>
+                <a href="{% url 'admin_dashboard:delete_menu' menu.id %}" style="background: #E7DBC6; border-radius: 50%; padding: 5px; margin-left: 5px;">
+                    <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: auto;">
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
 {% endblock content %}
-
-<h1>admin page</h1>
-
-
-

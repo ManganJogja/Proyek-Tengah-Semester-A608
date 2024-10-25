@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add Plan to Wishlist</h2>
+    <div class="wishlist-form">
+        <h3>{{ restaurant.name }}</h3>
+        <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="restaurant-image">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Add to Wishlist</button>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}
