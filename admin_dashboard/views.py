@@ -4,6 +4,7 @@ from .forms import MenuEntryForm, RestaurantEntryForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
+import uuid
 
 @login_required
 def admin_dashboard(request):
@@ -65,12 +66,19 @@ def delete_menu(request, pk):
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
 def edit_resto(request, pk):
-    resto = RestaurantEntry.objects.get(pk = pk)
+    resto = RestaurantEntry.objects.get(pk=pk)
     form = RestaurantEntryForm(request.POST or None, instance=resto)
 
     if form.is_valid() and request.method == "POST":
         form.save()
-        return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
+
+        # Ambil menu yang terkait dengan restoran ini
+        menu = resto.menus.first()  # Ambil menu pertama yang terkait dengan resto
+        return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
+    
+    context = {'form': form, 'resto': resto}
+    return render(request, "edit_resto.html", context)
+
 
 def menu_page(request, pk):
     menu = get_object_or_404(MenuEntry, pk=pk)
@@ -81,20 +89,32 @@ def menu_page(request, pk):
     }
     return render(request, 'menu_page.html', context)
 
-def create_resto_entry(request):
+def create_resto_entry(request, pk):
     form = RestaurantEntryForm(request.POST or None)
+    menu = get_object_or_404(MenuEntry, pk=pk)
 
     if form.is_valid() and request.method == "POST":
-        resto_entry = form.save(commit=False)
-        resto_entry.save()
+        # Simpan resto_entry terlebih dahulu
+        resto_entry = form.save()  # Tidak perlu menetapkan UUID secara manual
         
-        # Assuming that 'restaurants' is a many-to-many field and you need to associate them
-        restaurants = form.cleaned_data.get('restaurants')  # Make sure your form has this field
-        if restaurants:
-            resto_entry.restaurants.set(restaurants)  # Add the restaurants relation here
-        resto_entry.save()
+        # Setelah berhasil disimpan, baru tambahkan ke menu
+        menu.restaurants.add(resto_entry)
         
-        return redirect('admin_dashboard:menu_page')
+        return redirect('admin_dashboard:menu_page', pk=pk)
 
-    context = {'form': form}
+    context = {'form': form, 'menu': menu}
     return render(request, "create_resto_entry.html", context)
+
+
+def delete_resto(request, pk):
+    if not request.user.is_staff:
+        return redirect('login')
+    
+    resto = RestaurantEntry.objects.get(pk=pk)
+    
+    # Ambil menu yang terkait sebelum menghapus resto
+    menu = resto.menus.first()  # Ambil menu pertama yang terkait dengan resto
+    
+    resto.delete()
+    
+    return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))

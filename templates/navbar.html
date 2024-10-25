@@ -54,12 +54,13 @@
     <!-- Mobile menu, hidden on larger screens -->
     <div class="mobile-menu hidden md:hidden">
         <div class="pt-2 pb-3 space-y-1 mx-auto">
-            <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Home</a>
-            <a href="{% url 'main:all_menus' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Menus</a>
-            <a href="{% url 'main:restaurants' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Restaurants</a>
-            <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Wishlist</a>
-            
             {% if user.is_authenticated %}
+                <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Home</a>
+                <a href="{% url 'main:all_menus' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Menus</a>
+                <a href="{% url 'main:restaurants' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Restaurants</a>
+                <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Wishlist</a>
+                <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Orders</a>
+                <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Reservation</a>
                 <a href="{% url 'main:logout' %}" class="block text-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
                     Logout
                 </a>
