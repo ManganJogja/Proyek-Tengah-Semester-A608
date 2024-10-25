@@ -12,5 +12,6 @@ urlpatterns = [
     path('json/', show_json, name='show_json'),
     path('json/<str:id>/', show_json_by_id, name='show_json_by_id'),
     path('menu/<uuid:id>', menu_page_user, name='menu_page_user'),
+    path('filter-reserve', filter_reserve, name='filter_reserve'),
 
 ]

@@ -1,6 +1,6 @@
 from datetime import date
-from django.db.models import Sum
-from django.http import HttpResponseRedirect
+from django.db.models import Sum, Q
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -9,7 +9,7 @@ from reserve.models import ReserveEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 from django.utils.html import strip_tags
 from admin_dashboard.models import RestaurantEntry, MenuEntry
 from django.contrib import messages
@@ -99,3 +99,28 @@ def show_json(request):
 def show_json_by_id(request, id):
     data = ReserveEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+@require_GET
+def filter_reserve(request):
+    query_date = request.GET.get('date')
+    resto_name = request.GET.get('resto.resto_name')
+    # Mulai dengan queryset default, semua reservasi
+    reserve_entries = ReserveEntry.objects.filter(user=request.user)
+
+    if resto_name:
+        reserves = reserves.filter(resto__name__icontains=resto_name)  # filter restoran dengan icontains (case-insensitive)
+
+    # Filter berdasarkan tanggal, jika diberikan
+    if query_date:
+        reserves = reserves.filter(date=query_date)
+    
+        # Convert data reservasi ke format JSON
+    result_html = ''.join(
+        f"<div class='reserve-card'>"
+        f"<h3>{reserve.resto.name}</h3>"
+        f"<p>Date: {reserve.date}</p>"
+        f"</div>"
+        for reserve in reserves
+    )        
+    return HttpResponse(result_html.encode('utf-8'), status=201)  # Kembalikan HTML dengan status 201
