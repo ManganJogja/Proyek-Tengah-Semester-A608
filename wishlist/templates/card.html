@@ -1,16 +1,18 @@
-<div class="relative" style="width: 300px; margin: 20px; flex: 0 1 300px;">
-    <div class="bg-[#F5E6D3] shadow-md rounded-lg overflow-hidden">
+<div class="relative" style="width: 300px; margin: 20px; flex: 0 1 500px;">
+    <div class="bg-[#F5E6D3] shadow-md rounded-lg overflow-hidden border" style="border: 2px solid rgba(0, 0, 0, 0.2);">
         <div class="p-4">
             <div class="flex justify-between items-center mb-2">
-                <h3 class="font-bold text-xl text-[#3E190E]">{{ restaurant.name }}</h3>
+                <h3 class="font-bold text-xl text-[#3E190E]">{{ restaurant.nama_resto }}</h3>
             </div>
-            <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="w-24 h-24 object-cover rounded-md float-left mr-4 mb-2">
-            <p class="text-[#3E190E] text-sm"><strong>Rating:</strong> {{ restaurant.rating }}/5</p>
-            <p class="text-[#3E190E] text-sm"><strong>Location:</strong> {{ restaurant.location }}</p>
-            <p class="text-[#3E190E] text-sm"><strong>Price:</strong> {{ restaurant.price }}</p>
-            <p class="text-[#3E190E] text-sm"><strong>Plan:</strong> {{ wishlist_item.date_plan|default:"No plan yet" }}</p>
+            <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" class="w-24 h-24 object-cover rounded-md float-left mr-4 mb-2">
+            <div style="text-align: left; padding: 8px;">
+                <p class="text-[#3E190E] text-sm"><strong>Rating:</strong> {{ restaurant.rating }}/5</p>
+                <p class="text-[#3E190E] text-sm "><strong>Location:</strong> {{ restaurant.alamat }}</p>
+                <p class="text-[#3E190E] text-sm"><strong>Price:</strong> {{ restaurant.range_harga }}</p>
+                <p class="text-[#3E190E] text-sm"><strong>Plan:</strong> {{ wishlist_item.date_plan|default:"No plan yet" }}</p>
+            </div>
         </div>
-        <div class="bg-white p-3 mt-2">
+        <div class="bg-white p-6 m-6" style="height: 100px;">
             <p class="text-[#3E190E] text-sm">{{ wishlist_item.additional_note|default:"No additional notes" }}</p>
         </div>
     </div>

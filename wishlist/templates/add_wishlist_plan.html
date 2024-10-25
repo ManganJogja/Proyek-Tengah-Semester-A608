@@ -4,15 +4,23 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Add Plan to Wishlist</h2>
-    <div class="wishlist-form">
-        <h3>{{ restaurant.name }}</h3>
-        <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="restaurant-image">
-        <form method="post">
+<div class="container mx-auto mt-8 p-4">
+    <h1 class="text-3xl font-bold mb-4 text-center text-[#3E190E]">{{ restaurant.nama_resto }}</h1>
+    <div class="bg-[#F5E6D3] shadow-md rounded-lg p-6 max-w-md mx-auto">
+        <img src="{{ restaurant.image_url }}" alt="{{ restaurant.nama_resto }}" class="w-full h-48 object-cover rounded-md mb-4">
+        <form method="post" class="space-y-4">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn-submit">Add to Wishlist</button>
+            <div>
+                <label for="{{ form.date_plan.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Plan Date</label>
+                {{ form.date_plan }}
+            </div>
+            <div>
+                <label for="{{ form.additional_note.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Additional Notes</label>
+                {{ form.additional_note }}
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Add to Wishlist
+            </button>
         </form>
     </div>
 </div>

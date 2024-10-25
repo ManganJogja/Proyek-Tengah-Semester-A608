@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 import logging
 from django.template.loader import render_to_string
+from .forms import WishlistForm
 
 
 logger = logging.getLogger(__name__)
@@ -69,3 +70,4 @@ def get_wishlist_content(request):
     }
     content = render_to_string('wishlist_content.html', context, request=request)
     return JsonResponse({'content': content})
+
