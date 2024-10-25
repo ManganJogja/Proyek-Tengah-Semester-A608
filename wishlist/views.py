@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from .forms import WishlistForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from uuid import UUID
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +26,7 @@ def show_wishlist(request):
 
 
 @login_required
-def add_wishlist(request, restaurant_id):
+def add_wishlist(request, restaurant_id: UUID):
     restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
     wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, restaurant=restaurant)
 
@@ -34,7 +34,7 @@ def add_wishlist(request, restaurant_id):
         form = WishlistForm(request.POST, instance=wishlist_item)
         if form.is_valid():
             form.save()
-            return redirect('show_wishlist')
+            return redirect('wishlist:show_wishlist')
     else:
         form = WishlistForm(instance=wishlist_item)
 
