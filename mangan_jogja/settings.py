@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'authentication',
     'admin_dashboard',
     'order_takeaway',
-    # 'reserve',
+    'reserve',
 ]
 
 MIDDLEWARE = [

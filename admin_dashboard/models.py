@@ -22,3 +22,5 @@ class MenuEntry(models.Model):
     image_url = models.URLField(max_length=200)
     restaurants = models.ManyToManyField(RestaurantEntry, related_name='menus')
 
+    def __str__(self):
+        return self.nama_menu  # Return the menu name instead of the default object representation

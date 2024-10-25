@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-
-{% extends 'base.html' %}
-{% load static %}
-
-{% block meta %}
-{% endblock meta %}
-{% block content %} 
-{% include 'navbar.html' %}
-
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takeaway Order</title>
+    <title>{% if is_edit %}Edit{% else %}Create{% endif %} Order Takeaway</title>
+    <script>
+        async function loadRestaurants() {
+            const menuId = document.getElementById("id_order_items").value;
+            const restaurantDropdown = document.getElementById("id_restaurant");
+
+            if (menuId) {
+                const response = await fetch(`/api/restaurants/${menuId}/`);
+                const restaurants = await response.json();
+
+                restaurantDropdown.innerHTML = '';
+                if (restaurants.length > 0) {
+                    restaurants.forEach(restaurant => {
+                        const option = document.createElement("option");
+                        option.value = restaurant.id;
+                        option.text = restaurant.nama_resto;
+                        restaurantDropdown.add(option);
+                    });
+                } else {
+                    const option = document.createElement("option");
+                    option.text = "No restaurants available for this menu";
+                    restaurantDropdown.add(option);
+                }
+            } else {
+                restaurantDropdown.innerHTML = '<option value="">Select a menu first</option>';
+            }
+        }
+    </script>
+
 </head>
 <body>
-    <h1>Takeaway Order</h1>
+<h1>{% if is_edit %}Edit{% else %}Create{% endif %} Order</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.errors }}
 
-    <!-- Order List Section -->
-    <h2>Your Takeaway Orders</h2>
-    {% if takeaway_orders %}
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Restaurant</th>
-                    <th>Menu</th>
-                    <th>Quantity</th>
-                    <th>Pickup Time</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in takeaway_orders %}
-                    <tr>
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.restaurant.nama_resto }}</td>
-                        <td>{{ order.menu.nama_menu }}</td>
-                        <td>{{ order.quantity }}</td>
-                        <td>{{ order.pickup_time }}</td>
-                        <td>
-                            <a href="{% url 'order_takeaway:edit_takeaway_order' order.id %}">Edit</a> |
-                            <a href="{% url 'order_takeaway:delete_takeaway_order' order.id %}">Delete</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>You have no takeaway orders yet.</p>
-    {% endif %}
+    <label for="id_order_items">Menu</label>
+    <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
+        <option value="">Select Menu</option>
+        {% for menu in menus %}
+            <option value="{{ menu.id }}" {% if order_item and menu.id == order_item.menu_item.id %}selected{% endif %}>{{ menu.nama_menu }}</option>
+        {% endfor %}
+    </select>
 
-    <!-- Order Creation Form Section -->
-    <h2>Create a New Takeaway Order</h2>
-    <form method="post" action="{% url 'order_takeaway:create_takeaway_order' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Place Order</button>
-    </form>
+    <label for="id_restaurant">Restaurant</label>
+    <select name="restaurant" id="id_restaurant" class="form-control">
+        <option value="{{ order_item.order.restaurant.id }}">{{ order_item.order.restaurant.nama_resto }}</option>
+    </select>
+
+    <label for="id_quantity">Quantity</label>
+    <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" value="{{ order_item.quantity }}" required>
+
+    <label for="id_pickup_time">Pickup Time</label>
+    <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" value="{{ form.instance.pickup_time }}" required>
+
+    <button type="submit">{% if is_edit %}Save Changes{% else %}Confirm{% endif %}</button>
+</form>
 </body>
 </html>
