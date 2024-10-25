@@ -1,4 +1,4 @@
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;"></div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
     {% for wishlist_item in wishlist_items %}
         {% include 'card.html' with restaurant=wishlist_item.restaurant wishlist_item=wishlist_item %}
     {% empty %}
