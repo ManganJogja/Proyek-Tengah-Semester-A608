@@ -1,8 +1,8 @@
 <div class="relative break-inside-avoid">
     
     <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
-        <div class="bg-[#E7DBC6] rounded-lg p-4 mb-4">
-            <p class="text-center text-lg font-semibold text-[#3E190E]">
+        <div class="bg-[#784B39] rounded-lg p-4 mb-4">
+            <p class="text-center text-xl " style="color: white; font-family: Abhaya Libre SemiBold;">
               {{ reserve_entry.resto.nama_resto }}
             </p>
             
@@ -12,28 +12,28 @@
 
         <p style="display: inline-flex; align-items: center;">
             <i class="fas fa-user" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-            <span style="font-size: 16px;">{{ reserve_entry.name }}</span>
+            <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.name }}</span>
         </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-calendar-alt" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.date }}</span>
+                <i class="fas fa-calendar-alt" style=" margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.date }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.time }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.time }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-users" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
                     {{ reserve_entry.guest_quantity }} 
                     {% if reserve_entry.guest_quantity == 1 %}
                         person
@@ -47,21 +47,21 @@
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-envelope" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.email }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.email }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-phone" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.phone }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.phone }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
             </p>
             {% if reserve_entry.notes %}
                 {{ reserve_entry.notes }}
@@ -75,8 +75,8 @@
       <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
       <div class="flex space-x-4 justify-center mt-4 mb-4">
         <!-- Tombol Edit -->
-        <p>
-            <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}"  class="font-medium text-[#AC7853] hover:text-[#3E190E] cursor-pointer">
+        <p style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
+            <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}"  class=" text-[#AC7853] hover:text-[#3E190E] cursor-pointer" style=" font-weight: bold; font-family: Abhaya Libre SemiBold;">
                 Click here
             </a> 
             to EDIT/CANCEL your reservation

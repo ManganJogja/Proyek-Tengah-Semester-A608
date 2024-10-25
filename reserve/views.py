@@ -1,4 +1,5 @@
-import datetime
+from datetime import date
+from django.db.models import Sum
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -11,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
 from admin_dashboard.models import RestaurantEntry, MenuEntry
+from django.contrib import messages
+from main.views import show_main
 
 def require_previous_page(view_func):
     def _wrapped_view(request, *args, **kwargs):
@@ -30,27 +33,37 @@ def show_reserve(request):
 
     return render(request, "reserve_page.html", context)
 
+
 @login_required(login_url='/login')
 def create_reserve_entry(request, id):
-    if request.session.get('confirmation_form') == False:
-        return redirect('reserve:confirmation_form', id=id)
-    
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
-    
     form = ReserveEntryForm(request.POST or None)
 
-    if form.is_valid() and request.method == "POST":
-        reserve_entry = form.save(commit=False)
-        reserve_entry.user = request.user
-        reserve_entry.resto = restaurant
-        reserve_entry.save()
+    if request.method == "POST":
+        if form.is_valid():
+            reserve_entry = form.save(commit=False)
+            guest_quantity = form.cleaned_data['guest_quantity']
+            selected_date = form.cleaned_data['date']
 
-        return redirect('reserve:show_reserve')
-    
-    context = {'form': form, 
-               'restaurant': restaurant}
+            # Hitung tamu yang sudah ada untuk tanggal yang dipilih
+            total_guests_selected_date = ReserveEntry.objects.filter(
+                resto=restaurant,
+                date=selected_date
+            ).aggregate(total_guests=Sum('guest_quantity'))['total_guests'] or 0
+
+            if total_guests_selected_date + guest_quantity > 100:
+                messages.error(request, 'Sorry, the total number of guests exceeds the restaurant limit of 100 for the selected date.')
+                return redirect('reserve:create_reserve_entry', id=id)
+            else:
+                reserve_entry.user = request.user
+                reserve_entry.resto = restaurant
+                reserve_entry.save()
+                messages.success(request, 'Your reservation was successful.')
+                return redirect('reserve:show_reserve')
+
+    context = {'form': form, 'restaurant': restaurant}
     return render(request, "create_reserve_entry.html", context)
-    
+
 def confirmation_form(request, id):
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
     
@@ -63,13 +76,15 @@ def confirmation_form(request, id):
 
 def edit_reserve(request, id):
     reserve = ReserveEntry.objects.get(pk = id)
+    restaurant = reserve.resto
     form = ReserveEntryForm(request.POST or None, instance=reserve)
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('reserve:show_reserve'))
 
     context = {'form': form,
-               'reserve':reserve}
+               'reserve':reserve,
+               'restaurant': restaurant}
     return render(request, "edit_reserve.html", context)
 
 def delete_reserve(request, id):

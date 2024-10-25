@@ -66,7 +66,6 @@ def login_user(request):
         if user is not None:
             if user.is_staff:
                 auth_login(request, user)
-                # Ini sesuaiin sama main page admin
                 response = HttpResponseRedirect(reverse("admin_dashboard:admin_dashboard")) 
                 response.set_cookie('last_login', str(datetime.datetime.now()))
                 return response
@@ -78,7 +77,7 @@ def login_user(request):
                 return response
             
         else:
-            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+            messages.error(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
     return render(request, 'login.html', context)
 
