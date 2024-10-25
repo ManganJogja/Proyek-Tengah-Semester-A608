@@ -7,14 +7,19 @@ from django.views.decorators.http import require_POST
 import logging
 from django.template.loader import render_to_string
 from .forms import WishlistForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 logger = logging.getLogger(__name__)
+
+
 
 @login_required
 def show_wishlist(request):
     wishlist_items = Wishlist.objects.filter(user=request.user).select_related('restaurant')
     context = {
+        'last_login': request.COOKIES.get('last_login', 'No recent login'),
         'wishlist_items': wishlist_items,
     }
     return render(request, 'wishlist.html', context)
@@ -71,3 +76,11 @@ def get_wishlist_content(request):
     content = render_to_string('wishlist_content.html', context, request=request)
     return JsonResponse({'content': content})
 
+@login_required
+def delete_wishlist(request, restaurant_id):
+    # Get wishlist item berdasarkan restaurant_id
+    wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
+    # Hapus wishlist item
+    wishlist_item.delete()
+    # Kembali ke halaman wishlist
+    return HttpResponseRedirect(reverse('wishlist:show_wishlist'))
