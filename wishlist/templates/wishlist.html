@@ -11,7 +11,19 @@
 <div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
     <h1 style="color: #3E190E; font-size: 64px; font-family: Abhaya Libre SemiBold; font-weight: 600; word-wrap: break-word">Wishlist</h1>
     
-    <div id="wishlist-content">
+    <div class="relative inline-block text-left mb-4">
+        <select id="sortDropdown" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <option value="name_asc">Sort by Name (A-Z)</option>
+            <option value="name_desc">Sort by Name (Z-A)</option>
+            <option value="rating_desc">Sort by Rating (High to Low)</option>
+            <option value="rating_asc">Sort by Rating (Low to High)</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+    </div>
+    
+    <div id="wishlist-content" class="flex flex-wrap justify-center">
         {% include 'wishlist_content.html' %}
     </div>
 </div>
@@ -22,9 +34,44 @@ function updateWishlistView() {
         .then(response => response.json())
         .then(data => {
             document.getElementById('wishlist-content').innerHTML = data.content;
+            sortWishlist();
         })
         .catch(error => console.error('Error updating wishlist view:', error));
 }
+
+function sortWishlist() {
+    const wishlistContent = document.getElementById('wishlist-content');
+    const cards = Array.from(wishlistContent.children);
+    const sortMethod = document.getElementById('sortDropdown').value;
+    
+    cards.sort((a, b) => {
+        const nameA = a.querySelector('h3').textContent.toLowerCase();
+        const nameB = b.querySelector('h3').textContent.toLowerCase();
+        const ratingA = parseFloat(a.querySelector('p:nth-child(2)').textContent.split(':')[1].trim());
+        const ratingB = parseFloat(b.querySelector('p:nth-child(2)').textContent.split(':')[1].trim());
+        
+        switch(sortMethod) {
+            case 'name_asc':
+                return nameA.localeCompare(nameB);
+            case 'name_desc':
+                return nameB.localeCompare(nameA);
+            case 'rating_desc':
+                return ratingB - ratingA;
+            case 'rating_asc':
+                return ratingA - ratingB;
+            default:
+                return 0;
+        }
+    });
+    
+    wishlistContent.innerHTML = '';
+    cards.forEach(card => wishlistContent.appendChild(card));
+}
+
+document.getElementById('sortDropdown').addEventListener('change', sortWishlist);
+
+// Initial sort
+sortWishlist();
 </script>
 
 {% include 'footer.html' %}

@@ -1,7 +1,38 @@
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
-    {% for wishlist_item in wishlist_items %}
-        {% include 'card.html' with restaurant=wishlist_item.restaurant wishlist_item=wishlist_item %}
-    {% empty %}
-        <p>No items in your wishlist yet.</p>
-    {% endfor %}
+{% for item in wishlist_items %}
+<div class="wishlist-card" style="width: 600px; margin: 20px;">
+    <div class="bg-[#F5E6D3] shadow-md rounded-lg overflow-hidden border relative" style="border: 2px solid rgba(0, 0, 0, 0.2);">
+        <div class="absolute top-2 right-2">
+            <a href="{% url 'wishlist:delete_wishlist' item.restaurant.id %}" class="text-red-500 hover:text-red-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </a>
+        </div>
+        <div class="p-6 flex">
+            <div class="w-1/3">
+                <img src="{{ item.restaurant.menu_set.first.image_url }}" alt="{{ item.restaurant.menu_set.first.nama_menu }}" class="w-full h-48 object-cover rounded-md">
+            </div>
+            <div class="w-2/3 pl-6 text-left">
+                <h3 class="font-bold text-2xl text-[#3E190E] mb-4">{{ item.restaurant.nama_resto }}</h3>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Rating:</span> {{ item.restaurant.rating }}/5</p>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Location:</span> {{ item.restaurant.alamat }}</p>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Price:</span> {{ item.restaurant.range_harga }}</p>
+                <p class="text-[#3E190E] text-sm mb-4"><span class="font-bold">Plan:</span> {{ item.date_plan|date:"M. d, Y"|default:"No plan yet" }}</p>
+                <div class="flex space-x-4">
+                    <a href="{% url 'wishlist:add_wishlist' item.restaurant.id %}" class="bg-blue-500 text-white px-4 py-2 rounded text-center hover:bg-blue-600 flex-grow">
+                        Add Plan
+                    </a>
+                    <a href="{% url 'wishlist:edit_wishlist' item.restaurant.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded text-center hover:bg-yellow-600 flex-grow">
+                        Edit Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-6 m-6 text-left">
+            <p class="text-[#3E190E] text-sm">{{ item.additional_note|default:"No additional notes" }}</p>
+        </div>
+    </div>
 </div>
+{% empty %}
+<p>No wishlist items yet.</p>
+{% endfor %}
