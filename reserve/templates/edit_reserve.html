@@ -1,22 +1,55 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
-{% block content %}
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
 
-<h1>Edit Reserve</h1>
+<div class="flex flex-col min-h-screen bg-white">
+    <div class="container mx-auto px-4 py-8 mt-16 max-w-3xl" style="font-family: Abhaya Libre SemiBold;">
+        <div class=" rounded-t-lg p-6">
+            <h1 class="text-3xl font-bold text-center mb-8 text-#3E190E" style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ restaurant.nama_resto }}</h1>
+            <div class="flex justify-center items-center mb-4">
+                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 24px"></i> 
+                <p class="text-3xl font-semibold  text-center text-lg mb-8 text-[#3E190E]" style="font-family: Abhaya Libre SemiBold; margin: 0;">Open 24 hours</p>
+            </div>
+        </div>
+        <div class="bg-white p-6 form-style" style="width: 100%; max-width: 800px;">
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="flex flex-row items-center justify-between mb-4">
+                    <label for="{{ field.id_for_label }}" class="font-semibold text-[#3E190E]" style="width: 150px;">{{ field.label }}</label>
+                    {{ field }}
+                    <script>
+                        document.getElementById('{{ field.id_for_label }}').style.width = "495px";
+                    </script>
+                    {% if field.help_text %}
+                        <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endfor %}
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Edit Reserve"/>
-            </td>
-        </tr>
-    </table>
-</form>
+                <!-- Tombol submit -->
+                <div class="flex justify-left mt-6 gap-x-4">
+                    <a href="{% url 'reserve:delete_reserve' reserve.pk %}" style="font-family: 'Abhaya Libre Semibold'; border-radius: 62px;" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center" >
+                        Cancel Reservation
+                    </a>
+                    <button type="submit" style="font-family: 'Abhaya Libre Semibold'; border-radius: 62px;" class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2">
+                        Save Changes
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
 
-{% endblock %}
+{% include 'footer.html' %}
+{% endblock content %}
+
+

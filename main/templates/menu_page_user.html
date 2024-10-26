@@ -2,17 +2,16 @@
 {% load static %}
 {% block content %}
 {% include 'navbar.html' %}
-
-<div style="padding: 70px;">
-    <div style="display: flex; align-items: flex-start; align-items: center;">
-        <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" 
-             style="width: 35%; height: auto; border-radius: 15px; margin-right: 30px; margin: 20px 20px 20px 0px">
-        
-        <div style="flex-grow: 1;">
-            <h2 style="font-family: 'Abhaya Libre SemiBold'; font-weight: bold; font-size: 45px;">{{ menu.nama_menu }}</h2><br>
-            <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 20px;">{{ menu.deskripsi }}</p>
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+    <div style="padding: 70px;">
+        <div style="display: flex; align-items: flex-start; align-items: center;">
+            <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" 
+                 style="width: 35%; height: auto; border-radius: 15px; margin-right: 30px; margin: 20px 20px 20px 0px">
+            <div style="flex-grow: 1;">
+                <h2 style="font-family: 'Abhaya Libre SemiBold'; font-weight: bold; font-size: 45px;">{{ menu.nama_menu }}</h2><br>
+                <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 20px;">{{ menu.deskripsi }}</p>
+            </div>
         </div>
-    </div>
 
     <div style="background-color: #3E190E; color: white; text-align: center; padding: 15px; margin-top: 40px;">
         <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 23px; font-weight: bold;">Resto Recommendations!</p>
@@ -37,9 +36,7 @@
                 Make a Reservation
             </button>
         </div>
-        {% endfor %}
     </div>
 </div>
-
 {% include 'footer.html' %}
 {% endblock content %}
