@@ -9,7 +9,7 @@
         <h1 class="review-title" style="font-family: 'Abhaya Libre', serif; font-weight: 1000;">REVIEW</h1>
         <form id="addReviewForm" method="POST" action="{% url 'reviews:add_review' restaurant.id %}">
             {% csrf_token %}
-            <label for="rating">Rating:</label>
+            <label for="rating" style="text-align: center;">Rating:</label>
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5">
                 <label for="star5">⭐⭐⭐⭐⭐</label>
@@ -26,8 +26,8 @@
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1">⭐</label>
             </div>
-        
-            <label for="comment">Write Your Review Here:</label>
+            <br>
+            <label for="comment" style="text-align: center;">Write Your Review Here:</label>
             <textarea id="comment" name="comment" rows="4" cols="50" 
           style="display: block; margin: 0 auto; width: 80%; max-width: 600px; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
             </textarea>

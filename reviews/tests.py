@@ -22,7 +22,6 @@ class ReviewTests(TestCase):
             keramaian_resto=50  # atau nilai integer sesuai kebutuhan
         )
 
-
     def test_add_review(self):
         # Add test logic here for adding a review
         response = self.client.post(f'/reviews/add_review/{self.restaurant.id}/', {
