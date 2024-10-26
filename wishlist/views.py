@@ -10,6 +10,7 @@ from .forms import WishlistForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from uuid import UUID
+from .models import Wishlist
 
 logger = logging.getLogger(__name__)
 
@@ -84,3 +85,20 @@ def delete_wishlist(request, restaurant_id):
     wishlist_item.delete()
     # Kembali ke halaman wishlist
     return HttpResponseRedirect(reverse('wishlist:show_wishlist'))
+
+
+@login_required
+def edit_wishlist(request, restaurant_id: UUID):
+    # Get wishlist item based on restaurant_id
+    wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
+
+    # Set wishlist item as an instance of the form
+    form = WishlistForm(request.POST or None, instance=wishlist_item)
+
+    if form.is_valid() and request.method == "POST":
+        # Save form and redirect to the main page
+        form.save()
+        return HttpResponseRedirect(reverse('wishlist:show_wishlist'))
+
+    context = {'form': form}
+    return render(request, "edit_wishlist_plan.html", context)

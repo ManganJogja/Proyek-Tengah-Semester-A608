@@ -11,4 +11,5 @@ urlpatterns = [
     path('toggle/<uuid:restaurant_id>/', views.toggle_wishlist, name='toggle_wishlist'),
     path('add/<uuid:restaurant_id>/', views.add_wishlist, name='add_wishlist'),
     path('wishlist/', views.show_wishlist, name='show_wishlist'),
+    path('edit/<uuid:restaurant_id>/', views.edit_wishlist, name='edit_wishlist'), 
 ]
