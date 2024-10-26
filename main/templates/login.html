@@ -25,10 +25,10 @@
 
   <!-- Right Side: Login Form -->
   <div class="w-full md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-16 px-4 md:pl-8">
-    <h2 class="text-center text-3xl md:text-3xl font-extrabold text-[#3e190e]">
+    <h2 class="text-center text-3xl md:text-3xl font-bold text-[#3e190e]" style="font-family: Abhaya Libre SemiBold;">
       Welcome Back
     </h2>
-    <p class="text-center text-md md:text-lg text-[#3e190e] mt-2">
+    <p class="text-center text-md md:text-lg text-[#3e190e] mt-2" style="font-family: Abhaya Libre SemiBold;">
       Sign in to continue your account
     </p>
 
@@ -39,19 +39,19 @@
       <div class="rounded-md shadow-sm">
         <!-- Email / Username Field -->
         <div class="mb-5">
-          <label for="username" class="font-semibold text-[#3e190e]">Email / Username</label> <!-- Menghapus sr-only agar terlihat -->
+          <label for="username" style="font-family: Abhaya Libre SemiBold;" class="font-semibold text-[#3e190e]">Email / Username</label> <!-- Menghapus sr-only agar terlihat -->
           <input id="username" name="username" type="text" style="width: 430px;" class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-[#784b39] focus:border-[#784b39] sm:text-sm bg-[rgba(9,4,70,0.20)]" required>
         </div>
         <!-- Password Field -->
         <div class="mb-7">
-          <label for="password" class="font-semibold text-[#3e190e]">Password</label> <!-- Menampilkan label password -->
+          <label for="password" style="font-family: Abhaya Libre SemiBold;" class="font-semibold text-[#3e190e]">Password</label> <!-- Menampilkan label password -->
           <input id="password" name="password" type="password" style="width: 430px;" class="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-[#784b39] focus:border-[#784b39] sm:text-sm bg-[rgba(9,4,70,0.20)]" required>
         </div>
       </div>
 
       <!-- Submit Button -->
       <div>
-        <button type="submit" style="width: 430px;" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-[#E7DBC6] bg-[#3e190e] hover:bg-[#6d4235] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#784b39]">
+        <button type="submit" style="width: 430px; font-family: Abhaya Libre SemiBold;" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-[#E7DBC6] bg-[#3e190e] hover:bg-[#6d4235] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#784b39]">
           Sign in
         </button>
       </div>
@@ -77,8 +77,8 @@
     </div>
     {% endif %}
     
-    <p class="text-center text-sm text-gray-500 mt-6">
-      Don't have an account? <a href="{% url 'main:register' %}" class="font-semibold text-[#3e190e] hover:underline">Register Now</a>
+    <p class="text-center text-sm text-gray-500 mt-6" style="font-family: Abhaya Libre SemiBold;">
+      Don't have an account? <a href="{% url 'main:register' %}" class="font-semibold text-[#3e190e] hover:underline" style="font-family: Abhaya Libre SemiBold;">Register Now</a>
     </p>
   </div>
 </div>

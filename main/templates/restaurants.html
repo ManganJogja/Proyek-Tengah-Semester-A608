@@ -11,7 +11,7 @@
         {% for restaurant in restaurants %}
         <div style="font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
             <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
-                onclick="toggleWishlist({{ restaurant.id }}, this)"
+                onclick="toggleWishlist('{{ restaurant.id }}', this)"
                 data-added="false"
                 style="cursor: pointer; width: 24px; height: auto; position: absolute; top: 20px; right: 20px;">
             <h4 style="font-size: 23px; font-weight: bold;">{{ restaurant.nama_resto }}</h4>
@@ -20,10 +20,21 @@
             <p><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>
             <p><strong>Cuisine:</strong> {{ restaurant.jenis_kuliner }}</p>
             <p><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
-            <a href="#" style="color: #784B39; text-decoration: none; text-decoration: underline;">Click to See Reviews</a>
-            <button onclick="location.href='/reserve/{{ restaurant.id }}'" style="cursor: pointer; padding: 6px 10px; background-color: #784B39; color: white; border: none; border-radius: 18px; font-size: 15px; position: absolute; bottom: 20px; right: 20px;">
+            <a href="{% url 'reviews:review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline;">Click to See Reviews</a>                        
+            <a href="{% url 'reserve:confirmation_form' restaurant.id %}" 
+                style="padding: 10px 20px; 
+                        font-family: 'Abhaya Libre', serif; 
+                        background-color: #4b2a20; 
+                        color: white; 
+                        font-size: 16px; 
+                        border-radius: 25px; 
+                        text-decoration: none; 
+                        font-weight: bold; 
+                        transition: background-color 0.3s ease, color 0.3s ease;"
+                onmouseover="this.style.backgroundColor='#d5c3a1'; this.style.color='#000';"
+                onmouseout="this.style.backgroundColor='#4b2a20'; this.style.color='white';">
                 Make a Reservation
-            </button>
+            </a>                                         
         </div>
         {% endfor %}
     </div>

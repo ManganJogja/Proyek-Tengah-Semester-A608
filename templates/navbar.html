@@ -5,15 +5,15 @@
             <!-- Logo dan judul -->
             <div class="flex items-center space-x-5">
                 <img src="{% static 'image/Logo.png' %}" alt="Logo" class="w-15 h-14 mb-1"/>
-                <h1 class="text-2xl font-bold text-[#3E190E] ml-4">Manganjogja.</h1>
+                <h1 class="text-2xl font-bold text-[#3E190E] ml-4" style="font-family: ADLaM Display;" >Manganjogja.</h1>
                 {% if user.is_staff %}
-                    <a href="{% url 'admin_dashboard:admin_dashboard' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Home</a>
-                    <a href="{% url 'admin_dashboard:all_menus_admin' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Menus</a>
-                    <a href="{% url 'admin_dashboard:restaurants_admin' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Restaurants</a>
+                    <a href="{% url 'admin_dashboard:admin_dashboard' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Home</a>
+                    <a href="{% url 'admin_dashboard:all_menus_admin' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Menus</a>
+                    <a href="{% url 'admin_dashboard:restaurants_admin' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Restaurants</a>
                 {% else %}
-                    <a href="{% url 'main:show_main' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Home</a>
-                    <a href="{% url 'main:all_menus' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Menus</a>
-                    <a href="{% url 'main:restaurants' %}" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Restaurants</a>
+                    <a href="{% url 'main:show_main' %}" style="font-family: ABeeZee;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Home</a>
+                    <a href="{% url 'main:all_menus' %}" style="font-family: ABeeZee;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Menus</a>
+                    <a href="{% url 'main:restaurants' %}" style="font-family: ABeeZee;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Restaurants</a>
                 {% endif %}
             </div>
         
@@ -21,18 +21,18 @@
             <div class="hidden md:flex items-center ml-auto space-x-8">
                 {% if user.is_authenticated %}
                     {% if user.is_staff %}
-                        <span class="text-gray-500 mr-4">Welcome, {{ user.username }}</span>
+                        <span class="text-gray-500 mr-4" style="font-family: Abhaya Libre SemiBold;">Welcome, {{ user.username }}</span>
                     {% else %}
                         <a href="">
                             <img src="{% static 'image/order.png' %}" alt="Order" class="w-6 h-6">
                         </a>
-                        <a href="">
+                        <a href="{% url 'reserve:show_reserve' %}">
                             <img src="{% static 'image/reserve.png' %}" alt="Reserve" class="w-6 h-6">
                         </a>
                         <a href="">
                             <img src="{% static 'image/wishlist.png' %}" alt="Wishlist" class="w-6 h-6">
                         </a>
-                        <span class="text-gray-500 mr-4">Welcome, {{ user.username }}</span>
+                        <span class="text-gray-500 mr-4" style="font-family: Abhaya Libre SemiBold;">Welcome, {{ user.username }}</span>
                     {% endif %}
                     <a href="{% url 'main:logout' %}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition">Logout</a>
                 {% else %}
@@ -63,6 +63,15 @@
                     <a href="{% url 'main:show_main' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition">Home</a>
                     <a href="{% url 'main:all_menus' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition">Menus</a>
                     <a href="{% url 'main:restaurants' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition">Restaurants</a>
+                    <a href="">
+                        <img src="{% static 'image/order.png' %}" alt="Order" class="w-6 h-6">
+                    </a>
+                    <a href="{% url 'reserve:show_reserve' %}">
+                        <img src="{% static 'image/reserve.png' %}" alt="Reserve" class="w-6 h-6">
+                    </a>
+                    <a href="">
+                        <img src="{% static 'image/wishlist.png' %}" alt="Wishlist" class="w-6 h-6">
+                    </a>
                     <a href="{% url 'main:logout' %}" class="block text-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition">Logout</a>
                 {% endif %}
             {% else %}

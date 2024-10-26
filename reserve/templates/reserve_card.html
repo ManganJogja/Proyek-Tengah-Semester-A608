@@ -1,0 +1,171 @@
+<div class="relative break-inside-avoid">
+    
+    <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
+        <div class="bg-[#784B39] rounded-lg p-4 mb-4">
+            <p class="text-center text-xl " style="color: white; font-family: Abhaya Libre SemiBold;">
+              {{ reserve_entry.resto.nama_resto }}
+            </p>
+            
+          </div>
+        <div class="text-left"> 
+        <div class="flex items-left justify-left mb-4"> 
+
+        <p style="display: inline-flex; align-items: center;">
+            <i class="fas fa-user" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+            <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.name }}</span>
+        </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-calendar-alt" style=" margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.date }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.time }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-users" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
+                    {{ reserve_entry.guest_quantity }} 
+                    {% if reserve_entry.guest_quantity == 1 %}
+                        person
+                    {% else %}
+                        people
+                    {% endif %}                
+                </span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-envelope" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.email }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-phone" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.phone }}</span>
+            </p>
+        </div>
+
+        <div class="flex items-left justify-left mb-4"> 
+            <p style="display: inline-flex; align-items: center;">
+                <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
+            </p>
+            {% if reserve_entry.notes %}
+                {{ reserve_entry.notes }}
+            {% else %}
+                -
+            {% endif %}
+        </span>
+        </div>
+      </div>
+  
+      <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
+        <div class="flex justify-left mt-6 gap-x-4">
+            <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
+                Cancel Reservation
+            </a>
+            <button class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2 edit-button" data-id="{{ reserve_entry.id }}">
+                Edit
+            </button>
+            
+    </div>
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Reservation</h2>
+            <form id="edit-form" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
+
+                <label for="guest_quantity">Guest Quantity:</label>
+                <input type="number" id="guest_quantity" name="guest_quantity" required>
+    
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+    
+                <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-2 rounded-lg">
+                    Save</button>
+            </form>
+        </div>
+    </div>
+    
+      
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const editButtons = document.querySelectorAll('.edit-button');
+    const modal = document.getElementById('edit-modal');
+    const closeButton = document.querySelector('.close-button');
+
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const reserveId = button.getAttribute('data-id'); // Ambil ID reservasi
+            modal.classList.remove('hidden');
+
+            // Update data-id di modal jika perlu
+            document.getElementById('edit-form').setAttribute('data-id', reserveId);
+        });
+    });
+
+    closeButton.addEventListener('click', function() {
+        modal.classList.add('hidden');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+
+    document.getElementById('edit-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const guestQuantity = document.getElementById('guest_quantity').value;
+        const notes = document.getElementById('notes').value;
+        const reserveId = event.target.getAttribute('data-id');
+
+        const data = {
+            guest_quantity: guestQuantity,
+            notes: notes,
+            reserve_id: reserveId,
+        };
+
+        fetch(`/reserve/edit-reserve/${reserveId}/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log('Success:', data);
+            modal.classList.add('hidden');
+            location.reload();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+</script>

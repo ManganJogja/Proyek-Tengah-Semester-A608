@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="mt-16" style="min-height: 80vh; padding: 20px;">
+    <div class="container">
+        <!-- Restaurant Name Section -->
+        <div style="text-align: left;">
+            <h1 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 50px; margin-bottom: 10px;">
+                {{ restaurant.nama_resto }}
+            </h1>
+            <p style="color: rgb(0, 0, 0); font-size: 16px; margin-bottom: 30px;">
+              Location :  {{ restaurant.alamat }}
+            </p>
+        </div>
+
+        <!-- Reviews Section dengan Sorting -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 25px;">
+                All Reviews (<span id="review-count">{{ reviews.count }}</span>)
+            </h2>
+            <!-- Dropdown sorting di kanan dengan font Abhaya Libre dan ukuran 20px -->
+            <div>
+                <label for="sort" style="font-family: 'Abhaya Libre', serif; font-size: 20px;">Sort by:</label>
+                <select id="sort" name="sort" onchange="sortReviews()" style="font-family: 'Abhaya Libre', serif; font-size: 20px; padding: 5px;">
+                    <option value="default" {% if sort_option == 'default' %}selected{% endif %}>Default</option>
+                    <option value="highest" {% if sort_option == 'highest' %}selected{% endif %}>Highest to Lowest</option>
+                    <option value="lowest" {% if sort_option == 'lowest' %}selected{% endif %}>Lowest to Highest</option>
+                    <option value="5" {% if sort_option == '5' %}selected{% endif %}>⭐⭐⭐⭐⭐</option>
+                    <option value="4" {% if sort_option == '4' %}selected{% endif %}>⭐⭐⭐⭐</option>
+                    <option value="3" {% if sort_option == '3' %}selected{% endif %}>⭐⭐⭐</option>
+                    <option value="2" {% if sort_option == '2' %}selected{% endif %}>⭐⭐</option>
+                    <option value="1" {% if sort_option == '1' %}selected{% endif %}>⭐</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="row">
+            <div class="reviews-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+                {% for review in reviews %}
+                <div class="review-card" id="review-card-{{ review.id }}" 
+                    style="flex: 0 0 300px; max-width: 300px; min-height: 250px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #fff; position: relative;">
+
+                    <!-- Ikon Edit dan Delete -->
+                    {% if review.user == request.user %}
+                    <div style="position: absolute; top: -15px; right: -15px; display: flex; gap: 10px;">
+                        <!-- Edit Button -->
+                        <a href="{% url 'reviews:edit_review' review.id %}" class="edit-review-btn" data-id="{{ review.id }}" 
+                           style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); border: none;">
+                            <img src="{% static 'image/edit.png' %}" alt="Edit" style="width: 20px; height: 20px;">
+                        </a>
+                        <!-- Delete Button -->
+                        <button class="delete-review-btn" data-id="{{ review.id }}" 
+                           style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); border: none;">
+                            <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: 20px;">
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <div class="card-body">
+                        
+                        <!-- Rating -->
+                        <div style="margin: 10px 0;">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= review.rating %}
+                                    <span class="fa fa-star text-warning"></span>
+                                {% else %}
+                                    <span class="fa fa-star text-secondary"></span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+        
+                        <!-- Username -->
+                        <div>
+                            <strong>{{ review.user.username }}</strong>
+                        </div>
+                        
+                        <br>
+                        <!-- Comment -->
+                        <p class="card-text" style="color: rgb(90, 78, 78); font-size: 18px;">"{{ review.comment }}"</p>
+                        <br>
+                        <!-- Post Date -->
+                        <p class="text-muted" style="color: rgb(187, 170, 170); font-size: 12px;">Posted on {{ review.created_at|date:"F d, Y" }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <!-- Button for adding new review -->
+        <div class="mb-3"><br><br><br>
+            <a href="{% url 'reviews:add_review' restaurant.id %}" class="add-review-btn" style="font-size: 20px;">Add New Review</a>
+        </div>
+    </div>
+</div>
+</div>
+{% include 'footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Function untuk memperbarui jumlah review di UI
+    function updateReviewCount() {
+        var reviewCount = $('.review-card').length;
+        $('#review-count').text(reviewCount);
+    }
+
+    // AJAX Delete Review
+    $('.delete-review-btn').on('click', function(e) {
+        e.preventDefault();
+        var reviewId = $(this).data('id');
+        var $reviewCard = $('#review-card-' + reviewId);
+
+        if (confirm('Are you sure you want to delete this review?')) {
+            $.ajax({
+                type: 'POST',
+                url: '{% url "reviews:delete_review" 0 %}'.replace(0, reviewId),  // Correct URL
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    alert(response.message);
+                    $reviewCard.remove();  // Remove the review card on success
+                    updateReviewCount();   // Update the review count dynamically
+                },
+                error: function(xhr, status, error) {
+                    alert('An error occurred while trying to delete the review.');
+                }
+            });
+        }
+    });
+
+    // AJAX Edit Review - Redirect to edit page for now
+    $('.edit-review-btn').on('click', function(e) {
+        e.preventDefault();
+        var reviewId = $(this).data('id');
+        window.location.href = '{% url "reviews:edit_review" 0 %}'.replace(0, reviewId);
+    });
+
+    // Call the function to ensure correct review count on page load
+    $(document).ready(function() {
+        updateReviewCount();
+    });
+</script>
+
+<!-- Script untuk mengubah sorting -->
+<script>
+    function sortReviews() {
+        var selectedOption = document.getElementById("sort").value;
+        window.location.href = '?sort=' + selectedOption;
+    }
+</script>
+{% endblock %}

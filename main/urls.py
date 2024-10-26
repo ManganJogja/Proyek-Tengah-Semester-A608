@@ -6,6 +6,7 @@ app_name = 'main'
 
 urlpatterns = [
     path('', show_main, name='show_main'),
+    path('main/', show_main, name='show_main'),
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),   
@@ -16,5 +17,4 @@ urlpatterns = [
     path('menu/<uuid:pk>/', menu_page_user, name='menu_page_user'),
     path('all-menus/', all_menus, name='all_menus'),
     path('restaurants/', restaurant_list, name='restaurants'),
-
 ]

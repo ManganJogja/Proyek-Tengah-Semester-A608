@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+<div class="min-h-screen py-10">
+    <div class="container mx-auto">
+        <!-- Judul halaman -->
+        <h1 class="text-center text-3xl font-extrabold font-serif mb-8">EDIT REVIEW</h1>
+        
+        <!-- Formulir edit review -->
+        <form id="editReviewForm" method="POST" class="space-y-6">
+            {% csrf_token %}
+
+            <!-- Bagian Rating dengan custom CSS -->
+            <div class="text-center space-y-2">
+                <label for="rating" class="font-serif font-semibold text-lg">Rating:</label>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" {% if review.rating == 5 %}checked{% endif %}>
+                    <label for="star5">⭐⭐⭐⭐⭐</label>
+
+                    <input type="radio" id="star4" name="rating" value="4" {% if review.rating == 4 %}checked{% endif %}>
+                    <label for="star4">⭐⭐⭐⭐</label>
+
+                    <input type="radio" id="star3" name="rating" value="3" {% if review.rating == 3 %}checked{% endif %}>
+                    <label for="star3">⭐⭐⭐</label>
+
+                    <input type="radio" id="star2" name="rating" value="2" {% if review.rating == 2 %}checked{% endif %}>
+                    <label for="star2">⭐⭐</label>
+
+                    <input type="radio" id="star1" name="rating" value="1" {% if review.rating == 1 %}checked{% endif %}>
+                    <label for="star1">⭐</label>
+                </div>
+            </div>
+
+            <!-- Kolom komentar dengan Tailwind -->
+            <div class="flex flex-col items-center">
+                <label for="comment" class="font-serif font-bold text-lg">Edit Your Review Here:</label>
+                <textarea id="comment" name="comment" rows="4" class="mt-2 w-4/5 max-w-3xl p-3 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                    placeholder="Edit your comment...">{{ review.comment }}</textarea>
+            </div>
+
+            <!-- Button Submit dengan custom CSS -->
+            <button type="submit" class="btn" style="font-family: 'Abhaya Libre', serif; font-weight: 800; font-size: large; text-align: center;">Update Review</button>
+        </form>
+
+        <!-- Notifikasi berhasil -->
+        <div id="editResult" class="hidden mt-6 text-center">
+            <p class="text-green-600 text-lg">Update Succeed!</p>
+        </div>
+    </div>
+</div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}
+
+
+<!-- JavaScript untuk AJAX -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#editReviewForm').on('submit', function(e) {
+        e.preventDefault();  // Mencegah submit form secara default
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'edit_review' review.id %}",  // Pastikan 'review' dikirim ke template
+            data: $(this).serialize(),
+            success: function(response) {
+                $('#editResult').fadeIn();  // Menampilkan notifikasi sukses
+                setTimeout(function() {
+                    window.location.href = "{% url 'review_card' %}";
+                }, 2000);  // Redirect ke halaman review_card setelah 2 detik
+            },
+            error: function(response) {
+                alert("There was an error updating your review.");
+            }
+        });
+    });
+</script>
