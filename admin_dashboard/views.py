@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
 import uuid
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 @login_required
 def admin_dashboard(request):
@@ -130,3 +132,18 @@ def all_menus_admin(request):
 def restaurants_admin(request):
     restaurants = RestaurantEntry.objects.all()  
     return render(request, 'restaurants_admin.html', {'restaurants': restaurants})
+
+@csrf_exempt
+@require_POST
+def add_menu_entry_ajax(request):
+    nama_menu = request.POST.get("nama_menu")
+    deskripsi = request.POST.get("deskripsi")
+    image_url = request.POST.get("image_url")
+
+    new_menu = MenuEntry(
+        nama_menu=nama_menu, deskripsi=deskripsi,
+        image_url=image_url
+    )
+    new_menu.save()
+
+    return HttpResponse(b"CREATED", status=201)
