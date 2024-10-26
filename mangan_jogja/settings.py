@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'main',
     'authentication',
     'admin_dashboard',
-    # 'reserve',
+    'reserve',
     'reviews',
 ]
 
