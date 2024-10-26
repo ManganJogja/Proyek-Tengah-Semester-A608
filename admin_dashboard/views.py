@@ -62,7 +62,13 @@ def delete_menu(request, pk):
         return redirect('login')
     
     menu = MenuEntry.objects.get(pk=pk)
-    menu.delete()
+    related_restaurants = list(menu.restaurants.all())
+    menu.delete() 
+
+    for restaurant in related_restaurants:
+        if restaurant.menus.count() == 0:  # cek restoran tidak memiliki menu lain
+            restaurant.delete()
+
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
 def edit_resto(request, pk):
@@ -72,8 +78,8 @@ def edit_resto(request, pk):
     if form.is_valid() and request.method == "POST":
         form.save()
 
-        # Ambil menu yang terkait dengan restoran ini
-        menu = resto.menus.first()  # Ambil menu pertama yang terkait dengan resto
+        # ambil menu yang terkait dengan restoran ini
+        menu = resto.menus.first()  # ambil menu pertama yang terkait dengan resto
         return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
     
     context = {'form': form, 'resto': resto}
@@ -94,10 +100,7 @@ def create_resto_entry(request, pk):
     menu = get_object_or_404(MenuEntry, pk=pk)
 
     if form.is_valid() and request.method == "POST":
-        # Simpan resto_entry terlebih dahulu
-        resto_entry = form.save()  # Tidak perlu menetapkan UUID secara manual
-        
-        # Setelah berhasil disimpan, baru tambahkan ke menu
+        resto_entry = form.save() 
         menu.restaurants.add(resto_entry)
         
         return redirect('admin_dashboard:menu_page', pk=pk)
@@ -110,11 +113,20 @@ def delete_resto(request, pk):
     if not request.user.is_staff:
         return redirect('login')
     
-    resto = RestaurantEntry.objects.get(pk=pk)
-    
-    # Ambil menu yang terkait sebelum menghapus resto
-    menu = resto.menus.first()  # Ambil menu pertama yang terkait dengan resto
+    resto = get_object_or_404(RestaurantEntry, pk=pk)
+    menu = resto.menus.first()
     
     resto.delete()
     
     return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
+
+def all_menus_admin(request):
+    menus = MenuEntry.objects.all() 
+    context = {
+        'menus': menus
+    }
+    return render(request, "all_menus_admin.html", context)
+
+def restaurants_admin(request):
+    restaurants = RestaurantEntry.objects.all()  
+    return render(request, 'restaurants_admin.html', {'restaurants': restaurants})
