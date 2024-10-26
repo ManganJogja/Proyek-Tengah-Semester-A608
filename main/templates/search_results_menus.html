@@ -4,17 +4,13 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<br><br><br>
-<h2 style="text-align: center; font-size: 40px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:25px; font-weight:bold">All Menus</h2>
-<div style="position: relative; text-align: right; margin: 20px 20px 0 0;">
-    <form action="{% url 'main:search_menu' %}" method="GET" style="display: inline;">
-        <input type="text" name="q" placeholder="Search menus..." style="padding: 8px; width: 200px; background-color: #f0efec; border: 1px solid #ccc; border-radius: 4px;">
-        <button type="submit" style="padding: 8px 12px; background-color: #3E190E; color: white; border: none; border-radius: 4px;">Search</button>
-    </form>
-</div><br><br>
+<br><br>
+<h2 style="text-align: left; font-size: 30px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:50px; font-weight:bold">Search results for "{{ query }}"</h2>
+
+{% if menus %}
 <div class="menu-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; justify-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     {% for menu in menus %}
-    <div class="menu-card" style="width: 200px; background-color: white; border-radius: 10px; box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden; position: relative;">
+    <div style="width: 200px; background-color: white; border-radius: 10px; box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden; position: relative;">
         <a href="{% url 'main:menu_page_user' menu.id %}">
             <div style="overflow: hidden; border-top-left-radius: 15px; border-top-right-radius: 15px;">
                 <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: 150px; object-fit: cover;">
@@ -26,6 +22,10 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+<p style="text-align: center;">No menus found for "{{ query }}"</p>
+{% endif %}
+<br>
 
 {% include 'footer.html' %}
 {% endblock content %}
