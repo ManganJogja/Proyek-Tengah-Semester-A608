@@ -18,11 +18,20 @@
                 <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Location:</span> {{ item.restaurant.alamat }}</p>
                 <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Price:</span> {{ item.restaurant.range_harga }}</p>
                 <p class="text-[#3E190E] text-sm mb-4"><span class="font-bold">Plan:</span> {{ item.date_plan|date:"M. d, Y"|default:"No plan yet" }}</p>
-                <div class="flex space-x-4">
-                    <a href="{% url 'wishlist:add_wishlist' item.restaurant.id %}" class="bg-blue-500 text-white px-4 py-2 rounded text-center hover:bg-blue-600 flex-grow">
-                        Add Plan
-                    </a>
-                    <a href="{% url 'wishlist:edit_wishlist' item.restaurant.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded text-center hover:bg-yellow-600 flex-grow">
+                {% if item.date_plan %}
+                    <p class="text-green-600 font-semibold mb-2">Plan sudah tercantum</p>
+                {% endif %}
+                <div class="flex space-x-2">
+                    {% if item.date_plan %}
+                        <button class="bg-gray-400 text-white px-4 py-2 rounded text-center cursor-not-allowed flex-1" disabled>
+                            Add Plan
+                        </button>
+                    {% else %}
+                        <a href="{% url 'wishlist:add_wishlist' item.restaurant.id %}" class="bg-blue-500 text-white px-4 py-2 rounded text-center hover:bg-blue-600 flex-1">
+                            Add Plan
+                        </a>
+                    {% endif %}
+                    <a href="{% url 'wishlist:edit_wishlist' item.restaurant.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded text-center hover:bg-yellow-600 flex-1">
                         Edit Plan
                     </a>
                 </div>
