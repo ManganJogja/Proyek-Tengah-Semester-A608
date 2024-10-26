@@ -23,5 +23,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('auth/', include('authentication.urls')),
     path('reserve/', include('reserve.urls', namespace='reserve')),
-    path('reviews/', include('reviews.urls')), 
+    path('reviews/', include('reviews.urls', namespace='reviews')), 
 ]

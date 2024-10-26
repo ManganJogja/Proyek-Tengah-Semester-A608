@@ -34,7 +34,7 @@
                 <p><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
         
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-                    <a href="{% url 'review_card_by_restaurant' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline; font-weight: bold; font-size: 16px; font-family: 'Abhaya Libre', serif;">
+                    <a href="{% url 'reviews:review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline; font-weight: bold; font-size: 16px; font-family: 'Abhaya Libre', serif;">
                         Click to See Reviews
                     </a>
                     <a href="{% url 'reserve:create_reserve_entry' restaurant.id %}" 
@@ -55,7 +55,6 @@
             </div>
             {% endfor %}
         </div>
-        
     </div>
 </div>
 

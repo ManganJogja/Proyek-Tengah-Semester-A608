@@ -27,9 +27,8 @@ def add_review(request, restaurant_id):
             review.save()
 
             # Redirect ke halaman review card setelah review ditambahkan
-            return redirect('review_card', restaurant_id=restaurant.id)
-
-    return render(request, 'reviews/add_review.html', {'restaurant': restaurant})
+            return redirect('reviews:review_card', restaurant_id=restaurant.id)
+    return render(request, 'add_review.html', {'restaurant': restaurant})
 
 @login_required
 def edit_review(request, review_id):
@@ -47,9 +46,8 @@ def edit_review(request, review_id):
         review.save()
 
         # Redirect ke halaman review card restoran setelah review diubah
-        return redirect('review_card', restaurant_id=restaurant.id)
-
-    return render(request, 'reviews/edit_review.html', {'review': review})
+        return redirect('reviews:review_card', restaurant_id=restaurant.id)
+    return render(request, 'edit_review.html', {'review': review})
 
 @login_required
 def delete_review(request, review_id):
@@ -90,7 +88,7 @@ def review_card(request, restaurant_id):
         reviews = reviews.filter(rating=sort_option)  # filter sesuai rating bintang
     
     # Render template review_card.html dengan context
-    return render(request, 'reviews/review_card.html', {'restaurant': restaurant, 'reviews': reviews, 'sort_option': sort_option})
+    return render(request, 'review_card.html', {'restaurant': restaurant, 'reviews': reviews, 'sort_option': sort_option})
 
 def show_json(request):
     reviews = Review.objects.all()

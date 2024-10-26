@@ -6,7 +6,7 @@
 <div class="mt-16" style="min-height: 80vh; padding: 20px;">
     <div class="container">
         <h1 class="review-title" style="font-family: 'Abhaya Libre', serif; font-weight: 1000;">REVIEW</h1>
-        <form id="addReviewForm" method="POST" action="{% url 'add_review' restaurant.id %}">
+        <form id="addReviewForm" method="POST" action="{% url 'reviews:add_review' restaurant.id %}">
             {% csrf_token %}
             <label for="rating">Rating:</label>
             <div class="rating">

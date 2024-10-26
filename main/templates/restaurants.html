@@ -19,7 +19,7 @@
             <p><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>
             <p><strong>Cuisine:</strong> {{ restaurant.jenis_kuliner }}</p>
             <p><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
-            <a href="{% url 'review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline;">Click to See Reviews</a>
+            <a href="{% url 'reviews:review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline;">Click to See Reviews</a>                        
             <a href="{% url 'reserve:create_reserve_entry' restaurant.id %}" 
                 style="padding: 10px 20px; 
                         font-family: 'Abhaya Libre', serif; 
