@@ -9,20 +9,14 @@ from reserve.models import ReserveEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST, require_GET
+from django.views.decorators.http import require_http_methods
 from django.utils.html import strip_tags
 from admin_dashboard.models import RestaurantEntry, MenuEntry
 from django.contrib import messages
 from main.views import show_main
 
-def require_previous_page(view_func):
-    def _wrapped_view(request, *args, **kwargs):
-        if not request.session.get('confirmation_form', False):
-            return redirect(reverse('confirmation_form', args=[kwargs['id']]))  
-        return view_func(request, *args, **kwargs)
-    
-    return _wrapped_view
 
+@login_required(login_url='/login')
 def show_reserve(request):
     # Ambil nama restoran dari query parameter
     restaurant_name = request.GET.get('restaurant', '').strip()
@@ -65,13 +59,12 @@ def create_reserve_entry(request, id):
             ).aggregate(total_guests=Sum('guest_quantity'))['total_guests'] or 0
 
             if total_guests_selected_date + guest_quantity > 100:
-                messages.error(request, 'Sorry, the total number of guests exceeds the restaurant limit of 100 for the selected date.')
+                messages.error(request, 'Sorry, the restaurant is fully booked')
                 return redirect('reserve:create_reserve_entry', id=id)
             else:
                 reserve_entry.user = request.user
                 reserve_entry.resto = restaurant
                 reserve_entry.save()
-                messages.success(request, 'Your reservation was successful.')
                 return redirect('reserve:show_reserve')
 
     context = {'form': form, 'restaurant': restaurant}
@@ -81,24 +74,29 @@ def confirmation_form(request, id):
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
     
     if request.method == "POST":
-        request.session['confirmation_form'] = True
         return redirect('reserve:create_reserve_entry', id=id)
     
     context = {'restaurant': restaurant}
     return render(request, "confirmation_form.html", context)
 
+@csrf_exempt
+@require_http_methods(["GET", "POST"])  
 def edit_reserve(request, id):
-    reserve = ReserveEntry.objects.get(pk = id)
-    restaurant = reserve.resto
-    form = ReserveEntryForm(request.POST or None, instance=reserve)
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return HttpResponseRedirect(reverse('reserve:show_reserve'))
+    reserve_entry = ReserveEntry.objects.filter(user=request.user)
 
-    context = {'form': form,
-               'reserve':reserve,
-               'restaurant': restaurant}
-    return render(request, "edit_reserve.html", context)
+    if request.method == 'GET':
+        data = {
+            'guest_quantity': reserve_entry.guest_quantity,
+            'notes': reserve_entry.notes,
+        }
+        return JsonResponse(data)
+    elif request.method == 'POST':
+        form = ReserveEntryForm(request.POST, instance=reserve_entry)
+        if form.is_valid():
+            form.save()
+            return HttpResponse({"status": "success", "message": "Reservation updated successfully."})
+        else:
+            return HttpResponse({"status": "error", "message": "There was an error with the form."})
 
 def delete_reserve(request, id):
     reserve = ReserveEntry.objects.get(pk = id)

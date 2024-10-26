@@ -119,14 +119,3 @@ def delete_resto(request, pk):
     resto.delete()
     
     return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
-
-def all_menus_admin(request):
-    menus = MenuEntry.objects.all() 
-    context = {
-        'menus': menus
-    }
-    return render(request, "all_menus_admin.html", context)
-
-def restaurants_admin(request):
-    restaurants = RestaurantEntry.objects.all()  
-    return render(request, 'restaurants_admin.html', {'restaurants': restaurants})

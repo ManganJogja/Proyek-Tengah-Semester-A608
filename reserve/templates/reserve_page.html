@@ -13,8 +13,6 @@
         Reservations
     </div>
 
-    <!-- Dropdown Filter for Restaurants -->
-    <!-- Dropdown Filter for Restaurants -->
     <div class="my-6">
         <form method="GET" action="{% url 'reserve:show_reserve' %}">
             <label for="restaurant-select" class="text-lg font-semibold mb-2">Filter by Restaurant:</label>
@@ -49,46 +47,4 @@
     {% include 'footer.html' %}
     {% endblock content %}
 
-    <!-- jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- AJAX Script -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#restaurant-select').change(function() {
-                var resto_name = $(this).val();  // Ambil nama restoran yang dipilih
-                $.ajax({
-                    url: "{% url 'filter_by_restaurant' %}",  // URL view yang menangani filter
-                    data: {
-                        'restaurant': resto_name,  // Kirim nama restoran yang dipilih ke server
-                    },
-                    success: function(response) {
-                        var html = '';
-
-                        // Jika tidak ada reservasi ditemukan
-                        if (response.length === 0) {
-                            html = '<div class="flex flex-col items-center justify-center min-h-[24rem] p-6">' +
-                                '<p class="text-center text-gray-600 mt-4">No reservations found for this restaurant.</p>' +
-                                '</div>';
-                        } else {
-                            // Looping melalui setiap reservasi dan menampilkan dalam HTML
-                            response.forEach(function(reservation) {
-                                html += '<div class="p-4 bg-white rounded-lg shadow-md">';
-                                html += '<h3 class="text-xl font-semibold">' + reservation.name + '</h3>';
-                                html += '<p>Date: ' + reservation.date + '</p>';
-                                html += '<p>Time: ' + reservation.time + '</p>';
-                                html += '</div>';
-                            });
-                        }
-
-                        // Masukkan hasil ke dalam div dengan id 'reservation-list'
-                        $('#reservation-list').html(html);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("AJAX error: ", error);
-                        $('#reservation-list').html('<p>An error occurred while fetching reservations.</p>');
-                    }
-                });
-            });
-        });
-    </script>
+    

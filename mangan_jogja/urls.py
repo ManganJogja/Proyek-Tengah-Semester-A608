@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin-dashboard/', include('admin_dashboard.urls')),
     path('', include('main.urls')),
     path('auth/', include('authentication.urls')),
-    path('reserve/', include('reserve.urls')),
-    
-
+    path('reserve/', include('reserve.urls', namespace='reserve')),
+    path('reviews/', include('reviews.urls', namespace='reviews')), 
 ]
