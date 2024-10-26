@@ -79,7 +79,7 @@
         let menuCards = Array.from(menuContainer.getElementsByClassName("menu-card"));
         
         menuCards.sort((a, b) => {
-            const nameA = a.querySelector("h3").textContent.toLowerCase(); // ambil nama dari elemen <h3>
+            const nameA = a.querySelector("h3").textContent.toLowerCase();
             const nameB = b.querySelector("h3").textContent.toLowerCase();
             if (sortOption === "alphabetical") {
                 return nameA.localeCompare(nameB);
@@ -88,7 +88,7 @@
             }
         });
     
-        menuContainer.innerHTML = ""; // Bersihkan container sebelum menambahkan kartu yang diurutkan
+        menuContainer.innerHTML = "";
         menuCards.forEach(card => menuContainer.appendChild(card));
     }
 
