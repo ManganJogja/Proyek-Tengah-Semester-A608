@@ -8,7 +8,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from main.models import ManganJogja
-from admin_dashboard.models import MenuEntry
+from admin_dashboard.models import MenuEntry, RestaurantEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -105,7 +105,7 @@ def show_json_by_id(request, id):
 
 def menu_page_user(request, pk):
     menu = get_object_or_404(MenuEntry, pk=pk)
-    restaurants = menu.restaurants.all()  # Mendapatkan semua restoran terkait dengan menu
+    restaurants = menu.restaurants.all()  
 
     context = {
         'menu': menu,
@@ -113,3 +113,7 @@ def menu_page_user(request, pk):
     }
 
     return render(request, 'menu_page_user.html', context)
+
+def restaurant_list(request):
+    restaurants = RestaurantEntry.objects.all()  
+    return render(request, 'restaurants.html', {'restaurants': restaurants})

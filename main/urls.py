@@ -1,7 +1,7 @@
 from django.urls import path
 from main.views import *
 from main.views import show_main, register, login_user, logout_user
-from main.views import show_json, show_xml, show_xml_by_id, show_json_by_id, menu_page_user, all_menus
+from main.views import show_json, show_xml, show_xml_by_id, show_json_by_id, menu_page_user, all_menus, restaurant_list
 
 app_name = 'main'
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path('json/<str:id>/', show_json_by_id, name='show_json_by_id'),
     path('menu/<uuid:pk>/', menu_page_user, name='menu_page_user'),
     path('all-menus/', all_menus, name='all_menus'),
+    path('restaurants/', restaurant_list, name='restaurants'),
 
 ]

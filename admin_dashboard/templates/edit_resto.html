@@ -3,14 +3,14 @@
 {% include 'navbar.html' %}
 
 {% block meta %}
-<title>Edit Menu Entry</title>
+<title>Edit Resto Entry</title>
 {% endblock meta %}
 
 {% block content %}
 {% include 'navbar.html' %}
 <div style="padding: 80px; display: flex; justify-content: center;">
     <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px;">
-        <h1 style="text-align: center; font-size: 35px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; margin-bottom: 20px; font-weight:bold">Edit Menu Entry</h1>
+        <h1 style="text-align: center; font-size: 35px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; margin-bottom: 20px; font-weight:bold">Edit Resto Entry</h1>
         <form method="POST" style="display: flex; flex-direction: column; gap: 20px;">
             {% csrf_token %}
             {% for field in form %}
@@ -29,7 +29,7 @@
             </div>
             {% endfor %}
             <button type="submit" style="background-color: #784B39; color: white; font-family: 'Abhaya Libre SemiBold'; font-weight: bold; padding: 10px 20px; border-radius: 5px; width: 100%;">
-                Edit Menu Entry
+                Edit Resto Entry
             </button>
         </form>
     </div>
