@@ -81,14 +81,13 @@ def menu_page(request, pk):
     }
     return render(request, 'menu_page.html', context)
 
-def create_resto_entry(request, pk):
+def create_resto_entry(request):
     form = RestaurantEntryForm(request.POST or None)
-    menu = get_object_or_404(MenuEntry, id=pk)
 
     if form.is_valid() and request.method == "POST":
         resto_entry = form.save(commit=False)
         resto_entry.save()
-        return redirect('admin_dashboard:menu_page', pk=pk)
+        return redirect('admin_dashboard:admin_dashboard')
 
-    context = {'form': form, 'menu':menu}
+    context = {'form': form}
     return render(request, "create_resto_entry.html", context)

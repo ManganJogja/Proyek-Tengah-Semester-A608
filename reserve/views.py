@@ -24,11 +24,24 @@ def require_previous_page(view_func):
     return _wrapped_view
 
 def show_reserve(request):
+    # Ambil nama restoran dari query parameter
+    restaurant_name = request.GET.get('restaurant', '').strip()
+
+    # Ambil semua reservasi milik user yang login
     reserve_entries = ReserveEntry.objects.filter(user=request.user)
-    
-    context = {  
+
+    # Jika ada nama restoran yang dipilih, filter berdasarkan restoran tersebut
+    if restaurant_name:
+        reserve_entries = reserve_entries.filter(resto__nama_resto__icontains=restaurant_name)
+
+    # Ambil daftar semua restoran
+    restaurants = RestaurantEntry.objects.values('nama_resto').distinct()
+
+    context = {
         'name': request.user.username,
         'reserve_entries': reserve_entries,
+        'restaurants': restaurants,
+        'selected_restaurant': restaurant_name,  # Untuk menjaga pilihan di dropdown
     }
 
     return render(request, "reserve_page.html", context)
@@ -100,27 +113,3 @@ def show_json_by_id(request, id):
     data = ReserveEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-@csrf_exempt
-@require_GET
-def filter_reserve(request):
-    query_date = request.GET.get('date')
-    resto_name = request.GET.get('resto.resto_name')
-    # Mulai dengan queryset default, semua reservasi
-    reserve_entries = ReserveEntry.objects.filter(user=request.user)
-
-    if resto_name:
-        reserves = reserves.filter(resto__name__icontains=resto_name)  # filter restoran dengan icontains (case-insensitive)
-
-    # Filter berdasarkan tanggal, jika diberikan
-    if query_date:
-        reserves = reserves.filter(date=query_date)
-    
-        # Convert data reservasi ke format JSON
-    result_html = ''.join(
-        f"<div class='reserve-card'>"
-        f"<h3>{reserve.resto.name}</h3>"
-        f"<p>Date: {reserve.date}</p>"
-        f"</div>"
-        for reserve in reserves
-    )        
-    return HttpResponse(result_html.encode('utf-8'), status=201)  # Kembalikan HTML dengan status 201
