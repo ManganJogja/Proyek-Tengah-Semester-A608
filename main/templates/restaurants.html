@@ -1,22 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 {% include 'navbar.html' %}
 
-<div style="padding: 70px;">
-    <div style="display: flex; align-items: flex-start; align-items: center;">
-        <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" 
-             style="width: 35%; height: auto; border-radius: 15px; margin-right: 30px; margin: 20px 20px 20px 0px">
-        
-        <div style="flex-grow: 1;">
-            <h2 style="font-family: 'Abhaya Libre SemiBold'; font-weight: bold; font-size: 45px;">{{ menu.nama_menu }}</h2><br>
-            <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 20px;">{{ menu.deskripsi }}</p>
-        </div>
-    </div>
-
-    <div style="background-color: #3E190E; color: white; text-align: center; padding: 15px; margin-top: 40px;">
-        <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 23px; font-weight: bold;">Resto Recommendations!</p>
-    </div><br>
+<div class="container mx-auto px-4">
+    <h1 style="text-align: center; font-size: 35px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:60px">All Restaurants</h2>
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
         {% for restaurant in restaurants %}
         <div style="font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
@@ -30,16 +19,12 @@
             <p><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>
             <p><strong>Cuisine:</strong> {{ restaurant.jenis_kuliner }}</p>
             <p><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
-            <!-- Link untuk melihat semua review restoran -->
-            <a href="{% url 'review_card_by_restaurant' restaurant.id %}" class="btn btn-primary">
-                Click to All Reviews
-            </a>
+            <a href="{% url 'review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline;">Click to See Reviews</a>
+            <button onclick="location.href='/reserve/{{ restaurant.id }}'" style="cursor: pointer; padding: 6px 10px; background-color: #784B39; color: white; border: none; border-radius: 18px; font-size: 15px; position: absolute; bottom: 20px; right: 20px;">
                 Make a Reservation
             </button>
         </div>
         {% endfor %}
     </div>
 </div>
-
-{% include 'footer.html' %}
-{% endblock content %}
+{% endblock %}

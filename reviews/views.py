@@ -4,36 +4,52 @@ from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, Http404
 from django.contrib import messages
+from admin_dashboard.models import RestaurantEntry
 
 @login_required
-def add_review(request):
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.user = request.user
-            review.save()
-            messages.success(request, "Review successfully added!")
-            return redirect('review_card')
-        else:
-            messages.error(request, "There was an error with your review.")
-    else:
-        form = ReviewForm()
+def add_review(request, restaurant_id):
+    restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
 
-    return render(request, 'reviews/add_review.html', {'form': form})
+    if request.method == 'POST':
+        rating = request.POST.get('rating')
+        comment = request.POST.get('comment')
+        user = request.user
+
+        # Pastikan data rating dan comment ada
+        if rating and comment:
+            # Buat review baru
+            review = Review.objects.create(
+                restaurant=restaurant,
+                user=user,
+                rating=rating,
+                comment=comment
+            )
+            review.save()
+
+            # Redirect ke halaman review card setelah review ditambahkan
+            return redirect('review_card', restaurant_id=restaurant.id)
+
+    return render(request, 'reviews/add_review.html', {'restaurant': restaurant})
 
 @login_required
 def edit_review(request, review_id):
+    # Ambil review berdasarkan ID dan pastikan review dimiliki oleh user yang login
     review = get_object_or_404(Review, id=review_id, user=request.user)
+    restaurant = review.restaurant  # Ambil restoran yang terkait dengan review
+
     if request.method == 'POST':
-        form = ReviewForm(request.POST, instance=review)
-        if form.is_valid():
-            form.save()
-            return redirect('review_card')  # Redirect setelah update
-    else:
-        form = ReviewForm(instance=review)
-    
-    return render(request, 'reviews/edit_review.html', {'form': form, 'review': review})  # Kirim objek 'review'
+        rating = request.POST.get('rating')
+        comment = request.POST.get('comment')
+
+        # Update review dengan data baru
+        review.rating = rating
+        review.comment = comment
+        review.save()
+
+        # Redirect ke halaman review card restoran setelah review diubah
+        return redirect('review_card', restaurant_id=restaurant.id)
+
+    return render(request, 'reviews/edit_review.html', {'review': review})
 
 @login_required
 def delete_review(request, review_id):
@@ -56,9 +72,25 @@ def delete_review(request, review_id):
 
     return JsonResponse({'message': 'Invalid request'}, status=400)
 
-def review_card(request):
-    reviews = Review.objects.all()
-    return render(request, 'reviews/review_card.html', {'reviews': reviews})
+def review_card(request, restaurant_id):
+    # Ambil restoran berdasarkan UUID
+    restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
+    
+    # Ambil semua review untuk restoran tersebut
+    reviews = Review.objects.filter(restaurant=restaurant)
+    
+    # Sorting berdasarkan request parameter
+    sort_option = request.GET.get('sort', 'default')
+
+    if sort_option == 'highest':
+        reviews = reviews.order_by('-rating')  # tertinggi ke terendah
+    elif sort_option == 'lowest':
+        reviews = reviews.order_by('rating')  # terendah ke tertinggi
+    elif sort_option in ['5', '4', '3', '2', '1']:
+        reviews = reviews.filter(rating=sort_option)  # filter sesuai rating bintang
+    
+    # Render template review_card.html dengan context
+    return render(request, 'reviews/review_card.html', {'restaurant': restaurant, 'reviews': reviews, 'sort_option': sort_option})
 
 def show_json(request):
     reviews = Review.objects.all()

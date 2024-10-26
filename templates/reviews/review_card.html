@@ -5,20 +5,35 @@
 {% include 'navbar.html' %}
 <div class="mt-16" style="min-height: 80vh; padding: 20px;">
     <div class="container">
-
         <!-- Restaurant Name Section -->
         <div style="text-align: left;">
             <h1 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 50px; margin-bottom: 10px;">
-                Gudeg Yudjum
+                {{ restaurant.nama_resto }}
             </h1>
-            <p style="color: rgb(0, 0, 0); font-size: 16px; margin-bottom: 30px;">Jalan Wijilan No.167 Yogyakarta</p>
+            <p style="color: rgb(0, 0, 0); font-size: 16px; margin-bottom: 30px;">
+              Location :  {{ restaurant.alamat }}
+            </p>
         </div>
 
-        <!-- Reviews Section -->
-        <div style="text-align: left;">
-            <h2 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 25px; margin-bottom: 20px;">
-                All Reviews ({{ reviews.count }})
+        <!-- Reviews Section dengan Sorting -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 25px;">
+                All Reviews (<span id="review-count">{{ reviews.count }}</span>)
             </h2>
+            <!-- Dropdown sorting di kanan dengan font Abhaya Libre dan ukuran 20px -->
+            <div>
+                <label for="sort" style="font-family: 'Abhaya Libre', serif; font-size: 20px;">Sort by:</label>
+                <select id="sort" name="sort" onchange="sortReviews()" style="font-family: 'Abhaya Libre', serif; font-size: 20px; padding: 5px;">
+                    <option value="default" {% if sort_option == 'default' %}selected{% endif %}>Default</option>
+                    <option value="highest" {% if sort_option == 'highest' %}selected{% endif %}>Highest to Lowest</option>
+                    <option value="lowest" {% if sort_option == 'lowest' %}selected{% endif %}>Lowest to Highest</option>
+                    <option value="5" {% if sort_option == '5' %}selected{% endif %}>⭐⭐⭐⭐⭐</option>
+                    <option value="4" {% if sort_option == '4' %}selected{% endif %}>⭐⭐⭐⭐</option>
+                    <option value="3" {% if sort_option == '3' %}selected{% endif %}>⭐⭐⭐</option>
+                    <option value="2" {% if sort_option == '2' %}selected{% endif %}>⭐⭐</option>
+                    <option value="1" {% if sort_option == '1' %}selected{% endif %}>⭐</option>
+                </select>
+            </div>
         </div>
 
         <!-- Reviews Grid -->
@@ -64,10 +79,10 @@
                         
                         <br>
                         <!-- Comment -->
-                        <p class="card-text" style="color: rgb(90, 78, 78); font-size: 18px">"{{ review.comment }}"</p>
+                        <p class="card-text" style="color: rgb(90, 78, 78); font-size: 18px;">"{{ review.comment }}"</p>
                         <br>
                         <!-- Post Date -->
-                        <p class="text-muted" style="color: rgb(187, 170, 170); font-size: 12px">Posted on {{ review.created_at|date:"F d, Y" }}</p>
+                        <p class="text-muted" style="color: rgb(187, 170, 170); font-size: 12px;">Posted on {{ review.created_at|date:"F d, Y" }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -76,7 +91,7 @@
     
         <!-- Button for adding new review -->
         <div class="mb-3"><br><br><br>
-            <a href="{% url 'add_review' %}" class="add-review-btn">Add New Review</a>
+            <a href="{% url 'add_review' restaurant.id %}" class="add-review-btn" style="font-size: 20px;">Add New Review</a>
         </div>
     </div>
 </div>
@@ -85,6 +100,12 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // Function untuk memperbarui jumlah review di UI
+    function updateReviewCount() {
+        var reviewCount = $('.review-card').length;
+        $('#review-count').text(reviewCount);
+    }
+
     // AJAX Delete Review
     $('.delete-review-btn').on('click', function(e) {
         e.preventDefault();
@@ -101,6 +122,7 @@
                 success: function(response) {
                     alert(response.message);
                     $reviewCard.remove();  // Remove the review card on success
+                    updateReviewCount();   // Update the review count dynamically
                 },
                 error: function(xhr, status, error) {
                     alert('An error occurred while trying to delete the review.');
@@ -115,5 +137,18 @@
         var reviewId = $(this).data('id');
         window.location.href = '{% url "edit_review" 0 %}'.replace(0, reviewId);
     });
+
+    // Call the function to ensure correct review count on page load
+    $(document).ready(function() {
+        updateReviewCount();
+    });
+</script>
+
+<!-- Script untuk mengubah sorting -->
+<script>
+    function sortReviews() {
+        var selectedOption = document.getElementById("sort").value;
+        window.location.href = '?sort=' + selectedOption;
+    }
 </script>
 {% endblock %}

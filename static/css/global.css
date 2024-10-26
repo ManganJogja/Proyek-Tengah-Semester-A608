@@ -1,4 +1,3 @@
-
 .form-style form input, form textarea, form select {
   width: 400px;
   padding: 0.5rem;
@@ -48,5 +47,7 @@
     outline: none; /* Menghilangkan outline default */
     border-color: #784b39; /* Warna border saat fokus */
   }
+
+  
   
   
