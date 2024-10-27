@@ -1,3 +1,4 @@
+{% load static %}
 <div class="relative break-inside-avoid">
     
     <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
@@ -62,40 +63,82 @@
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
                 <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
+                    {% if reserve_entry.notes %}
+                        {{ reserve_entry.notes }}
+                    {% else %}
+                        -
+                    {% endif %}
             </p>
-            {% if reserve_entry.notes %}
-                {{ reserve_entry.notes }}
-            {% else %}
-                -
-            {% endif %}
+            
         </span>
         </div>
       </div>
   
       <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
-        <div class="flex justify-left mt-6 gap-x-4">
-            <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
-                Cancel Reservation
+        <div class="flex justify-center mt-6 gap-x-4">
+            <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5;">
+                <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: 20px;">
             </a>
-            <button class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2 edit-button" data-id="{{ reserve_entry.id }}">
-                Edit
+            <button class="edit-button" style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5;" data-id="{{ reserve_entry.id }}">
+                <img src="{% static 'image/edit.png' %}" alt="Edit" style="width: 20px; height: 20px;">
             </button>
+
+            
             
     </div>
-    <div id="edit-modal" class="modal hidden">
+    <div id="reserve_entry_cards"></div>
+
+    <div id="edit-modal-{{ reserve_entry.id }}" class="modal hidden">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Edit Reservation</h2>
-            <form id="edit-form" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
-
-                <label for="guest_quantity">Guest Quantity:</label>
-                <input type="number" id="guest_quantity" name="guest_quantity" required>
+            <form id="edit-reserve-form-{{ reserve_entry.id }}" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
+                {% csrf_token %}
+                <!-- Name Field -->
+                <div class="flex items-center">
+                    <label for="name" class="w-1/4">Name:</label>
+                    <input type="text" id="name" name="name" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
     
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="notes"></textarea>
+                <!-- Date Field -->
+                <div class="flex items-center">
+                    <label for="date" class="w-1/4">Date:</label>
+                    <input type="date" id="date" name="date" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
     
-                <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-2 rounded-lg">
-                    Save</button>
+                <!-- Time Field -->
+                <div class="flex items-center">
+                    <label for="time" class="w-1/4">Time:</label>
+                    <input type="time" id="time" name="time" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Guest Quantity Field -->
+                <div class="flex items-center">
+                    <label for="guest_quantity" class="w-1/4">Guest Quantity:</label>
+                    <input type="number" id="guest_quantity" name="guest_quantity" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Email Field -->
+                <div class="flex items-center">
+                    <label for="email" class="w-1/4">Email:</label>
+                    <input type="email" id="email" name="email" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Phone Field -->
+                <div class="flex items-center">
+                    <label for="phone" class="w-1/4">Phone:</label>
+                    <input type="text" id="phone" name="phone" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Notes Field -->
+                <div class="flex items-center">
+                    <label for="notes" class="w-1/4">Notes:</label>
+                    <textarea id="notes" name="notes" class="ml-4 p-2 border rounded-lg w-3/4"></textarea>
+                </div>
+    
+                <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-2 rounded-lg ">
+                    Save
+                </button>
             </form>
         </div>
     </div>
@@ -107,21 +150,34 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
     const editButtons = document.querySelectorAll('.edit-button');
-    const modal = document.getElementById('edit-modal');
-    const closeButton = document.querySelector('.close-button');
 
     editButtons.forEach(button => {
         button.addEventListener('click', function() {
             const reserveId = button.getAttribute('data-id'); // Ambil ID reservasi
+            const modal = document.getElementById(`edit-modal-${reserveId}`); // Ambil modal yang sesuai dengan ID
             modal.classList.remove('hidden');
 
             // Update data-id di modal jika perlu
-            document.getElementById('edit-form').setAttribute('data-id', reserveId);
+            const editForm = document.getElementById(`edit-reserve-form-${reserveId}`);
+            editForm.setAttribute('data-id', reserveId);    });
+
+            const closeButtons = document.querySelectorAll('.close-button');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = button.closest('.modal');
+            modal.classList.add('hidden'); // Sembunyikan modal
         });
     });
 
-    closeButton.addEventListener('click', function() {
-        modal.classList.add('hidden');
+    // Close modal jika klik di luar modal
+    window.addEventListener('click', function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.classList.add('hidden'); // Sembunyikan modal
+            }
+        });
+    });
     });
 
     window.addEventListener('click', function(event) {
@@ -131,41 +187,128 @@
     });
 
     document.getElementById('edit-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const guestQuantity = document.getElementById('guest_quantity').value;
-        const notes = document.getElementById('notes').value;
-        const reserveId = event.target.getAttribute('data-id');
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const guestQuantity = document.getElementById('guest_quantity').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const notes = document.getElementById('notes').value;
+    const reserveId = event.target.getAttribute('data-id');
 
-        const data = {
-            guest_quantity: guestQuantity,
-            notes: notes,
-            reserve_id: reserveId,
-        };
+    const data = {
+        name: name,
+        date: date,
+        time: time,
+        guest_quantity: guestQuantity,
+        email: email,
+        phone: phone,
+        notes: notes,
+        reserve_id: reserveId,
+    };
+
+    fetch(`/reserve/edit-reserve/${reserveId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // If the response is successful, reload the page
+            window.location.reload(); 
+        }  
+    });
+});
+document.querySelectorAll('[id^="edit-reserve-form-"]').forEach(form => {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const reserveId = event.target.getAttribute('data-id'); // Ambil ID dari form yang sesuai
+        const formData = new FormData(form);
 
         fetch(`/reserve/edit-reserve/${reserveId}/`, {
             method: 'POST',
+            body: formData,
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
+                'X-Requested-With': 'XMLHttpRequest' // Identify the request as AJAX
             }
-            throw new Error('Network response was not ok.');
         })
+        .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
-            modal.classList.add('hidden');
-            location.reload();
+            if (data.success) {
+                window.location.reload(); 
+            } else {
+                // Display errors
+                const errorDiv = document.getElementById('error-messages');
+                errorDiv.innerHTML = '';
+                for (const [field, errors] of Object.entries(data.errors)) {
+                    errors.forEach(error => {
+                        const errorElement = document.createElement('p');
+                        errorElement.textContent = `${field}: ${error}`;
+                        errorDiv.appendChild(errorElement);
+                    });
+                }
+            }
         })
-        .catch((error) => {
+        .catch(error => {
             console.error('Error:', error);
         });
     });
 });
+
+
+});
+$("#edit-reserve-form").on("submit", function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: "POST",
+      url: "{% url 'reserve:edit_reserve' reserve_entry.id %}",  // Make sure to adjust the URL as needed
+      data: formData,
+      success: function(response) {
+        if (response.success) {
+            window.location.reload();
+        }
+      },
+      
+    });
+  });
+  async function getReserveEntries(){
+      return fetch("{% url 'reserve:show_json' %}").then((res) => res.json())
+  }
+ 
+function showModal() {
+      const modal = document.getElementById('crudModal');
+      const modalContent = document.getElementById('crudModalContent');
+
+      modal.classList.remove('hidden'); 
+      setTimeout(() => {
+        modalContent.classList.remove('opacity-0', 'scale-95');
+        modalContent.classList.add('opacity-100', 'scale-100');
+      }, 50); 
+  }
+
+  function hideModal() {
+      const modal = document.getElementById('crudModal');
+      const modalContent = document.getElementById('crudModalContent');
+
+      modalContent.classList.remove('opacity-100', 'scale-100');
+      modalContent.classList.add('opacity-0', 'scale-95');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 150); 
+  }
+
+
+  
+  refreshProductEntries();
+
 
 </script>

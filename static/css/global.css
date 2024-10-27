@@ -177,11 +177,22 @@
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Jarak antar elemen di dalam modal */
   background-color: white;
   padding: 20px;
   border-radius: 5px;
-  width: 300px; /* Atur lebar modal */
+  width: auto;
+  max-width: 90%; 
 }
+
+.modal-content input, 
+.modal-content textarea {
+  width: 100%; /* Input akan mengambil seluruh lebar dari modal */
+}
+
+
 
 .hidden {
   display: none;

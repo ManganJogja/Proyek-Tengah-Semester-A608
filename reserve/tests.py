@@ -64,31 +64,7 @@ class ReserveViewTests(TestCase):
         self.assertEqual(ReserveEntry.objects.count(), 1)
         self.assertEqual(response.status_code, 302)  # Check for redirect
 
-    # def test_edit_reserve_entry(self):
-    #     # Create a reservation to edit
-    #     reserve_entry = ReserveEntry.objects.create(
-    #         user=self.user,
-    #         resto=self.restaurant,
-    #         name='John Doe',
-    #         date=timezone.now().date(),
-    #         time=timezone.now().time(),
-    #         guest_quantity=2,
-    #         email='john@example.com',
-    #         phone=1234567890,
-    #         notes='No special requests'
-    #     )
 
-    #     # Edit the reservation
-    #     response = self.client.post(reverse('reserve:edit_reserve', args=[reserve_entry.id]), {
-    #         'guest_quantity': 3,
-    #         'notes': 'Need high chair'
-    #     })
-
-    #     # Check that the reservation was updated
-    #     reserve_entry.refresh_from_db()
-    #     self.assertEqual(reserve_entry.guest_quantity, 3)
-    #     self.assertEqual(reserve_entry.notes, 'Need high chair')
-    #     self.assertEqual(response.status_code, 200)
 
     def test_delete_reserve_entry(self):
         # Create a reservation to delete
@@ -141,21 +117,7 @@ class ReserveViewTests(TestCase):
         response = self.client.get(reverse('reserve:create_reserve_entry', args=[self.restaurant.pk]))
         self.assertEqual(response.status_code, 200)  # Check for successful access
 
-    # def test_edit_reserve_url(self):
-    #     reserve_entry = ReserveEntry.objects.create(
-    #         user=self.user,
-    #         resto=self.restaurant,
-    #         name='John Doe',
-    #         date='2024-10-30',
-    #         time='18:00',
-    #         guest_quantity=2,
-    #         email='john@example.com',
-    #         phone=1234567890,
-    #         notes='None'
-    #     )
-    #     response = self.client.get(reverse('reserve:edit_reserve', args=[reserve_entry.id]))
-    #     self.assertEqual(response.status_code, 200)  # Check for successful access
-
+    
     def test_delete_reserve_url(self):
         reserve_entry = ReserveEntry.objects.create(
             user=self.user,

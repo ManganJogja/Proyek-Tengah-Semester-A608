@@ -36,7 +36,7 @@
         {% else %}
         <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
             {% for reserve_entry in reserve_entries %}
-                {% include 'reserve_card.html' with reserve_entry=reserve_entry %}
+                    {% include 'reserve_card.html' with reserve_entry=reserve_entry %}
             {% endfor %}
         </div>
         {% endif %}
