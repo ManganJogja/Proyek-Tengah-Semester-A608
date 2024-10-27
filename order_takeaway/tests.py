@@ -5,6 +5,8 @@ from django.utils import timezone
 from order_takeaway.models import TakeawayOrder, TakeawayOrderItem
 from admin_dashboard.models import RestaurantEntry, MenuEntry
 from datetime import time
+from decimal import Decimal
+import uuid
 
 class OrderTakeawayViewsTestCase(TestCase):
 
@@ -16,7 +18,7 @@ class OrderTakeawayViewsTestCase(TestCase):
         
         # Create a test menu entry
         self.menu_item = MenuEntry.objects.create(
-            id=1, 
+            id=uuid.uuid4(), 
             nama_menu="Test Menu", 
             deskripsi="Delicious test menu item", 
             image_url="http://example.com/image.jpg"
@@ -24,7 +26,7 @@ class OrderTakeawayViewsTestCase(TestCase):
 
         # Create a test restaurant entry and associate it with the menu
         self.restaurant = RestaurantEntry.objects.create(
-            id=1, 
+            id=uuid.uuid4(), 
             nama_resto="Test Resto", 
             alamat="123 Test St", 
             jenis_kuliner="Test Cuisine", 
@@ -40,8 +42,8 @@ class OrderTakeawayViewsTestCase(TestCase):
         # Test creating a takeaway order with AJAX request
         url = reverse('order_takeaway:create_order_takeaway')
         data = {
-            'restaurant': self.restaurant.id,
-            'order_items': [self.menu_item.id],
+            'restaurant': str(self.restaurant.id),  # Ensure UUID is passed as a string
+            'order_items': [str(self.menu_item.id)],  # UUID for menu item
             'quantity': 2,
             'pickup_time': time(15, 0).strftime('%H:%M')
         }
@@ -56,7 +58,7 @@ class OrderTakeawayViewsTestCase(TestCase):
         self.assertEqual(response.json().get("success"), True)
         self.assertEqual(TakeawayOrder.objects.count(), 1)
         self.assertEqual(TakeawayOrderItem.objects.count(), 1)
-
+        
     def test_show_takeaway_orders(self):
         # Create a sample order for testing
         order = TakeawayOrder.objects.create(
