@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'reserve',
     'reviews',
     'wishlist',
-    'admin_dashboard'
-
+    'admin_dashboard',
+    'order_takeaway',
 ]
 
 MIDDLEWARE = [
