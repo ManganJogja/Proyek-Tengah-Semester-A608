@@ -13,7 +13,7 @@
         Reservations
     </div>
 
-    <div class="my-6 flex justify-end">
+    <div class="my-6 flex justify-end relative">
         <form method="GET" action="{% url 'reserve:show_reserve' %}">
             <label for="restaurant-select" style="font-family: Abhaya Libre SemiBold;" class="text-lg font-semibold mb-2">Filter by Restaurant:</label>
             <select id="restaurant-select" class="border border-gray-300 rounded p-1 w-50" name="restaurant" onchange="this.form.submit()">
