@@ -24,4 +24,5 @@ urlpatterns = [
     path('auth/', include('authentication.urls')),
     path('reserve/', include('reserve.urls', namespace='reserve')),
     path('reviews/', include('reviews.urls', namespace='reviews')), 
+    path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')),
 ]

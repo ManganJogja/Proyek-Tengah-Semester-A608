@@ -13,10 +13,10 @@
         Reservations
     </div>
 
-    <div class="my-6 flex justify-end">
+    <div class="my-6 flex justify-center">
         <form method="GET" action="{% url 'reserve:show_reserve' %}">
-            <label for="restaurant-select" style="font-family: Abhaya Libre SemiBold;" class="text-lg font-semibold mb-2">Filter by Restaurant:</label>
-            <select id="restaurant-select" class="border border-gray-300 rounded p-1 w-50" name="restaurant" onchange="this.form.submit()">
+            <label for="restaurant-select" style="font-family: Abhaya Libre SemiBold; color: #3E190E; text-align: center;" class="text-lg font-semibold mb-2">Filter by Restaurants Name:</label>
+            <select id="restaurant-select" style="font-family: Abhaya Libre SemiBold; color: #3E190E; background-color: rgba(62,25,14,0.2);" class="border border-gray-300 rounded p-1 w-50" name="restaurant" onchange="this.form.submit()">
                 <option value="">All Restaurants</option>
                 {% for restaurant in restaurants %}
                     <option value="{{ restaurant.nama_resto }}" {% if selected_restaurant == restaurant.nama_resto %}selected{% endif %}>

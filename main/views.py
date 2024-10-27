@@ -21,7 +21,7 @@ def show_main(request):
     context = {
         'app' : 'Mangan Jogja',
         'name': request.user.username,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'Not available'),
         'product_entries': product_entries,
         'menus': menus
     }
