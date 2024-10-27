@@ -74,7 +74,6 @@
         </div>
       </div>
   
-      <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
         <div class="flex justify-center mt-6 gap-x-4">
             <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5;">
                 <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: 20px;">
@@ -153,8 +152,8 @@
 
     editButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const reserveId = button.getAttribute('data-id'); // Ambil ID reservasi
-            const modal = document.getElementById(`edit-modal-${reserveId}`); // Ambil modal yang sesuai dengan ID
+            const reserveId = button.getAttribute('data-id'); 
+            const modal = document.getElementById(`edit-modal-${reserveId}`);
             modal.classList.remove('hidden');
 
             // Update data-id di modal jika perlu
@@ -165,7 +164,7 @@
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
             const modal = button.closest('.modal');
-            modal.classList.add('hidden'); // Sembunyikan modal
+            modal.classList.add('hidden'); 
         });
     });
 
@@ -174,7 +173,7 @@
         const modals = document.querySelectorAll('.modal');
         modals.forEach(modal => {
             if (event.target === modal) {
-                modal.classList.add('hidden'); // Sembunyikan modal
+                modal.classList.add('hidden'); 
             }
         });
     });
@@ -219,23 +218,22 @@
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // If the response is successful, reload the page
             window.location.reload(); 
         }  
     });
 });
 document.querySelectorAll('[id^="edit-reserve-form-"]').forEach(form => {
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault(); 
 
-        const reserveId = event.target.getAttribute('data-id'); // Ambil ID dari form yang sesuai
+        const reserveId = event.target.getAttribute('data-id'); 
         const formData = new FormData(form);
 
         fetch(`/reserve/edit-reserve/${reserveId}/`, {
             method: 'POST',
             body: formData,
             headers: {
-                'X-Requested-With': 'XMLHttpRequest' // Identify the request as AJAX
+                'X-Requested-With': 'XMLHttpRequest' 
             }
         })
         .then(response => response.json())
@@ -269,7 +267,7 @@ $("#edit-reserve-form").on("submit", function(e) {
 
     $.ajax({
       type: "POST",
-      url: "{% url 'reserve:edit_reserve' reserve_entry.id %}",  // Make sure to adjust the URL as needed
+      url: "{% url 'reserve:edit_reserve' reserve_entry.id %}",  
       data: formData,
       success: function(response) {
         if (response.success) {

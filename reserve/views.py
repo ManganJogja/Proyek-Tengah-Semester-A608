@@ -19,24 +19,20 @@ import json
 
 @login_required(login_url='/login')
 def show_reserve(request):
-    # Ambil nama restoran dari query parameter
     restaurant_name = request.GET.get('restaurant', '').strip()
 
-    # Ambil semua reservasi milik user yang login
     reserve_entries = ReserveEntry.objects.filter(user=request.user)
 
-    # Jika ada nama restoran yang dipilih, filter berdasarkan restoran tersebut
     if restaurant_name:
         reserve_entries = reserve_entries.filter(resto__nama_resto__icontains=restaurant_name)
 
-    # Ambil daftar semua restoran
     restaurants = RestaurantEntry.objects.values('nama_resto').distinct()
 
     context = {
         'name': request.user.username,
         'reserve_entries': reserve_entries,
         'restaurants': restaurants,
-        'selected_restaurant': restaurant_name,  # Untuk menjaga pilihan di dropdown
+        'selected_restaurant': restaurant_name, 
     }
 
     return render(request, "reserve_page.html", context)
