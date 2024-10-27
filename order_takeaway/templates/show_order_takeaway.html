@@ -1,35 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Takeaway Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to Abhaya Libre Semibold from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* General styling with Abhaya Libre Semibold font */
+        body {
+            font-family: 'Abhaya Libre', serif;
+            font-weight: 600;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-top: 60px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #333333;
+            margin: 0;
+        }
+
+        .add-order {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #6F4E37;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .add-order:hover {
+            background-color: #5e4230;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #dddddd;
+            color: #333333;
+            font-weight: 600; /* Ensuring Abhaya Libre Semibold is bold */
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            background-color: #f5f5f5;
+            font-family: 'Abhaya Libre', serif;
+        }
+
+        button.confirm {
+            width: 100%;
+            padding: 0.7rem;
+            background-color: #6F4E37;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        button.confirm:hover {
+            background-color: #5e4230;
+        }
+
+        /* Adjusted spacing for action buttons */
+        .action-buttons a {
+            margin: 0 10px; /* Increased spacing between edit and delete icons */
+            color: #6F4E37;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-<h1>Takeaway Orders</h1>
-<a href="{% url 'order_takeaway:create_order_takeaway' %}">Add Order</a>
-<table>
-    <tr>
-        <th>Menu</th>
-        <th>Restaurant</th>
-        <th>Quantity</th>
-        <th>Pickup Time</th>
-        <th>Total Price</th>
-        <th>Actions</th>
-    </tr>
-    {% for order in takeaway_orders %}
-        {% for item in order.takeawayorderitem_set.all %}  <!-- Loop through TakeawayOrderItem for each order -->
-        <tr>
-            <td>{{ item.menu_item.nama_menu }}</td>  <!-- Show menu name -->
-            <td>{{ order.restaurant.nama_resto }}</td>  <!-- Show restaurant name -->
-            <td>{{ item.quantity }}</td>  <!-- Show the quantity for each item -->
-            <td>{{ order.pickup_time }}</td>  <!-- Show pickup time -->
-            <td>{{ item.price }}</td>  <!-- Show the price of each item -->
-            <td>
-                <a href="{% url 'order_takeaway:edit_order_takeaway' order.id %}">Edit</a> |
-                <a href="{% url 'order_takeaway:delete_order_takeaway' order.id %}" onclick="return confirm('Are you sure you want to delete this order?');">Delete</a>
-            </td>  <!-- Add Edit and Delete actions -->
-        </tr>
-        {% endfor %}
-    {% endfor %}
-</table>
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Header with Title and Add Order Button -->
+            <div class="header">
+                <h1>Takeaway Orders</h1>
+                <button onclick="showAddOrderModal()" class="add-order">Add Order</button>
+            </div>
+            
+            <!-- Table for Orders -->
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>Menu</th>
+                        <th>Restaurant</th>
+                        <th>Quantity</th>
+                        <th>Pickup Time</th>
+                        <th>Total Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in takeaway_orders %}
+                        {% for item in order.takeawayorderitem_set.all %}
+                        <tr>
+                            <td>{{ item.menu_item.nama_menu }}</td>
+                            <td>{{ order.restaurant.nama_resto }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ order.pickup_time }}</td>
+                            <td>Rp{{ item.price }}</td>
+                            <td class="action-buttons">
+                                <a href="{% url 'order_takeaway:edit_order_takeaway' order.id %}" title="Edit">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a href="{% url 'order_takeaway:delete_order_takeaway' order.id %}" title="Delete" onclick="return confirm('Are you sure you want to delete this order?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Add Order Modal -->
+            <div id="addOrderModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="hideAddOrderModal()">&times;</span>
+                    <h2>Create Order</h2>
+                    <form id="addOrderForm" method="post" onsubmit="submitAddOrder(event)">
+                        {% csrf_token %}
+                        <label for="id_order_items">Menu</label>
+                        <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
+                            <option value="">Select Menu</option>
+                            {% for menu in menus %}
+                                <option value="{{ menu.id }}">{{ menu.nama_menu }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="id_restaurant">Restaurant</label>
+                        <select name="restaurant" id="id_restaurant" class="form-control">
+                            <option value="">Select a menu first</option>
+                        </select>
+
+                        <label for="id_quantity">Quantity</label>
+                        <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" required>
+
+                        <label for="id_pickup_time">Pickup Time</label>
+                        <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" required>
+
+                        <button type="submit" class="confirm">Confirm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAddOrderModal() {
+            document.getElementById("addOrderModal").style.display = "flex";
+
+            const menuDropdown = document.getElementById("id_order_items");
+            menuDropdown.innerHTML = '<option value="">Select Menu</option>';
+
+            fetch("{% url 'order_takeaway:get_menus' %}")
+                .then(response => response.json())
+                .then(menus => {
+                    menus.forEach(menu => {
+                        const option = document.createElement("option");
+                        option.value = menu.id;
+                        option.text = menu.nama_menu;
+                        menuDropdown.add(option);
+                    });
+                })
+                .catch(error => console.error("Error fetching menus:", error));
+        }
+    
+        function hideAddOrderModal() {
+            document.getElementById("addOrderModal").style.display = "none";
+        }
+    
+        function loadRestaurants() {
+            const menuId = document.getElementById("id_order_items").value;
+            const restaurantDropdown = document.getElementById("id_restaurant");
+    
+            if (menuId) {
+                fetch(`/api/restaurants/${menuId}/`)
+                    .then(response => response.json())
+                    .then(restaurants => {
+                        restaurantDropdown.innerHTML = '<option value="">Select a restaurant</option>';
+                        restaurants.forEach(restaurant => {
+                            const option = document.createElement("option");
+                            option.value = restaurant.id;
+                            option.text = restaurant.nama_resto;
+                            restaurantDropdown.add(option);
+                        });
+                    })
+                    .catch(error => console.error("Error fetching restaurants:", error));
+            }
+        }
+    
+        function submitAddOrder(event) {
+            event.preventDefault();
+            const formData = new FormData(document.getElementById("addOrderForm"));
+
+            fetch("{% url 'order_takeaway:create_order_takeaway' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(newOrder => {
+                if (newOrder.success) {
+                    const table = document.getElementById("orders-table").getElementsByTagName("tbody")[0];
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td>${newOrder.menu}</td>
+                        <td>${newOrder.restaurant}</td>
+                        <td>${newOrder.quantity}</td>
+                        <td>${newOrder.pickup_time}</td>
+                        <td>Rp${newOrder.total_price}</td>
+                        <td class="action-buttons">
+                            <a href="/edit-order-takeaway/${newOrder.id}/" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="/delete-order-takeaway/${newOrder.id}/" title="Delete" onclick="return confirm('Are you sure you want to delete this order?');"><i class="fas fa-trash-alt"></i></a>
+                        </td>`;
+                    hideAddOrderModal();
+                    document.getElementById("addOrderForm").reset();
+                } else {
+                    alert("Failed to add order.");
+                }
+            })
+            .catch(error => alert("Failed to add order."));
+        }
+    </script>
 </body>
 </html>
+
+{% endblock content %}

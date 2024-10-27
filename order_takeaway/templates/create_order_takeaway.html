@@ -1,7 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+{% endblock meta %}
+{% block content %} 
+{% include 'navbar.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% if is_edit %}Edit{% else %}Create{% endif %} Order Takeaway</title>
+    <style>
+        /* General body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        /* Centered container */
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #666666;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        /* Form controls styling with consistent background color */
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            box-sizing: border-box;
+            background-color: #f5f5f5; /* Consistent background color */
+        }
+
+        /* Add focus style to prevent color change on click */
+        .form-control:focus {
+            background-color: #f5f5f5; /* Keep background color the same */
+            border-color: #6F4E37; /* Optional: Add border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        /* Button styling */
+        button {
+            margin-top: 1.5rem;
+            padding: 0.7rem;
+            width: 100%;
+            font-size: 1rem;
+            background-color: #6F4E37;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5e4230;
+        }
+    </style>
+
     <script>
         async function loadRestaurants() {
             const menuId = document.getElementById("id_order_items").value;
@@ -29,35 +112,38 @@
             }
         }
     </script>
-
 </head>
 <body>
-<h1>{% if is_edit %}Edit{% else %}Create{% endif %} Order</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    {{ form.errors }}
+    <div class="form-container">
+        <h1>{% if is_edit %}Edit{% else %}Create{% endif %} Order</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.errors }}
 
-    <label for="id_order_items">Menu</label>
-    <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
-        <option value="">Select Menu</option>
-        {% for menu in menus %}
-            <option value="{{ menu.id }}" {% if order_item and menu.id == order_item.menu_item.id %}selected{% endif %}>{{ menu.nama_menu }}</option>
-        {% endfor %}
-    </select>
+            <label for="id_order_items">Menu</label>
+            <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
+                <option value="">Select Menu</option>
+                {% for menu in menus %}
+                    <option value="{{ menu.id }}" {% if order_item and menu.id == order_item.menu_item.id %}selected{% endif %}>{{ menu.nama_menu }}</option>
+                {% endfor %}
+            </select>
 
-    <label for="id_restaurant">Restaurant</label>
-    <select name="restaurant" id="id_restaurant" class="form-control">
-        <option value="{{ order_item.order.restaurant.id }}">{{ order_item.order.restaurant.nama_resto }}</option>
-    </select>
+            <label for="id_restaurant">Restaurant</label>
+            <select name="restaurant" id="id_restaurant" class="form-control">
+                <option value="{{ order_item.order.restaurant.id }}">Select Restaurant{{ order_item.order.restaurant.nama_resto }}</option>
+            </select>
 
-    <label for="id_quantity">Quantity</label>
-    <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" value="{{ order_item.quantity }}" required>
+            <label for="id_quantity">Quantity</label>
+            <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" value="{{ order_item.quantity }}" required>
 
-    <label for="id_pickup_time">Pickup Time</label>
-    <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" value="{{ form.instance.pickup_time }}" required>
+            <label for="id_pickup_time">Pickup Time</label>
+            <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" value="{{ form.instance.pickup_time }}" required>
 
-    <button type="submit">{% if is_edit %}Save Changes{% else %}Confirm{% endif %}</button>
-</form>
+            <button type="submit">{% if is_edit %}Save Changes{% else %}Confirm{% endif %}</button>
+        </form>
+    </div>
 </body>
 </html>
+
+{% endblock content %}

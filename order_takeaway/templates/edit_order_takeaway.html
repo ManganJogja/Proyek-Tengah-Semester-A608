@@ -1,72 +1,147 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% if is_edit %}Edit{% else %}Create{% endif %} Order Takeaway</title>
+    
+    <!-- Remove link to Google Fonts and use @import instead -->
+    <style>
+        /* Import Abhaya Libre Semibold from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600&display=swap');
+        
+        /* Increased specificity to enforce Abhaya Libre font */
+        body, h1, label, .form-control, button, select, input[type="number"], input[type="time"] {
+            font-family: 'Abhaya Libre', serif !important;
+            font-weight: 600 !important;
+            color: #333333;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #666666;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            background-color: #f5f5f5;
+        }
+
+        /* Button styling */
+        button {
+            margin-top: 1.5rem;
+            padding: 0.7rem;
+            width: 100%;
+            font-size: 1rem;
+            background-color: #6F4E37;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #5e4230;
+        }
+    </style>
     <script>
         async function loadRestaurants() {
-        const menuId = document.getElementById("id_order_items").value;
-        const restaurantDropdown = document.getElementById("id_restaurant");
+            const menuId = document.getElementById("id_order_items").value;
+            const restaurantDropdown = document.getElementById("id_restaurant");
 
-        if (menuId) {
-            try {
-                const response = await fetch(`/api/restaurants/${menuId}/`);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch restaurants for menu ${menuId}`);
-                }
+            if (menuId) {
+                try {
+                    const response = await fetch(`/api/restaurants/${menuId}/`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch restaurants for menu ${menuId}`);
+                    }
 
-                const restaurants = await response.json();
+                    const restaurants = await response.json();
 
-                // Clear the current options in the restaurant dropdown
-                restaurantDropdown.innerHTML = '';
-                if (restaurants.length > 0) {
-                    restaurants.forEach(restaurant => {
+                    restaurantDropdown.innerHTML = '';
+                    if (restaurants.length > 0) {
+                        restaurants.forEach(restaurant => {
+                            const option = document.createElement("option");
+                            option.value = restaurant.id;
+                            option.text = restaurant.nama_resto;
+                            restaurantDropdown.add(option);
+                        });
+                    } else {
                         const option = document.createElement("option");
-                        option.value = restaurant.id;
-                        option.text = restaurant.nama_resto;
+                        option.text = "No restaurants available for this menu";
                         restaurantDropdown.add(option);
-                    });
-                } else {
-                    const option = document.createElement("option");
-                    option.text = "No restaurants available for this menu";
-                    restaurantDropdown.add(option);
+                    }
+                } catch (error) {
+                    console.error("Error fetching restaurants:", error);
                 }
-            } catch (error) {
-                console.error("Error fetching restaurants:", error);  // Debugging
+            } else {
+                restaurantDropdown.innerHTML = '<option value="">Select a menu first</option>';
             }
-        } else {
-            restaurantDropdown.innerHTML = '<option value="">Select a menu first</option>';
         }
-    }
     </script>
-
 </head>
 <body>
-<h1>{% if is_edit %}Edit{% else %}Create{% endif %} Order</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    {{ form.errors }}
+    <div class="form-container">
+        <h1>{% if is_edit %}Edit{% else %}Create{% endif %} Order</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.errors }}
 
-    <label for="id_order_items">Menu</label>
-    <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
-        <option value="">Select Menu</option>
-        {% for menu in menus %}
-            <option value="{{ menu.id }}" {% if order_item and menu.id == order_item.menu_item.id %}selected{% endif %}>{{ menu.nama_menu }}</option>
-        {% endfor %}
-    </select>
+            <label for="id_order_items">Menu</label>
+            <select name="order_items" id="id_order_items" class="form-control" onchange="loadRestaurants()">
+                <option value="">Select Menu</option>
+                {% for menu in menus %}
+                    <option value="{{ menu.id }}" {% if order_item and menu.id == order_item.menu_item.id %}selected{% endif %}>{{ menu.nama_menu }}</option>
+                {% endfor %}
+            </select>
 
-    <label for="id_restaurant">Restaurant</label>
-    <select name="restaurant" id="id_restaurant" class="form-control">
-        <option value="{{ order_item.order.restaurant.id }}">{{ order_item.order.restaurant.nama_resto }}</option>
-    </select>
+            <label for="id_restaurant">Restaurant</label>
+            <select name="restaurant" id="id_restaurant" class="form-control">
+                <option value="{{ order_item.order.restaurant.id }}">{{ order_item.order.restaurant.nama_resto }}</option>
+            </select>
 
-    <label for="id_quantity">Quantity</label>
-    <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" value="{{ order_item.quantity }}" required>
+            <label for="id_quantity">Quantity</label>
+            <input type="number" name="quantity" id="id_quantity" class="form-control" min="1" value="{{ order_item.quantity }}" required>
 
-    <label for="id_pickup_time">Pickup Time</label>
-    <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" value="{{ form.instance.pickup_time }}" required>
+            <label for="id_pickup_time">Pickup Time</label>
+            <input type="time" name="pickup_time" id="id_pickup_time" class="form-control" value="{{ form.instance.pickup_time }}" required>
 
-    <button type="submit">{% if is_edit %}Save Changes{% else %}Confirm{% endif %}</button>
-</form>
+            <button type="submit">{% if is_edit %}Save Changes{% else %}Confirm{% endif %}</button>
+        </form>
+    </div>
 </body>
 </html>

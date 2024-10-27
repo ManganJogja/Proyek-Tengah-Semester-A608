@@ -11,7 +11,10 @@ from django.utils import timezone
 from django.http import JsonResponse
 from admin_dashboard.models import MenuEntry, RestaurantEntry
 from order_takeaway.models import TakeawayOrderItem
-from decimal import Decimal
+from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_GET
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 @login_required(login_url='/login')
 def show_takeaway_orders(request):
@@ -23,58 +26,57 @@ def show_takeaway_orders(request):
     return render(request, "show_order_takeaway.html", context)
 
 @login_required(login_url='/login')
+@require_POST
+@csrf_exempt
 def create_takeaway_order(request):
-    menus = MenuEntry.objects.all()  # Load menus for the dropdown
-    form = TakeawayOrderForm(request.POST or None)
-
-    if request.method == "POST":
-        if form.is_valid():
-            # Create the initial TakeawayOrder object
-            takeaway_order = form.save(commit=False)
-            takeaway_order.user = request.user
-            takeaway_order.order_time = timezone.now()
-            takeaway_order.total_price = 0  # Initialize as an integer (or float if needed)
-            takeaway_order.save()
-
-            # Get the selected restaurant and its price (range_harga)
+    if request.method == "POST" and request.headers.get('X-Requested-With') == 'XMLHttpRequest':  # Updated line
+        try:
             restaurant_id = request.POST.get('restaurant')
             restaurant = RestaurantEntry.objects.get(id=restaurant_id)
 
-            # Get the selected menu items and quantity
+            takeaway_order = TakeawayOrder(
+                user=request.user,
+                restaurant=restaurant,
+                pickup_time=request.POST.get('pickup_time'),
+                total_price=0  # This will be calculated based on items
+            )
+            takeaway_order.save()
+
             order_items = request.POST.getlist('order_items')
             quantity = int(request.POST.get('quantity', 1))
 
-            # For each selected menu item, create a TakeawayOrderItem
+            total_price = 0
             for item_id in order_items:
                 menu_item = MenuEntry.objects.get(id=item_id)
-
-                # Use integer multiplication for price (since range_harga is an integer)
-                price_per_item = restaurant.range_harga * quantity  # Integer multiplication
-
-                # Create the order item
+                price_per_item = restaurant.range_harga * quantity
                 order_item = TakeawayOrderItem(
                     order=takeaway_order,
                     menu_item=menu_item,
                     quantity=quantity,
-                    price=price_per_item  # Set the price as an integer
+                    price=price_per_item
                 )
                 order_item.save()
+                total_price += price_per_item
 
-                # Update the total price for the order
-                takeaway_order.total_price += price_per_item
-
-            # Save the final order with the updated total price
+            takeaway_order.total_price = total_price
             takeaway_order.save()
 
-            # Redirect to show_order_takeaway page
-            return redirect('order_takeaway:show_order_takeaway')
+            # Return a JSON response with the new order details
+            return JsonResponse({
+                "success": True,
+                "id": takeaway_order.id,
+                "menu": menu_item.nama_menu,
+                "restaurant": restaurant.nama_resto,
+                "quantity": quantity,
+                "pickup_time": takeaway_order.pickup_time,
+                "total_price": total_price,
+            })
 
-    context = {
-        'form': form,
-        'menus': menus,
-    }
+        except Exception as e:
+            print(f"Error: {e}")
+            return JsonResponse({"success": False, "message": "Error creating order"}, status=500)
 
-    return render(request, "create_order_takeaway.html", context)
+    return JsonResponse({"success": False, "message": "Invalid request"}, status=400)
 
 @login_required(login_url='/login')
 def edit_takeaway_order(request, id):
@@ -145,3 +147,8 @@ def show_json(request):
 def show_json_by_id(request, id):
     data = TakeawayOrder.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@require_GET
+def get_menus(request):
+    menus = MenuEntry.objects.all().values('id', 'nama_menu')
+    return JsonResponse(list(menus), safe=False)
