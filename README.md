@@ -39,4 +39,4 @@ Dataset updated: https://docs.google.com/spreadsheets/d/1mSCnqkZcHlvhciVpziC2DX2
 3. Admin: Admin dapat menginput nama toko beserta atribut yang dimiliki oleh toko tersebut
 
 # :link: Tautan Deployment :link:
-Link deployment: http://pbp.cs.ui.ac.id/raysha.reifika/manganjogja 
+Link deployment: http://raysha-reifika-manganjogja.pbp.cs.ui.ac.id
