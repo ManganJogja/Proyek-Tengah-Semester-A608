@@ -1,1637 +1,1637 @@
 [
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000001",
-      "fields": {
-        "nama_menu": "Gudeg",
-        "deskripsi": "Hidangan tradisional Jogja yang terbuat dari nangka muda direbus dengan santan dan rempah-rempah, biasanya disajikan dengan telur, ayam, dan sambal goreng krecek.",
-        "image_url": "https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg",
-        "restaurants": [
-          "1d298e27-133f-49ba-b36c-c867562cb6dc",
-          "26e4d6f2-aa5e-42fa-aa53-c10319838dd0",
-          "45e96a3e-0081-456f-8d62-b05eb6b9e1b6",
-          "4f76e08e-edf0-44dc-87a8-ab8579069e9c",
-          "e1e526f8-ff86-4f97-8023-7fac164c5735"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000002",
-      "fields": {
-        "nama_menu": "Lotek",
-        "deskripsi": "Salad sayur Indonesia yang disiram dengan saus kacang yang gurih dan pedas, seringkali disertai dengan lontong atau ketupat.",
-        "image_url": "https://www.masakapahariini.com/wp-content/uploads/2021/02/Lotek-Bandung-Sederhana.jpg",
-        "restaurants": [
-          "18f0c60e-104a-48f2-bd05-17cd95a5dd86",
-          "31331625-bff9-4067-b848-0dacf6c5129a",
-          "bb832e30-f8c1-410c-a04a-5097435379b3",
-          "d625f0cc-9dcb-4789-b0d7-dff9cf8832c1"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000003",
-      "fields": {
-        "nama_menu": "Iga bakar",
-        "deskripsi": "Rusuk sapi yang dibumbui dan dipanggang hingga empuk, umumnya disajikan dengan sambal dan lalapan segar.",
-        "image_url": "https://cdn.idntimes.com/content-images/community/2022/11/fromandroid-ce87aaee7099f3694b62de16fda00a78_600x400.jpg",
-        "restaurants": [
-          "3a4daaad-f359-445f-9a68-3a7a22939b66",
-          "4b85f953-348f-459c-89f8-7e52bd12e9db",
-          "612bb813-2485-469a-805c-a87ae4a5828e",
-          "9be10192-ee9d-43f4-8d94-6d5acce47b13",
-          "f9fac590-3fdd-46c1-aa7f-17f9e3715511"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000004",
-      "fields": {
-        "nama_menu": "Bakmi Jawa",
-        "deskripsi": "Mie goreng dan mie rebus yang dibumbui dengan bumbu Jawa yang khas, dihidangkan panas dengan campuran sayuran, ayam, atau seafood.",
-        "image_url": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2022/05/20/2710397937.png",
-        "restaurants": [
-          "a3fd014f-1d18-4bdc-94ba-4f2132e52fe5",
-          "aad018a7-abf9-4f18-b549-63af1c7eb2b8",
-          "ddf7c7ce-f5e3-42d6-b359-73c9a8ab5922",
-          "f6a6a9e9-0d96-4423-a441-18e829582612",
-          "f936bf16-9e3b-4e5d-8ec6-8c0fc314e74e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000005",
-      "fields": {
-        "nama_menu": "Ramen",
-        "deskripsi": "Mie kuah Jepang yang kaya rasa, disajikan dengan daging seperti  ayam, telur rebus, nori, dan sayuran.",
-        "image_url": "https://tse4.mm.bing.net/th?id=OIP.uRUsCkJH3UmAo3hkZ_3gGQHaE8&pid=Api&P=0&h=180",
-        "restaurants": [
-          "7f90c15c-cca5-434c-9aad-f948314dde9a",
-          "8d598f5d-5eac-4871-bd34-c0544169c131",
-          "a1abb26f-95d2-453b-a459-70a8ddf4f983",
-          "a4c71e45-ace6-42f1-9314-d14fdcab8ce7",
-          "c83335b3-a4f5-4390-9c6b-28c96b12fedc"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000006",
-      "fields": {
-        "nama_menu": "Dimsum",
-        "deskripsi": "Camilan asal Cina yang terdiri dari berbagai jenis seperti siomay, hakau, dan bao, dikukus atau digoreng dan disajikan dengan saus celup.",
-        "image_url": "https://tse4.mm.bing.net/th?id=OIP.4gwWsjnWA_gUGyC4O_NiSAHaE8&pid=Api&P=0&h=180",
-        "restaurants": [
-          "0cf0f720-dba2-45da-aa60-3741aee3f9da",
-          "5bd587d6-e8c6-434f-9201-71853b5fa42c",
-          "90744397-0997-4a0f-8320-4c4057161bf9",
-          "f62cb541-896a-4a68-ac80-e1807392bd39",
-          "fdfb4547-f023-43b4-bcae-aeab2e0ad676"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000007",
-      "fields": {
-        "nama_menu": "Salad",
-        "deskripsi": "Campuran sayuran segar atau rebus, kadang-kadang disertai keju, kacang, atau protein seperti ayam atau ikan, disajikan dengan dressing.",
-        "image_url": "https://tse4.mm.bing.net/th?id=OIP.unUsTTVMqv017wO8ug_3rQHaE7&pid=Api&P=0&h=180",
-        "restaurants": [
-          "0aacde79-c77c-4b64-a291-cda7e6f6c5a3",
-          "2552658b-0aa4-4243-b4a4-85c856a0eb3d",
-          "2b222e28-d42e-48d8-a9d2-e7d67e2767e1",
-          "5b9b951d-c0b1-4b06-a7b2-90361d6458d4",
-          "d7ef00b0-a476-4f70-a6a8-cf8c8f90f6ff"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000008",
-      "fields": {
-        "nama_menu": "Pho",
-        "deskripsi": "Sup mie Vietnam yang ringan namun penuh rasa, dengan kuah kaldu daging yang aromatik, disertai irisan daging sapi atau ayam.",
-        "image_url": "https://tse3.mm.bing.net/th?id=OIP.BBCV7Fgtdg3PjEduyFAn3gHaE7&pid=Api&P=0&h=180",
-        "restaurants": [
-          "302fc612-e75d-4107-b690-a38cd5a448a5",
-          "b5547d15-836d-4d57-8106-b66204a6b8e6",
-          "bf41caf2-f16d-447b-bc21-6a67dd476328",
-          "d9c269ad-2f3f-4d5a-bba8-5f5f8075ac55",
-          "f5da0e66-5f0b-4906-a268-36cdd5dfe3a7"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000009",
-      "fields": {
-        "nama_menu": "Bakpia",
-        "deskripsi": "Kue bulat kecil dari Jogja yang terbuat dari kulit tipis berisi pasta kacang hijau, kadang diberi variasi rasa seperti cokelat atau keju.",
-        "image_url": "https://blog.pigijo.com/wp-content/uploads/2021/09/4383.jpeg",
-        "restaurants": [
-          "098b648b-0d70-482b-baa3-5f8424952f79",
-          "46c2276b-bbfc-492e-8857-e6398f18584c",
-          "5a4b4da1-0953-457a-af99-69458c96a7c0",
-          "97941616-6cca-4d9c-87cd-b53a7ea84a81",
-          "bdddb4d3-6e50-4de4-8798-44a3c0059285"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000a",
-      "fields": {
-        "nama_menu": "Es krim",
-        "deskripsi": "Dessert beku yang kaya krim, tersedia dalam berbagai rasa dari vanila klasik hingga eksperimen rasa lokal seperti durian atau teh hijau.",
-        "image_url": "https://img.qraved.co/v2/image/data/2016/05/24/es-krim-cokelat-x.png",
-        "restaurants": [
-          "3c11b4cb-039b-44cd-ac2d-8e1e4f23bd07",
-          "50fd5b6a-5211-4c44-858d-2940dabf0852",
-          "748c966c-b03b-4bcc-a7bf-cdbac2f881b7",
-          "752c502e-a1c4-407d-a02d-87ad715b3b29",
-          "aa4742ce-0124-449a-aeb5-e7889bd07d3f"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000b",
-      "fields": {
-        "nama_menu": "Es coklat",
-        "deskripsi": "minuman segar yang menampilkan perpaduan sempurna antara coklat dan es yang sangat menyegarkan, khususnya di tengah cuaca panas khas Jogja.",
-        "image_url": "https://asset.kompas.com/crops/YSmRvR5IY2NVC9nKe0aFJwfBMpU=/0x221:883x810/750x500/data/photo/2021/02/06/601e2787976f6.jpeg",
-        "restaurants": [
-          "4e5d6a65-de83-433e-b6f4-dcdf1e011259",
-          "527aef0d-ba72-41a2-a88b-9ab322907e42",
-          "cc4b4a8d-8bbe-4ce7-aa65-30785ef41fea",
-          "e67318a6-6719-48da-b31e-a0d01fd6971b",
-          "e9e821a3-940f-4277-9a93-6aeeea7a04ba"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000c",
-      "fields": {
-        "nama_menu": "Sate ayam",
-        "deskripsi": "Potongan ayam yang dibumbui, ditusuk, dan dibakar, biasanya disajikan dengan saus kacang atau kecap manis.",
-        "image_url": "https://tse3.mm.bing.net/th?id=OIP.qGa4C5uDGxMNhGg_L3MvfQHaE8&pid=Api&P=0&h=180",
-        "restaurants": [
-          "258dbb5b-3732-4346-903b-9c7ef5ce0cb0",
-          "3e233093-2d4f-46c4-a68a-82c92c4a9b56",
-          "5ed61baf-7712-4d83-978c-80f6db179dc7",
-          "d84018f5-f080-43f9-bacb-88164a045db4",
-          "fbea3395-f43f-4916-b784-809eef93d231"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000d",
-      "fields": {
-        "nama_menu": "Jus",
-        "deskripsi": "Minuman yang dibuat dari buah-buahan segar yang dihancurkan atau diperas, seperti jeruk, apel, atau mangga.",
-        "image_url": "https://tse2.mm.bing.net/th?id=OIP.O5qYWycofi3YUDHg24XV4QHaEo&pid=Api&P=0&h=180",
-        "restaurants": [
-          "434b24fc-1e34-45b2-a9de-e36da291c6e2",
-          "7a452b93-c222-4902-9279-fe7c0899d40a",
-          "8c66558d-3aba-4950-9f0c-3979577b7d23",
-          "b48aed2d-b422-475a-8e2f-bcd27ab205e1",
-          "ce16a0b4-7025-42ae-b955-e9293cc6c691"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000e",
-      "fields": {
-        "nama_menu": "Wedang ronde",
-        "deskripsi": "Minuman hangat khas Jawa yang terbuat dari bola-bola tepung beras berisi kacang tanah yang disajikan dalam jahe hangat dan gula.",
-        "image_url": "https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2021/12/07/wedang-rondejpg-20211207040308.jpg",
-        "restaurants": [
-          "70b2a1ae-eb41-4951-a57b-0e3ec511de73",
-          "98c1a5b8-081c-46ff-a6f6-7f8efa7202d8",
-          "a664fda2-d616-4595-a7ca-0cb0906140f0",
-          "ea776e5d-0862-4a7c-8765-a87be5a8eeca",
-          "f623b341-563f-4e7d-9fa3-a982e28a60b2"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000000f",
-      "fields": {
-        "nama_menu": "Sayur lodeh",
-        "deskripsi": "Masakan Jawa dari aneka sayuran seperti labu, terong, dan kacang panjang yang dimasak dalam kuah santan yang ringan.",
-        "image_url": "https://tse3.mm.bing.net/th?id=OIP.9JzftfhFkaKNlJ76tT9DugHaE8&pid=Api&P=0&h=180",
-        "restaurants": [
-          "70dd20cd-89c1-4af3-80f8-67663136c5f5",
-          "74c38e88-8b8e-4342-8909-66762926c7ad",
-          "838539ad-655f-4b27-a170-68aa3f85013b",
-          "ada6cc92-8655-4607-b157-e6aeb319caf7",
-          "d471125e-c778-438a-8922-a18c2464ea8a"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000010",
-      "fields": {
-        "nama_menu": "Soto ",
-        "deskripsi": "Sup Indonesia yang kaya rempah, dengan variasi yang berbeda di setiap daerah, biasanya melibatkan ayam atau daging sapi dan sayuran.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0d05fa7f-a3d9-4c0e-bdbc-1bd580575ec2",
-          "1cd7fa07-6b15-4081-af33-501925459708",
-          "9d33c731-afb0-4ab9-9f09-a6916d3a664c",
-          "9f999f9b-6dd8-4fd5-9e3f-71ac223f53ff",
-          "fa40ba36-5381-4063-abeb-d8fabaef7948"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000011",
-      "fields": {
-        "nama_menu": "Kopi",
-        "deskripsi": "Minuman yang dibuat dari biji kopi yang disangrai dan digiling, bisa dinikmati panas atau dingin, hitam atau dengan tambahan susu.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1c52b241-23cd-449c-8d46-6611c22be285",
-          "979efe5a-f07b-42d3-a75b-f4079f770eee",
-          "de6f2e5f-6ef0-49ad-ad26-e312bd704574",
-          "eddcd98f-e713-4b8a-9d99-cf7a410fdcb1",
-          "ef1aba3f-d2b8-4f24-bbc9-9bc20222fa39"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000012",
-      "fields": {
-        "nama_menu": "Teh",
-        "deskripsi": "Minuman yang dibuat dari daun teh yang diseduh, tersedia dalam berbagai jenis seperti hitam, hijau, atau oolong.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0345f119-46c8-4a83-9e63-1ac178a8e2ce",
-          "3bc0604b-8d01-40d4-8979-03a87a89e3c4",
-          "4bedd195-3680-43cf-8dd2-8d356eb1b6e9",
-          "afd03725-3130-4c9d-8da1-4d6d1d5e8ddb",
-          "ecd58bf6-36e3-4529-b524-0d714db0ca8a"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000013",
-      "fields": {
-        "nama_menu": "Kue",
-        "deskripsi": "Pencuci mulu yang manis atau gurih yang dibuat dari adonan atau adonan yang dipanggang, bisa berupa kue kering, bolu, atau tart.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "4bba204c-f409-48e7-85f5-73806ee35308",
-          "9f1ac7f8-e0a7-4507-a40c-9625271e28d4",
-          "a7b82f59-8926-4b42-aaac-c9c5be15f5e7",
-          "b1aeefba-1f64-4387-a085-7976335ccbb5",
-          "be67cb6e-4e2f-4440-babd-aa53a2490ceb"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000014",
-      "fields": {
-        "nama_menu": "Pecel lele",
-        "deskripsi": "Lele goreng krispi yang disajikan dengan sambal tomat pedas dan lalapan seperti timun dan kemangi.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "44fba61f-1470-4e00-8ae6-c01d2ab1e8ba",
-          "829f0c56-2378-42b3-be27-c6a026b4a6a2",
-          "a1170757-dc27-4882-b6d4-88bf04311cad",
-          "b332a50d-2d48-49b5-b95a-3780af50056d",
-          "b9d40205-9e92-4a3d-bb91-296173d7ee2f",
-          "d19325db-f16a-4a81-ab4c-50130db50190",
-          "dc285bf1-abab-4ce6-816d-61d7f87e74f2",
-          "e6a8fc86-6def-4b95-97dc-d1fe61a8d405",
-          "e9bcf7e2-52a5-4636-a6df-ee0bc2d42e67",
-          "f5d7edd9-4d2f-4d24-9cf8-d07466b2dcb8"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000015",
-      "fields": {
-        "nama_menu": "Burger",
-        "deskripsi": "Burger klasik dengan daging sapi panggang yang juicy, diapit oleh roti brioche yang lembut, ditumpuk dengan keju cheddar leleh, selada segar, tomat, bawang karamel, dan saus spesial rumah, disajikan bersama kentang goreng renyah dan acar.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "10b95d3b-3673-4684-802b-97a84cfa9c02",
-          "469cac4a-a50d-4a92-b0e3-ecda7bafd420",
-          "6787a0cf-c202-4994-99b4-8d7502d9e298",
-          "79b8fb46-92c0-4626-8161-dd19122a0b2a",
-          "7d194b07-9d26-4ca3-99c3-990fd1b8a80f",
-          "861c8785-d9ba-40ba-8e12-d3336486636a",
-          "86b54160-f1dd-43cf-a555-a7d75e336eab",
-          "c4059f02-1e93-4d5a-866d-0dd9c7919cdb",
-          "c9ee3049-3421-4c58-a52a-3be25f07e3da",
-          "ebc48cc2-d8f3-436f-b5e5-ef6ee77f9124"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000016",
-      "fields": {
-        "nama_menu": "Nasi Campur",
-        "deskripsi": "Nasi putih hangat dengan ayam suwir, telur balado, tahu goreng, sambal pedas, dan kerupuk, disajikan lengkap untuk kenikmatan yang penuh cita rasa.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "148e0b1b-7924-4ff6-9f1a-e018724cd47c",
-          "3d19b7d8-8837-4850-aa64-84c46a07cdf1",
-          "c0309add-5434-4e80-a400-7a988f3b656f",
-          "c32a9c92-579f-4cd4-af9e-73be8cd1b449",
-          "e7aef218-2153-4fcf-a6f8-9c0e1c62d466"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000017",
-      "fields": {
-        "nama_menu": "Kwetiaw",
-        "deskripsi": "Mie pipih yang kenyal dengan tumisan sayuran, daging sapi, dan saus gurih khas Tionghoa.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1f090f83-e081-4798-b03b-45c2eab9700f",
-          "4cb88276-eddb-4b5d-a04e-c7c258db5434",
-          "70cf07b0-ead9-4d56-bd8f-3c60f8ddbe7a",
-          "7e33e20f-860f-4553-8037-243f9dbd23a2",
-          "dc8c9da1-7edb-4c37-89fd-67ccb41304a1"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000018",
-      "fields": {
-        "nama_menu": "Nasi Gudeg",
-        "deskripsi": "Nasi putih dengan gudeg nangka manis, ayam kampung, telur, sambal krecek, dan tahu tempe bacem.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "70828776-6c1e-457d-b46b-741253d424a0",
-          "78579d5d-277a-4dde-9f51-c42b1524f70c",
-          "8d880da4-418a-4d77-998f-2dea7bd04ebf",
-          "b5b868fa-c768-457a-b308-2a4e810be0c1",
-          "d6aed921-dcfd-4dcc-b94b-b93ae42e8c65"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000019",
-      "fields": {
-        "nama_menu": "Terancam",
-        "deskripsi": "Sayuran segar yang disajikan mentah dengan kelapa parut berbumbu pedas, memberikan rasa yang segar dan menyehatkan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "41d9d2e5-cfe0-4dce-bf13-48e259a518d2",
-          "6ce8b7ca-d67f-4492-9dac-c55e7dc883c3",
-          "87b5807d-88c9-4e76-82df-4824b75089b0",
-          "ea81b7b4-be9a-4680-8fd4-1eb3a417def5",
-          "ef633f18-180c-49ef-8a46-8a34f5a2a7bb"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001a",
-      "fields": {
-        "nama_menu": "Bandrek",
-        "deskripsi": "Minuman hangat khas Sunda berbahan jahe dan rempah-rempah untuk kehangatan tubuh dan cita rasa yang khas.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0f6964c9-4a0f-4db8-a68a-fa0bb7fb4d46",
-          "2d0c64b7-c480-469e-af30-aac48a7de1d5",
-          "40b10b97-bc96-47b0-93a8-520cc474f74c",
-          "57872e71-c9b8-43e4-bd93-3e2916ad6ae4",
-          "e4d46772-2be4-4181-9fb4-468e635c0494"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001b",
-      "fields": {
-        "nama_menu": "Ayam Kalasan",
-        "deskripsi": "Ayam goreng empuk dengan bumbu manis khas Kalasan, disajikan dengan nasi, sambal, dan lalapan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "5b9c57a3-c63c-4f82-8366-eee0fb78c5fa",
-          "9c5777a7-c237-4ad3-8a93-a12574ea944e",
-          "a746b9c1-e562-4b5c-80c4-4bdb554fb813",
-          "c24a58e3-fe4b-4333-8e52-1f39fa101b95",
-          "f0401770-7c7d-4656-bc89-466ed572f12d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001c",
-      "fields": {
-        "nama_menu": "Bebek penyet",
-        "deskripsi": "Bebek goreng gurih dengan sambal pedas, dipenyet hingga dagingnya lembut, disajikan dengan nasi dan lalapan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0198b81c-5615-4c82-8613-2df6dcfb48e5",
-          "2d642eab-4fe7-4adb-bf3b-105b33d4e100",
-          "87d18f83-4a55-4d72-8a50-8bfb5d17c639",
-          "8f312e49-d895-4281-9fe1-c16169dcf03f",
-          "e7ae889e-ed31-4736-a801-3da3ba706c33"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001d",
-      "fields": {
-        "nama_menu": "Nasi Kapau",
-        "deskripsi": "Nasi putih dengan lauk pauk khas Minangkabau seperti rendang, gulai, dan dendeng, disajikan secara melimpah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0013c5df-c35b-4ed0-94e9-ad355da36de1",
-          "10f4c34b-6417-49c6-92c1-c7f341385ad8",
-          "61517e7a-a783-4cc0-aa50-219b5c0d2358",
-          "62a6aceb-2f1f-4e80-a31a-0811f35afd33",
-          "79f3a0c9-8cb2-4834-b6af-ee6397245465"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001e",
-      "fields": {
-        "nama_menu": "Pizza",
-        "deskripsi": "Roti bundar tipis dengan topping saus tomat, keju leleh, dan pilihan daging atau sayuran, dipanggang hingga renyah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "19e44fd5-9ace-494e-a2f7-f2386997a6e2",
-          "5d13ae34-c028-40fa-890b-1bc45b2056d3",
-          "9e93b88e-09de-4ed2-bb9a-bc6c99543e7b",
-          "b9f366ad-d66a-49ec-b469-80ea5ae6b1d2",
-          "fd4f47e5-8e02-4f0d-9ae4-6fda387d773b"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000001f",
-      "fields": {
-        "nama_menu": "Susu Jahe",
-        "deskripsi": "Minuman hangat perpaduan susu segar dan jahe yang memberikan rasa manis dan hangat di tenggorokan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "04309d64-46a0-4d38-a42b-1f8e774f13b6",
-          "0dcfb38b-3efd-4a15-8aab-66a86ac48a1d",
-          "b62fe6bf-d383-4ee1-a836-1bcb195b325b",
-          "e86b68a3-6e3c-4a70-aae7-198eaf4b9d73",
-          "f7018aff-b341-4f2d-b1a2-05b1bf7d4f3d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000020",
-      "fields": {
-        "nama_menu": "Jamu",
-        "deskripsi": "Minuman tradisional berbahan rempah alami seperti kunyit, jahe, dan temulawak, dipercaya baik untuk kesehatan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "00b1ad48-a418-4708-a1d1-b94fce332f0b",
-          "9bc94f9e-89ab-4835-b0a9-7f5fcb939a19",
-          "b7f2cd3f-39fe-4da0-9927-daef73ffaf7e",
-          "c4d4c7b8-bf9e-425f-b9c8-cfc0b6666b88",
-          "f9c04240-cc05-4670-89bf-f57d7e071659"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000021",
-      "fields": {
-        "nama_menu": "Es Pisang Ijo",
-        "deskripsi": "Pisang hijau lembut dibalut tepung, disajikan dengan sirup manis, santan, dan es serut.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "090b5801-634e-4045-bbac-73b7291e01c5",
-          "30d99d95-8d48-4953-a1aa-8228df2369ed",
-          "38d26ba9-0288-4d24-8597-a7d4324fa4dd",
-          "81009984-8f6c-4800-ba9c-5e58585e0994",
-          "b1c322b7-e4ab-4ef9-9326-00bb9b527675"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000022",
-      "fields": {
-        "nama_menu": "Es jeruk manis",
-        "deskripsi": "Minuman segar berbahan perasan jeruk segar dengan tambahan es batu untuk kenikmatan di hari panas.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0fceda5c-f1de-4f9d-a3b1-57d73c6d6ee8",
-          "1c7a532b-ec9d-4cb5-ae57-c2e1ead389fc",
-          "5fac8222-72ee-451a-9d2c-e98bd799865e",
-          "bb728356-4e7f-4dc6-a8ed-f7aa2e571cdd",
-          "f7f8b0f5-87b9-4478-bc94-f5c74a8010a6"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000023",
-      "fields": {
-        "nama_menu": "Ricebowl",
-        "deskripsi": "Semangkuk nasi putih dengan topping daging ayam atau sapi berbumbu dan sayuran, disajikan praktis dan lezat.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "3b86c354-176f-4b34-8cc2-4f3fd8fb47b2",
-          "60ef6db9-eab5-498f-956b-ea0b960471a1",
-          "97bb03f3-9a60-4172-8624-6daf61e510df",
-          "998f58e8-f1fd-4b63-860d-01a204ba628a",
-          "f72ef58e-2480-4726-ac99-858efd6bafe2"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000024",
-      "fields": {
-        "nama_menu": "Sop buntut",
-        "deskripsi": "Sup dengan potongan buntut sapi yang empuk, disajikan dalam kaldu gurih dengan sayuran dan rempah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "2cc44779-c4e6-4656-ad9c-1671ba753abc",
-          "2dbd4ef5-f97b-43da-a350-abcb5f200605",
-          "45b4ab6b-92c3-4bd1-8baa-150f26336a19",
-          "6c6dac38-e9c9-4bc8-91c6-698d15191c13",
-          "73f3cbc6-01aa-4e53-ac5c-7e314c44996f"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000025",
-      "fields": {
-        "nama_menu": "Ayam Katsu",
-        "deskripsi": "Ayam goreng tepung ala Jepang yang renyah di luar, lembut di dalam, disajikan dengan nasi dan saus tonkatsu.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "4dfc302b-7ee4-4911-a680-2cca27a0a503",
-          "9ce2d1fa-2fb4-41de-b402-d51a40fde81d",
-          "d9c861e9-573f-45ee-8ca0-ef9b3af06acc",
-          "e06afc96-12cd-4c19-9670-f50d6ef461ac",
-          "f251d954-23bd-4729-9438-c4b02071061b"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000026",
-      "fields": {
-        "nama_menu": "Martabak Manis",
-        "deskripsi": "Kue tebal dan lembut dengan isian coklat, kacang, atau keju, disajikan hangat dengan lapisan gula.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "043a7572-2d55-4b8f-a691-92b176002000",
-          "0d868474-41c1-473e-9b72-0d728d17ddad",
-          "1d3af3f2-4e6b-4129-a047-dd0e6c0de95d",
-          "57a410fd-74d1-4c28-b406-1b87ec4d1d9b",
-          "945c190b-f51e-4b16-9f37-f77194f393c6"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000027",
-      "fields": {
-        "nama_menu": "Nasi Goreng Padang",
-        "deskripsi": "Nasi goreng pedas dengan bumbu khas Padang, dilengkapi dengan irisan daging, telur, dan sambal.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "a84f8233-1ab0-47ff-bc00-4200271b36fc",
-          "adfb70c5-7b45-4bb6-9a73-6af06230c49f",
-          "bae77b7d-f13e-45b1-b167-f871730f1956",
-          "cb83a5d1-ff64-483e-bdf2-c2f213675e07",
-          "dcd35022-fd1b-439a-8b66-f763fbf07c44"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000028",
-      "fields": {
-        "nama_menu": "Mie Lethek",
-        "deskripsi": "Mie tradisional berbahan tepung singkong yang kenyal, dimasak dengan bumbu sederhana khas Bantul, Yogyakarta.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0e627d25-82c5-4ece-90e0-a34c3ee9989b",
-          "1b7d8831-6f82-4f08-b0a2-03d44265327b",
-          "29d240a3-af8c-485b-aaba-471e7ed37548",
-          "2d56453d-5ee1-4c2a-9eb5-10a7b82af331",
-          "f4c53059-2507-422f-b863-70958692c189"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000029",
-      "fields": {
-        "nama_menu": "Bakmie Jawa",
-        "deskripsi": "Mie telur yang dimasak dengan bumbu rempah dan campuran sayuran, ayam suwir, dan telur, khas Jawa Tengah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "03d2759a-6fc8-42c7-9180-4ffd996fe453",
-          "24b97f46-5b27-4844-b5ee-d59858d47ec0",
-          "3e8f9322-7747-4390-82e3-47a0905ecb08",
-          "68518908-ef9c-401c-b24a-82fd5d151701",
-          "fa0e9423-ba89-4829-b19a-b3f47a67a644"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002a",
-      "fields": {
-        "nama_menu": "Nasi Kucing",
-        "deskripsi": "Porsi kecil nasi dengan lauk sederhana seperti ikan teri, tempe, dan sambal, disajikan dalam bungkus daun pisang.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "11e03d87-ec28-4fd5-aa9c-d2531ed9f131",
-          "318e6665-1ede-43f1-b5bc-e52b92cae71d",
-          "73015f54-e20b-449a-bf67-3dedf0f664cc",
-          "f2c52795-d3d2-40c9-ab8f-d28b58b4f6bb",
-          "fd8da07d-fdaf-4f20-a452-b33e20ca0769"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002b",
-      "fields": {
-        "nama_menu": "Mangut Lele",
-        "deskripsi": "Lele asap yang dimasak dalam kuah santan pedas, khas Yogyakarta, disajikan dengan nasi putih.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "063390bc-6786-4e8c-9dcc-f1d23428aee1",
-          "1c7c42ce-1961-497f-878a-333cb7384b7c",
-          "6bb2d80d-a046-4cca-9688-9d309ed05699",
-          "9aaa1bd0-ba80-4da9-a23f-5227c64bca3d",
-          "bbeae35b-49e3-4ae2-8378-bbaa99673f3e",
-          "c52173b1-8655-4ee3-a57f-6735f2be599f",
-          "c9463708-ab30-45d1-bbb7-d1f7d99eeed8",
-          "d1ad0d7e-334b-4935-8f2a-f4418e735c58",
-          "e3e0317b-171c-4275-a2c7-9c83e76d3537",
-          "e636e80a-e428-466f-8948-36837182aa01"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002c",
-      "fields": {
-        "nama_menu": "Nasi Bakar",
-        "deskripsi": "Nasi putih berbumbu yang dibungkus daun pisang dan dibakar, memberikan aroma khas dan rasa gurih yang lezat.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0cccaa9e-9df2-4ce0-adfb-911186cae178",
-          "30af817a-4e2e-492b-abc7-74e33859150d",
-          "426119bf-5206-4436-8bbb-7343e64fb011",
-          "64c90e56-8e29-4651-a45d-ed73795166f7",
-          "7b8f6380-5f15-42b3-baee-7e5da770aba2",
-          "8c16d28e-3e41-4bed-ad17-a3a683893e45",
-          "a0b0a95e-3824-479d-b862-8d85bf8464ae",
-          "a1faea4d-fdf6-433f-8765-19699fbbffeb",
-          "b62814a1-1c2e-414a-9360-98a64560b49e",
-          "e9be4897-26c7-45da-ada3-79307ab0ca98"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002d",
-      "fields": {
-        "nama_menu": "Wonton",
-        "deskripsi": "Wonton adalah hidangan khas yang terdiri dari kulit tipis yang lembut, diisi dengan campuran daging pilihan dan rempah-rempah segar.  Disajikan dalam kaldu hangat yang kaya rasa atau bisa juga digoreng hingga renyah, wonton ini menawarkan kombinasi tekstur yang sempurna antara kulit yang lembut dan isi yang gurih. Dengan pilihan isian daging ayam, sapi, atau sayuran, setiap suapan memberikan pengalaman rasa yang menggugah selera.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "4d7c183a-8bfe-4556-8e45-bd38fdfdcfc0",
-          "4dfb47ee-bea1-4285-a338-cb8ca6b7235c",
-          "55a68076-e8fa-4136-bb74-f0fca9d24296",
-          "9f4133c9-81fe-4190-83fb-f5cf61fc1681",
-          "aabd9a79-dc70-420e-bf21-db9d7be6edd4"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002e",
-      "fields": {
-        "nama_menu": "Tempura",
-        "deskripsi": "Tempura adalah hidangan khas Jepang yang terdiri dari sayuran segar atau seafood yang dibalut dengan adonan tepung ringan dan kemudian digoreng hingga renyah. Dengan tekstur yang garing di luar dan lembut di dalam, tempura disajikan dengan saus celup khas yang memberikan rasa gurih dan segar. Nikmati tempura sebagai camilan atau pelengkap yang sempurna untuk berbagai hidangan Jepang!\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "023a7227-f971-443c-a7d4-5a8b2065bbdb",
-          "091eb439-5d62-424d-8ebd-5014f062262a",
-          "11b7835d-9fe1-41bd-9a1c-1a52f50c75ad",
-          "6b1e7a9c-5ddd-44a0-9a3a-6d62580b4cfd",
-          "d0cde010-9ca3-4274-8ee0-39e18759633d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000002f",
-      "fields": {
-        "nama_menu": "karedok",
-        "deskripsi": "Karedok adalah salad khas Sunda yang menyegarkan, terbuat dari campuran sayuran segar seperti mentimun, tauge, kol, dan kacang panjang, yang disajikan dengan bumbu kacang yang kaya rasa. Dengan tekstur yang crunchy dan rasa bumbu yang gurih, karedok menjadi pilihan sehat dan lezat, sempurna untuk menemani berbagai hidangan utama atau dinikmati sebagai camilan yang menyegarkan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "261028e2-b94f-48eb-b764-3d53a704c16a",
-          "37c87209-96d9-44fd-b556-40fb93ae4625",
-          "56ce7c05-af55-43dc-b63a-b0af585bdab7",
-          "d900e8e8-b554-43da-95dd-82957556e6e1",
-          "ea5c4177-bc6b-4c64-a45c-831f5ac3779e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000030",
-      "fields": {
-        "nama_menu": "Ayam Karage",
-        "deskripsi": "Ayam Karage adalah hidangan khas Jepang yang terbuat dari potongan ayam marinated yang dilapisi dengan tepung, kemudian digoreng hingga keemasan dan renyah. Dengan rasa yang gurih dan juicy di dalam, ayam karage sering disajikan dengan saus celup yang khas, serta salad atau nasi. Cocok sebagai camilan atau hidangan utama, ayam karage menawarkan kelezatan yang tak tertahankan dalam setiap gigitan.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0db1e405-d015-4ef3-80aa-21e6eafce472",
-          "244fbaea-54b1-4fcf-a207-b8897c390bcf",
-          "29dd4cbc-b9c7-4426-995d-ccb0e9040705",
-          "7e3c20fc-a551-4954-823b-cc950510d938",
-          "daa5b978-c6ad-4d26-a589-64fa93bed203"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000031",
-      "fields": {
-        "nama_menu": "nasi bali",
-        "deskripsi": "Nasi Bali adalah hidangan khas Bali yang menggugah selera, terdiri dari nasi putih yang disajikan dengan berbagai lauk pauk seperti ayam betutu, sate lilit, dan sayur urap. Disertai dengan sambal matah yang pedas dan segar, nasi Bali menawarkan kombinasi rasa yang kaya dan menggoda. Setiap suapan menyajikan cita rasa otentik pulau Dewata, menjadikannya pilihan sempurna untuk menikmati kekayaan kuliner Bali dalam satu piring.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "56ad55d0-9108-4903-942f-28153efeb8ed",
-          "6e05a1ba-505b-4a4a-aabc-156df57da68d",
-          "78da9a48-435d-4ac3-9ce3-742f2bdd6ee3",
-          "d18997f8-92f8-43e6-9d07-fdd19d4b2e68",
-          "dd1f46da-4eb6-4cda-9565-4fcf02c51d2f"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000032",
-      "fields": {
-        "nama_menu": "lontong sayur",
-        "deskripsi": "Lontong Sayur adalah hidangan tradisional Indonesia yang terdiri dari lontong (nasi yang dipadatkan dalam daun pisang) yang disajikan dengan kuah sayur kental yang kaya rasa, biasanya terbuat dari santan, labu, dan sayuran segar seperti kacang panjang dan tauge. Dikenal dengan cita rasa yang gurih dan pedas, lontong sayur sering dilengkapi dengan sambal dan kerupuk, menjadikannya hidangan yang memuaskan dan cocok untuk sarapan atau makan siang.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "24a8b62f-bd8f-42d7-9054-23066f136cf8",
-          "26a47691-63c5-4439-a7f0-d997daacecd8",
-          "a73f0074-0b6a-400d-9284-7c817e5f00ba",
-          "d2c0fa62-855f-4a65-8b62-456092c0e6a9",
-          "ed54b2ec-3db4-435e-af32-3c98b36c8676"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000033",
-      "fields": {
-        "nama_menu": "sushi",
-        "deskripsi": "Sushi adalah hidangan khas Jepang yang terdiri dari nasi yang dibumbui cuka, sering disajikan dengan berbagai isian seperti ikan mentah, sayuran, atau telur. Ada berbagai jenis sushi, termasuk nigiri (nasi dengan topping ikan), maki (nasi dan isian yang digulung dalam nori), dan sashimi (ikan mentah tanpa nasi). Sushi dikenal dengan rasa yang segar dan tekstur yang unik, menjadikannya pilihan yang populer untuk dinikmati sebagai makanan ringan atau hidangan utama dalam suasana santai atau formal.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "183db253-db80-4492-8261-3e497c73f4ce",
-          "5c93d3a7-68fe-4b86-97e5-e732924835d1",
-          "c29829c2-6710-4df6-ba43-1d3905c9f824",
-          "d85acbf7-8705-4b8f-b96c-7db7dfaee6d5",
-          "f5ec07cd-1fec-432f-afe9-d29a41d5bd1c"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000034",
-      "fields": {
-        "nama_menu": "es buah",
-        "deskripsi": "Es Buah adalah hidangan penyegar yang terdiri dari potongan berbagai buah segar, seperti melon, semangka, nanas, dan anggur, yang disajikan dengan sirup manis dan es serut. Terkadang, ditambahkan susu kental manis atau santan untuk rasa yang lebih kaya. Es buah sangat cocok dinikmati pada cuaca panas sebagai camilan yang menyegarkan dan bergizi, menawarkan kombinasi rasa manis, asam, dan tekstur yang renyah dalam setiap sendoknya.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "2797d021-75bb-487d-91f5-8a8909fd58b7",
-          "9b3679c6-b659-405c-b494-dfaa38528d85",
-          "b6358f15-e9de-4e1a-a1d7-82c4736f1813",
-          "f112ebed-4ce7-49ec-bcf1-2166a2832dd3",
-          "fe0c38fb-51ba-457d-ad85-00175e019d1f"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000035",
-      "fields": {
-        "nama_menu": "es dawet",
-        "deskripsi": "Es Dawet adalah minuman khas Indonesia yang menyegarkan, terbuat dari campuran dawet (sejenis jelly berwarna hijau yang terbuat dari tepung beras) yang disajikan dengan santan, gula merah cair, dan es serut. Dengan rasa manis dan gurih yang seimbang, Es Dawet menjadi pilihan sempurna untuk menghilangkan dahaga di cuaca panas. Hidangan ini tidak hanya nikmat, tetapi juga menawarkan pengalaman unik dari cita rasa tradisional Indonesia dalam setiap gelasnya.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "50f98bd9-7ffd-4354-bf4a-3c8763ca4680",
-          "94d5cca2-e606-4255-b0f4-f01e0a86d670",
-          "bb145af2-5419-4ad5-a370-b04dfe185b37",
-          "bde4be92-6499-4f6b-b7b8-5ffe306e029b",
-          "c1e87602-ac59-495c-9403-0560821c2c75"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000036",
-      "fields": {
-        "nama_menu": "piscok",
-        "deskripsi": "Piscok, atau pisang cokelat, adalah camilan lezat khas Indonesia yang terbuat dari pisang yang dibalut dengan kulit lumpia atau adonan tepung, kemudian digoreng hingga kecokelatan dan renyah. Di dalamnya, pisang yang manis berpadu dengan cokelat leleh, menciptakan kombinasi rasa yang menggugah selera. Piscok biasanya disajikan hangat sebagai camilan manis yang sempurna untuk dinikmati di sore hari atau sebagai penutup setelah makan. Nikmati piscok sebagai sajian yang memanjakan lidah dan menghangatkan hati!\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "65a2e01e-7b8f-46a2-bdf3-02a78ca928a5",
-          "6812f560-d1c1-4ecf-b9ea-503dbee8b510",
-          "6e3ba08e-0321-45b6-84a9-c65223c38a43",
-          "8bd498a1-e707-4166-9961-d941a0de742a",
-          "fe598659-de1f-4299-bb04-d8498c894d96"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000037",
-      "fields": {
-        "nama_menu": "wedang jahe",
-        "deskripsi": "Wedang Jahe adalah minuman tradisional Indonesia yang terbuat dari rebusan jahe segar, gula merah, dan air panas, sering kali ditambahkan dengan rempah-rempah seperti daun pandan atau serai untuk memberikan aroma yang harum. Minuman ini dikenal memiliki rasa hangat dan pedas, serta bermanfaat untuk meningkatkan daya tahan tubuh dan meredakan flu. Wedang Jahe sangat cocok dinikmati saat cuaca dingin atau setelah beraktivitas, memberikan kenyamanan dan kehangatan dalam setiap tegukan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0a5bd57d-6bb7-4289-ac3b-73178ed4aa92",
-          "18489e80-1177-4c30-9160-b38f4cfc117b",
-          "2cee1827-e0f2-4134-a23d-c6da3e2f3953",
-          "43c36cd4-cb53-4ab1-b4b3-8a375dfa9d39",
-          "a5b821a7-51ca-4bd1-a366-8e44021c782b"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000038",
-      "fields": {
-        "nama_menu": "salmon mentai",
-        "deskripsi": "Salmon Mentai adalah hidangan Jepang yang terdiri dari fillet salmon yang dipanggang dengan saus mentai (saus yang terbuat dari campuran telur ikan cod, mayones, dan bumbu). Hidangan ini biasanya disajikan di atas nasi hangat atau sushi, dengan lapisan saus yang creamy dan sedikit pedas, menciptakan kombinasi rasa yang lezat dan menggoda. Dengan tekstur salmon yang lembut dan saus yang kaya, Salmon Mentai menjadi pilihan favorit bagi pecinta makanan Jepang yang mencari sensasi rasa baru dalam setiap suapan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "259edeff-bd0a-424f-a5c6-f438265a0689",
-          "2bc0c488-5662-4730-a65b-4650d97a0a4e",
-          "c62fa7c6-b340-483e-bf59-ec72d4e903b1",
-          "c8b0636c-6f57-4380-95c6-5d7dc261e17f",
-          "ea7b85a3-0015-42c0-bd2b-ba5149ae73e4"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000039",
-      "fields": {
-        "nama_menu": "udon",
-        "deskripsi": "Udon adalah mie khas Jepang yang terbuat dari tepung terigu, air, dan garam, dengan tekstur yang kenyal dan tebal. Biasanya disajikan dalam kuah kaldu yang gurih, udon dapat dilengkapi dengan berbagai topping seperti tempura, daun bawang, jamur, atau daging. Hidangan ini dikenal dengan rasa yang sederhana namun memuaskan, menjadikannya pilihan populer untuk makanan hangat yang cocok dinikmati kapan saja. Dengan setiap slurp, udon menawarkan pengalaman kuliner Jepang yang kaya dan memikat.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "59c88353-22a7-4e67-8df1-25895c3b407e",
-          "a85b6ee5-9718-4826-bb0f-e33a96e59ca7",
-          "bfc846ab-8c04-4a58-91cc-1217743e939f",
-          "dde2666b-928e-4b3c-b6ca-085d960148b7",
-          "e9078224-21ac-4f42-8053-07c9a6ec9713"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003a",
-      "fields": {
-        "nama_menu": "tiramisu",
-        "deskripsi": "Tiramisu adalah dessert klasik Italia yang terkenal dengan lapisan kue spons yang dicelupkan dalam kopi, di antara lapisan krim mascarpone yang lembut dan kaya. Dihiasi dengan taburan bubuk kakao di atasnya, tiramisu menawarkan perpaduan rasa kopi yang kuat dan manis yang seimbang. Dengan tekstur yang creamy dan rasa yang menggoda, tiramisu adalah pilihan sempurna untuk memanjakan diri atau sebagai penutup istimewa dalam setiap acara.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "849b4d1d-1639-46d9-95ea-aa5a05569ec9",
-          "c3127ce9-15d9-4c9d-b900-7a7f5e95818f",
-          "d8c16593-cfed-48e7-a547-f09caf5a50af",
-          "e580c0d4-dd64-410d-ab8c-e1280531fa4c",
-          "e7049573-bd56-4837-97f3-c7e82f7b2026"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003b",
-      "fields": {
-        "nama_menu": "ceker mercon",
-        "deskripsi": "Ceker Mercon adalah hidangan pedas khas Indonesia yang terbuat dari kaki ayam yang dimasak dengan bumbu rempah yang kaya, termasuk cabai, bawang, dan bumbu lainnya. Hidangan ini terkenal dengan rasa pedasnya yang menggigit dan tekstur ceker yang kenyal. Disajikan dengan kuah kental yang menggoda, Ceker Mercon cocok dinikmati sebagai camilan atau pendamping nasi, menawarkan pengalaman kuliner yang memuaskan bagi pecinta makanan pedas.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "082c5318-755c-4bc0-a3fd-2e32b6a5c51b",
-          "09d520b8-c469-4ab9-8e45-98dfae406727",
-          "57236b38-741f-483c-9e0f-c75d03b96e5b",
-          "ba5d0013-a1d5-44f4-bdc6-669c2b0771f6",
-          "daff3209-a28c-4a4e-ad75-dd41a9c97b7e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003c",
-      "fields": {
-        "nama_menu": "Bakso malang",
-        "deskripsi": "Bakso Malang adalah hidangan mie bakso khas Indonesia yang berasal dari Malang, Jawa Timur. Hidangan ini terdiri dari bola daging bakso yang kenyal, disajikan bersama mie kuning, tahu, dan sayuran segar. Biasanya, Bakso Malang dilengkapi dengan kuah kaldu yang kaya rasa, serta sambal dan kecap manis sebagai pelengkap. Dengan kombinasi cita rasa yang lezat dan tekstur yang menggugah selera, Bakso Malang menjadi pilihan favorit untuk santapan hangat yang memuaskan.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "02ae2d9a-d529-4995-8fe1-36ce4160ef3c",
-          "25859150-3259-4954-ad96-dde8e564477e",
-          "525c0c20-bb8e-49a8-8b49-c9916391343d",
-          "8f36c505-b687-485a-b045-07d7752de75a",
-          "ffede697-264e-4fc3-a018-acd10d7e7cf2"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003d",
-      "fields": {
-        "nama_menu": "es podeng",
-        "deskripsi": "Es Podeng adalah minuman pencuci mulut khas Indonesia yang menyegarkan, terbuat dari campuran es serut, berbagai potongan buah segar, seperti nangka dan cincau, serta sirup manis. Terkadang, ditambahkan santan untuk memberikan rasa creamy yang kaya. Es Podeng cocok dinikmati saat cuaca panas, menawarkan kombinasi rasa manis dan segar dalam setiap sendoknya.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "01cbd69e-e89d-4911-a148-54d3a1623794",
-          "184a38c1-fc6a-4ab8-b455-913e2a0a3a5e",
-          "1ecf1428-dd1d-4b46-9a5b-edbcdce520cd",
-          "90bedee1-d99b-4aae-b983-b82db91a6182",
-          "b0140368-2d6e-4fb5-b2cd-57e77e4ab99c"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003e",
-      "fields": {
-        "nama_menu": "nasi padang",
-        "deskripsi": "Nasi Padang adalah hidangan khas Minangkabau yang disajikan dengan nasi putih dan berbagai lauk pauk yang kaya rasa, seperti rendang, ayam pop, sambal ijo, dan sayur daun singkong. Dengan bumbu rempah yang khas, setiap piring Nasi Padang menawarkan pengalaman kuliner yang menggugah selera dan penuh cita rasa.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "39194bce-2c41-482e-b8c8-02d7c4e5023e",
-          "55c5e335-0af5-4855-9371-ff3aa31bae34",
-          "9de42979-ee58-4de6-9381-7e5182ebdad7",
-          "a657d44e-ac94-4bb0-a0e8-b168e205481e",
-          "cacd5c61-018a-469e-9db0-7553cee3ec60"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000003f",
-      "fields": {
-        "nama_menu": "tauge goreng",
-        "deskripsi": "Tauge Goreng adalah hidangan sederhana yang terbuat dari tauge segar yang ditumis dengan bumbu khas, seperti kecap manis dan bawang, sering kali ditambahkan dengan tahu dan mie. Hidangan ini memiliki rasa manis dan gurih, serta tekstur yang renyah, menjadikannya camilan atau pelengkap yang lezat.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "15d078db-7f64-4a0f-9c7a-7fee2edc70d5",
-          "39d787aa-56f2-4e68-957d-051f7443436b",
-          "c489b68c-e71f-4a87-bf7b-06dbc498c884",
-          "d0f60a53-8eb3-4f87-b54e-9bd109b1d5dc",
-          "d95b4851-3448-41f2-8bd0-00254b9a618e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000040",
-      "fields": {
-        "nama_menu": "lumpia udang",
-        "deskripsi": "Lumpia Udang adalah camilan lezat yang terbuat dari kulit lumpia yang diisi dengan udang segar dan sayuran, kemudian digoreng hingga keemasan dan renyah. Biasanya disajikan dengan saus celup manis atau pedas, Lumpia Udang menawarkan kombinasi rasa yang gurih dan tekstur yang crunchy, cocok sebagai hidangan pembuka atau camilan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1ef30b81-d8c5-42a1-840b-df43c4eea3fc",
-          "1f4ad49e-44e1-461a-9f21-b02decd37e25",
-          "2ce0cc3d-d777-49b3-82f8-c70a0016cade",
-          "4e721d7f-1460-462b-976a-aadd0ee4a3cb",
-          "6c79733d-a68b-444f-bece-82c630aea81c"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000041",
-      "fields": {
-        "nama_menu": "mie aceh",
-        "deskripsi": "Mie Aceh adalah hidangan mie yang kaya rempah asal Aceh, Indonesia, yang disajikan dengan kuah kental dan bumbu yang pedas. Biasanya, Mie Aceh diisi dengan daging sapi, udang, atau ayam, dan ditambahkan dengan sayuran serta telur. Hidangan ini menawarkan rasa yang kuat dan menggugah selera, membuatnya menjadi pilihan favorit bagi penggemar makanan pedas.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "06de1f8d-98e3-48bc-aa70-55016dcfa13b",
-          "3a6b0514-2027-4622-9b22-4f6c5beddad9",
-          "cf598ac8-006c-4142-b4ef-a62c44e8d414",
-          "de1d58fa-98b4-43ec-a24b-6c957be51ecb",
-          "f120d4a7-5858-42d8-8fdb-05c255ba467f"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000042",
-      "fields": {
-        "nama_menu": "Ketoprak",
-        "deskripsi": "Ketoprak adalah hidangan khas Betawi yang terdiri dari tahu, lontong, bihun, dan tauge yang disajikan dengan saus kacang kental. Hidangan ini ditaburi dengan kerupuk dan bawang goreng, dan biasanya disajikan dengan sambal dan kecap manis.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "11f8b8d3-9def-4d1a-9bfb-a4ce74029552",
-          "5622e8dd-f22b-4677-8e04-f750e2974f78",
-          "6d14511f-de97-4998-81fa-5cd5b9df0a4d",
-          "73a4a09a-6738-4556-b315-b626ce047217",
-          "b07da13c-034b-4ed5-b98b-f293815ae1d7"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000043",
-      "fields": {
-        "nama_menu": "Steak",
-        "deskripsi": "Steak adalah potongan daging (biasanya daging sapi) yang dimasak dengan berbagai tingkat kematangan (rare, medium, well-done) dan disajikan dengan saus seperti black pepper atau mushroom. Steak sering disajikan dengan kentang goreng atau mashed potatoes dan sayuran.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "031ada65-9c58-4147-910a-c20f72067e93",
-          "50d52c8c-777a-4294-97a2-cbbb531bc701",
-          "99ca3723-c0bf-49e9-ab2e-ee8db78cc793",
-          "a80de6c7-109e-4d6d-ae60-3f335c1b5c3c",
-          "f144276d-b1dd-42df-9a8e-2032b632f345"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000044",
-      "fields": {
-        "nama_menu": "Kebab",
-        "deskripsi": "Kebab adalah hidangan yang terbuat dari daging panggang, biasanya daging sapi, domba, atau ayam, yang disajikan dengan roti pita atau tortilla, bersama sayuran segar dan saus. Kebab sangat populer di Timur Tengah dan juga di Indonesia.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "33613940-6697-4600-9ec2-2c80e7dee069",
-          "71c577d8-fa4a-48d0-bd15-cd6db00f5f36",
-          "75a03798-621f-4d43-bf3e-144bda80cd70",
-          "c5cc5a89-e9df-457b-a538-3da56a1c9a7d",
-          "ce6294f2-b822-4ac8-8a00-a50bd2197edd"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000045",
-      "fields": {
-        "nama_menu": "Martabak",
-        "deskripsi": "Martabak adalah makanan yang memiliki dua versi: martabak manis dan martabak telur. Martabak manis biasanya diisi dengan cokelat, keju, atau kacang, sedangkan martabak telur diisi dengan campuran telur, daging cincang, dan bumbu, lalu digoreng hingga renyah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0734a7ff-ce58-42b4-9e6d-77046300e52b",
-          "2bb94e18-780b-4d70-926c-33f5eaa8b6ce",
-          "79462e72-e749-46a8-a3f5-d24ea62cf4f3",
-          "bae247a5-b54b-4b1c-8b1a-f9130c0a3aef",
-          "e22687fb-d119-4e53-bb2f-808713759cd8"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000046",
-      "fields": {
-        "nama_menu": "Sate Kere",
-        "deskripsi": "Sate Kere adalah sate yang terbuat dari bahan sederhana seperti tempe gembus (ampas tahu) atau jeroan sapi. Ini adalah versi ekonomis dari sate daging dan biasanya disajikan dengan bumbu kacang yang lezat.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "2b06290d-a249-4bc0-983d-4efa947931da",
-          "52032d6b-73ba-4366-b528-ae0f16445504",
-          "57c9d72a-a4c4-403a-b2df-8be79867ecd4",
-          "623eef47-fa76-44eb-93fa-cd1015191855",
-          "8bf7389a-4aef-4408-a958-46edc0a66a2d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000047",
-      "fields": {
-        "nama_menu": "Bubur",
-        "deskripsi": "Bubur adalah hidangan nasi yang dimasak dengan banyak air hingga teksturnya menjadi lembut dan kental. Bubur sering kali disajikan dengan aneka topping seperti ayam suwir, kacang, bawang goreng, dan sambal. Bubur sangat populer sebagai sarapan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "6ca985c0-d6ba-4b1e-80dd-7b82556af629",
-          "82d223ab-9fa5-4d9d-ad91-65ac04b2512d",
-          "8a72c2b9-f599-4332-a1b3-9f92bdcbaa3f",
-          "9d93af1b-e8f3-48fe-bf51-393fbf7d2c8c",
-          "de1f946e-56ba-4b75-83a4-e17daa58ab0e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000048",
-      "fields": {
-        "nama_menu": "Kambing guling",
-        "deskripsi": "Kambing Guling adalah hidangan yang terbuat dari kambing utuh yang dipanggang perlahan di atas bara api hingga dagingnya empuk dan kulitnya renyah. Kambing guling biasanya disajikan dalam acara besar seperti pesta atau perayaan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "00f46696-7ea9-470f-8121-2969dd18f0a7",
-          "017a1a65-5c65-4731-846d-a0ee094f48f8",
-          "3b722ae3-1e8b-4717-a03a-07ec5957a7ce",
-          "d459d7df-1505-400b-b764-3602c458013d",
-          "e7682375-9853-4a9f-aa13-d402f3cb11a0"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000049",
-      "fields": {
-        "nama_menu": "Roti bakar",
-        "deskripsi": "Roti Bakar adalah roti tawar yang diolesi mentega atau margarin, kemudian dipanggang hingga renyah. Hidangan ini sering disajikan dengan aneka topping, seperti cokelat, keju, selai, atau susu kental manis, dan menjadi camilan favorit di malam hari.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0decab0a-74c1-4af1-8b9d-9ce6cf42e168",
-          "32321dbd-055b-4aab-bda2-5e01a86335c4",
-          "4a6cba53-9409-4288-b2f1-5b2d2b4580ba",
-          "73e11576-c054-400f-8a8d-af1029ca6d0e",
-          "f1dfedcb-c7e5-4e4c-961a-69cdd94ff939"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000004a",
-      "fields": {
-        "nama_menu": "Ayam geprek",
-        "deskripsi": "Ayam Geprek adalah ayam goreng tepung yang diulek (dihancurkan) bersama sambal. Hidangan ini terkenal karena rasa pedasnya yang menggigit, dan biasanya disajikan dengan nasi dan lalapan seperti mentimun dan daun kemangi.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "25385cc6-60f1-483a-9bd6-7151da82949f",
-          "55eb1147-57f0-4527-8fe4-3277fc262416",
-          "7bf4006f-2354-4fec-8572-5a96250f098d",
-          "ae7ed4cd-3197-4209-a559-153d53cff6e8",
-          "d094f9eb-3a3c-4c05-aaa2-691fe6c0c147"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000004c",
-      "fields": {
-        "nama_menu": "Bebek goreng",
-        "deskripsi": "Bebek Goreng adalah daging bebek yang digoreng hingga kulitnya garing namun dagingnya tetap lembut. Bebek ini biasanya dibumbui dengan rempah-rempah khas Indonesia dan disajikan dengan sambal dan nasi putih.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "707eae3a-54d6-45c0-a881-7e62af261e91",
-          "a50b668d-616a-4614-8a69-46233f6f9a97",
-          "b339b52e-af6b-40c0-9747-6c8be438badd",
-          "b781d921-9964-45a9-87cc-e4ba772138e5",
-          "da63a5b5-b42e-4da5-86c6-62a4ca082423"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000004d",
-      "fields": {
-        "nama_menu": "Mie bangka",
-        "deskripsi": "Mie Bangka adalah hidangan mie khas Bangka yang biasanya disajikan dengan kuah kaldu gurih, irisan daging ayam, bakso ikan, tauge, dan sayuran segar. Mie ini terkenal dengan teksturnya yang kenyal dan rasanya yang gurih.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1e591a77-2c4c-43a9-bd87-59a57a9e71c0",
-          "7eb99760-133b-4dcf-b0e2-c7d8e84950c6",
-          "d4a52530-513c-4343-97e2-9ef76fd51433",
-          "d7e21f8a-f10c-4142-b785-c384f289d172",
-          "df60a357-d2bd-4f9d-a53a-ce8c11f5820d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000004e",
-      "fields": {
-        "nama_menu": "Sate Klathak",
-        "deskripsi": "Sate Klathak adalah sate khas Yogyakarta yang menggunakan daging kambing. Berbeda dari sate biasa, Sate Klathak hanya menggunakan garam sebagai bumbu dan ditusuk dengan jeruji besi, bukan bambu. Sate ini biasanya disajikan dengan kuah gulai yang gurih",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0cfff76d-e4bc-4476-832f-b15e6e1608af",
-          "18335e0f-c09c-4dff-93dc-89e0303761c6",
-          "3e02f86a-05d7-4d78-be34-3b2426691f9b",
-          "6d728d0c-1125-4831-8321-6d2fd159461d",
-          "8f43d3e6-0ca9-47e8-ac13-4f81757b223a"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000004f",
-      "fields": {
-        "nama_menu": "Tiwul",
-        "deskripsi": "Tiwul adalah makanan tradisional khas Gunungkidul, Yogyakarta, yang terbuat dari tepung gaplek (singkong kering). Dulunya dianggap sebagai pengganti nasi, Tiwul sekarang dinikmati sebagai makanan unik yang disajikan dengan lauk-pauk atau parutan kelapa dan gula merah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "011fede6-8b5e-4c0c-92d8-845b3208a87d",
-          "052d9fc8-a109-4953-aa98-eb7356fb9acb",
-          "40d0a3ed-142b-4f3d-9141-4be7ef607b59",
-          "76fa412c-96c4-4f6a-99fe-b0d732aac68c",
-          "7ff24f54-1c96-4be0-8fa4-506ae61833cc"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000050",
-      "fields": {
-        "nama_menu": "Sego Kucing",
-        "deskripsi": "Sego Kucing atau Nasi Kucing adalah nasi porsi kecil yang biasanya disajikan dengan sambal, ikan teri, dan tempe goreng. Ini adalah makanan yang populer di angkringan (warung makan kaki lima) karena porsinya kecil dan harganya sangat terjangkau.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "26f75cc3-aaf0-4652-8503-89d9deda208d",
-          "61d411bc-7093-41d9-ac7c-2738800c8091",
-          "79eec2b3-cee8-4e3b-a4ef-1be03ee47603",
-          "7c0680ca-9daf-47cc-82d6-360b8b0ee854",
-          "fda78638-11c3-4a3c-a398-31396f530a60"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000051",
-      "fields": {
-        "nama_menu": "Seafood",
-        "deskripsi": "Seafood mengacu pada hidangan yang berbasis dari hasil laut, seperti ikan, udang, cumi-cumi, kepiting, dan kerang. Hidangan seafood dapat disajikan dalam berbagai bentuk, seperti dibakar, digoreng, atau direbus dengan aneka bumbu khas yang memperkaya rasa makanan laut tersebut.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "01c7dafe-d97b-4f50-8757-a9e7b8108e7b",
-          "6de4f681-898b-4b44-89f0-da7dd9e8865e",
-          "ac6f7040-5be2-458f-8a58-b0516f43f7d8",
-          "b4a2488a-eb9e-43ba-906f-aa3497e5611c",
-          "f1f1ec82-ca01-487a-9ec7-7f0433a76a81"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000053",
-      "fields": {
-        "nama_menu": "Ayam Bakar",
-        "deskripsi": "Ayam Bakar adalah hidangan ayam yang dibumbui dengan berbagai rempah, seperti kecap manis, bawang putih, dan serai, lalu dipanggang hingga matang sempurna. Biasanya disajikan dengan nasi dan sambal, Ayam Bakar terkenal karena rasanya yang kaya dan gurih.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "066f8614-6ddc-48d5-a1a9-1a6a53e23843",
-          "2c8606d0-774c-4d31-8b45-c275bd847839",
-          "566af64a-c671-4a45-af0a-4fbb4ee4651b",
-          "8092fd60-b045-4242-928e-125b1e4f7045",
-          "96713d20-0c3a-4d73-9cc8-512e44377c63"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000054",
-      "fields": {
-        "nama_menu": "Oseng-oseng mercon",
-        "deskripsi": "Oseng-Oseng Mercon adalah hidangan khas Yogyakarta yang terkenal dengan rasa pedas yang sangat ekstrem. Nama \"\"mercon\"\" yang berarti petasan menggambarkan sensasi pedas yang meledak di mulut saat menyantapnya. Hidangan ini terbuat dari bahan dasar daging sapi, kikil, atau tetelan yang dimasak dengan bumbu cabai rawit dalam jumlah banyak, sehingga rasanya sangat pedas. Biasanya, Oseng-Oseng Mercon disajikan bersama nasi putih untuk menyeimbangkan rasa pedasnya.\n",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "63946e51-200e-4a3a-9c99-89e09483b0e7",
-          "753fd11e-80b3-4aea-a202-be23f3b688e0",
-          "937ac4ff-7e7d-4f65-a047-bec50a5ec3aa",
-          "9ba6af7a-5772-4a76-b503-3743469c8cbc",
-          "e7547b4e-e766-4661-8693-1c0801b4b6da"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000055",
-      "fields": {
-        "nama_menu": "Nasi goreng",
-        "deskripsi": "Nasi Goreng adalah nasi yang digoreng dengan campuran bumbu seperti bawang putih, kecap, dan cabai, sering kali ditambah dengan telur, ayam, atau udang. Nasi Goreng adalah salah satu hidangan yang paling populer di Indonesia dan bisa ditemui hampir di setiap sudut jalan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "04faf2dd-1812-49dd-9441-20c7d04506b0",
-          "1b3d94fb-b4f8-46a7-ac1a-a4411bd029c3",
-          "1f25bdb2-4348-41f9-9374-a5fdd74eee24",
-          "66f59ecc-8875-4bf1-8d88-731acf307ac8",
-          "ce887ea3-35ba-4018-9664-47f34460236b"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000056",
-      "fields": {
-        "nama_menu": "Bakso",
-        "deskripsi": "Bakso adalah makanan khas Indonesia yang berbentuk bulat, umumnya terbuat dari daging sapi yang dihaluskan dan dicampur dengan tepung tapioka. Bakso biasanya disajikan dalam kuah kaldu yang gurih, dilengkapi dengan mi, bihun, tahu, pangsit, seledri, dan bawang goreng.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1ce269d2-c888-469e-aecc-54272d6cc2e0",
-          "694a2f2a-f937-43b7-82df-57b8016f9b05",
-          "8d373b04-e281-467a-9a53-29eba0f50bce",
-          "9cebc09a-63c7-42b3-891e-1d30e20fb736",
-          "b6880b2d-ee4f-4b36-be47-1e7933fcfe8a"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000058",
-      "fields": {
-        "nama_menu": "Ikan Bakar",
-        "deskripsi": "Ikan yang dipanggang dengan bumbu rempah khas, biasanya disajikan dengan sambal dan lalapan. Hidangan ini memiliki cita rasa yang gurih dan sedikit beraroma asap dari proses pembakarannya.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "07cb91dc-7732-458b-9a2f-ebb136470cb3",
-          "1caa34e2-8abf-45cc-9e48-f84b145aea2c",
-          "7d67a65d-a3b7-40dd-ac48-57ee54deafe9",
-          "a910984b-2c95-4e8a-b19b-23f69ee09a6f",
-          "d7621cdc-4ace-496e-90a4-12c1a8808d2d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000059",
-      "fields": {
-        "nama_menu": "Sushi",
-        "deskripsi": "Makanan khas Jepang yang terbuat dari nasi yang dibumbui cuka dan biasanya dilengkapi dengan berbagai bahan seperti ikan mentah, sayuran, dan telur. Disajikan dalam bentuk gulungan atau potongan kecil.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1cfb8863-0b5c-4d00-93be-18a356ddb108",
-          "1dbed06e-9d58-4021-947f-9d5264870971",
-          "5c6340d8-33e4-4705-a43c-5457b842d8a2",
-          "a662d10e-fea5-49b2-9cdf-774b80ef82fa",
-          "b0441016-b6d2-4c0a-b33b-48e1cd01db52"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005a",
-      "fields": {
-        "nama_menu": "Seblak",
-        "deskripsi": "Hidangan khas Sunda yang terbuat dari kerupuk basah, tumis dengan bumbu pedas serta aneka isian seperti sosis, bakso, telur, dan sayuran. Rasanya gurih, pedas, dan kenyal.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "71eeb2e2-fb43-420f-abd0-0bef98b7ac58",
-          "753684b7-3f24-4c47-87a9-fe10010202c3",
-          "7984f446-3f1c-4645-83bc-bd342fe553aa",
-          "7b48f90f-fad2-4f12-9f6c-2efdd3ee3813",
-          "f4d15a14-32df-41e4-9476-2eab292ba7be"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005b",
-      "fields": {
-        "nama_menu": "Es Cendol",
-        "deskripsi": "Minuman manis tradisional Indonesia yang terbuat dari cendol (tepung beras hijau), santan, dan gula merah. Segar dinikmati pada hari yang panas.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "14064cbd-a491-4de6-bfa8-5f3717e42eb9",
-          "3735d47c-bebd-4515-8d10-949b3e9a08b1",
-          "40552630-e177-4ae0-a6e8-f4d041dca8df",
-          "e799d7bb-c6c1-4e74-91fb-ca49f001f765",
-          "f78f76e5-12dc-4041-b4e6-f85faedeb27e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005c",
-      "fields": {
-        "nama_menu": "Rujak Eskrim",
-        "deskripsi": "Paduan unik antara rujak buah pedas manis dan es krim yang lembut. Hidangan ini menyatukan rasa segar, pedas, dan manis dalam satu gigitan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "20b4f58f-bb1b-4120-8776-fa27f11b7f97",
-          "3086de01-bbc9-4405-ba89-7151136a4a79",
-          "60317434-a3e1-40e7-9a45-cbbfb901eb12",
-          "a5f3010b-8e4c-4036-bf0f-5511de1c4f8b",
-          "b6eade0a-7d03-4a57-b6de-b0fb86e076a1"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005d",
-      "fields": {
-        "nama_menu": "Klepon",
-        "deskripsi": "Kue tradisional berbentuk bola kecil dari tepung ketan, berisi gula merah cair, dan dibalut kelapa parut. Teksturnya kenyal dan meledak manis di mulut.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "041952cb-fd69-4094-95f0-06eff85c77f9",
-          "971a39cd-c74b-47be-8fa2-79b7b1bd8a9f",
-          "98fcbeab-39e9-48d7-b240-8c5728b02685",
-          "b2bec6df-9f44-4f93-8e89-319b8e0108f7",
-          "dccf811a-edf2-4b58-a1db-ae49bca3bfb0"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005e",
-      "fields": {
-        "nama_menu": "Jadah Tempe",
-        "deskripsi": "Jadah tempe adalah makanan khas dari Yogyakarta, khususnya dari daerah Kaliurang. Makanan ini terdiri dari dua bagian, yaitu jadah dan tempe. Jadah adalah ketan yang ditumbuk hingga halus dan memiliki tekstur kenyal, sedangkan tempe yang digunakan adalah tempe bacem, yang dimasak dengan bumbu manis dari gula merah, kecap, dan rempah-rempah.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "1a58cbc2-c923-4d5c-9dd2-bb7cca5a10d8",
-          "29704498-c79a-48ea-a803-b4a32f04652a",
-          "46aed78f-2cb7-4c46-b8d4-34246878963a",
-          "56979641-9704-46e6-b73f-ddb6d745e202",
-          "b6abcd74-2067-4364-b4dd-4f790b1b2b3e"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-00000000005f",
-      "fields": {
-        "nama_menu": "Sop Ayam",
-        "deskripsi": "Sup ayam dengan kuah bening yang terbuat dari kaldu ayam, disertai potongan sayur dan rempah seperti daun bawang dan seledri. Rasanya segar dan menghangatkan.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "12229c70-506e-4b63-b021-8b32aecdfe30",
-          "4232e025-cf85-4df1-9c7c-bccbb71d7546",
-          "7efd52a1-72a2-4f8a-bef8-331edf39773c",
-          "85d7b2ed-164b-4891-9f55-a16caa83c30b",
-          "e61a2254-b78d-4b02-be6d-3b5bf3ca50f6"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000060",
-      "fields": {
-        "nama_menu": "Tengkleng ",
-        "deskripsi": "Hidangan daging kambing yang dimasak dengan kuah gurih dan pedas, mirip gulai namun dengan kuah yang lebih ringan. Biasanya menggunakan tulang kambing sebagai bahan utamanya.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "4c0e30ff-6f75-44fd-9a58-7dda228bae06",
-          "5180a200-f78d-470d-8ddb-a9aa9981e5cb",
-          "6f2f9306-63fd-41aa-bc06-62bf09d6ae62",
-          "9065c78b-53ca-4a5e-869f-9b0a7c8b15d8",
-          "b2b9a854-8fee-4086-b40c-493e410a3cbd"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000061",
-      "fields": {
-        "nama_menu": "Mie Ayam",
-        "deskripsi": "Mie rebus yang disajikan dengan potongan daging ayam yang dimasak dengan bumbu kecap, biasanya dilengkapi dengan pangsit atau bakso. Populer sebagai makanan cepat saji di Indonesia.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "252d533a-97ff-40b2-8755-f6734832b0e6",
-          "7ed6f999-8be7-4e90-b528-dfef5bd886a2",
-          "88b4c7cf-1404-4ea9-83bb-d9ba69d79c6f",
-          "beadcab3-1826-4c07-9012-4fc4786e46ff",
-          "dea54af3-ea77-4a30-a163-e26fb14c22ce"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000062",
-      "fields": {
-        "nama_menu": "Cenil",
-        "deskripsi": "Kue tradisional dari tepung kanji yang bertekstur kenyal, berwarna-warni, dan dibalut kelapa parut. Rasanya manis dan biasanya disajikan dengan gula merah cair.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "245eb25d-c170-4abc-b051-354bf431a3a8",
-          "2fe503cc-3e32-44e0-86cb-90298f9ba98c",
-          "4912777f-8315-4596-ae0a-e77769f3fe36",
-          "5275f2a8-09e7-46c1-aaa5-56f5e52e8ae7",
-          "e87fd4dc-8480-44bb-8505-473008a023ae"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000063",
-      "fields": {
-        "nama_menu": "Nasi Liwet",
-        "deskripsi": "Nasi gurih khas Solo yang dimasak dengan santan dan daun salam, disajikan dengan ayam suwir, telur, dan sayur labu siam. Rasa nasi ini kaya dan lezat.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "003f54b0-996c-440a-b2bf-f95909de328e",
-          "34bd26fc-8e32-4315-a693-654d75eba3a8",
-          "50388e45-1649-469a-9d6a-dfa813fa2fe7",
-          "b162ab00-f139-4941-baba-97f5ef027702",
-          "bcd76412-f48d-4842-b5d2-ea5165448f2b"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000064",
-      "fields": {
-        "nama_menu": "Lupis",
-        "deskripsi": "Kue tradisional dari beras ketan yang dibentuk segitiga atau silinder, disajikan dengan kelapa parut dan sirup gula merah. Teksturnya lengket dan rasanya manis.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "46dd79b9-54de-4499-8a18-3b79d53fb78b",
-          "c9312836-a0ee-4490-a981-853cd81474e2",
-          "d055531c-84e8-4d98-a235-f7c227d1e137",
-          "e4b81f6e-d6fa-4e60-9057-4a6b1c6c2bec",
-          "f5bb9ee1-b821-4cfb-9389-c2f033dda2c5"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000065",
-      "fields": {
-        "nama_menu": "Pastry",
-        "deskripsi": "Kue yang terbuat dari adonan tepung dan lemak, sering kali dibentuk menjadi lapisan-lapisan renyah. Pastry bisa manis atau gurih, seperti croissant atau pie.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "00b2749a-b37d-42b5-9989-460e3c1fd7ee",
-          "214e36a6-4312-47d0-bb29-f86ee7e5aa34",
-          "2d97d554-b2e3-4d54-a047-950984a332b2",
-          "75eb69f0-6d8d-4df4-8414-69b8d109a2c6",
-          "c983e296-7172-4990-8d09-c233908c50dc"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000067",
-      "fields": {
-        "nama_menu": "Kepiting",
-        "deskripsi": "Sajian laut yang diolah dengan bumbu-bumbu khas seperti saus tiram, saus Padang, atau saus mentega. Kepiting terkenal dengan dagingnya yang manis dan tekstur yang lembut.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "138b4e6f-e1eb-4bcf-85dd-f511fc4cdd6c",
-          "4fa313b7-1f81-4b09-8403-c4115615ebc0",
-          "a9e0a5b1-2823-4f88-a9f0-d412790a049a",
-          "afccf213-0920-49f9-96e9-e12d08698fe8",
-          "c5b85089-8379-47f4-9b59-ec06792dc49d"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000068",
-      "fields": {
-        "nama_menu": "Rawon",
-        "deskripsi": "Sup daging khas Jawa Timur dengan kuah hitam yang berasal dari kluwek (buah kepayang). Rasanya gurih dan kaya rempah, biasanya disajikan dengan nasi, taoge, dan telur asin.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "0132c1a3-2f1e-46d1-8008-2566680217c2",
-          "08086b72-9a78-4ab1-bf8a-7761328e6cd5",
-          "327a23b0-5975-4ce8-8766-d1042d39cecf",
-          "398d6aff-b5d3-4dab-9a5b-11936a7863ba",
-          "8bb5b8b2-a5ed-4b93-8309-0f6af35506d4"
-        ]
-      }
-    },
-    {
-      "model": "admin_dashboard.menuentry",
-      "pk": "00000000-0000-0000-0000-000000000069",
-      "fields": {
-        "nama_menu": "Empal Gentong",
-        "deskripsi": "Sup daging sapi yang dimasak dalam gentong tanah liat dengan kuah santan kental dan bumbu rempah. Rasanya gurih dan sangat kaya akan cita rasa tradisional.",
-        "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
-        "restaurants": [
-          "338db995-bc90-420f-86fa-063f1bf39459",
-          "422ce808-6fd8-4a92-bf98-cb13e25fb73b",
-          "4377cdbb-9b72-4ad7-98ff-99ef2fa4e0f4",
-          "df933688-adf7-44ea-aea9-baee0a6c666c",
-          "e467a131-01db-40fc-a6f2-2744c0a44b76"
-        ]
-      }
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000001",
+    "fields": {
+      "nama_menu": "Gudeg ",
+      "deskripsi": "Hidangan tradisional Jogja yang terbuat dari nangka muda direbus dengan santan dan rempah-rempah, biasanya disajikan dengan telur, ayam, dan sambal goreng krecek.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "32990cf8-3b25-49a7-93fc-fb5ca545e625",
+        "44c168ad-4de5-4b59-8767-a69ea4e31dbc",
+        "67a3ccb4-2cb3-4be5-bc46-6bae86dd8a2e",
+        "f6ff1e7e-a1d4-48f4-aa05-bafb6f906515",
+        "fe099180-6421-4d22-b906-51e126aa6c8e"
+      ]
     }
-  ]
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000002",
+    "fields": {
+      "nama_menu": "Lotek",
+      "deskripsi": "Salad sayur Indonesia yang disiram dengan saus kacang yang gurih dan pedas, seringkali disertai dengan lontong atau ketupat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "12a9e533-e0ea-416c-86d6-69569664470a",
+        "3588142a-4d8b-460a-a032-8a50c1609df7",
+        "794e9cf0-4382-48cd-8d35-6581d14e3a3c",
+        "832a70c3-2add-4931-ad9a-81731400ca76"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000003",
+    "fields": {
+      "nama_menu": "Iga bakar",
+      "deskripsi": " Rusuk sapi yang dibumbui dan dipanggang hingga empuk, umumnya disajikan dengan sambal dan lalapan segar.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "219c99eb-cb2a-4874-ba6b-d4bdb740ea30",
+        "2fda24b2-a089-4ae2-bed6-9c420d530f57",
+        "aa69748c-0935-4fa9-976d-c8e7c2053a3d",
+        "ad174064-7ad1-47d0-86f0-fec1d4a05891",
+        "dbe99eb1-b840-4e4f-92f2-c7f337ed3add"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000004",
+    "fields": {
+      "nama_menu": "Bakmi Jawa",
+      "deskripsi": "Mie goreng dan mie rebus yang dibumbui dengan bumbu Jawa yang khas, dihidangkan panas dengan campuran sayuran, ayam, atau seafood.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "5ae8abac-d40b-499d-8d84-1107207a805d",
+        "612fccd0-1dd9-4998-8eb3-47d8a2eeff5d",
+        "7aee585d-cce9-44f9-8f50-503c528e66a5",
+        "c79c4c53-d32b-4e79-be46-91186d8d030c",
+        "d7a198ce-34ad-480c-9fd2-1104e25cafac"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000005",
+    "fields": {
+      "nama_menu": "Ramen",
+      "deskripsi": " Mie kuah Jepang yang kaya rasa, disajikan dengan daging seperti  ayam, telur rebus, nori, dan sayuran.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "73c217ad-5d53-4ca8-91d6-3b12002d6b61",
+        "7ebc1ad9-d744-4bfd-9c78-8859daa711e0",
+        "9d239d7a-f002-4b1f-b41d-47c302c3769a",
+        "e3d21e02-ad19-4b89-8b6f-528e6dc01e36",
+        "e8d2f136-09e3-4a06-a5bb-558e363093ad"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000006",
+    "fields": {
+      "nama_menu": "Dimsum",
+      "deskripsi": "Camilan asal Cina yang terdiri dari berbagai jenis seperti siomay, hakau, dan bao, dikukus atau digoreng dan disajikan dengan saus celup.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0bd1ea1f-a27f-412c-8578-4fb153fb1244",
+        "33a23834-713c-411e-b228-a577849ca398",
+        "39b27884-cb0d-4c6f-b2af-0e450b40cb4e",
+        "3cdfd9c1-1dda-4bd1-b4cf-bad5a5db849f",
+        "c165451f-b07f-428b-a341-728a46a7e677"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000007",
+    "fields": {
+      "nama_menu": "Salad",
+      "deskripsi": "Campuran sayuran segar atau rebus, kadang-kadang disertai keju, kacang, atau protein seperti ayam atau ikan, disajikan dengan dressing.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0c1f9ae9-2d37-49ff-9415-80d1370cf361",
+        "1cbe783f-a6c2-4348-a953-2305cf832dc5",
+        "2f77e8ea-7e3d-429c-b259-254e71d775cd",
+        "42d95fa3-026f-4ff2-9dc4-374086e2878a",
+        "b9116c27-004e-4dd1-aa68-dced614f3553"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000008",
+    "fields": {
+      "nama_menu": "Pho",
+      "deskripsi": "Sup mie Vietnam yang ringan namun penuh rasa, dengan kuah kaldu daging yang aromatik, disertai irisan daging sapi atau ayam.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2c775903-7c8e-4989-977e-340524e43325",
+        "7194ee7f-81ab-4380-a6cb-e039654781d4",
+        "bbba5f59-c9dd-46a5-9dae-d30030d4ef23",
+        "e4227fd5-51b5-4ea6-bb05-38622552af9a",
+        "faaefd29-acf3-4056-8692-18c7e086c033"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000009",
+    "fields": {
+      "nama_menu": "Bakpia",
+      "deskripsi": "Kue bulat kecil dari Jogja yang terbuat dari kulit tipis berisi pasta kacang hijau, kadang diberi variasi rasa seperti cokelat atau keju.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2f22fda8-f885-4032-aab8-06b81ef7f18b",
+        "787c859c-6d56-4e1e-9000-a0c3e180884b",
+        "7a348441-8279-48ea-b630-bc47a4784f95",
+        "9ebe05c9-1d63-465a-8142-b8a100d91cde",
+        "bf825fab-99c1-4823-95ee-b7eac877a40b"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000a",
+    "fields": {
+      "nama_menu": "Es krim",
+      "deskripsi": "Dessert beku yang kaya krim, tersedia dalam berbagai rasa dari vanila klasik hingga eksperimen rasa lokal seperti durian atau teh hijau.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0681e9de-6f30-4921-8ae3-2078f9c7e478",
+        "189c62d2-e766-446d-9e26-207637a8edd2",
+        "92bc34fa-2f29-4d6d-a031-8f72290d0050",
+        "aaa876e0-2cc6-4b9f-8e16-f738bcd6f122",
+        "e399fd4c-9763-4efc-a616-00ec9969f82f"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000b",
+    "fields": {
+      "nama_menu": "Es coklat",
+      "deskripsi": "minuman segar yang menampilkan perpaduan sempurna antara coklat dan es yang sangat menyegarkan, khususnya di tengah cuaca panas khas Jogja.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "00181bab-8986-40c8-b8ca-1d3f45e6f94c",
+        "005bed9c-6daf-4bf7-b5f5-bc4871daa764",
+        "1071daa1-ec43-4358-a9d0-d9cb013d24f4",
+        "3e6d8a1a-b2af-4307-9fb3-b3995674997e",
+        "5fc1e349-24df-473b-a636-c92f354539a2"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000c",
+    "fields": {
+      "nama_menu": "Sate ayam",
+      "deskripsi": "Potongan ayam yang dibumbui, ditusuk, dan dibakar, biasanya disajikan dengan saus kacang atau kecap manis.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "095a33cc-39c4-4932-8c86-16debb1edf24",
+        "0bcdd565-57b9-41cf-a76d-606f3ba96d79",
+        "2f72533d-ece3-4cd8-a9da-4a21a84246c1",
+        "469b10e2-f3d6-480d-b3d1-901ee3c2e578",
+        "8e72a93d-ed87-4930-8644-e6c715f80ffb"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000d",
+    "fields": {
+      "nama_menu": "Jus",
+      "deskripsi": "Minuman yang dibuat dari buah-buahan segar yang dihancurkan atau diperas, seperti jeruk, apel, atau mangga.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "1e3255ca-7167-4133-a6d0-cc86706b4672",
+        "406411af-c273-4d03-817d-298b322eee9d",
+        "62016068-557e-47d1-ab1e-6504b96b253c",
+        "8318cbff-8757-4efc-9320-33af90bfafc5",
+        "aeb0ab11-ef14-454d-8ea2-203420cc2741"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000e",
+    "fields": {
+      "nama_menu": "Wedang ronde",
+      "deskripsi": "Minuman hangat khas Jawa yang terbuat dari bola-bola tepung beras berisi kacang tanah yang disajikan dalam jahe hangat dan gula.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4b0f3c15-65c4-43e9-b161-d1af9c43e400",
+        "9298a090-0d10-46cc-a9b7-c1f066235e15",
+        "c4f4066c-37e6-417d-bf44-a0e5996b4e80",
+        "c5aa2a3e-042a-4977-8a91-7cce7c4b84f7",
+        "d53a3f04-d98e-4594-b44b-8a8a7126bcb5"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000000f",
+    "fields": {
+      "nama_menu": "Sayur lodeh",
+      "deskripsi": "Masakan Jawa dari aneka sayuran seperti labu, terong, dan kacang panjang yang dimasak dalam kuah santan yang ringan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "17d1adf8-07d2-4caa-ae5a-d98de9f0aafa",
+        "49d268dc-05f3-4f40-8be7-4d5174969e6b",
+        "a52e122b-7f31-4a0a-9222-8d63fee71138",
+        "ad9b4fbd-3deb-4758-b3dd-3f312a3ff636",
+        "f261775a-1e28-4fbf-b096-b38c7ce5fda0"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000010",
+    "fields": {
+      "nama_menu": "Soto ",
+      "deskripsi": "Sup Indonesia yang kaya rempah, dengan variasi yang berbeda di setiap daerah, biasanya melibatkan ayam atau daging sapi dan sayuran.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0eb8fb16-8809-4836-9a91-4b8b8f1d54c5",
+        "447b5a9b-2ca7-4c5c-859e-81f5686c7322",
+        "9de26666-0c16-43ea-93b5-1702e50f67ab",
+        "b9689b05-c741-4c0c-a854-14c7c5c4f472",
+        "d0529f63-ad2f-4572-9587-d8c8466c3a1f"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000011",
+    "fields": {
+      "nama_menu": "Kopi",
+      "deskripsi": "Minuman yang dibuat dari biji kopi yang disangrai dan digiling, bisa dinikmati panas atau dingin, hitam atau dengan tambahan susu.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3e10ba05-4476-47fd-9fcf-1f2b46b535b6",
+        "74fe03bc-b279-4358-bc34-eafd822e6cb5",
+        "cfdcdf2c-7781-439e-9482-43d5bcc8de6f",
+        "d744ed24-5ef9-494f-be29-bfd403721fa4",
+        "e70316f8-dc7e-4bdd-8dfb-44afe17ae8b4"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000012",
+    "fields": {
+      "nama_menu": "Teh",
+      "deskripsi": "Minuman yang dibuat dari daun teh yang diseduh, tersedia dalam berbagai jenis seperti hitam, hijau, atau oolong.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "24757a85-a85a-4ab3-a3ab-7009552c8302",
+        "5eeee8bd-c542-4db2-bddb-3020866798f7",
+        "9bcc7424-075b-4ae5-a4b3-3a667a9606d1",
+        "e19f22e4-dd36-4c38-81c8-5efb1703007d",
+        "fbe096fe-a92a-448c-8c73-3675b0d442fe"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000013",
+    "fields": {
+      "nama_menu": "Kue",
+      "deskripsi": "Pencuci mulu yang manis atau gurih yang dibuat dari adonan atau adonan yang dipanggang, bisa berupa kue kering, bolu, atau tart.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0da5a8f7-123b-4aee-ab62-f1cae4c27835",
+        "3ff5c0e6-6b6b-4b39-82bc-a5645a61154b",
+        "980167e1-a78d-455d-9c44-08ceafc41d93",
+        "b2cb2f1a-0d52-4c27-854e-5f582c8139c8",
+        "e89c567f-631f-4ef6-b4ef-ba30e28a5ce1"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000014",
+    "fields": {
+      "nama_menu": "Pecel lele",
+      "deskripsi": "Lele goreng krispi yang disajikan dengan sambal tomat pedas dan lalapan seperti timun dan kemangi.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "345ac0c5-b7c8-4837-84ca-71d5d7b66349",
+        "4c6155b6-f3d6-45ff-99eb-d5362ef78dc0",
+        "4ce33e8f-9b38-495e-af96-152c3840dfbd",
+        "628b3317-8453-4ec5-bff7-c56d4b311a9f",
+        "96f96d28-8163-4a48-9d77-c0338339185f",
+        "9ab3bbc5-c4df-4bd5-96a9-f05971c61506",
+        "ba77648b-4a6c-4cac-9a6c-64f14e0d1b19",
+        "c2d173c5-98c3-445a-bb80-a33c77bee80e",
+        "e119b8dc-054e-4caf-84fc-18d6390c124d",
+        "fb31e012-fcd2-4f81-a323-2806e061bf25"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000015",
+    "fields": {
+      "nama_menu": "Burger",
+      "deskripsi": "Burger klasik dengan daging sapi panggang yang juicy, diapit oleh roti brioche yang lembut, ditumpuk dengan keju cheddar leleh, selada segar, tomat, bawang karamel, dan saus spesial rumah, disajikan bersama kentang goreng renyah dan acar.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "11ac035a-f548-4f1d-9bdd-5c583dbbad88",
+        "1562fa4a-6f80-4b71-9703-af8119cf404f",
+        "2ae0f892-4856-484f-9e1d-d354d087cecd",
+        "3935076b-a7dc-4cb8-9b1f-4bde1820c629",
+        "64223dc0-c156-4541-b5fd-26eb2e4f20d7",
+        "74770201-4a98-4e99-a874-309580a2098c",
+        "7dfcacc8-8d3f-4040-96c3-faab3628eae1",
+        "97164d03-44c4-464c-b0d2-260d567b10f6",
+        "a5b1b463-21e8-4de1-84c1-150f289fb8ae",
+        "ca92bfbf-72c1-49f4-a414-a309cdc8546e"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000016",
+    "fields": {
+      "nama_menu": "Nasi Campur",
+      "deskripsi": "Nasi putih hangat dengan ayam suwir, telur balado, tahu goreng, sambal pedas, dan kerupuk, disajikan lengkap untuk kenikmatan yang penuh cita rasa.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3c44c07a-202a-42aa-b775-f8017f3a2067",
+        "3f34f03e-7259-4982-807d-f4fe1eb83c23",
+        "4d6414ab-ad6a-4330-96d1-4d81a938da3a",
+        "7099c8ee-3a9a-49b6-bf88-b9ac88755d4c",
+        "8c50951c-9410-498c-a2e7-ed99140fca36"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000017",
+    "fields": {
+      "nama_menu": "Kwetiaw",
+      "deskripsi": "Mie pipih yang kenyal dengan tumisan sayuran, daging sapi, dan saus gurih khas Tionghoa.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "38786620-ae5c-41ac-b8b6-93eac4d1d737",
+        "481c1e38-174c-46cd-a613-f4d75f1f7ee9",
+        "5282df21-e03e-4ac0-9af0-a950263de3b9",
+        "86c483be-2ce5-40c4-84a9-187a4ee63090",
+        "a61f2bb2-d714-48c0-9c02-354a001d5dea"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000018",
+    "fields": {
+      "nama_menu": "Nasi Gudeg",
+      "deskripsi": "Nasi putih dengan gudeg nangka manis, ayam kampung, telur, sambal krecek, dan tahu tempe bacem.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "09e208ba-4bb5-4a20-9e09-8c3a2463b784",
+        "2e09fdaa-313e-4b8d-beef-82daa7ef28d2",
+        "467a0493-469d-4b29-ae33-be9f52197941",
+        "5bcee17e-9671-496c-b550-669673d9bc60",
+        "a34e7715-fdd3-4d11-a080-8865d8679c2d"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000019",
+    "fields": {
+      "nama_menu": "Terancam",
+      "deskripsi": "Sayuran segar yang disajikan mentah dengan kelapa parut berbumbu pedas, memberikan rasa yang segar dan menyehatkan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "42a479c5-513d-44c7-85b8-3fdaeac08ec3",
+        "637c7222-042e-49aa-aa9a-561737b89a8d",
+        "67672fa1-cfe4-4e52-8ee3-a873a41a3178",
+        "b1fc9d93-dff8-4a9c-bf1e-19e753880768",
+        "e61bf993-a11a-4c8a-b7a3-ef0f5535f595"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001a",
+    "fields": {
+      "nama_menu": "Bandrek",
+      "deskripsi": "Minuman hangat khas Sunda berbahan jahe dan rempah-rempah untuk kehangatan tubuh dan cita rasa yang khas.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "32c000d3-6a55-4c75-9662-7e482cf41233",
+        "3c65cb19-2aa7-4f5a-b489-ccb4a4817da7",
+        "53990b6c-5649-4765-873a-39defc8f0003",
+        "7edb8b7e-b0d2-4305-948b-c77e14fe1e13",
+        "86a52eea-7130-4f14-a381-8784f7c95efd"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001b",
+    "fields": {
+      "nama_menu": "Ayam Kalasan",
+      "deskripsi": "Ayam goreng empuk dengan bumbu manis khas Kalasan, disajikan dengan nasi, sambal, dan lalapan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2bc2f0a3-d150-4961-a3de-963c47ae9a2a",
+        "2e5cdfd4-a99e-48c3-8f57-289940c152b5",
+        "8c1a27ae-acef-4fa4-9df5-7d080597ae5a",
+        "a0583bf6-9da3-483f-8cd0-5ae38591d9d1",
+        "fa6fef02-588b-457d-a65a-a6858b6fb537"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001c",
+    "fields": {
+      "nama_menu": "Bebek penyet",
+      "deskripsi": "Bebek goreng gurih dengan sambal pedas, dipenyet hingga dagingnya lembut, disajikan dengan nasi dan lalapan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "06637d05-2186-4a11-a7af-befab4c83e91",
+        "a803c3e2-dd13-4ec3-9f45-80a96c2ed7ed",
+        "b78fd4c9-880c-4b5f-9974-f48e222e3d5f",
+        "f5bbeee2-26ac-4fa5-908b-67f75fe48f3f",
+        "fc2ed41e-95c1-4049-bab5-3361f98db87d"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001d",
+    "fields": {
+      "nama_menu": "Nasi Kapau",
+      "deskripsi": "Nasi putih dengan lauk pauk khas Minangkabau seperti rendang, gulai, dan dendeng, disajikan secara melimpah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4639b0ed-3baf-473a-8bab-67533f973d77",
+        "b8b25ff7-9fe5-4765-b140-c96187b984e1",
+        "bb38253a-dc2f-40ec-bb72-95eb6e403365",
+        "c7f1acd8-9d31-48bb-b3d5-7ffdd4e25b17",
+        "e30b20c2-9319-4b21-9ecf-654ae713f1fa"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001e",
+    "fields": {
+      "nama_menu": "Pizza",
+      "deskripsi": "Roti bundar tipis dengan topping saus tomat, keju leleh, dan pilihan daging atau sayuran, dipanggang hingga renyah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "1bff672d-18aa-4920-970b-fcea03c220ad",
+        "36434fe6-4cdb-4f7a-8ee8-38361e2e4d20",
+        "a2245f18-16a4-48f2-9e4d-65fa09cc0cb1",
+        "f5b479e5-3522-4634-b50c-c130e74fe6d6",
+        "fea6ca60-505e-4c18-a5d3-c9670687547e"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000001f",
+    "fields": {
+      "nama_menu": "Susu Jahe",
+      "deskripsi": "Minuman hangat perpaduan susu segar dan jahe yang memberikan rasa manis dan hangat di tenggorokan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0dac851c-c4de-4dd7-886a-676b1101a052",
+        "568b25a7-3e99-4943-a4b1-92ebebb0dec7",
+        "a2ba391e-ccda-47fb-9271-4bd4994156d1",
+        "dc54698d-86cd-4854-907e-37c384215531",
+        "e06e397a-d607-4a31-812f-59f50e053b5d"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000020",
+    "fields": {
+      "nama_menu": "Jamu",
+      "deskripsi": "Minuman tradisional berbahan rempah alami seperti kunyit, jahe, dan temulawak, dipercaya baik untuk kesehatan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3382a75e-1df2-4032-8a93-2a68c5791586",
+        "4c6c1d6e-2590-4381-9544-e99fd4d1e355",
+        "5c4bc0ae-f2c1-4369-9d88-54aac40c8ed3",
+        "8c260799-0fee-47c0-abf2-e78704acf843",
+        "f0d6fece-779b-410e-a06e-4bab73460f03"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000021",
+    "fields": {
+      "nama_menu": "Es Pisang Ijo",
+      "deskripsi": "Pisang hijau lembut dibalut tepung, disajikan dengan sirup manis, santan, dan es serut.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "00a53e8f-50f0-4584-9229-dc6fe2661953",
+        "98873c9d-ca2f-426c-985f-381c2c57f8a4",
+        "bae78058-51d2-429f-b6f2-b95ce9a7a9d0",
+        "bd74571b-9d19-4294-9abd-7fe5f226099a",
+        "df73c391-b722-42ce-8267-9799e1a08e1b"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000022",
+    "fields": {
+      "nama_menu": "Es jeruk manis",
+      "deskripsi": "Minuman segar berbahan perasan jeruk segar dengan tambahan es batu untuk kenikmatan di hari panas.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3e262069-37db-490b-b3d3-6379a74b7718",
+        "69667610-2122-4a0d-8da0-52321659b72d",
+        "7a9b32e6-6392-45fc-86c9-226383e0f496",
+        "ac9686c4-2f61-4ce4-9a81-9f3bdfd6f71d",
+        "db15ad27-d3d7-4a68-be3d-927e1cd26396"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000023",
+    "fields": {
+      "nama_menu": "Ricebowl",
+      "deskripsi": "Semangkuk nasi putih dengan topping daging ayam atau sapi berbumbu dan sayuran, disajikan praktis dan lezat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4fe28a81-b9fd-4a36-9843-d96c87e9210b",
+        "512ffdec-413f-4ed0-b433-5bcd497ed9c1",
+        "8320ff96-ff9d-4e41-b929-b7578f10fced",
+        "965959c2-09b5-497e-b875-93ddd7a90d5c",
+        "f85b73e9-cedc-431c-8613-b6b7a4e3300a"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000024",
+    "fields": {
+      "nama_menu": "Sop buntut",
+      "deskripsi": "Sup dengan potongan buntut sapi yang empuk, disajikan dalam kaldu gurih dengan sayuran dan rempah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4a553a91-481c-453f-8f78-1d2e85fd48d4",
+        "a44bdf41-461b-46a2-ab6d-dcc2c04677a1",
+        "b15e7e83-8112-4ff6-9c3a-377d7dfe07df",
+        "d82ec704-46c5-4938-8147-b42d652781ed",
+        "faf5b4d6-841f-41a2-b664-3da1b99d020a"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000025",
+    "fields": {
+      "nama_menu": "Ayam Katsu",
+      "deskripsi": "Ayam goreng tepung ala Jepang yang renyah di luar, lembut di dalam, disajikan dengan nasi dan saus tonkatsu.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "028e18fc-1e6e-4025-9c9a-32087aed96ca",
+        "2c9a1b49-4aa2-4da0-a18b-95cd2b745513",
+        "349057da-6049-4f5c-9d4c-88793618a942",
+        "5192a0c8-fd55-46da-83b4-c899b230e2bf",
+        "dbbac68b-cf35-4fe5-bdc5-022b6d457451"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000026",
+    "fields": {
+      "nama_menu": "Martabak Manis",
+      "deskripsi": "Kue tebal dan lembut dengan isian coklat, kacang, atau keju, disajikan hangat dengan lapisan gula.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "04bfda66-1818-4038-bdd9-0cbd3c5a81da",
+        "0e4032b1-b5d7-4d8e-a0fc-de5e5eab3659",
+        "269f17f6-d6f1-42c8-a1fb-301e9dd33a2d",
+        "5dc15b46-d3ed-4568-af63-b741398f4376",
+        "950be9fb-6b1f-4c0c-a7f0-e06103660a3a"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000027",
+    "fields": {
+      "nama_menu": "Nasi Goreng Padang",
+      "deskripsi": "Nasi goreng pedas dengan bumbu khas Padang, dilengkapi dengan irisan daging, telur, dan sambal.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0af96109-41d9-4c09-bd5c-04eb3daca129",
+        "1b308b59-84bf-4728-a941-18d10b305064",
+        "67890617-9496-4f83-8fef-6a562f7ecf2c",
+        "bfbca485-5793-486a-8baf-43d4ce941a07",
+        "ea2f053f-d5e7-42a8-9e57-56eaad8985d6"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000028",
+    "fields": {
+      "nama_menu": "Mie Lethek",
+      "deskripsi": "Mie tradisional berbahan tepung singkong yang kenyal, dimasak dengan bumbu sederhana khas Bantul, Yogyakarta.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "50f18b0c-1e3a-459e-9d4d-8f59a10b6e84",
+        "91094649-2df1-4266-bebe-1cbf18c2a923",
+        "c42ac61d-07e7-405f-98d4-4f1db9215159",
+        "cb3c16aa-43bc-4ef7-9b8d-a6d7349f7f12",
+        "efaee270-1176-4d36-aaff-fa04006de95f"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000029",
+    "fields": {
+      "nama_menu": "Bakmie Jawa",
+      "deskripsi": "Mie telur yang dimasak dengan bumbu rempah dan campuran sayuran, ayam suwir, dan telur, khas Jawa Tengah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0e082b40-cbda-49e0-bb0d-5c18ad8a8470",
+        "5447179e-70ba-4cc0-9f09-fe4edc1cb5a8",
+        "58aecdaf-7d2c-4395-9274-6716e82b1229",
+        "dae1f359-ffff-409b-b98f-2908500e599f",
+        "e24c7044-f420-4a9c-a220-07ccdb767402"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002a",
+    "fields": {
+      "nama_menu": "Nasi Kucing",
+      "deskripsi": "Porsi kecil nasi dengan lauk sederhana seperti ikan teri, tempe, dan sambal, disajikan dalam bungkus daun pisang.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2bb50ca7-1025-4763-af68-072ab7a0c587",
+        "7404a8ad-74c2-40f4-b9ac-e5e77a942d73",
+        "9ef5aea7-7677-4edc-9965-89a3484dedd9",
+        "cb10b2b7-f040-4c52-8968-8c181a22f2b1",
+        "d508dfb5-6a6a-4131-9ebb-2162e68178fa"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002b",
+    "fields": {
+      "nama_menu": "Mangut Lele",
+      "deskripsi": "Lele asap yang dimasak dalam kuah santan pedas, khas Yogyakarta, disajikan dengan nasi putih.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "059d2576-4bd5-4cdd-b3d6-b8d32dcf2571",
+        "3b54d7fe-96ea-49ae-9c58-2718a87a8d53",
+        "71b7f431-0615-478e-b4ce-e609246a4d2f",
+        "730bd067-2fdd-40e6-bd0b-7be07c51ae7b",
+        "75ea1996-74b6-4084-8b96-ef8789139135",
+        "8af2c99c-8f67-4689-9fff-dd58314d27b7",
+        "9cb17322-e1c0-4d8b-b354-87fb9ef60dc7",
+        "bce6f157-fbe9-451a-a871-5989bba3a79c",
+        "dac4e23d-b5fa-4237-b5b3-8dfc4cf0e212",
+        "fe2dc081-75c4-4d23-960b-8539f3f53a58"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002c",
+    "fields": {
+      "nama_menu": "Nasi Bakar",
+      "deskripsi": "Nasi putih berbumbu yang dibungkus daun pisang dan dibakar, memberikan aroma khas dan rasa gurih yang lezat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "04866e6d-21c0-441f-abea-8b7cf4b74155",
+        "0aab4bf6-e69a-40dd-9410-9db5ade61b26",
+        "1ae62a90-a4e4-471e-a1a2-756a95a791e9",
+        "50a70214-b24c-49f6-9cf5-7e6e882b3dbc",
+        "5ddab32e-cd33-4a5d-9710-5690c96ec20d",
+        "709773c3-d341-4c6b-8b1c-604535754c98",
+        "7d342403-ebf1-45db-bbf9-99b68bf33603",
+        "9f291d43-70c8-4c15-bd61-d614d1e09953",
+        "b5f7bf66-dfe7-4f0d-ad88-13ddec152395",
+        "db93cd7c-6b73-4513-b159-238c4de60748"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002d",
+    "fields": {
+      "nama_menu": "Wonton",
+      "deskripsi": "Wonton adalah hidangan khas yang terdiri dari kulit tipis yang lembut, diisi dengan campuran daging pilihan dan rempah-rempah segar.  Disajikan dalam kaldu hangat yang kaya rasa atau bisa juga digoreng hingga renyah, wonton ini menawarkan kombinasi tekstur yang sempurna antara kulit yang lembut dan isi yang gurih. Dengan pilihan isian daging ayam, sapi, atau sayuran, setiap suapan memberikan pengalaman rasa yang menggugah selera.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "239dff04-a927-42a3-8b8d-3ad8183449ad",
+        "43b14a9a-ca38-4120-9e07-3727f4e78e9a",
+        "4d9f07b6-e1ec-4312-9a7e-f52a4e787346",
+        "a91abcbf-4b61-4ca0-8b1f-10f8b3cafbe6",
+        "da92b860-4153-4c45-a50c-cfa0884179c3"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002e",
+    "fields": {
+      "nama_menu": "Tempura",
+      "deskripsi": "Tempura adalah hidangan khas Jepang yang terdiri dari sayuran segar atau seafood yang dibalut dengan adonan tepung ringan dan kemudian digoreng hingga renyah. Dengan tekstur yang garing di luar dan lembut di dalam, tempura disajikan dengan saus celup khas yang memberikan rasa gurih dan segar. Nikmati tempura sebagai camilan atau pelengkap yang sempurna untuk berbagai hidangan Jepang!\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3c18e830-92af-4b71-afdd-8cc7a7549be2",
+        "7a740377-85af-4456-99fb-471284b9d83e",
+        "96fb219c-a6c1-4a2b-bd68-e21ecc9ed8f3",
+        "9983f8cb-0107-4fc9-8991-227a2f26244a",
+        "b6646e4d-5b20-4cc3-8c4b-18cf68353f6e"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000002f",
+    "fields": {
+      "nama_menu": "karedok",
+      "deskripsi": "Karedok adalah salad khas Sunda yang menyegarkan, terbuat dari campuran sayuran segar seperti mentimun, tauge, kol, dan kacang panjang, yang disajikan dengan bumbu kacang yang kaya rasa. Dengan tekstur yang crunchy dan rasa bumbu yang gurih, karedok menjadi pilihan sehat dan lezat, sempurna untuk menemani berbagai hidangan utama atau dinikmati sebagai camilan yang menyegarkan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3db3d43f-6eac-4a9c-87b6-f6dc6405157a",
+        "5312873a-10fc-41b2-9e5d-6186577d2254",
+        "65392ff6-4194-4c72-88a7-b5ef2332f80f",
+        "8529995f-0c79-4415-912f-8c1dda53c520",
+        "ecc83d4b-331e-4a44-a54a-2da5910a233a"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000030",
+    "fields": {
+      "nama_menu": "Ayam Karage",
+      "deskripsi": "Ayam Karage adalah hidangan khas Jepang yang terbuat dari potongan ayam marinated yang dilapisi dengan tepung, kemudian digoreng hingga keemasan dan renyah. Dengan rasa yang gurih dan juicy di dalam, ayam karage sering disajikan dengan saus celup yang khas, serta salad atau nasi. Cocok sebagai camilan atau hidangan utama, ayam karage menawarkan kelezatan yang tak tertahankan dalam setiap gigitan.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "19af4c0f-a1d7-4523-8873-80b4f467d4c0",
+        "43a05494-add3-44f0-9740-ce7a12b92013",
+        "a2baea19-ade9-4695-bdd8-98328371cf68",
+        "ad05399d-4b2b-47a2-87fc-11d2e3b066af",
+        "fdcf8d5f-22a0-4e0a-967a-8ba7e89e21f6"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000031",
+    "fields": {
+      "nama_menu": "nasi bali",
+      "deskripsi": "Nasi Bali adalah hidangan khas Bali yang menggugah selera, terdiri dari nasi putih yang disajikan dengan berbagai lauk pauk seperti ayam betutu, sate lilit, dan sayur urap. Disertai dengan sambal matah yang pedas dan segar, nasi Bali menawarkan kombinasi rasa yang kaya dan menggoda. Setiap suapan menyajikan cita rasa otentik pulau Dewata, menjadikannya pilihan sempurna untuk menikmati kekayaan kuliner Bali dalam satu piring.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4828db85-2c52-48f1-af88-889d11a44ed5",
+        "4da1e46d-2e35-454c-b55d-b1d39d77ff8d",
+        "949bb1fa-f7da-4828-bacf-f106996c1c90",
+        "9bd29a5c-491f-48e1-b3be-820e16d42040",
+        "bb930003-a812-4e31-8a53-d886ceffe361"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000032",
+    "fields": {
+      "nama_menu": "lontong sayur",
+      "deskripsi": "Lontong Sayur adalah hidangan tradisional Indonesia yang terdiri dari lontong (nasi yang dipadatkan dalam daun pisang) yang disajikan dengan kuah sayur kental yang kaya rasa, biasanya terbuat dari santan, labu, dan sayuran segar seperti kacang panjang dan tauge. Dikenal dengan cita rasa yang gurih dan pedas, lontong sayur sering dilengkapi dengan sambal dan kerupuk, menjadikannya hidangan yang memuaskan dan cocok untuk sarapan atau makan siang.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "012d9bf4-65e5-4927-b9d9-86c295a2e2cc",
+        "2b699f00-832b-49dc-8e3c-b2ee6ce7f3b9",
+        "3564a7aa-28d0-4499-8078-3c15dedd6aba",
+        "6a1bafe0-1a86-447d-b085-eeadb0307915",
+        "f785409b-cd51-4975-ab3f-8036ede11bd4"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000033",
+    "fields": {
+      "nama_menu": "sushi",
+      "deskripsi": "Sushi adalah hidangan khas Jepang yang terdiri dari nasi yang dibumbui cuka, sering disajikan dengan berbagai isian seperti ikan mentah, sayuran, atau telur. Ada berbagai jenis sushi, termasuk nigiri (nasi dengan topping ikan), maki (nasi dan isian yang digulung dalam nori), dan sashimi (ikan mentah tanpa nasi). Sushi dikenal dengan rasa yang segar dan tekstur yang unik, menjadikannya pilihan yang populer untuk dinikmati sebagai makanan ringan atau hidangan utama dalam suasana santai atau formal.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4caeee26-6f2a-4c00-afde-b01bef5cd744",
+        "cbf4d6da-b3cc-4ede-85e6-dd7e4c560f1a",
+        "d8fa488d-9530-46cc-bd26-f0144fae44d3",
+        "d9734754-53d9-4e8e-b7c6-79e66d7d2b22",
+        "dc09aab2-1c07-4410-b29c-dc569010b6d1"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000034",
+    "fields": {
+      "nama_menu": "es buah",
+      "deskripsi": "Es Buah adalah hidangan penyegar yang terdiri dari potongan berbagai buah segar, seperti melon, semangka, nanas, dan anggur, yang disajikan dengan sirup manis dan es serut. Terkadang, ditambahkan susu kental manis atau santan untuk rasa yang lebih kaya. Es buah sangat cocok dinikmati pada cuaca panas sebagai camilan yang menyegarkan dan bergizi, menawarkan kombinasi rasa manis, asam, dan tekstur yang renyah dalam setiap sendoknya.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4fc05391-40be-4402-90d3-bea2e93db500",
+        "699c1884-f04d-42c3-8823-3ece73e0e02d",
+        "8ce5fe86-936e-4091-bd35-5228f6741a6f",
+        "993522b5-4060-4790-903c-b44232577b87",
+        "c565c9fc-d21b-4d6c-b99f-a377a17aa427"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000035",
+    "fields": {
+      "nama_menu": "es dawet",
+      "deskripsi": "Es Dawet adalah minuman khas Indonesia yang menyegarkan, terbuat dari campuran dawet (sejenis jelly berwarna hijau yang terbuat dari tepung beras) yang disajikan dengan santan, gula merah cair, dan es serut. Dengan rasa manis dan gurih yang seimbang, Es Dawet menjadi pilihan sempurna untuk menghilangkan dahaga di cuaca panas. Hidangan ini tidak hanya nikmat, tetapi juga menawarkan pengalaman unik dari cita rasa tradisional Indonesia dalam setiap gelasnya.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "800bccf5-31c5-4fb0-bdd4-e37f41a3a1b3",
+        "a3190c41-8d14-4431-9b18-b6c2b38154af",
+        "c60ce1f1-fb74-4263-a103-62231812f829",
+        "dee9b1ec-c635-432b-b95f-557240d3a29e",
+        "e9ccab36-0828-46b1-8de7-6f29c6202653"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000036",
+    "fields": {
+      "nama_menu": "piscok",
+      "deskripsi": "Piscok, atau pisang cokelat, adalah camilan lezat khas Indonesia yang terbuat dari pisang yang dibalut dengan kulit lumpia atau adonan tepung, kemudian digoreng hingga kecokelatan dan renyah. Di dalamnya, pisang yang manis berpadu dengan cokelat leleh, menciptakan kombinasi rasa yang menggugah selera. Piscok biasanya disajikan hangat sebagai camilan manis yang sempurna untuk dinikmati di sore hari atau sebagai penutup setelah makan. Nikmati piscok sebagai sajian yang memanjakan lidah dan menghangatkan hati!\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3f211768-d78b-45dc-89e3-b16ab6a5a309",
+        "77002268-54ea-4076-bf52-d82b5f47d652",
+        "aaf9e08b-e60c-4329-827a-ad1797a2866b",
+        "c6e8ebf2-4d56-4922-b585-04ebc7237353",
+        "f4f48db5-2b2d-4219-99ac-d2e3af2f1092"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000037",
+    "fields": {
+      "nama_menu": "wedang jahe",
+      "deskripsi": "Wedang Jahe adalah minuman tradisional Indonesia yang terbuat dari rebusan jahe segar, gula merah, dan air panas, sering kali ditambahkan dengan rempah-rempah seperti daun pandan atau serai untuk memberikan aroma yang harum. Minuman ini dikenal memiliki rasa hangat dan pedas, serta bermanfaat untuk meningkatkan daya tahan tubuh dan meredakan flu. Wedang Jahe sangat cocok dinikmati saat cuaca dingin atau setelah beraktivitas, memberikan kenyamanan dan kehangatan dalam setiap tegukan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "321d14e2-2541-4891-961c-088a62ccb9d1",
+        "a3648db7-41f8-4674-96dc-5f41b67b2149",
+        "a3a8af1b-6f7c-40e8-95b4-06830256dd44",
+        "d8d70c45-b5b4-4c59-bf5c-ed92ab9e9ee6",
+        "e8e3209c-66ad-4677-94e0-c1788bf4c3db"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000038",
+    "fields": {
+      "nama_menu": "salmon mentai",
+      "deskripsi": "Salmon Mentai adalah hidangan Jepang yang terdiri dari fillet salmon yang dipanggang dengan saus mentai (saus yang terbuat dari campuran telur ikan cod, mayones, dan bumbu). Hidangan ini biasanya disajikan di atas nasi hangat atau sushi, dengan lapisan saus yang creamy dan sedikit pedas, menciptakan kombinasi rasa yang lezat dan menggoda. Dengan tekstur salmon yang lembut dan saus yang kaya, Salmon Mentai menjadi pilihan favorit bagi pecinta makanan Jepang yang mencari sensasi rasa baru dalam setiap suapan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "011e18f9-1d34-42d9-9b24-5d10b010d99f",
+        "51551306-4c9a-4baf-9885-1723fb106a0b",
+        "73849e78-501e-465e-8f91-f38dc5857679",
+        "966db0fb-4816-4cf6-bf77-9dd3e4fc4e7c",
+        "e87d0394-b162-4f7a-bc14-3b1a78202d9c"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000039",
+    "fields": {
+      "nama_menu": "udon",
+      "deskripsi": "Udon adalah mie khas Jepang yang terbuat dari tepung terigu, air, dan garam, dengan tekstur yang kenyal dan tebal. Biasanya disajikan dalam kuah kaldu yang gurih, udon dapat dilengkapi dengan berbagai topping seperti tempura, daun bawang, jamur, atau daging. Hidangan ini dikenal dengan rasa yang sederhana namun memuaskan, menjadikannya pilihan populer untuk makanan hangat yang cocok dinikmati kapan saja. Dengan setiap slurp, udon menawarkan pengalaman kuliner Jepang yang kaya dan memikat.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2159fe3b-c97e-498d-b5f1-cc4cdea5c21d",
+        "5c381325-4369-451b-8627-ba1037be66f0",
+        "81510cb6-ce35-4eb3-a9bb-41fa91cada7e",
+        "ab000c09-2dae-4816-a1ae-d1d33e19a9f3",
+        "d3517f16-b9f6-46f7-8cc9-4dfb221f5099"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003a",
+    "fields": {
+      "nama_menu": "tiramisu",
+      "deskripsi": "Tiramisu adalah dessert klasik Italia yang terkenal dengan lapisan kue spons yang dicelupkan dalam kopi, di antara lapisan krim mascarpone yang lembut dan kaya. Dihiasi dengan taburan bubuk kakao di atasnya, tiramisu menawarkan perpaduan rasa kopi yang kuat dan manis yang seimbang. Dengan tekstur yang creamy dan rasa yang menggoda, tiramisu adalah pilihan sempurna untuk memanjakan diri atau sebagai penutup istimewa dalam setiap acara.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "62cedbeb-3126-4990-bc56-d3fdab19423d",
+        "87ac060b-bd89-4b43-b40c-2cf192e38065",
+        "9270f998-2c79-493c-94b0-403cca115f35",
+        "9ae014ab-2c5e-41cf-bcdb-e45684e60309",
+        "bf63d9e5-b0dd-4cca-9217-492786b68bbd"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003b",
+    "fields": {
+      "nama_menu": "ceker mercon",
+      "deskripsi": "Ceker Mercon adalah hidangan pedas khas Indonesia yang terbuat dari kaki ayam yang dimasak dengan bumbu rempah yang kaya, termasuk cabai, bawang, dan bumbu lainnya. Hidangan ini terkenal dengan rasa pedasnya yang menggigit dan tekstur ceker yang kenyal. Disajikan dengan kuah kental yang menggoda, Ceker Mercon cocok dinikmati sebagai camilan atau pendamping nasi, menawarkan pengalaman kuliner yang memuaskan bagi pecinta makanan pedas.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "12613976-a351-46e0-9b6a-c566f89691cb",
+        "1ea40f91-d54e-4b11-bf76-d61d87dc56af",
+        "485d100c-b45a-44a3-9ff4-d3ffada6d4c0",
+        "e2953a97-784b-4d64-bdc9-905b69ce5176",
+        "f6bfc7c5-bee3-414e-ac7c-1ef8734d8671"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003c",
+    "fields": {
+      "nama_menu": "Bakso malang",
+      "deskripsi": "Bakso Malang adalah hidangan mie bakso khas Indonesia yang berasal dari Malang, Jawa Timur. Hidangan ini terdiri dari bola daging bakso yang kenyal, disajikan bersama mie kuning, tahu, dan sayuran segar. Biasanya, Bakso Malang dilengkapi dengan kuah kaldu yang kaya rasa, serta sambal dan kecap manis sebagai pelengkap. Dengan kombinasi cita rasa yang lezat dan tekstur yang menggugah selera, Bakso Malang menjadi pilihan favorit untuk santapan hangat yang memuaskan.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "33eb73ed-342c-4488-a229-f1544feec5a2",
+        "5e954f19-0e0d-4a66-9acd-15144a832097",
+        "8004fa44-9ddc-4817-a725-6034b20ec112",
+        "856cc60d-d6a5-4b98-a354-013b6695d8c6",
+        "e3cf2fae-3213-4b47-ad23-06ad5772cb05"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003d",
+    "fields": {
+      "nama_menu": "es podeng",
+      "deskripsi": "Es Podeng adalah minuman pencuci mulut khas Indonesia yang menyegarkan, terbuat dari campuran es serut, berbagai potongan buah segar, seperti nangka dan cincau, serta sirup manis. Terkadang, ditambahkan santan untuk memberikan rasa creamy yang kaya. Es Podeng cocok dinikmati saat cuaca panas, menawarkan kombinasi rasa manis dan segar dalam setiap sendoknya.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "32860c29-4b04-4a69-b83b-c14e82a51950",
+        "64e001d9-d5c3-4547-b6ce-e9f13e90d21d",
+        "b7fac1f1-9a99-47d1-b499-6ee3b93adcb0",
+        "ba890cd7-8ce0-4bc5-ac76-d12bb1fb18ca",
+        "e59d1c23-d63e-4649-a818-86ed6d89d7b2"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003e",
+    "fields": {
+      "nama_menu": "nasi padang",
+      "deskripsi": "Nasi Padang adalah hidangan khas Minangkabau yang disajikan dengan nasi putih dan berbagai lauk pauk yang kaya rasa, seperti rendang, ayam pop, sambal ijo, dan sayur daun singkong. Dengan bumbu rempah yang khas, setiap piring Nasi Padang menawarkan pengalaman kuliner yang menggugah selera dan penuh cita rasa.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4a53ea69-1b62-470a-910f-e90a293dbd66",
+        "5c89ff20-0c0c-4a5a-88ed-5397c5d12e6d",
+        "6de0f78b-f693-4558-a5b5-527c0b043c35",
+        "84f56257-cdf1-4a76-a5f5-31d0662a31ad",
+        "a760ffe1-9000-4d58-a1ba-e6bd56fa3024"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000003f",
+    "fields": {
+      "nama_menu": "tauge goreng",
+      "deskripsi": "Tauge Goreng adalah hidangan sederhana yang terbuat dari tauge segar yang ditumis dengan bumbu khas, seperti kecap manis dan bawang, sering kali ditambahkan dengan tahu dan mie. Hidangan ini memiliki rasa manis dan gurih, serta tekstur yang renyah, menjadikannya camilan atau pelengkap yang lezat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "11a25a48-f747-4689-aa44-f69c72875146",
+        "62c1b78a-0d97-4a54-a683-e10ca0a709ee",
+        "87e66e00-fdcf-469b-b9d3-21ea1d7ae1e5",
+        "fab3e9df-1867-4cee-830e-a55bad1d0459",
+        "ff697f70-6f7d-43b8-8292-1cd0336ebe68"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000040",
+    "fields": {
+      "nama_menu": "lumpia udang",
+      "deskripsi": "Lumpia Udang adalah camilan lezat yang terbuat dari kulit lumpia yang diisi dengan udang segar dan sayuran, kemudian digoreng hingga keemasan dan renyah. Biasanya disajikan dengan saus celup manis atau pedas, Lumpia Udang menawarkan kombinasi rasa yang gurih dan tekstur yang crunchy, cocok sebagai hidangan pembuka atau camilan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "20069ebf-eb6d-4a30-bd7f-902ed1bb38ba",
+        "7e3bf507-1838-47e1-bf8d-5a366744348a",
+        "8435b0de-4fe7-4496-9b9a-cb9114ba9378",
+        "a86ce26e-27e3-4a10-a68f-ad9675a26472",
+        "f5026af2-6e9b-46d4-b08e-6089ca3416c6"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000041",
+    "fields": {
+      "nama_menu": "mie aceh",
+      "deskripsi": "Mie Aceh adalah hidangan mie yang kaya rempah asal Aceh, Indonesia, yang disajikan dengan kuah kental dan bumbu yang pedas. Biasanya, Mie Aceh diisi dengan daging sapi, udang, atau ayam, dan ditambahkan dengan sayuran serta telur. Hidangan ini menawarkan rasa yang kuat dan menggugah selera, membuatnya menjadi pilihan favorit bagi penggemar makanan pedas.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2d42f88d-76a8-46d8-905b-24051c7f2437",
+        "64d4aa03-76e9-4883-80f7-08d169a5e9ad",
+        "affd5892-87c9-445e-85e0-4f5ea98e164d",
+        "b3839009-65e0-48ea-9996-71be3c2ef6d5",
+        "d2f36700-f291-45d3-ae69-82e9f696bb40"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000042",
+    "fields": {
+      "nama_menu": "Ketoprak",
+      "deskripsi": "Ketoprak adalah hidangan khas Betawi yang terdiri dari tahu, lontong, bihun, dan tauge yang disajikan dengan saus kacang kental. Hidangan ini ditaburi dengan kerupuk dan bawang goreng, dan biasanya disajikan dengan sambal dan kecap manis.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "127bc3d5-ace3-4dfc-9719-1ac7c5faf200",
+        "9309e6f2-f672-465c-90d6-f86e86f70f7d",
+        "a4d2951b-9dc6-45b2-a356-721e3faa1a9d",
+        "abea9d8e-2a36-43e3-88a5-3686443d1027",
+        "f7d1eb31-e2fc-40ac-adc9-3f67890d3d30"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000043",
+    "fields": {
+      "nama_menu": "Steak",
+      "deskripsi": "Steak adalah potongan daging (biasanya daging sapi) yang dimasak dengan berbagai tingkat kematangan (rare, medium, well-done) dan disajikan dengan saus seperti black pepper atau mushroom. Steak sering disajikan dengan kentang goreng atau mashed potatoes dan sayuran.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "35627703-9d1d-4f33-b5a3-f14742bffb4b",
+        "6bf9dea9-4724-4ee6-86ed-d01fc3417979",
+        "741e0ea9-0f86-4111-852c-9561167fad10",
+        "a921d0fa-3296-4838-8041-37b4422911f7",
+        "ca059997-c0dd-4fa7-9b90-e466aedf809b"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000044",
+    "fields": {
+      "nama_menu": "Kebab",
+      "deskripsi": "Kebab adalah hidangan yang terbuat dari daging panggang, biasanya daging sapi, domba, atau ayam, yang disajikan dengan roti pita atau tortilla, bersama sayuran segar dan saus. Kebab sangat populer di Timur Tengah dan juga di Indonesia.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0881e1ec-88c6-4959-af79-fc153d876587",
+        "94c1a6a6-fee9-443b-8fb7-c44dd2c2fa58",
+        "ad8e2724-748f-4079-bc09-9ed96f78dd9a",
+        "cad5c7ee-69c9-4895-9706-57639c2d06a4",
+        "fd536097-e142-4262-8618-838dba08ed98"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000045",
+    "fields": {
+      "nama_menu": "Martabak",
+      "deskripsi": "Martabak adalah makanan yang memiliki dua versi: martabak manis dan martabak telur. Martabak manis biasanya diisi dengan cokelat, keju, atau kacang, sedangkan martabak telur diisi dengan campuran telur, daging cincang, dan bumbu, lalu digoreng hingga renyah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0e13d764-bf35-484b-b435-c94be70a19c9",
+        "13c75cc1-2b61-46a5-a79c-a09a95408445",
+        "3c5acd16-8ec5-49ab-972f-9d60ec046464",
+        "82bbc639-49a6-4fd5-b944-d2aba226923b",
+        "e75ecce2-1b76-415b-9ee6-cfe7a52bfd12"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000046",
+    "fields": {
+      "nama_menu": "Sate Kere",
+      "deskripsi": "Sate Kere adalah sate yang terbuat dari bahan sederhana seperti tempe gembus (ampas tahu) atau jeroan sapi. Ini adalah versi ekonomis dari sate daging dan biasanya disajikan dengan bumbu kacang yang lezat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "44241902-e4b7-4d68-b04c-c79eacf92b74",
+        "6b933db1-4a5f-4578-84c7-b66fa1afd20f",
+        "cdf59451-12be-45d6-b5a3-8c8683cd7917",
+        "d2240c20-fefe-4e03-a56e-ae1e9b44431e",
+        "f9f65ca1-46e0-4a2c-8ad2-735f6ab72a40"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000047",
+    "fields": {
+      "nama_menu": "Bubur",
+      "deskripsi": "Bubur adalah hidangan nasi yang dimasak dengan banyak air hingga teksturnya menjadi lembut dan kental. Bubur sering kali disajikan dengan aneka topping seperti ayam suwir, kacang, bawang goreng, dan sambal. Bubur sangat populer sebagai sarapan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "31d7bb32-ec0d-4a28-bb83-465973b72731",
+        "466ccffb-6953-4b54-a772-a27b96dd4fca",
+        "79469f32-b6c6-4253-93d9-b98d65803745",
+        "be2d5bf0-abc1-4fa4-8440-96b230ad4ef8",
+        "d0349727-7cc1-477e-bdd3-4e067f978dd3"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000048",
+    "fields": {
+      "nama_menu": "Kambing guling",
+      "deskripsi": "Kambing Guling adalah hidangan yang terbuat dari kambing utuh yang dipanggang perlahan di atas bara api hingga dagingnya empuk dan kulitnya renyah. Kambing guling biasanya disajikan dalam acara besar seperti pesta atau perayaan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "139104d8-bfab-4fe6-b7cb-762175a6074f",
+        "4fcbea03-2c21-4725-acd2-37732f064897",
+        "9cc62856-1abf-4ca4-9388-83cafd53ca47",
+        "ab046163-a34a-4c0e-aba1-a7565dba4ee9",
+        "bdb2207d-c0ff-48b2-9b6c-9e5fb0fd2b82"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000049",
+    "fields": {
+      "nama_menu": "Roti bakar",
+      "deskripsi": "Roti Bakar adalah roti tawar yang diolesi mentega atau margarin, kemudian dipanggang hingga renyah. Hidangan ini sering disajikan dengan aneka topping, seperti cokelat, keju, selai, atau susu kental manis, dan menjadi camilan favorit di malam hari.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "13099691-e3fe-4a9c-ab48-c1882ae3c84c",
+        "43a6fc7c-6dca-4db6-bf1c-048c77a97703",
+        "667c6141-7f5b-4d01-b581-938c3350f21a",
+        "69e74c33-48d4-4e86-bc08-96ec29b3f3f2",
+        "73937aac-a631-41f0-8310-4e80350f7b24"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000004a",
+    "fields": {
+      "nama_menu": "Ayam geprek",
+      "deskripsi": "Ayam Geprek adalah ayam goreng tepung yang diulek (dihancurkan) bersama sambal. Hidangan ini terkenal karena rasa pedasnya yang menggigit, dan biasanya disajikan dengan nasi dan lalapan seperti mentimun dan daun kemangi.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "3bf3414c-7545-412f-827e-4d5f4ae69110",
+        "52e202bf-abd8-4e88-aff2-765c6c779a29",
+        "58782de8-5cbf-47a3-8155-58afe6afb9c7",
+        "84d69330-c7cc-40c9-ae2a-a8714775f577",
+        "d2c27f26-2313-485a-9515-c8af9b8be7ff"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000004c",
+    "fields": {
+      "nama_menu": "Bebek goreng",
+      "deskripsi": "Bebek Goreng adalah daging bebek yang digoreng hingga kulitnya garing namun dagingnya tetap lembut. Bebek ini biasanya dibumbui dengan rempah-rempah khas Indonesia dan disajikan dengan sambal dan nasi putih.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "51fa3963-8e82-42a8-8231-9d9b5509332c",
+        "53aa3bd0-161d-40e4-a79b-a82f43f810ef",
+        "80eb7ff3-e64b-4a44-95b1-cbbbaca97991",
+        "d0cda4cc-3518-42eb-8ef5-0280a567e60c",
+        "da0c39e8-c3bc-429a-94de-96725795d6f1"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000004d",
+    "fields": {
+      "nama_menu": "Mie bangka",
+      "deskripsi": "Mie Bangka adalah hidangan mie khas Bangka yang biasanya disajikan dengan kuah kaldu gurih, irisan daging ayam, bakso ikan, tauge, dan sayuran segar. Mie ini terkenal dengan teksturnya yang kenyal dan rasanya yang gurih.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "257697bf-656b-4a6a-ba51-5a514d93944d",
+        "9b42f613-fcf2-4581-a268-f2815131088d",
+        "c6d5dac5-bf4f-428e-b79c-0451869a6911",
+        "e565667c-3268-4010-9c17-0df6fc371129",
+        "e7a969b4-baa4-466b-9678-e4afb0682250"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000004e",
+    "fields": {
+      "nama_menu": "Sate Klathak",
+      "deskripsi": "Sate Klathak adalah sate khas Yogyakarta yang menggunakan daging kambing. Berbeda dari sate biasa, Sate Klathak hanya menggunakan garam sebagai bumbu dan ditusuk dengan jeruji besi, bukan bambu. Sate ini biasanya disajikan dengan kuah gulai yang gurih",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0e324b35-1407-432c-b151-a7d7f09c6475",
+        "56e4ded2-4f52-4d3d-b171-e31afc33c81c",
+        "5d590fe8-46ea-4698-ad58-aed0e3a5dce4",
+        "701fc3bb-8182-4187-820a-aab7239f4a1c",
+        "ae2b9099-7b57-49ba-9c5d-622ac52b3183"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000004f",
+    "fields": {
+      "nama_menu": "Tiwul",
+      "deskripsi": "Tiwul adalah makanan tradisional khas Gunungkidul, Yogyakarta, yang terbuat dari tepung gaplek (singkong kering). Dulunya dianggap sebagai pengganti nasi, Tiwul sekarang dinikmati sebagai makanan unik yang disajikan dengan lauk-pauk atau parutan kelapa dan gula merah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0d6d1efd-a582-4ee0-86c8-0b0366853a2e",
+        "507339c6-ecf6-47da-94e1-7834d0d1bff9",
+        "a3f4fb06-6704-462b-82b6-cd71c4611009",
+        "a5c2c82a-1996-40b3-a48e-26ee9e0c11fe",
+        "c5da58c2-b052-4088-8da5-ef9b56f2c7fa"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000050",
+    "fields": {
+      "nama_menu": "Sego Kucing",
+      "deskripsi": "Sego Kucing atau Nasi Kucing adalah nasi porsi kecil yang biasanya disajikan dengan sambal, ikan teri, dan tempe goreng. Ini adalah makanan yang populer di angkringan (warung makan kaki lima) karena porsinya kecil dan harganya sangat terjangkau.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "11925545-3e8d-448b-8568-88e079af1666",
+        "2caea9e5-d7d0-43c0-9cd1-e6ea2929202e",
+        "4f546dbc-58de-45f9-9417-61c742348879",
+        "c31aa842-907d-4c79-8c05-0d23d564f077",
+        "fdb459af-1bb7-400a-aa1b-450bae3229d6"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000051",
+    "fields": {
+      "nama_menu": "Seafood",
+      "deskripsi": "Seafood mengacu pada hidangan yang berbasis dari hasil laut, seperti ikan, udang, cumi-cumi, kepiting, dan kerang. Hidangan seafood dapat disajikan dalam berbagai bentuk, seperti dibakar, digoreng, atau direbus dengan aneka bumbu khas yang memperkaya rasa makanan laut tersebut.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2523627f-7551-4b5f-b577-58471f24e39e",
+        "285ff594-d2d0-4d98-8851-798ad67593ba",
+        "57948a0f-ad03-4499-ab12-9ed19dab68b1",
+        "c68b7d14-2f9c-45d4-9a33-6b476451a40d",
+        "d4d6e755-1a13-4bf4-93a7-b5986aa68c93"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000053",
+    "fields": {
+      "nama_menu": "Ayam Bakar",
+      "deskripsi": "Ayam Bakar adalah hidangan ayam yang dibumbui dengan berbagai rempah, seperti kecap manis, bawang putih, dan serai, lalu dipanggang hingga matang sempurna. Biasanya disajikan dengan nasi dan sambal, Ayam Bakar terkenal karena rasanya yang kaya dan gurih.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "42981ead-751e-43b0-808a-cd478731e531",
+        "4c3c6615-cf2d-4794-816a-be7ada2a5797",
+        "50870365-ac4e-4db0-8727-e6c7488a719c",
+        "b549364c-1e4d-411f-b8c3-3821bc3dc212",
+        "c404bb9d-873b-4073-933b-bc28baeab37f"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000054",
+    "fields": {
+      "nama_menu": "Oseng-oseng mercon",
+      "deskripsi": "Oseng-Oseng Mercon adalah hidangan khas Yogyakarta yang terkenal dengan rasa pedas yang sangat ekstrem. Nama \"\"mercon\"\" yang berarti petasan menggambarkan sensasi pedas yang meledak di mulut saat menyantapnya. Hidangan ini terbuat dari bahan dasar daging sapi, kikil, atau tetelan yang dimasak dengan bumbu cabai rawit dalam jumlah banyak, sehingga rasanya sangat pedas. Biasanya, Oseng-Oseng Mercon disajikan bersama nasi putih untuk menyeimbangkan rasa pedasnya.\n",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "41e262ec-fd55-4deb-b1a0-2fc23f7b3b20",
+        "81776bab-6fc5-4122-abd3-a5a3c19c9bd1",
+        "90fde412-d972-4704-922e-edbae0d17f7c",
+        "acdd93fe-f672-4b96-87b5-5feedac8a616",
+        "d2a4d63c-bd9c-4b77-944e-7deeb3d65aa8"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000055",
+    "fields": {
+      "nama_menu": "Nasi goreng",
+      "deskripsi": "Nasi Goreng adalah nasi yang digoreng dengan campuran bumbu seperti bawang putih, kecap, dan cabai, sering kali ditambah dengan telur, ayam, atau udang. Nasi Goreng adalah salah satu hidangan yang paling populer di Indonesia dan bisa ditemui hampir di setiap sudut jalan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0e275eb6-f3d6-47c9-8247-34146d855d69",
+        "37c7cf0b-2324-479f-b66d-f201fc3a293b",
+        "921689ae-6362-4d17-b1c2-4ee5fc8f07db",
+        "dc28c4c5-74a4-4ab8-8a36-368263f81df2",
+        "edea355c-041a-4533-8673-11fa07323749"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000056",
+    "fields": {
+      "nama_menu": "Bakso",
+      "deskripsi": "Bakso adalah makanan khas Indonesia yang berbentuk bulat, umumnya terbuat dari daging sapi yang dihaluskan dan dicampur dengan tepung tapioka. Bakso biasanya disajikan dalam kuah kaldu yang gurih, dilengkapi dengan mi, bihun, tahu, pangsit, seledri, dan bawang goreng.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0fb4f3a5-1508-4407-b14d-d3b5ab17e886",
+        "2463f2a0-fdbc-4ae2-ac5e-de44d32a5d43",
+        "47b72bc0-584e-4f3d-ad83-5510653e33b6",
+        "636f7340-5978-4016-9c3c-a2611016ae26",
+        "e1d4daa4-ac43-4d8d-8f19-a4ba0b512edb"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000058",
+    "fields": {
+      "nama_menu": "Ikan Bakar",
+      "deskripsi": "Ikan yang dipanggang dengan bumbu rempah khas, biasanya disajikan dengan sambal dan lalapan. Hidangan ini memiliki cita rasa yang gurih dan sedikit beraroma asap dari proses pembakarannya.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "49ee5e5a-8c47-4741-99d2-28320666b30b",
+        "5ba5945c-3928-4588-b319-d3728189d46f",
+        "9a108940-dec2-40c5-bb4a-dbd0bac3e13d",
+        "adb00b3c-c914-4f4d-939d-d5e0c7d0fc65",
+        "d767ccb3-2417-4fe4-8d1a-83d547022e5b"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000059",
+    "fields": {
+      "nama_menu": "Sushi",
+      "deskripsi": "Makanan khas Jepang yang terbuat dari nasi yang dibumbui cuka dan biasanya dilengkapi dengan berbagai bahan seperti ikan mentah, sayuran, dan telur. Disajikan dalam bentuk gulungan atau potongan kecil.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "11b74bfc-efa9-4682-9f34-32d635d5cae5",
+        "5ea7ad09-8bd3-4613-b7ca-6e988a967e41",
+        "6745089f-74e3-43c6-9849-7ef4e084ca71",
+        "9e39e140-072c-436b-a7e8-49282f6a8efe",
+        "b75acfb1-76a4-4c7e-bdd5-5dd4a8689cf2"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005a",
+    "fields": {
+      "nama_menu": "Seblak",
+      "deskripsi": "Hidangan khas Sunda yang terbuat dari kerupuk basah, tumis dengan bumbu pedas serta aneka isian seperti sosis, bakso, telur, dan sayuran. Rasanya gurih, pedas, dan kenyal.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "4d987a7f-bb31-4c1e-9c99-50009136ddc3",
+        "5c6d756a-649d-4d28-b346-96d2b03a2eb2",
+        "613db52a-63c2-420a-a1d1-caca451358c8",
+        "76a39e48-d17b-44d2-92bb-c65840984ab8",
+        "c0c5d75a-6d3e-436c-a5f1-b29ed99972f6"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005b",
+    "fields": {
+      "nama_menu": "Es Cendol",
+      "deskripsi": "Minuman manis tradisional Indonesia yang terbuat dari cendol (tepung beras hijau), santan, dan gula merah. Segar dinikmati pada hari yang panas.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "13495ce3-b5db-4917-8a53-3c17f827798b",
+        "1f2f84d2-288a-4c47-bbe7-90bc8bfe1e11",
+        "3c6ca7ab-3f94-44bf-900b-75627cd0c4da",
+        "4a3f2600-48d0-4eb0-afb4-fbe7edb3f37c",
+        "c79b7671-3758-4f11-a8a9-617f2a4075c7"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005c",
+    "fields": {
+      "nama_menu": "Rujak Eskrim",
+      "deskripsi": "Paduan unik antara rujak buah pedas manis dan es krim yang lembut. Hidangan ini menyatukan rasa segar, pedas, dan manis dalam satu gigitan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "45353c31-0877-4412-adb3-560831c26ae0",
+        "5cd7e517-7f88-4ade-805b-f06d13727137",
+        "65482bff-84b8-405b-b40d-917dbe8522a9",
+        "71517392-2da0-483b-9296-385ae0a09274",
+        "a0ecbe5c-023b-4948-8ec3-7a8ab041b94d"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005d",
+    "fields": {
+      "nama_menu": "Klepon",
+      "deskripsi": "Kue tradisional berbentuk bola kecil dari tepung ketan, berisi gula merah cair, dan dibalut kelapa parut. Teksturnya kenyal dan meledak manis di mulut.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "15357099-0119-4d0d-bb52-7fce069af94d",
+        "3fa12105-9212-4220-b8f7-d1453741b0df",
+        "4db877dd-8fee-49e2-ae59-3d73c24c985c",
+        "b2aa4660-bd9b-4f31-af1a-523c76e82af8",
+        "cb396c58-33d1-4f26-ad58-0176d3b0c09f"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005e",
+    "fields": {
+      "nama_menu": "Jadah Tempe",
+      "deskripsi": "Jadah tempe adalah makanan khas dari Yogyakarta, khususnya dari daerah Kaliurang. Makanan ini terdiri dari dua bagian, yaitu jadah dan tempe. Jadah adalah ketan yang ditumbuk hingga halus dan memiliki tekstur kenyal, sedangkan tempe yang digunakan adalah tempe bacem, yang dimasak dengan bumbu manis dari gula merah, kecap, dan rempah-rempah.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "55d04a62-b268-4a6b-813e-20e2cc477fbc",
+        "7e3e9a27-ec5e-434e-8b2c-71093bec4909",
+        "9b800659-0ea9-4b8c-ae8f-d80c54e5cb0e",
+        "c9f9fb02-1915-405f-baeb-0d25fb8ff696",
+        "e10f7bbf-d39a-4d5d-9ca7-183897028b65"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-00000000005f",
+    "fields": {
+      "nama_menu": "Sop Ayam",
+      "deskripsi": "Sup ayam dengan kuah bening yang terbuat dari kaldu ayam, disertai potongan sayur dan rempah seperti daun bawang dan seledri. Rasanya segar dan menghangatkan.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "27aee297-e2ec-4636-84ad-775f3de2caac",
+        "7753d728-ba8b-40d6-903f-90d325f93888",
+        "917b05ea-3753-45cb-b43d-e6a5503f6939",
+        "b75ec90b-67d2-4492-9d3a-d3d32d5a2572",
+        "c71a2245-cbd0-44f3-bdd8-b364133292ca"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000060",
+    "fields": {
+      "nama_menu": "Tengkleng ",
+      "deskripsi": "Hidangan daging kambing yang dimasak dengan kuah gurih dan pedas, mirip gulai namun dengan kuah yang lebih ringan. Biasanya menggunakan tulang kambing sebagai bahan utamanya.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0354c0fe-c32d-4c9c-81a6-b878f82ccfc1",
+        "16a69bb5-a97b-483c-ad20-256f1a8159cf",
+        "4e3cc14d-0156-4471-a2c5-f042aa812613",
+        "7221a8b3-1570-45e6-b430-3eeed6a028fb",
+        "7228ee3a-33c8-446a-9da8-c22eddfbc715"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000061",
+    "fields": {
+      "nama_menu": "Mie Ayam",
+      "deskripsi": "Mie rebus yang disajikan dengan potongan daging ayam yang dimasak dengan bumbu kecap, biasanya dilengkapi dengan pangsit atau bakso. Populer sebagai makanan cepat saji di Indonesia.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "2d017193-78b1-435e-9bc4-cf60faee6977",
+        "402f0a6e-0486-4023-8fca-0bb12ede9caa",
+        "537e710a-58d7-4ea3-819d-dd6c08d3ee84",
+        "c27f28b0-40d8-4d39-85fe-849049464320",
+        "f9d71639-0da6-4e80-acd9-5bd42701bbe2"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000062",
+    "fields": {
+      "nama_menu": "Cenil",
+      "deskripsi": "Kue tradisional dari tepung kanji yang bertekstur kenyal, berwarna-warni, dan dibalut kelapa parut. Rasanya manis dan biasanya disajikan dengan gula merah cair.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "16a8a935-b106-4e69-b111-2e3375e0b2fc",
+        "54f87994-63cc-4a32-9333-9df57504c173",
+        "82ba294f-350c-439e-9794-ea8676de0a5b",
+        "b99cae8a-8dc8-4c0d-9539-d4699f7ac189",
+        "c184f4fb-ef84-4f74-ab73-b93b42ea1f10"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000063",
+    "fields": {
+      "nama_menu": "Nasi Liwet",
+      "deskripsi": "Nasi gurih khas Solo yang dimasak dengan santan dan daun salam, disajikan dengan ayam suwir, telur, dan sayur labu siam. Rasa nasi ini kaya dan lezat.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "206ae96e-ac2a-4e4a-aa80-83a95379e853",
+        "3fd4610f-092e-447c-a504-65d95657a34f",
+        "51f368cb-611b-4207-847b-f9d6efffb027",
+        "6bc3d04f-f2df-4a64-9dfe-71a002ee850e",
+        "b6f9efb5-19fd-464d-a5f3-b24c4f172ed4"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000064",
+    "fields": {
+      "nama_menu": "Lupis",
+      "deskripsi": "Kue tradisional dari beras ketan yang dibentuk segitiga atau silinder, disajikan dengan kelapa parut dan sirup gula merah. Teksturnya lengket dan rasanya manis.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "027d7a5c-e0da-4f0a-955b-8aeee84944ca",
+        "4679ac8b-48a5-491d-a79f-023e48b0674b",
+        "5f123014-371e-4ff5-99cf-8bd84a486097",
+        "c47bb2b4-164e-4023-957c-eaafc429605a",
+        "f4d4ed7d-4160-4932-8607-0af019df02e8"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000065",
+    "fields": {
+      "nama_menu": "Pastry",
+      "deskripsi": "Kue yang terbuat dari adonan tepung dan lemak, sering kali dibentuk menjadi lapisan-lapisan renyah. Pastry bisa manis atau gurih, seperti croissant atau pie.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0cd4e50b-f960-42fd-8baf-869a16ff2417",
+        "1d224925-1f50-4363-a44f-00192f41c3cc",
+        "40bb2522-c1a5-4e9a-942f-05c43a04c540",
+        "6b6b86da-062f-40f6-ae4c-aaffbb22e466",
+        "9369a839-add6-4c94-8b55-54d035a38a7e"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000067",
+    "fields": {
+      "nama_menu": "Kepiting",
+      "deskripsi": "Sajian laut yang diolah dengan bumbu-bumbu khas seperti saus tiram, saus Padang, atau saus mentega. Kepiting terkenal dengan dagingnya yang manis dan tekstur yang lembut.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "59109807-c40e-48b2-a44e-5936e80aa8c6",
+        "8aa5ce71-31f3-41cb-9278-b56fe3d49ddf",
+        "ae21a8cf-501c-466a-ad95-5240d2d48ced",
+        "de8e2dfd-6da2-4f85-86bd-3470b2b16808",
+        "ff8b6cc1-d0ed-4622-950f-d978af46dbd2"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000068",
+    "fields": {
+      "nama_menu": "Rawon",
+      "deskripsi": "Sup daging khas Jawa Timur dengan kuah hitam yang berasal dari kluwek (buah kepayang). Rasanya gurih dan kaya rempah, biasanya disajikan dengan nasi, taoge, dan telur asin.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "06fd30a0-354d-470a-8f79-7c49011c2b19",
+        "3d2541c0-66c8-4aef-b3f3-a2bd17164079",
+        "5b6cc1c3-ae47-4d13-be0d-49a1291b0755",
+        "a355df7f-85b7-4784-91f8-a02e0c9b8326",
+        "a4dc9b02-57ce-4243-8bd8-0650e91bc0fc"
+      ]
+    }
+  },
+  {
+    "model": "admin_dashboard.menuentry",
+    "pk": "00000000-0000-0000-0000-000000000069",
+    "fields": {
+      "nama_menu": "Empal Gentong",
+      "deskripsi": "Sup daging sapi yang dimasak dalam gentong tanah liat dengan kuah santan kental dan bumbu rempah. Rasanya gurih dan sangat kaya akan cita rasa tradisional.",
+      "image_url": "https://tribratanews.polri.go.id/web/image/blog.post/50469/image",
+      "restaurants": [
+        "0ab9dc8e-636b-46ca-aea4-958bbe40d766",
+        "0d8619a4-e2e3-4675-ae06-029515b5eb12",
+        "51346c7f-131c-4bf1-8824-f98220f78b64",
+        "b3193269-7d52-4e46-9c17-4fcd52071a7e",
+        "db67225f-f5d8-4437-8e34-fe1f5c93cf4d"
+      ]
+    }
+  }
+]
