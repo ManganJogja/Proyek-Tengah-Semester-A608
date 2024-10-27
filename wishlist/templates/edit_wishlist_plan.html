@@ -1,0 +1,28 @@
++{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+    <div class="container mx-auto mt-8 p-4">
+        <h1 class="text-3xl font-bold mb-4 text-center text-[#3E190E]">Edit Wishlist Plan</h1>
+        <div class="bg-[#F5E6D3] shadow-md rounded-lg p-6 w-[500px] mx-auto">
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+                <div>
+                    <label for="{{ form.date_plan.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Plan Date</label>
+                    {{ form.date_plan }}
+                </div>
+                <div>
+                    <label for="{{ form.additional_note.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Additional Notes</label>
+                    {{ form.additional_note }}
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Save Changes
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock content %}

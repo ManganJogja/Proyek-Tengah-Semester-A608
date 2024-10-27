@@ -1,32 +1,40 @@
+{% load static %}
 <div class="relative break-inside-avoid">
+    
     <div class="relative top-5 bg-white rounded-lg mb-6 break-inside-avoid flex flex-col border-2 border-gray-200 p-4 hover:bg-[rgba(62,25,14,0.05)] hover:border-[#3E190E] transition duration-300">
-      <div class="text-left"> 
+        <div class="bg-[#784B39] rounded-lg p-4 mb-4">
+            <p class="text-center text-xl " style="color: white; font-family: Abhaya Libre SemiBold;">
+              {{ reserve_entry.resto.nama_resto }}
+            </p>
+            
+          </div>
+        <div class="text-left"> 
         <div class="flex items-left justify-left mb-4"> 
 
         <p style="display: inline-flex; align-items: center;">
             <i class="fas fa-user" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-            <span style="font-size: 16px;">{{ reserve_entry.name }}</span>
+            <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.name }}</span>
         </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
-                <i class="fas fa-calendar-alt" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.date }}</span>
+                <i class="fas fa-calendar-alt" style=" margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.date }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.time }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.time }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-users" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
                     {{ reserve_entry.guest_quantity }} 
                     {% if reserve_entry.guest_quantity == 1 %}
                         person
@@ -40,58 +48,267 @@
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-envelope" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.email }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.email }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-phone" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.phone }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ reserve_entry.phone }}</span>
             </p>
         </div>
 
         <div class="flex items-left justify-left mb-4"> 
             <p style="display: inline-flex; align-items: center;">
                 <i class="fas fa-clipboard" style="margin-right: 24px; vertical-align: middle; color: #3E190E; font-size: 16px; vertical-align: middle;"></i> 
-                <span style="font-size: 16px;">{{ reserve_entry.notes }}</span>
+                <span style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
+                    {% if reserve_entry.notes %}
+                        {{ reserve_entry.notes }}
+                    {% else %}
+                        -
+                    {% endif %}
             </p>
+            
+        </span>
         </div>
       </div>
   
       <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
-      <div class="flex space-x-4 justify-center mt-4 mb-4">
-        <!-- Tombol Edit -->
-        <p>
-            <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}"  class="font-medium text-[#AC7853] hover:text-[#3E190E] cursor-pointer">
-                Click here
-            </a> 
-            to EDIT/CANCEL your reservation
-        </p>
-        
-        
-      </div>
+        <div class="flex justify-center mt-6 gap-x-4">
+            <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5;">
+                <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: 20px;">
+            </a>
+            <button class="edit-button" style="font-size: 14px; padding: 10px; border-radius: 50%; background-color: #f0d9b5;" data-id="{{ reserve_entry.id }}">
+                <img src="{% static 'image/edit.png' %}" alt="Edit" style="width: 20px; height: 20px;">
+            </button>
+
+            
+            
+    </div>
+    <div id="reserve_entry_cards"></div>
+
+    <div id="edit-modal-{{ reserve_entry.id }}" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Reservation</h2>
+            <form id="edit-reserve-form-{{ reserve_entry.id }}" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
+                {% csrf_token %}
+                <!-- Name Field -->
+                <div class="flex items-center">
+                    <label for="name" class="w-1/4" style="font-size: 15px;">Name:</label>
+                    <input type="text" id="name" name="name" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Date Field -->
+                <div class="flex items-center">
+                    <label for="date" class="w-1/4" style="font-size: 15px;">Date:</label>
+                    <input type="date" id="date" name="date" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Time Field -->
+                <div class="flex items-center">
+                    <label for="time" class="w-1/4" style="font-size: 15px;">Time:</label>
+                    <input type="time" id="time" name="time" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Guest Quantity Field -->
+                <div class="flex items-center">
+                    <label for="guest_quantity" class="w-1/4" style="font-size: 15px;">Guest Quantity:</label>
+                    <input type="number" id="guest_quantity" name="guest_quantity" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Email Field -->
+                <div class="flex items-center">
+                    <label for="email" class="w-1/4" style="font-size: 15px;">Email: </label>
+                    <input type="email" id="email" name="email" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Phone Field -->
+                <div class="flex items-center">
+                    <label for="phone" class="w-1/4" style="font-size: 15px;">Phone:</label>
+                    <input type="text" id="phone" name="phone" required class="ml-4 p-2 border rounded-lg w-3/4">
+                </div>
+    
+                <!-- Notes Field -->
+                <div class="flex items-center">
+                    <label for="notes" class="w-1/4" style="font-size: 15px;">Notes:</label>
+                    <textarea id="notes" name="notes" class="ml-4 p-2 border rounded-lg w-3/4"></textarea>
+                </div>
+    
+                <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-2 rounded-lg" style="margin-bottom: 20px">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+    
       
     </div>
   </div>
   
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-    const reserveCards = document.querySelectorAll('[id^="reserve-card-"]');
-    const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+    const editButtons = document.querySelectorAll('.edit-button');
 
-    reserveCards.forEach(card => {
-        const reserveDateElement = card.querySelector('.fas.fa-calendar-alt + span'); // Temukan elemen tanggal berdasarkan ikon kalender
-        const reserveDate = reserveDateElement.innerText.trim(); // Ambil teks dari elemen dan hilangkan spasi
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const reserveId = button.getAttribute('data-id'); // Ambil ID reservasi
+            const modal = document.getElementById(`edit-modal-${reserveId}`); // Ambil modal yang sesuai dengan ID
+            modal.classList.remove('hidden');
 
-        // Konversi reserveDate ke format YYYY-MM-DD
-        const parsedReserveDate = new Date(reserveDate).toISOString().split('T')[0];
+            // Update data-id di modal jika perlu
+            const editForm = document.getElementById(`edit-reserve-form-${reserveId}`);
+            editForm.setAttribute('data-id', reserveId);    });
 
-        if (parsedReserveDate < today) {
-            card.style.display = 'none'; // Sembunyikan card jika tanggal sudah lewat
+            const closeButtons = document.querySelectorAll('.close-button');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = button.closest('.modal');
+            modal.classList.add('hidden'); // Sembunyikan modal
+        });
+    });
+
+    // Close modal jika klik di luar modal
+    window.addEventListener('click', function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.classList.add('hidden'); // Sembunyikan modal
+            }
+        });
+    });
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
         }
+    });
+
+    document.getElementById('edit-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const guestQuantity = document.getElementById('guest_quantity').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const notes = document.getElementById('notes').value;
+    const reserveId = event.target.getAttribute('data-id');
+
+    const data = {
+        name: name,
+        date: date,
+        time: time,
+        guest_quantity: guestQuantity,
+        email: email,
+        phone: phone,
+        notes: notes,
+        reserve_id: reserveId,
+    };
+
+    fetch(`/reserve/edit-reserve/${reserveId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // If the response is successful, reload the page
+            window.location.reload(); 
+        }  
+    });
+});
+document.querySelectorAll('[id^="edit-reserve-form-"]').forEach(form => {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const reserveId = event.target.getAttribute('data-id'); // Ambil ID dari form yang sesuai
+        const formData = new FormData(form);
+
+        fetch(`/reserve/edit-reserve/${reserveId}/`, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest' // Identify the request as AJAX
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.reload(); 
+            } else {
+                // Display errors
+                const errorDiv = document.getElementById('error-messages');
+                errorDiv.innerHTML = '';
+                for (const [field, errors] of Object.entries(data.errors)) {
+                    errors.forEach(error => {
+                        const errorElement = document.createElement('p');
+                        errorElement.textContent = `${field}: ${error}`;
+                        errorDiv.appendChild(errorElement);
+                    });
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
 });
 
-</script>
 
+});
+$("#edit-reserve-form").on("submit", function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+
+    $.ajax({
+      type: "POST",
+      url: "{% url 'reserve:edit_reserve' reserve_entry.id %}",  // Make sure to adjust the URL as needed
+      data: formData,
+      success: function(response) {
+        if (response.success) {
+            window.location.reload();
+        }
+      },
+      
+    });
+  });
+  async function getReserveEntries(){
+      return fetch("{% url 'reserve:show_json' %}").then((res) => res.json())
+  }
+ 
+function showModal() {
+      const modal = document.getElementById('crudModal');
+      const modalContent = document.getElementById('crudModalContent');
+
+      modal.classList.remove('hidden'); 
+      setTimeout(() => {
+        modalContent.classList.remove('opacity-0', 'scale-95');
+        modalContent.classList.add('opacity-100', 'scale-100');
+      }, 50); 
+  }
+
+  function hideModal() {
+      const modal = document.getElementById('crudModal');
+      const modalContent = document.getElementById('crudModalContent');
+
+      modalContent.classList.remove('opacity-100', 'scale-100');
+      modalContent.classList.add('opacity-0', 'scale-95');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 150); 
+  }
+
+
+  
+  refreshProductEntries();
+
+
+</script>

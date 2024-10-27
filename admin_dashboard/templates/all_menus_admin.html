@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<br><br><h2 style="text-align: center; font-size: 40px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:50px; font-weight:bold">All Menus</h2>
+
+<div class="menu-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; justify-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: left;">
+    {% for menu in menus %}
+    <div class="menu-card" style="width: 200px; background-color: white; border-radius: 15px; box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); overflow: visible; position: relative;">
+        <a href="{% url 'admin_dashboard:menu_page' menu.id %}">
+            <div style="overflow: hidden; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <img src="{{ menu.image_url }}" alt="{{ menu.nama_menu }}" style="width: 100%; height: 150px; object-fit: cover;">
+            </div>
+            <div style="padding: 10px; text-align: center;">
+                <h3 style="font-size: 18px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E;">{{ menu.nama_menu }}</h3>
+            </div>
+        </a>
+        <!-- Edit and Delete Buttons -->
+        <div style="position: absolute; top: -10px; right: -10px; display: flex; gap: 5px;">
+            <a href="{% url 'admin_dashboard:edit_menu' menu.id %}" style="background: #E7DBC6; border-radius: 50%; padding: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
+                <img src="{% static 'image/edit.png' %}" alt="Edit" style="width: 20px; height: 20px;">
+            </a>
+            <a href="{% url 'admin_dashboard:delete_menu' menu.id %}" style="background: #E7DBC6; border-radius: 50%; padding: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                <img src="{% static 'image/delete.png' %}" alt="Delete" style="width: 20px; height: 20px;">
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock meta %}
+
+{% block content %} 
+{% include 'navbar.html' %}
+
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+    <h1 style="color: #3E190E; font-size: 64px; font-family: Abhaya Libre SemiBold; font-weight: 600; word-wrap: break-word">Wishlist</h1>
+    
+    <div class="relative inline-block text-left mb-4">
+        <select id="sortDropdown" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <option value="name_asc">Sort by Name (A-Z)</option>
+            <option value="name_desc">Sort by Name (Z-A)</option>
+            <option value="rating_desc">Sort by Rating (High to Low)</option>
+            <option value="rating_asc">Sort by Rating (Low to High)</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+    </div>
+    
+    <div id="wishlist-content" class="flex flex-wrap justify-center">
+        {% include 'wishlist_content.html' %}
+    </div>
+    
+    <!-- Modify the overlay and modal divs -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div id="modal" class="bg-white p-8 rounded-lg w-11/12 max-w-md md:max-w-lg lg:max-w-xl">
+            <!-- Form content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<script>
+function updateWishlistView() {
+    fetch('/wishlist/content/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('wishlist-content').innerHTML = data.content;
+            sortWishlist();
+        })
+        .catch(error => console.error('Error updating wishlist view:', error));
+}
+
+function sortWishlist() {
+    const wishlistContent = document.getElementById('wishlist-content');
+    const cards = Array.from(wishlistContent.children);
+    const sortMethod = document.getElementById('sortDropdown').value;
+    
+    cards.sort((a, b) => {
+        const nameA = a.querySelector('h3').textContent.toLowerCase();
+        const nameB = b.querySelector('h3').textContent.toLowerCase();
+        const ratingA = parseFloat(a.querySelector('p:nth-child(2)').textContent.split(':')[1].trim());
+        const ratingB = parseFloat(b.querySelector('p:nth-child(2)').textContent.split(':')[1].trim());
+        
+        switch(sortMethod) {
+            case 'name_asc':
+                return nameA.localeCompare(nameB);
+            case 'name_desc':
+                return nameB.localeCompare(nameA);
+            case 'rating_desc':
+                return ratingB - ratingA;
+            case 'rating_asc':
+                return ratingA - ratingB;
+            default:
+                return 0;
+        }
+    });
+    
+    wishlistContent.innerHTML = '';
+    cards.forEach(card => wishlistContent.appendChild(card));
+}
+
+document.getElementById('sortDropdown').addEventListener('change', sortWishlist);
+
+// Initial sort
+sortWishlist();
+
+function showAddPlanForm(restaurantId) {
+    fetch(`/wishlist/add/${restaurantId}/`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('modal').innerHTML = html;
+            document.getElementById('overlay').classList.remove('hidden');
+        });
+}
+
+function closeModal() {
+    document.getElementById('overlay').classList.add('hidden');
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('add-plan-btn')) {
+        event.preventDefault();
+        showAddPlanForm(event.target.dataset.restaurantId);
+    }
+});
+
+document.getElementById('overlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
+
+function submitAddPlanForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            closeModal();
+            updateWishlistView();
+        } else {
+            // Handle errors
+            console.error('Error:', data.errors);
+        }
+    });
+}
+</script>
+
+{% include 'footer.html' %}
+{% endblock content %}

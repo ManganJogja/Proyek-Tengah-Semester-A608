@@ -1,0 +1,44 @@
+{% for item in wishlist_items %}
+<div class="wishlist-card" style="width: 400px; margin: 20px; font-family: 'Abhaya Libre SemiBold';">
+    <div class="bg-[#F5E6D3] shadow-md rounded-lg overflow-hidden border relative flex flex-col h-full" style="border: 2px solid rgba(0, 0, 0, 0.2);">
+        <div class="absolute top-2 right-2">
+            <a href="{% url 'wishlist:delete_wishlist' item.restaurant.id %}" class="text-red-500 hover:text-red-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </a>
+        </div>
+        <div class="p-6 flex-grow flex flex-col">
+            <div class="w-full text-left flex-grow">
+                <h3 class="font-bold text-2xl text-[#3E190E] mb-4">{{ item.restaurant.nama_resto }}</h3>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Rating:</span> {{ item.restaurant.rating }}/5</p>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Location:</span> {{ item.restaurant.alamat }}</p>
+                <p class="text-[#3E190E] text-sm mb-2"><span class="font-bold">Price:</span> {{ item.restaurant.range_harga }}</p>
+                <p class="text-[#3E190E] text-sm mb-4"><span class="font-bold">Plan:</span> {{ item.date_plan|date:"M. d, Y"|default:"No plan yet" }}</p>
+                {% if item.date_plan %}
+                    <p class="text-green-600 font-semibold text-xs mb-2">Plan sudah tercantum</p>
+                {% endif %}
+            </div>
+            <div class="flex space-x-2 h-12 mt-4">
+                {% if item.date_plan %}
+                    <button class="bg-gray-400 text-white px-4 py-2 rounded text-center cursor-not-allowed flex-1" disabled>
+                        Add Plan
+                    </button>
+                {% else %}
+                    <button class="add-plan-btn bg-blue-500 text-white px-4 py-2 rounded text-center hover:bg-blue-600 flex-1" data-restaurant-id="{{ item.restaurant.id }}">
+                        Add Plan
+                    </button>
+                {% endif %}
+                <a href="{% url 'wishlist:edit_wishlist' item.restaurant.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded text-center hover:bg-yellow-600 flex-1 flex items-center justify-center">
+                    Edit Plan
+                </a>
+            </div>
+        </div>
+        <div class="bg-white p-6 m-6 text-left mt-auto">
+            <p class="text-[#3E190E] text-sm">{{ item.additional_note|default:"No additional notes" }}</p>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p style="font-family: 'Abhaya Libre SemiBold';">No wishlist items yet.</p>
+{% endfor %}

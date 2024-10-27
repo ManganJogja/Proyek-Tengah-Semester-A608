@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin-dashboard/', include('admin_dashboard.urls')),
     path('', include('main.urls')),
     path('auth/', include('authentication.urls')),
+    path('reserve/', include('reserve.urls', namespace='reserve')),
+    path('reviews/', include('reviews.urls', namespace='reviews')), 
+    path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')),
     path('', include('order_takeaway.urls'))
-    # path('', include('reserve.urls')),
 ]

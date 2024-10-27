@@ -4,6 +4,9 @@ from .forms import MenuEntryForm, RestaurantEntryForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core import serializers
+import uuid
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 @login_required
 def admin_dashboard(request):
@@ -61,16 +64,29 @@ def delete_menu(request, pk):
         return redirect('login')
     
     menu = MenuEntry.objects.get(pk=pk)
-    menu.delete()
+    related_restaurants = list(menu.restaurants.all())
+    menu.delete() 
+
+    for restaurant in related_restaurants:
+        if restaurant.menus.count() == 0:  # cek restoran tidak memiliki menu lain
+            restaurant.delete()
+
     return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
 
 def edit_resto(request, pk):
-    resto = RestaurantEntry.objects.get(pk = pk)
+    resto = RestaurantEntry.objects.get(pk=pk)
     form = RestaurantEntryForm(request.POST or None, instance=resto)
 
     if form.is_valid() and request.method == "POST":
         form.save()
-        return HttpResponseRedirect(reverse('admin_dashboard:admin_dashboard'))
+
+        # ambil menu yang terkait dengan restoran ini
+        menu = resto.menus.first()  # ambil menu pertama yang terkait dengan resto
+        return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
+    
+    context = {'form': form, 'resto': resto}
+    return render(request, "edit_resto.html", context)
+
 
 def menu_page(request, pk):
     menu = get_object_or_404(MenuEntry, pk=pk)
@@ -81,13 +97,53 @@ def menu_page(request, pk):
     }
     return render(request, 'menu_page.html', context)
 
-def create_resto_entry(request):
+def create_resto_entry(request, pk):
     form = RestaurantEntryForm(request.POST or None)
+    menu = get_object_or_404(MenuEntry, pk=pk)
 
     if form.is_valid() and request.method == "POST":
-        resto_entry = form.save(commit=False)
-        resto_entry.save()
-        return redirect('admin_dashboard:admin_dashboard')
+        resto_entry = form.save() 
+        menu.restaurants.add(resto_entry)
+        
+        return redirect('admin_dashboard:menu_page', pk=pk)
 
-    context = {'form': form}
+    context = {'form': form, 'menu': menu}
     return render(request, "create_resto_entry.html", context)
+
+
+def delete_resto(request, pk):
+    if not request.user.is_staff:
+        return redirect('login')
+    
+    resto = get_object_or_404(RestaurantEntry, pk=pk)
+    menu = resto.menus.first()
+    
+    resto.delete()
+    
+    return HttpResponseRedirect(reverse('admin_dashboard:menu_page', args=[menu.id]))
+
+def all_menus_admin(request):
+    menus = MenuEntry.objects.all() 
+    context = {
+        'menus': menus
+    }
+    return render(request, "all_menus_admin.html", context)
+
+def restaurants_admin(request):
+    restaurants = RestaurantEntry.objects.all()  
+    return render(request, 'restaurants_admin.html', {'restaurants': restaurants})
+
+@csrf_exempt
+@require_POST
+def add_menu_entry_ajax(request):
+    nama_menu = request.POST.get("nama_menu")
+    deskripsi = request.POST.get("deskripsi")
+    image_url = request.POST.get("image_url")
+
+    new_menu = MenuEntry(
+        nama_menu=nama_menu, deskripsi=deskripsi,
+        image_url=image_url
+    )
+    new_menu.save()
+
+    return HttpResponse(b"CREATED", status=201)

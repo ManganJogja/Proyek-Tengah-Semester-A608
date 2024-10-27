@@ -8,7 +8,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from main.models import ManganJogja
-from admin_dashboard.models import MenuEntry
+from admin_dashboard.models import MenuEntry, RestaurantEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -21,7 +21,7 @@ def show_main(request):
     context = {
         'app' : 'Mangan Jogja',
         'name': request.user.username,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'Not available'),
         'product_entries': product_entries,
         'menus': menus
     }
@@ -66,7 +66,6 @@ def login_user(request):
         if user is not None:
             if user.is_staff:
                 auth_login(request, user)
-                # Ini sesuaiin sama main page admin
                 response = HttpResponseRedirect(reverse("admin_dashboard:admin_dashboard")) 
                 response.set_cookie('last_login', str(datetime.datetime.now()))
                 return response
@@ -78,7 +77,7 @@ def login_user(request):
                 return response
             
         else:
-            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+            messages.error(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
     return render(request, 'login.html', context)
 
@@ -106,7 +105,7 @@ def show_json_by_id(request, id):
 
 def menu_page_user(request, pk):
     menu = get_object_or_404(MenuEntry, pk=pk)
-    restaurants = menu.restaurants.all()  # Mendapatkan semua restoran terkait dengan menu
+    restaurants = menu.restaurants.all()  
 
     context = {
         'menu': menu,
@@ -114,3 +113,33 @@ def menu_page_user(request, pk):
     }
 
     return render(request, 'menu_page_user.html', context)
+
+def restaurant_list(request):
+    restaurants = RestaurantEntry.objects.all()  
+    return render(request, 'restaurants.html', {'restaurants': restaurants})
+
+def search_menu(request):
+    query = request.GET.get('q') 
+    if query:
+        menus = MenuEntry.objects.filter(nama_menu__icontains=query)
+    else:
+        menus = MenuEntry.objects.all()
+
+    context = {
+        'menus': menus,
+        'query': query,  
+    }
+    return render(request, 'search_results_menus.html', context)
+
+def search_resto(request):
+    query = request.GET.get('q')
+    if query:
+        restaurants = RestaurantEntry.objects.filter(nama_resto__icontains=query)
+    else:
+        restaurants = RestaurantEntry.objects.all() 
+
+    context = {
+        'restaurants': restaurants,
+        'query': query,
+    }
+    return render(request, 'search_results_resto.html', context)

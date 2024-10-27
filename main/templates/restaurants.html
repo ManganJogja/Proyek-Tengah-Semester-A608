@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="mt-16" style="min-height: 80vh; padding: 20px; text-align: center;">
+<div class="container mx-auto px-4">
+    <h2 style="text-align: center; font-size: 40px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:25px; font-weight:bold">All Restaurants</h2>
+    <div style="position: relative; text-align: right; margin: 20px 20px 0 0;">
+        <form action="{% url 'main:search_resto' %}" method="GET" style="display: inline;">
+            <input type="text" name="q" placeholder="Search resto..." style="padding: 8px; width: 200px; background-color: #f0efec; border: 1px solid #ccc; border-radius: 4px;">
+            <button type="submit" style="padding: 8px 12px; background-color: #3E190E; color: white; border: none; border-radius: 4px;">Search</button>
+        </form>
+    </div><br><br>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 0 auto; max-width: 1250px; padding: 20px; text-align: left;">
+        {% for restaurant in restaurants %}
+        <div style="font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
+            <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
+                onclick="toggleWishlist('{{ restaurant.id }}', this)"
+                data-added="false"
+                style="cursor: pointer; width: 24px; height: auto; position: absolute; top: 20px; right: 20px;">
+            <h4 style="font-size: 23px; font-weight: bold;">{{ restaurant.nama_resto }}</h4>
+            <p style="text-align: left;"><strong>Location:</strong> {{ restaurant.alamat }}</p>
+            <p style="text-align: left;"><strong>Rating:</strong> {{ restaurant.rating }} ⭐</p>
+            <p style="text-align: left;"><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>
+            <p style="text-align: left;"><strong>Cuisine:</strong> {{ restaurant.jenis_kuliner }}</p>
+            <p style="text-align: left;"><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
+            <a href="{% url 'reviews:review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline; text-align: left; ">Click to See Reviews</a>                        
+            <a href="{% url 'reserve:confirmation_form' restaurant.id %}" 
+                style="cursor: pointer; padding: 6px 10px; background-color: #784B39; color: white; border: none; border-radius: 18px; font-size: 0.9rem; position: absolute; bottom: 20px; right: 20px;"
+                onmouseover="this.style.backgroundColor='#d5c3a1'; this.style.color='#000';"
+                onmouseout="this.style.backgroundColor='#4b2a20'; this.style.color='white';">
+                    Make a Reservation
+            </a>                                         
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock %}

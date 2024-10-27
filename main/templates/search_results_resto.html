@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<br><br>
+<h2 style="text-align: left; font-size: 30px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:50px; font-weight:bold">Search results for "{{ query }}"</h2>
+
+{% if restaurants %}
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 0 auto; max-width: 1250px; padding: 20px;">
+        {% for restaurant in restaurants %}
+        <div style="position: relative; font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
+                onclick="toggleWishlist('{{ restaurant.id }}', this)"
+                data-added="false"
+                style="cursor: pointer; width: 24px; height: auto; position: absolute; top: 20px; right: 20px;">
+                <h4 style="font-size: 1.2rem; font-weight: bold;">{{ restaurant.nama_resto }}</h4>
+            <p><strong>Location:</strong> {{ restaurant.alamat }}</p>
+            <p><strong>Rating:</strong> {{ restaurant.rating }} ★</p>
+            <p><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>
+            <p><strong>Cuisine:</strong> {{ restaurant.jenis_kuliner }}</p>
+            <p><strong>Tingkat Keramaian Resto:</strong> {{ restaurant.keramaian_resto }}</p>
+            <a href="{% url 'reviews:review_card' restaurant.id %}" style="color: #784B39; text-decoration: none; text-decoration: underline; font-weight: bold; font-size: 16px; font-family: 'Abhaya Libre', serif;">
+                Click to See Reviews
+            </a>
+            <a href="{% url 'reserve:confirmation_form' restaurant.id %}" 
+                style="cursor: pointer; padding: 6px 10px; background-color: #784B39; color: white; border: none; border-radius: 18px; font-size: 0.9rem; position: absolute; bottom: 20px; right: 20px;"
+                onmouseover="this.style.backgroundColor='#d5c3a1'; this.style.color='#000';"
+                onmouseout="this.style.backgroundColor='#4b2a20'; this.style.color='white';">
+                    Make a Reservation
+            </a>                                         
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p style="text-align: center;">No resto found for "{{ query }}"</p>
+{% endif %}
+<br>
+
+{% include 'footer.html' %}
+{% endblock content %}
