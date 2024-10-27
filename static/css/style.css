@@ -2,7 +2,7 @@
 label {
     font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
     font-weight: 800; /* SemiBold */
-    font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+    font-size: 20px; /* Sesuaikan ukuran sesuai kebutuhan */
     text-align: left;
 }
 
@@ -57,7 +57,7 @@ button.btn {
     border: none;
     border-radius: 50px; /* Tombol melingkar penuh */
     font-size: 1.2rem; /* Ukuran teks */
-    font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+    font-family: 'Abhaya Libre', serif; 
     cursor: pointer;
     transition: background-color 0.3s ease; /* Efek hover */
     display: inline-block;
@@ -93,7 +93,7 @@ form button {
 }
 
 p, button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Abhaya Libre', serif; 
 }
 
 .messages {

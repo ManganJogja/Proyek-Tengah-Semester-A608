@@ -1,0 +1,18 @@
+<h2 class="text-2xl font-bold mb-4 text-center text-[#3E190E]">{{ restaurant.nama_resto }}</h2>
+<form onsubmit="submitAddPlanForm(event)" method="post" action="{% url 'wishlist:add_wishlist' restaurant.id %}" class="space-y-4">
+    {% csrf_token %}
+    <div>
+        <label for="{{ form.date_plan.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Plan Date</label>
+        {{ form.date_plan }}
+    </div>
+    <div>
+        <label for="{{ form.additional_note.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Additional Notes</label>
+        {{ form.additional_note }}
+    </div>
+    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Add to Wishlist
+    </button>
+</form>
+<button onclick="closeModal()" class="mt-4 w-full bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+    Cancel
+</button>

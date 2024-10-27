@@ -57,7 +57,7 @@ button.btn {
     border: none;
     border-radius: 50px; /* Tombol melingkar penuh */
     font-size: 1.2rem; /* Ukuran teks */
-    font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+    font-family: 'Abhaya Libre', serif; 
     cursor: pointer;
     transition: background-color 0.3s ease; /* Efek hover */
     display: inline-block;

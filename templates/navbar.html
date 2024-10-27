@@ -7,23 +7,30 @@
             <div class="flex items-center space-x-5">
                 <img src="{% static 'image/Logo.png' %}" alt="Logo" class="w-15 h-14 mb-1"/>
                 <h1 class="text-2xl font-semibold text-center text-[#3E190E] ml-4" style="font-family: ADLaM Display;">Manganjogja.</h1>
-                <!-- Home and Menus links (visible only on large screens) -->
+                {% if user.is_staff %}
+                    <a href="{% url 'admin_dashboard:admin_dashboard' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Home</a>
+                    <a href="{% url 'admin_dashboard:all_menus_admin' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Menus</a>
+                    <a href="{% url 'admin_dashboard:restaurants_admin' %}" style="font-family: Abhaya Libre SemiBold;" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-3 transition">Restaurants</a>
+                {% else %}
+                    <!-- Home and Menus links (visible only on large screens) -->
                 <a href="{% url 'main:show_main' %}" style="font-family: Abhaya Libre SemiBold;" class="hidden md:block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-300">Home</a>
                 <a href="{% url 'main:all_menus' %}" style="font-family: Abhaya Libre SemiBold;" class="hidden md:block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-300">Menus</a>
                 <a href="{% url 'main:restaurants' %}" style="font-family: Abhaya Libre SemiBold;" class="hidden md:block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-3 rounded transition duration-300">Restaurants</a>
+                {% endif %}
+
             </div>
 
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center ml-auto space-x-8">
                 {% if user.is_authenticated %}
                     {% if not user.is_staff %}
-                        <a href="">
+                        <a href="{% url 'order_takeaway:show_order_takeaway' %}">
                             <img src="{% static 'image/order.png' %}" alt="Order" class="w-6 h-6">
                         </a>
                         <a href="{% url 'reserve:show_reserve' %}">
                             <img src="{% static 'image/reserve.png' %}" alt="Reserve" class="w-6 h-6">
                         </a>
-                        <a href="">
+                        <a href="{% url 'wishlist:show_wishlist' %}">
                             <img src="{% static 'image/wishlist.png' %}" alt="Wishlist" class="w-6 h-6">
                         </a>
                     {% endif %}
@@ -59,8 +66,8 @@
                 <a href="{% url 'main:show_main' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Home</a>
                 <a href="{% url 'main:all_menus' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Menus</a>
                 <a href="{% url 'main:restaurants' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Restaurants</a>
-                <a href="{% url 'main:show_main' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Wishlist</a>
-                <a href="{% url 'main:show_main' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Orders</a>
+                <a href="{% url 'wishlist:show_wishlist' %}" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">Wishlist</a>                
+                <a href="{% url 'order_takeaway:show_order_takeaway' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Orders</a>
                 <a href="{% url 'reserve:show_reserve' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded transition duration-300">My Reservation</a>
                 <a href="{% url 'main:logout' %}" style="font-family: Abhaya Libre SemiBold;" class="block text-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
                     Logout

@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'authentication',
-    'admin_dashboard',
     'reserve',
     'reviews',
+    'wishlist',
+    'admin_dashboard',
+    'order_takeaway',
 ]
 
 MIDDLEWARE = [

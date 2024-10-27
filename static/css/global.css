@@ -28,139 +28,314 @@
   border-radius: 100% 0 0 100%; /* Creates the curved half-circle effect */
 }
 
-input {
-  background-color: rgba(9, 4, 70, 0.20); /* Latar belakang transparan */
-  border: 1px solid #d1d5db; /* Border abu-abu */
-  border-radius: 0.375rem; /* Radius border */
-  padding: 0.75rem 1rem; /* Padding dalam input */
-  width: 430px; /* Lebar penuh */
-  height: 40px;
-  color: #1f2937; /* Warna teks */
+  input {
+    background-color: rgba(9, 4, 70, 0.20); /* Latar belakang transparan */
+    border: 1px solid #d1d5db; /* Border abu-abu */
+    border-radius: 0.375rem; /* Radius border */
+    padding: 0.75rem 1rem; /* Padding dalam input */
+    width: 430px; /* Lebar penuh */
+    height: 40px;
+    color: #1f2937; /* Warna teks */
+  }
+  
+  input:focus {
+    outline: none; /* Menghilangkan outline default */
+    border-color: #784b39; /* Warna border saat fokus */
+  }
+
+  /* Perbesar font pada label Rating dan Write Your Review Here */
+label {
+  font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
+  font-weight: 800; /* SemiBold */
+  font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+  text-align: left;
 }
 
-input:focus {
-  outline: none; /* Menghilangkan outline default */
+.review-title {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800; 
+  font-size: 40px; /* Sesuaikan ukuran jika diperlukan */
+  text-align: center; /* Pusatkan judul */
+  margin-bottom: 20px; /* Memberikan jarak bawah */
+  color: #3E190E; /* Warna sesuai */
 }
 
+.rating {
+  display: flex;
+  justify-content: center; /* Agar elemen berada di tengah */
+  gap: 0px; /* Mengurangi jarak antar bintang */
+}
+
+.rating input[type="radio"] {
+  margin-right: 0px !important;
+  margin-left: 5px !important; /* Adjust this value to fine-tune spacing */
+}
+
+.rating label {
+  margin-right: 0px !important;
+  font-size: 20px; /* Ukuran bintang */
+}
+
+/* Pusatkan textarea dan tombol */
+.container {
+  text-align: center;
+}
+
+textarea {
+  display: block;
+  margin: 0 auto; /* Untuk menengahkan textarea */
+  width: 80%; /* Lebar textarea agar lebih proporsional */
+  max-width: 600px; /* Batasi lebar maksimal */
+  padding: 10px; /* Tambahkan padding untuk jarak dalam */
+  border-radius: 5px; /* Sudut melengkung */
+  border: 1px solid #ddd; /* Border agar terlihat */
+  font-size: 16px; /* Ukuran font dalam textarea */
+}
+
+button.btn {
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 600; /* SemiBold */
+  font-size: 35px;
+  background-color: #3E190E; /* Warna background */
+  color: #d4c8c8; /* Warna teks */
+  padding: 15px 40px; /* Padding */
+  border: none;
+  border-radius: 50px; /* Tombol melingkar penuh */
+  font-size: 1.2rem; /* Ukuran teks */
+  font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efek hover */
+  display: inline-block;
+  margin: 20px auto; /* Pastikan tombol berada di tengah */
+}
+
+button.btn:hover {
+  background-color: #d5c3a1; /* Ubah warna latar belakang sedikit lebih gelap saat hover */
+  color: #000;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #3e190e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+p, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+.messages {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.messages .success {
+  color: green;
+}
+
+.messages .error {
+  color: red;
+}
+
+.alert {
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.alert-success {
+  background-color: #4CAF50;
+}
+
+.alert-error {
+  background-color: #f44336;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text {
+  margin-top: 10px;
+  font-family: 'Arial', sans-serif;
+  color: #555;
+}
+
+.text-warning {
+  color: #ffc107 !important;
+}
+
+.text-secondary {
+  color: #ddd !important;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Butoon add new review di review card */
+.add-review-btn {
+  display: inline-block;
+  background-color: #4b2a20; /* Warna coklat */
+  color: white; /* Warna teks putih */
+  font-size: 16px;
+  font-family: 'Abhaya Libre SemiBold', serif; /* Ganti dengan font yang kamu gunakan */
+  padding: 10px 30px;
+  border-radius: 30px; /* Membuat sudut tombol melingkar */
+  text-decoration: none; /* Menghilangkan garis bawah pada link */
+  transition: background-color 0.3s ease;
+}
+
+.add-review-btn:hover {
+  background-color: #d5c3a1; /* Ubah warna latar belakang sedikit lebih gelap saat hover */
+  color: #000;
+}
 
 /* Container menu untuk layout grid */
 .menu-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Item menu responsif */
 .menu-item {
-  border: 1px solid #ccc;
-  font-family: 'Abhaya Libre SemiBold';
-  margin: 10px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  border-radius: 9px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    font-family: 'Abhaya Libre SemiBold';
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 9px;
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
 }
 
 .menu-item h3 {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 /* Responsif untuk layar kecil */
 @media (max-width: 768px) {
-  /* Atur agar item menu memenuhi lebar layar */
-  .menu-item {
-      width: 45%;
-  }
+    /* Atur agar item menu memenuhi lebar layar */
+    .menu-item {
+        width: 45%;
+    }
 }
 
 @media (max-width: 576px) {
-  /* Atur tampilan lebih kecil untuk layar ponsel */
-  .menu-item {
-      width: 100%; /* Satu menu per baris */
-  }
+    /* Atur tampilan lebih kecil untuk layar ponsel */
+    .menu-item {
+        width: 100%; /* Satu menu per baris */
+    }
 
-  /* Ukuran font lebih kecil */
-  .menu-item h3 {
-      font-size: 18px;
-  }
+    /* Ukuran font lebih kecil */
+    .menu-item h3 {
+        font-size: 18px;
+    }
 }
 
 /* Gaya untuk bagian hero (bagian gambar dan teks utama) */
 .hero-section {
-  background-color: #E7DBC6;
-  height: 610px;
-  text-align: center;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+    background-color: #E7DBC6;
+    height: 610px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .hero-section img {
-  max-width: 38%;
-  height: auto;
-  margin-top: -50px;
+    max-width: 38%;
+    height: auto;
+    margin-top: -50px;
 }
 
 .hero-section .megamendung {
-  position: absolute;
-  width: 300px;
-  height: auto;
+    position: absolute;
+    width: 300px;
+    height: auto;
 }
 
 /* Media query untuk bagian hero */
 @media (max-width: 768px) {
-  .hero-section img {
-      max-width: 50%; /* Gambar lebih besar pada layar kecil */
+    .hero-section img {
+        max-width: 50%; /* Gambar lebih besar pada layar kecil */
+    }
+    .hero-section .megamendung {
+      width: 150px; /* Gambar megamendung lebih kecil pada layar kecil */
   }
-  .hero-section .megamendung {
-    width: 150px; /* Gambar megamendung lebih kecil pada layar kecil */
-}
 }
 
 @media (max-width: 576px) {
-  .hero-section img {
-      max-width: 50%; /* Gambar lebih besar lagi pada layar sangat kecil */
-  }
+    .hero-section img {
+        max-width: 50%; /* Gambar lebih besar lagi pada layar sangat kecil */
+    }
 
-  .hero-section .megamendung {
-      height: 150px; /* Kurangi tinggi megamendung untuk layar kecil */
-  }
+    .hero-section .megamendung {
+        height: 150px; /* Kurangi tinggi megamendung untuk layar kecil */
+    }
 
-  /* Ubah ukuran teks di hero */
-  .hero-section p {
-      font-size: 20px;
-  }
+    /* Ubah ukuran teks di hero */
+    .hero-section p {
+        font-size: 20px;
+    }
 }
 
 /* Style untuk tombol scroll */
 .scroll-button {
-  background-color: #784B39;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
+    background-color: #784B39;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
 }
 
 .scroll-button:hover {
-  background-color: #3E190E;
+    background-color: #3E190E;
 }
 
 /* Style untuk bagian footer */
 .footer-section {
-  background-color: #3E190E;
-  color: white;
-  text-align: center;
-  padding: 15px;
+    background-color: #3E190E;
+    color: white;
+    text-align: center;
+    padding: 15px;
 }
 
 .modal {
@@ -196,26 +371,7 @@ input:focus {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  font-size: 24px;
-  z-index: 10001;
+  float: right;
+  font-size: 20px;
 }
-
-.modal-content input, 
-.modal-content textarea {
-width: 100%; /* Input akan mengambil seluruh lebar dari modal */
-}
-
-@media (max-width: 576px) {
-  .modal-content {
-    max-width: 90%; /* Sesuaikan lebar modal untuk layar yang lebih kecil */
-    max-height: 90vh; /* Sesuaikan ketinggian maksimal modal */
-  }
-}
-
-
-
-.hidden {
-display: none;
-}
-
 

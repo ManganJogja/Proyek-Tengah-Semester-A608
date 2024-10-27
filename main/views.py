@@ -21,7 +21,7 @@ def show_main(request):
     context = {
         'app' : 'Mangan Jogja',
         'name': request.user.username,
-        'last_login': request.COOKIES['last_login'],
+        'last_login': request.COOKIES.get('last_login', 'Not available'),
         'product_entries': product_entries,
         'menus': menus
     }
@@ -117,3 +117,29 @@ def menu_page_user(request, pk):
 def restaurant_list(request):
     restaurants = RestaurantEntry.objects.all()  
     return render(request, 'restaurants.html', {'restaurants': restaurants})
+
+def search_menu(request):
+    query = request.GET.get('q') 
+    if query:
+        menus = MenuEntry.objects.filter(nama_menu__icontains=query)
+    else:
+        menus = MenuEntry.objects.all()
+
+    context = {
+        'menus': menus,
+        'query': query,  
+    }
+    return render(request, 'search_results_menus.html', context)
+
+def search_resto(request):
+    query = request.GET.get('q')
+    if query:
+        restaurants = RestaurantEntry.objects.filter(nama_resto__icontains=query)
+    else:
+        restaurants = RestaurantEntry.objects.all() 
+
+    context = {
+        'restaurants': restaurants,
+        'query': query,
+    }
+    return render(request, 'search_results_resto.html', context)

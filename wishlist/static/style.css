@@ -1,0 +1,61 @@
+.wishlist-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F5E6D3;
+    border-radius: 10px;
+}
+
+.wishlist-form h3 {
+    text-align: center;
+    color: #3E190E;
+    margin-bottom: 20px;
+}
+
+.restaurant-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3E190E;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #D7C8B5;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.form-group input[readonly] {
+    background-color: #E6D7C4;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3E190E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background-color: #5C2614;
+}
