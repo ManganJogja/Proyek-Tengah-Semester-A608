@@ -14,6 +14,7 @@ from django.utils.html import strip_tags
 from admin_dashboard.models import RestaurantEntry, MenuEntry
 from django.contrib import messages
 from main.views import show_main
+import json
 
 
 @login_required(login_url='/login')
@@ -82,25 +83,13 @@ def confirmation_form(request, id):
 @csrf_exempt
 @require_http_methods(["GET", "POST"])  
 def edit_reserve(request, id):
-    reserve_entry = get_object_or_404(ReserveEntry, pk=id, user=request.user)  # Ambil objek tunggal
-
-    if request.method == 'GET':
-        data = {
-            'guest_quantity': reserve_entry.guest_quantity,
-            'notes': reserve_entry.notes,
-        }
-        return JsonResponse(data)
-    elif request.method == 'POST':
-        name = request.POST.get("name")
-        date = request.POST.get("date")
-        time = request.POST.get("time")
-        guest_quantity = request.POST.get("guest_quantity")
-        notes = request.POST.get('notes')
-        new_reserve = ReserveEntry(
-            notes=notes, guest_quantity=guest_quantity, name=name, time=time, date=date
-        )
-        new_reserve.save()
-        return HttpResponse(b"CREATED", status=201)
+    reserve = get_object_or_404(ReserveEntry, pk=id)
+    if request.method == 'POST':
+        form = ReserveEntryForm(request.POST, instance=reserve)
+        if form.is_valid():
+            form.save()
+            return redirect('reserve:show_reserve')
+    
 def delete_reserve(request, id):
     reserve = ReserveEntry.objects.get(pk = id)
     reserve.delete()

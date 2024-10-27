@@ -1,4 +1,4 @@
-Perbesar font pada label Rating dan Write Your Review Here
+/* Perbesar font pada label Rating dan Write Your Review Here */
 label {
     font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
     font-weight: 800; /* SemiBold */

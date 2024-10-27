@@ -4,7 +4,6 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<br><br><br>
 <div class="container mx-auto px-4">
     <h2 style="text-align: center; font-size: 40px; font-family: 'Abhaya Libre SemiBold'; color: #3E190E; padding:25px; font-weight:bold">All Restaurants</h2>
     <div style="position: relative; text-align: right; margin: 20px 20px 0 0;">
@@ -15,7 +14,7 @@
     </div><br><br>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 0 auto; max-width: 1250px; padding: 20px; text-align: left;">
         {% for restaurant in restaurants %}
-        <div style="position: relative; font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        <div style="font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); position: relative;">
             <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
                 onclick="toggleWishlist('{{ restaurant.id }}', this)"
                 data-added="false"
