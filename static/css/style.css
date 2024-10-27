@@ -3,7 +3,7 @@ label {
     font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
     font-weight: 800; /* SemiBold */
     font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
-    text-align: center;
+    text-align: left;
 }
 
 .review-title {
@@ -68,7 +68,6 @@ button.btn:hover {
     background-color: #d5c3a1; /* Ubah warna latar belakang sedikit lebih gelap saat hover */
     color: #000;
 }
-
 
 form label {
     display: block;

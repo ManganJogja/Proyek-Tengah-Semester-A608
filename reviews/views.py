@@ -61,12 +61,11 @@ def delete_review(request, review_id):
                 return JsonResponse({'message': 'Review deleted successfully!'})
 
             # Jika bukan AJAX, redirect ke halaman lain
-            return redirect('review_card')
-
+            return redirect('reviews:review_card', restaurant_id=review.restaurant.id)
         except Review.DoesNotExist:
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({'message': 'Review not found!'}, status=404)
-            return redirect('review_card')
+            return redirect('reviews:review_card', restaurant_id=review.restaurant.id)
 
     return JsonResponse({'message': 'Invalid request'}, status=400)
 

@@ -17,4 +17,5 @@ urlpatterns = [
     path('edit_resto/<uuid:pk>', edit_resto, name='edit_resto'),
     path('delete_menu/<uuid:pk>', delete_menu, name='delete_menu'),
     path('delete_resto/<uuid:pk>', delete_resto, name='delete_resto'),
+     path('create/', reserve_views.create_reserve_entry, name='create_reserve_entry'),
 ]

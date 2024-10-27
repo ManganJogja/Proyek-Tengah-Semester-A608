@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'reviews/style.css' %}"> <!-- Arahkan ke style.css di folder aplikasi reviews -->
 
 {% block content %}
 {% include 'navbar.html' %}
@@ -10,7 +11,7 @@
             <h1 style="font-family: 'Abhaya Libre', sans-serif; font-weight: bold; font-size: 50px; margin-bottom: 10px;">
                 {{ restaurant.nama_resto }}
             </h1>
-            <p style="color: rgb(0, 0, 0); font-size: 16px; margin-bottom: 30px;">
+            <p style="color: rgb(0, 0, 0); font-size: 23px; margin-bottom: 30px; font-family: 'Abhaya Libre';">
               Location :  {{ restaurant.alamat }}
             </p>
         </div>
