@@ -2,11 +2,11 @@ name: Push to PWS
 
 on:
   push:
-    branches: [ main, master, raysha, erland, hanifa, ridya, talitha ]
+    branches: [ main, master, raysha, erland, hanifa, ridya, talitha, staging ]
     paths-ignore:
         - '**.md'
   pull_request:
-    branches: [ main, master, raysha, erland, hanifa, ridya, talitha ]
+    branches: [ main, master, raysha, erland, hanifa, ridya, talitha, staging ]
     paths-ignore:
         - '**.md'
 
