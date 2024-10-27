@@ -35,7 +35,9 @@ def add_wishlist(request, restaurant_id: UUID):
         form = WishlistForm(request.POST, instance=wishlist_item)
         if form.is_valid():
             form.save()
-            return redirect('wishlist:show_wishlist')
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
     else:
         form = WishlistForm(instance=wishlist_item)
 
@@ -43,7 +45,7 @@ def add_wishlist(request, restaurant_id: UUID):
         'restaurant': restaurant,
         'form': form,
     }
-    return render(request, 'add_wishlist_plan.html', context)
+    return render(request, 'add_wishlist_plan_form.html', context)
 
 @login_required
 def delete_wishlist(request, restaurant_id):
