@@ -10,8 +10,8 @@
             style="width: 100%; max-width: 400px; height: auto; border-radius: 15px;">
         
         <div style="flex: 1 1 300px;">
-            <h2 style="font-family: 'Abhaya Libre SemiBold'; font-weight: bold; font-size: 2.5rem;">{{ menu.nama_menu }}</h2><br>
-            <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 1.2rem;">{{ menu.deskripsi }}</p>
+            <h2 style="font-family: 'Abhaya Libre SemiBold'; font-weight: bold; font-size: 2.5rem; text-align: left;">{{ menu.nama_menu }}</h2><br>
+            <p style="font-family: 'Abhaya Libre SemiBold'; font-size: 1.2rem; text-align: left;">{{ menu.deskripsi }}</p>
         </div>
     </div>
 
@@ -20,14 +20,13 @@
     </div><br>
 
         <!-- Container untuk cards dengan tampilan grid -->
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: flex-start;">
+        <div class="grid grid-cols-2 gap-5 mt-5">
             {% for restaurant in restaurants %}
-            <div style="font-family: 'Abhaya Libre', serif; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); width: 32%; position: relative;">
-                <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
+            <div style="position: relative; font-family: 'Abhaya Libre SemiBold'; border: 1px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">                <img src="{% static 'image/heart_outline.png' %}" alt="Add to Wishlist"
                     onclick="toggleWishlist('{{ restaurant.id }}', this)"
                     data-restaurant-id="{{ restaurant.id }}"
                     style="cursor: pointer; width: 24px; height: auto; position: absolute; top: 20px; right: 20px;">
-                <h4 style="font-size: 30px; font-weight: bold; font-family: 'Abhaya Libre', serif; margin-bottom: 10px;">{{ restaurant.nama_resto }}</h4>
+                <h4 style="font-size: 30px; font-weight: bold; text-align: left; font-family: 'Abhaya Libre SemiBold', serif; margin-bottom: 10px;">{{ restaurant.nama_resto }}</h4>
                 <p style="text-align: left;"><strong>Location:</strong> {{ restaurant.alamat }}</p>
                 <p style="text-align: left;"><strong>Rating:</strong> {{ restaurant.rating }} ⭐</p>
                 <p style="text-align: left;"><strong>Range Harga:</strong> Rp {{ restaurant.range_harga }}</p>

@@ -16,7 +16,7 @@
         body {
             font-family: 'Abhaya Libre', serif;
             font-weight: 600;
-            background-color: #f4f4f4;
+            background-color: white;
             margin: 0;
             padding: 0;
         }
@@ -41,6 +41,7 @@
             font-size: 1.8rem;
             color: #333333;
             margin: 0;
+            margin-right: auto;
         }
 
         .add-order {
@@ -60,6 +61,12 @@
             background-color: #5e4230;
         }
 
+        .sort-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -75,7 +82,7 @@
             text-align: center;
             border-bottom: 1px solid #dddddd;
             color: #333333;
-            font-weight: 600; /* Ensuring Abhaya Libre Semibold is bold */
+            font-weight: 600;
         }
 
         th {
@@ -84,7 +91,6 @@
             text-transform: uppercase;
         }
 
-        /* Modal styling */
         .modal {
             display: none;
             position: fixed;
@@ -153,9 +159,8 @@
             background-color: #5e4230;
         }
 
-        /* Adjusted spacing for action buttons */
         .action-buttons a {
-            margin: 0 10px; /* Increased spacing between edit and delete icons */
+            margin: 0 10px;
             color: #6F4E37;
             text-decoration: none;
             font-size: 1.2rem;
@@ -165,9 +170,16 @@
 <body>
     <div class="page-wrapper">
         <div class="container">
-            <!-- Header with Title and Add Order Button -->
+            <!-- Header with Title, Sort Dropdown, and Add Order Button -->
             <div class="header">
-                <h1>Takeaway Orders</h1>
+                <h1 style="color: #3E190E; margin-right: auto;">Takeaway Orders</h1>
+                <div class="sort-container" style="display: flex; align-items: center; gap: 5px; margin-right: 10px;">
+                    <label for="sort-menu" style="font-weight: 600;">Sort by:</label>
+                    <select id="sort-menu" onchange="sortOrders()" class="form-control" style="width: 75px; height: 34px; padding: 0 5px;">
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
+                    </select>
+                </div>
                 <button onclick="showAddOrderModal()" class="add-order">Add Order</button>
             </div>
             
@@ -240,6 +252,26 @@
     </div>
 
     <script>
+        function sortOrders() {
+            const table = document.getElementById("orders-table").getElementsByTagName("tbody")[0];
+            const rows = Array.from(table.rows);
+            const sortType = document.getElementById("sort-menu").value;
+
+            rows.sort((rowA, rowB) => {
+                const menuA = rowA.cells[0].innerText.toLowerCase();
+                const menuB = rowB.cells[0].innerText.toLowerCase();
+
+                if (sortType === "a-z") {
+                    return menuA.localeCompare(menuB);
+                } else if (sortType === "z-a") {
+                    return menuB.localeCompare(menuA);
+                }
+            });
+
+            table.innerHTML = "";
+            rows.forEach(row => table.appendChild(row));
+        }
+
         function showAddOrderModal() {
             document.getElementById("addOrderModal").style.display = "flex";
 
