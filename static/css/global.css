@@ -52,7 +52,7 @@
 label {
   font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
   font-weight: 800; /* SemiBold */
-  font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+  font-size: 20px; /* Sesuaikan ukuran sesuai kebutuhan */
   text-align: left;
 }
 
@@ -224,5 +224,34 @@ h1 {
 }
 
 
-  
-  
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px; /* Atur lebar modal */
+}
+
+.hidden {
+  display: none;
+}
+
+.close-button {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+}
+
+

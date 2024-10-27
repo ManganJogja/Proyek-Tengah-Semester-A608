@@ -3,53 +3,58 @@
 
 {% block meta %}
 {% endblock meta %}
+
 {% block content %} 
 {% include 'navbar.html' %}
 
 <div class="flex flex-col min-h-screen bg-white">
-    <div class="container mx-auto px-4 py-8 mt-16 max-w-3xl" style="font-family: Abhaya Libre SemiBold;">
-        <div class=" rounded-t-lg p-6">
-            <h1 class="text-3xl font-bold text-center mb-8 text-#3E190E" style="color: #3E190E; font-family: Abhaya Libre SemiBold;">{{ restaurant.nama_resto }}</h1>
+    <div class="container mx-auto px-4 py-8 mt-16 max-w-3xl" style="font-family: 'Abhaya Libre SemiBold';">
+        <div class="rounded-t-lg p-6">
+            <h1 class="text-3xl font-bold text-center mb-8 text-[#3E190E]" style="font-family: 'Abhaya Libre SemiBold';">{{ restaurant.nama_resto }}</h1>
             <div class="flex justify-center items-center mb-4">
-                <i class="fas fa-clock" style="margin-right: 20px; vertical-align: middle; color: #3E190E; font-size: 24px"></i> 
-                <p class="text-3xl font-semibold  text-center text-lg mb-8 text-[#3E190E]" style="font-family: Abhaya Libre SemiBold; margin: 0;">Open 24 hours</p>
+                <i class="fas fa-clock mr-4 text-[#3E190E] text-2xl"></i>
+                <p class="text-lg font-semibold text-center text-[#3E190E]" style="margin: 0;">Open 24 hours</p>
             </div>
         </div>
-        <div class="bg-white p-6 form-style" style="width: 100%; max-width: 800px;">
-            <form method="POST" class="space-y-6">
+
+        <!-- Form Section with id for AJAX -->
+        <div class="bg-white p-6 form-style w-full max-w-2xl">
+            <form id="ajaxForm" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
                 {% csrf_token %}
+                
                 {% for field in form %}
                 <div class="flex flex-row items-center justify-between mb-4">
-                    <label for="{{ field.id_for_label }}" class="font-semibold text-[#3E190E]" style="width: 150px;">{{ field.label }}</label>
-                    {{ field }}
-                    <script>
-                        document.getElementById('{{ field.id_for_label }}').style.width = "495px";
-                    </script>
-                    {% if field.help_text %}
-                        <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
-                    {% endif %}
-                    {% for error in field.errors %}
-                        <p class="mt-1 text-sm text-red-600">{{ error }}</p>
-                    {% endfor %}
+                    <label for="{{ field.id_for_label }}" class="font-semibold text-[#3E190E] w-1/3">{{ field.label }}</label>
+                    <div class="w-2/3">
+                        {{ field }}  <!-- Added form styling -->
+                        {% if field.help_text %}
+                            <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
                 {% endfor %}
 
-                <!-- Tombol submit -->
+                <!-- Error messages container -->
+                <div id="form-errors" class="text-red-600"></div>
+
+                <!-- Submit and Cancel Buttons -->
                 <div class="flex justify-left mt-6 gap-x-4">
-                    <a href="{% url 'reserve:delete_reserve' reserve.pk %}" style="font-family: 'Abhaya Libre Semibold'; border-radius: 62px;" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center" >
-                        Cancel Reservation
-                    </a>
-                    <button type="submit" style="font-family: 'Abhaya Libre Semibold'; border-radius: 62px;" class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2">
+                   
+                    <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2">
                         Save Changes
                     </button>
                 </div>
-                
             </form>
+
+            <!-- Success message container -->
+            <div id="success-message" class="text-green-600 mt-4" style="display:none;">Reservation updated successfully!</div>
         </div>
     </div>
 </div>
 
+
 {% include 'footer.html' %}
 {% endblock content %}
-
-

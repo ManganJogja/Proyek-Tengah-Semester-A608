@@ -2,8 +2,8 @@
 label {
     font-family: 'Abhaya Libre', serif; /* Samakan dengan font Review */
     font-weight: 800; /* SemiBold */
-    font-size: 20px; /* Sesuaikan ukuran sesuai kebutuhan */
-    text-align: left;
+    font-size: 25px; /* Sesuaikan ukuran sesuai kebutuhan */
+    text-align: center;
 }
 
 .review-title {
@@ -69,6 +69,7 @@ button.btn:hover {
     color: #000;
 }
 
+
 form label {
     display: block;
     font-weight: bold;
@@ -93,7 +94,7 @@ form button {
 }
 
 p, button {
-    font-family: 'Abhaya Libre', serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
 .messages {

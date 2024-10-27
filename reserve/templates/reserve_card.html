@@ -73,38 +73,99 @@
       </div>
   
       <!-- Bagian tombol edit dan delete dipindahkan ke bawah -->
-      <div class="flex space-x-4 justify-center mt-4 mb-4">
-        <!-- Tombol Edit -->
-        <p style="color: #3E190E; font-family: Abhaya Libre SemiBold;">
-            <a href="{% url 'reserve:edit_reserve' reserve_entry.pk %}"  class=" text-[#AC7853] hover:text-[#3E190E] cursor-pointer" style=" font-weight: bold; font-family: Abhaya Libre SemiBold;">
-                Click here
-            </a> 
-            to EDIT/CANCEL your reservation
-        </p>
-        
-        
-      </div>
+        <div class="flex justify-left mt-6 gap-x-4">
+            <a href="{% url 'reserve:delete_reserve' reserve_entry.pk %}" class="bg-gray-200 text-black font-semibold px-4 py-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-300 ease-in-out w-1/2 text-center">
+                Cancel Reservation
+            </a>
+            <button class="bg-[#3E190E] text-white font-semibold px-4 py-3 rounded-lg hover:bg-[#E7DBC6] hover:text-black transition duration-300 ease-in-out w-1/2 edit-button" data-id="{{ reserve_entry.id }}">
+                Edit
+            </button>
+            
+    </div>
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Reservation</h2>
+            <form id="edit-form" action="{% url 'reserve:edit_reserve' reserve_entry.id %}" method="POST" class="space-y-6">
+
+                <label for="guest_quantity">Guest Quantity:</label>
+                <input type="number" id="guest_quantity" name="guest_quantity" required>
+    
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+    
+                <button type="submit" class="bg-[#3E190E] text-white font-semibold px-4 py-2 rounded-lg">
+                    Save</button>
+            </form>
+        </div>
+    </div>
+    
       
     </div>
   </div>
   
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-    const reserveCards = document.querySelectorAll('[id^="reserve-card-"]');
-    const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+    const editButtons = document.querySelectorAll('.edit-button');
+    const modal = document.getElementById('edit-modal');
+    const closeButton = document.querySelector('.close-button');
 
-    reserveCards.forEach(card => {
-        const reserveDateElement = card.querySelector('.fas.fa-calendar-alt + span'); // Temukan elemen tanggal berdasarkan ikon kalender
-        const reserveDate = reserveDateElement.innerText.trim(); // Ambil teks dari elemen dan hilangkan spasi
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const reserveId = button.getAttribute('data-id'); // Ambil ID reservasi
+            modal.classList.remove('hidden');
 
-        // Konversi reserveDate ke format YYYY-MM-DD
-        const parsedReserveDate = new Date(reserveDate).toISOString().split('T')[0];
+            // Update data-id di modal jika perlu
+            document.getElementById('edit-form').setAttribute('data-id', reserveId);
+        });
+    });
 
-        if (parsedReserveDate < today) {
-            card.style.display = 'none'; // Sembunyikan card jika tanggal sudah lewat
+    closeButton.addEventListener('click', function() {
+        modal.classList.add('hidden');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
         }
+    });
+
+    document.getElementById('edit-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const guestQuantity = document.getElementById('guest_quantity').value;
+        const notes = document.getElementById('notes').value;
+        const reserveId = event.target.getAttribute('data-id');
+
+        const data = {
+            guest_quantity: guestQuantity,
+            notes: notes,
+            reserve_id: reserveId,
+        };
+
+        fetch(`/reserve/edit-reserve/${reserveId}/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log('Success:', data);
+            modal.classList.add('hidden');
+            location.reload();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     });
 });
 
 </script>
-
