@@ -163,4 +163,59 @@ input:focus {
   padding: 15px;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px; /* Tambahkan padding agar modal tidak menempel pada tepi halaman */
+}
+
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  z-index: 10000;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh; /* Maksimal tinggi modal 80% dari tinggi viewport */
+  overflow-y: auto; /* Aktifkan scroll vertikal jika konten lebih panjang */
+}
+
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10001;
+}
+
+.modal-content input, 
+.modal-content textarea {
+width: 100%; /* Input akan mengambil seluruh lebar dari modal */
+}
+
+@media (max-width: 576px) {
+  .modal-content {
+    max-width: 90%; /* Sesuaikan lebar modal untuk layar yang lebih kecil */
+    max-height: 90vh; /* Sesuaikan ketinggian maksimal modal */
+  }
+}
+
+
+
+.hidden {
+display: none;
+}
+
 
