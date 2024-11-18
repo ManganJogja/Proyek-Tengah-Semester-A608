@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-8x%)-fpg+&@ch(79j!dshtc8l_2r#1pqb715uaeal9mmi1jvp(
 PRODUCTION = os.getenv("PRODUCTION", False)
 DEBUG = not PRODUCTION
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "raysha-reifika-ManganJogja.pbp.cs.ui.ac.id"]
-
+ALLOWED_HOSTS = ["localhost", "10.0.2.2", "127.0.0.1", "raysha-reifika-ManganJogja.pbp.cs.ui.ac.id"]
 
 # Application definition
 
@@ -45,6 +44,7 @@ INSTALLED_APPS = [
     'wishlist',
     'admin_dashboard',
     'order_takeaway',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'mangan_jogja.urls'
@@ -139,4 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://pbp.cs.ui.ac.id/web/project/raysha.reifika/manganjogja", "https://pbp.cs.ui.ac.id/web/project/raysha.reifika/manganjogja"]
 
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
