@@ -67,6 +67,46 @@ def create_reserve_entry(request, id):
     context = {'form': form, 'restaurant': restaurant}
     return render(request, "create_reserve_entry.html", context)
 
+
+@csrf_exempt
+def create_reserve_entry_flutter(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            name = data['name']
+            date = data['date']
+            time = data['time']
+            email = data['email']
+            phone = data['phone']
+            guest_quantity = data['guest_quantity']
+            notes = data.get('notes', '')
+            resto_id = data['resto']
+            
+            # Cek apakah restoran ada
+            try:
+                resto = RestaurantEntry.objects.get(id=resto_id)
+            except RestaurantEntry.DoesNotExist:
+                return JsonResponse({"status": "error", "message": "Restaurant not found"}, status=404)
+            
+            # Cek apakah user ada
+            user = user.objects.get(id=data['user'])
+
+            # Simpan reservasi
+            reserve_entry = ReserveEntry.objects.create(
+                user=user,
+                resto=resto,
+                name=name,
+                date=date,
+                time=time,
+                guest_quantity=guest_quantity,
+                email=email,
+                phone=phone,
+                notes=notes,
+            )
+            return JsonResponse({"status": "success", "message": "Reservation created successfully!"})
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)})
+
 def confirmation_form(request, id):
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
     
@@ -85,7 +125,87 @@ def edit_reserve(request, id):
         if form.is_valid():
             form.save()
             return redirect('reserve:show_reserve')
-    
+
+@require_http_methods(["POST"])
+def edit_flutter(request, reservation_id):
+    try:
+        # Try to parse JSON data first
+        data = json.loads(request.body)
+
+        # Log the incoming data for debugging
+        print(f"Received data: {data}")
+        print(f"Reservation ID: {reservation_id}")
+
+        # Fetch the reservation
+        reservation = ReserveEntry.objects.get(id=reservation_id)
+
+        # Update reservation fields
+        reservation.name = data.get('name')
+        reservation.date = data.get('date')
+        reservation.time = data.get('time')
+        reservation.guest_quantity = data.get('guest_quantity')
+        reservation.email = data.get('email')
+        reservation.phone = data.get('phone')
+        reservation.notes = data.get('notes', '')
+
+        reservation.save()
+
+        return JsonResponse({
+            'success': True,
+            'message': 'Reservation updated successfully'
+        })
+
+    except json.JSONDecodeError:
+        # If JSON parsing fails, try form data
+        try:
+            # Log the incoming data for debugging
+            print(f"Received POST data: {request.POST}")
+            print(f"Reservation ID: {reservation_id}")
+
+            # Fetch the reservation
+            reservation = ReserveEntry.objects.get(id=reservation_id)
+
+            # Update reservation fields
+            reservation.name = request.POST.get('name')
+            reservation.date = request.POST.get('date')
+            reservation.time = request.POST.get('time')
+            reservation.guest_quantity = request.POST.get('guest_quantity')
+            reservation.email = request.POST.get('email')
+            reservation.phone = request.POST.get('phone')
+            reservation.notes = request.POST.get('notes', '')
+
+            reservation.save()
+
+            return JsonResponse({
+                'success': True,
+                'message': 'Reservation updated successfully'
+            })
+
+        except Exception as e:
+            # Log the full exception for server-side debugging
+            import traceback
+            traceback.print_exc()
+
+            return JsonResponse({
+                'success': False,
+                'error': str(e)
+            }, status=400)
+
+    except ReserveEntry.DoesNotExist:
+        return JsonResponse({
+            'success': False,
+            'error': 'Reservation not found'
+        }, status=404)
+    except Exception as e:
+        # Log the full exception for server-side debugging
+        import traceback
+        traceback.print_exc()
+
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
+           
 def delete_reserve(request, id):
     reserve = ReserveEntry.objects.get(pk = id)
     reserve.delete()

@@ -40,6 +40,11 @@ def show_json(request):
     data = MenuEntry.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+def show_json2(request):
+    data = RestaurantEntry.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
 def show_xml_by_id(request, id):
     data = MenuEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
