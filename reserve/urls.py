@@ -12,6 +12,7 @@ urlpatterns = [
     path('json/', show_json, name='show_json'),
     path('json/<uuid:id>/', show_json_by_id, name='show_json_by_id'),
     path('menu/<uuid:id>', menu_page_user, name='menu_page_user'),
-    path('reserve-flutter/', create_reserve_entry_flutter, name='create_reserve_entry_flutter'),
-    path('edit-flutter/<uuid:id>', edit_flutter, name='edit-flutter')
+    path('reserve-flutter/<str:restoId>/', create_reserve_entry_flutter, name='create_reserve_entry_flutter'),
+    path('edit-flutter/<uuid:id>/', edit_flutter, name='edit_flutter'),
+    path('delete-flutter/', delete_flutter, name='delete_flutter')
 ]

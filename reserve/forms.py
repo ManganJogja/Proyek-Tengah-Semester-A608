@@ -24,7 +24,14 @@ class ReserveEntryForm(forms.ModelForm):
                     'min': date.today().strftime('%Y-%m-%d'),  # Membatasi tanggal minimum menjadi hari ini
                     'class': 'form-control'
                 }),
-            'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),
+            'time': forms.TimeInput(
+                attrs={
+                    'type': 'time', 
+                    'class': 'form-control', 
+                    'placeholder': 'Enter time in HH:MM format'
+                },
+                format='%H:%M'  # Format waktu sebagai HH:MM
+            ),            
             "email": forms.EmailInput(attrs={'placeholder': 'enter your Email Address'}),
             "phone": forms.NumberInput(attrs={'placeholder': 'enter your Phone Number'}),
             "notes": forms.TextInput(attrs={'placeholder': 'enter your Additional Notes'}),       
