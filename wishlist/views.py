@@ -3,104 +3,149 @@ from django.contrib.auth.decorators import login_required
 from admin_dashboard.models import RestaurantEntry
 from .models import Wishlist
 from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 import logging
-from django.template.loader import render_to_string
 from .forms import WishlistForm
-from django.http import HttpResponseRedirect
 from django.urls import reverse
 from uuid import UUID
+from django.http import JsonResponse
+from django.core import serializers
 from .models import Wishlist
 
 logger = logging.getLogger(__name__)
 
-
+login_required
+def get_wishlist_content(request):
+    data = Wishlist.objects.filter(user=request.user)
+    return JsonResponse(serializers.serialize("json", data), safe=False)
 
 @login_required
+@csrf_exempt
+@require_http_methods(["GET"])
+def get_wishlist_json(request):
+    """API endpoint to get wishlist items as JSON"""
+    try:
+        wishlist_items = Wishlist.objects.filter(user=request.user).select_related('restaurant')
+        data = []
+        for item in wishlist_items:
+            data.append({
+                'model': 'wishlist.wishlist',
+                'pk': str(item.id),
+                'fields': {
+                    'user': item.user.id,
+                    'restaurant': str(item.restaurant.id),
+                    'date_plan': item.date_plan.isoformat() if item.date_plan else None,
+                    'additional_note': item.additional_note,
+                    'nama_resto': item.restaurant.nama_resto,
+                    'rating': item.restaurant.rating,
+                    'range_harga': item.restaurant.range_harga,
+                    'alamat': item.restaurant.alamat,
+                }
+            })
+        return JsonResponse(data, safe=False)
+    except Exception as e:
+        logger.error(f"Error in get_wishlist_json: {str(e)}")
+        return JsonResponse({'error': str(e)}, status=500)
+
+@login_required
+@csrf_exempt
+@require_http_methods(["POST"])
+def add_wishlist(request, restaurant_id: UUID):
+    """API endpoint to add a wishlist item with plan"""
+    try:
+        restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
+        wishlist_item, created = Wishlist.objects.get_or_create(
+            user=request.user,
+            restaurant=restaurant
+        )
+
+        if request.method == 'POST':
+            form = WishlistForm(request.POST, instance=wishlist_item)
+            if form.is_valid():
+                form.save()
+                return JsonResponse({'success': True})
+            return JsonResponse({'success': False, 'errors': form.errors})
+        
+        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+    except Exception as e:
+        logger.error(f"Error in add_wishlist: {str(e)}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+@login_required
+@csrf_exempt
+@require_http_methods(["POST"])
+def toggle_wishlist(request, restaurant_id: UUID):
+    """API endpoint to toggle wishlist item"""
+    try:
+        restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
+        wishlist_item = Wishlist.objects.filter(
+            user=request.user,
+            restaurant=restaurant
+        ).first()
+        
+        if wishlist_item:
+            wishlist_item.delete()
+            return JsonResponse({'added': False})
+        
+        Wishlist.objects.create(
+            user=request.user,
+            restaurant=restaurant,
+            date_plan=None
+        )
+        return JsonResponse({'added': True})
+    except Exception as e:
+        logger.error(f"Error in toggle_wishlist: {str(e)}")
+        return JsonResponse({'error': str(e)}, status=500)
+
+@login_required
+@csrf_exempt
+@require_http_methods(["POST"])
+def delete_wishlist(request, restaurant_id: UUID):
+    """API endpoint to delete wishlist item"""
+    try:
+        wishlist_item = get_object_or_404(
+            Wishlist,
+            user=request.user,
+            restaurant_id=restaurant_id
+        )
+        wishlist_item.delete()
+        return JsonResponse({'success': True})
+    except Exception as e:
+        logger.error(f"Error in delete_wishlist: {str(e)}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+@login_required
+@csrf_exempt
+@require_http_methods(["POST"])
+def edit_wishlist(request, restaurant_id: UUID):
+    """API endpoint to edit wishlist item"""
+    try:
+        wishlist_item = get_object_or_404(
+            Wishlist,
+            user=request.user,
+            restaurant_id=restaurant_id
+        )
+
+        if request.method == "POST":
+            form = WishlistForm(request.POST, instance=wishlist_item)
+            if form.is_valid():
+                form.save()
+                return JsonResponse({'success': True})
+            return JsonResponse({'success': False, 'errors': form.errors})
+        
+        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+    except Exception as e:
+        logger.error(f"Error in edit_wishlist: {str(e)}")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+# Web views (for browser access)
+@login_required
 def show_wishlist(request):
+    """Web view to show wishlist items"""
     wishlist_items = Wishlist.objects.filter(user=request.user).select_related('restaurant')
     context = {
         'last_login': request.COOKIES.get('last_login', 'No recent login'),
         'wishlist_items': wishlist_items,
     }
     return render(request, 'wishlist.html', context)
-
-
-@login_required
-def add_wishlist(request, restaurant_id: UUID):
-    restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
-    wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, restaurant=restaurant)
-
-    if request.method == 'POST':
-        form = WishlistForm(request.POST, instance=wishlist_item)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({'success': True})
-        else:
-            return JsonResponse({'success': False, 'errors': form.errors})
-    else:
-        form = WishlistForm(instance=wishlist_item)
-
-    context = {
-        'restaurant': restaurant,
-        'form': form,
-    }
-    return render(request, 'add_wishlist_plan_form.html', context)
-
-@login_required
-def delete_wishlist(request, restaurant_id):
-    wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
-    wishlist_item.delete()
-    return redirect('show_wishlist')
-
-
-@login_required
-@require_POST
-def toggle_wishlist(request, restaurant_id):
-    restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
-    wishlist_item, created = Wishlist.objects.get_or_create(
-        user=request.user,
-        restaurant=restaurant,
-        defaults={'date_plan': None}
-    )
-    
-    if not created:
-        wishlist_item.delete()
-        return JsonResponse({'added': False})
-    
-    return JsonResponse({'added': True})
-
-@login_required
-def get_wishlist_content(request):
-    wishlist_items = Wishlist.objects.filter(user=request.user).select_related('restaurant')
-    context = {
-        'wishlist_items': wishlist_items,
-    }
-    content = render_to_string('wishlist_content.html', context, request=request)
-    return JsonResponse({'content': content})
-
-@login_required
-def delete_wishlist(request, restaurant_id):
-    # Get wishlist item berdasarkan restaurant_id
-    wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
-    # Hapus wishlist item
-    wishlist_item.delete()
-    # Kembali ke halaman wishlist
-    return HttpResponseRedirect(reverse('wishlist:show_wishlist'))
-
-
-@login_required
-def edit_wishlist(request, restaurant_id: UUID):
-    # Get wishlist item based on restaurant_id
-    wishlist_item = get_object_or_404(Wishlist, user=request.user, restaurant_id=restaurant_id)
-
-    # Set wishlist item as an instance of the form
-    form = WishlistForm(request.POST or None, instance=wishlist_item)
-
-    if form.is_valid() and request.method == "POST":
-        # Save form and redirect to the main page
-        form.save()
-        return HttpResponseRedirect(reverse('wishlist:show_wishlist'))
-
-    context = {'form': form}
-    return render(request, "edit_wishlist_plan.html", context)
