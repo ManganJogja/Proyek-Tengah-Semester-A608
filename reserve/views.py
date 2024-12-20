@@ -133,10 +133,8 @@ def edit_reserve(request, id):
 def edit_flutter(request, id):
     try:
         if request.method == "GET":
-            # Fetch the reservation data by ID
             reservation = ReserveEntry.objects.get(id=id)
             
-            # Return reservation data as JSON
             return JsonResponse({
                 'success': True,
                 'data': {
@@ -151,12 +149,8 @@ def edit_flutter(request, id):
             })
 
         elif request.method == "POST":
-            # Pa
-            # Try to parse JSON data first
-            print(request.body)
             data = json.loads(request.body)
-            print("Received data:", data)
-            # Fetch the reservation
+     
             reservation = ReserveEntry.objects.get(id=id)
 
             # Update reservation fields
