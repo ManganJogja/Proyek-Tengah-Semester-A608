@@ -17,6 +17,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
+from django.db import transaction
 
 
 @login_required(login_url='/login')
@@ -145,34 +146,38 @@ def get_restaurants_by_menu(request, menu_id):
 
 @login_required
 def show_json(request):
-    orders = TakeawayOrder.objects.filter(user=request.user)
-    response = []
+    try:
+        orders = TakeawayOrder.objects.filter(user=request.user).order_by('-id')
+        response = []
 
-    for order in orders:
-        # Ambil menu, restoran, dan quantity dari order item
-        try:
+        for order in orders:
+            # Attempt to get the first order item
             order_item = TakeawayOrderItem.objects.filter(order=order).first()
-            menu_name = order_item.menu_item.nama_menu if order_item else "Unknown Menu"
-            quantity = order_item.quantity if order_item else 0
+            if not order_item:
+                continue  # Skip if no order items are linked to the order
+
+            # Extract details
+            menu_name = order_item.menu_item.nama_menu
+            quantity = order_item.quantity
             restaurant_name = order.restaurant.nama_resto
-        except Exception as e:
-            print(f"Error fetching order details: {e}")
-            menu_name = "Unknown Menu"
-            quantity = 0
-            restaurant_name = "Unknown Restaurant"
 
-        response.append({
-            "pk": str(order.id),  # ID order
-            "fields": {
-                "menu_item": menu_name,  # Nama menu
-                "restaurant": restaurant_name,  # Nama restoran
-                "quantity": quantity,  # Jumlah
-                "pickup_time": order.pickup_time.strftime("%H:%M:%S"),  # Waktu penjemputan
-                "total_price": order.total_price,  # Total harga
-            }
-        })
+            # Append to response
+            response.append({
+                "pk": str(order.id),  # ID of the order
+                "fields": {
+                    "menu_item": menu_name,  # Name of the menu item
+                    "restaurant": restaurant_name,  # Name of the restaurant
+                    "quantity": quantity,  # Quantity ordered
+                    "pickup_time": order.pickup_time.strftime("%H:%M:%S"),  # Pickup time
+                    "total_price": order.total_price,  # Total price
+                }
+            })
 
-    return JsonResponse(response, safe=False)
+        return JsonResponse(response, safe=False)
+
+    except Exception as e:
+        print(f"Error in show_json: {e}")
+        return JsonResponse({"error": "Failed to fetch orders."}, status=500)
 
 def show_json_by_id(request, id):
     data = TakeawayOrder.objects.filter(pk=id)
@@ -189,62 +194,47 @@ def create_order_flutter(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            print("Received data:", data)  # Debug log
-
             restaurant_id = data.get('restaurant')
             order_items = data.get('order_items', [])
             pickup_time = data.get('pickup_time')
 
-            # Validasi data
             if not restaurant_id or not order_items or not pickup_time:
                 return JsonResponse({"success": False, "message": "Incomplete data"}, status=400)
 
-            # Parsing waktu
-            try:
-                formatted_time = datetime.strptime(pickup_time, "%H:%M:%S").time()
-            except ValueError:
-                return JsonResponse({"success": False, "message": "Invalid pickup time format"}, status=400)
-
-            # Ambil user dari request (contoh: user pertama)
-            user = User.objects.first()  # Ganti dengan user yang sesuai
+            formatted_time = datetime.strptime(pickup_time, "%H:%M:%S").time()
+            user = request.user
             restaurant = RestaurantEntry.objects.get(id=restaurant_id)
 
-            # Buat TakeawayOrder
             takeaway_order = TakeawayOrder(
                 user=user,
                 restaurant=restaurant,
                 pickup_time=formatted_time,
-                total_price=0  # Akan dihitung
+                total_price=0,
             )
             takeaway_order.save()
 
-            # Proses order_items
             total_price = 0
             for item in order_items:
-                menu_item_id = item.get('menu_item')
-                quantity = item.get('quantity', 1)
+                menu_item = MenuEntry.objects.get(id=item['menu_item'])
+                quantity = item['quantity']
+                price = restaurant.range_harga * quantity
 
-                menu_item = MenuEntry.objects.get(id=menu_item_id)
-
-                # Hitung harga berdasarkan range_harga restoran
-                price = restaurant.range_harga * quantity  # Menggunakan range_harga dari restoran
-
-                # Buat TakeawayOrderItem
                 order_item = TakeawayOrderItem(
                     order=takeaway_order,
                     menu_item=menu_item,
                     quantity=quantity,
-                    price=price
+                    price=price,
                 )
                 order_item.save()
                 total_price += price
 
-            # Update total_price di TakeawayOrder
             takeaway_order.total_price = total_price
             takeaway_order.save()
 
-            return JsonResponse({"success": True, "message": "Order created successfully"})
+            # Ensure the transaction is committed before response
+            transaction.on_commit(lambda: print("Order committed successfully."))
 
+            return JsonResponse({"success": True, "message": "Order created successfully"})
         except Exception as e:
             print(f"Error: {e}")
             return JsonResponse({"success": False, "message": str(e)}, status=400)
