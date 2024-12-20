@@ -12,4 +12,5 @@ urlpatterns = [
     path('add/<uuid:restaurant_id>/', views.add_wishlist, name='add_wishlist'),
     path('wishlist/', views.show_wishlist, name='show_wishlist'),
     path('edit/<uuid:restaurant_id>/', views.edit_wishlist, name='edit_wishlist'), 
+    path('json/', views.get_wishlist_json, name='get_wishlist_json'),
 ]
