@@ -300,7 +300,7 @@
             const restaurantDropdown = document.getElementById("id_restaurant");
     
             if (menuId) {
-                fetch(`/api/restaurants/${menuId}/`)
+                fetch(`/order-takeaway/api/restaurants/${menuId}/`)
                     .then(response => response.json())
                     .then(restaurants => {
                         restaurantDropdown.innerHTML = '<option value="">Select a restaurant</option>';

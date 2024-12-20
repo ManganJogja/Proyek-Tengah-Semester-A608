@@ -25,5 +25,5 @@ urlpatterns = [
     path('reserve/', include('reserve.urls', namespace='reserve')),
     path('reviews/', include('reviews.urls', namespace='reviews')), 
     path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')),
-    path('', include('order_takeaway.urls'))
+    path('order-takeaway/', include('order_takeaway.urls', namespace='order_takeaway')),
 ]
