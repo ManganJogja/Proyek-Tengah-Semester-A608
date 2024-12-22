@@ -14,6 +14,7 @@ import traceback
 
 logger = logging.getLogger(__name__)
 
+@csrf_exempt
 @login_required
 def add_review(request, restaurant_id):
     restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
@@ -38,6 +39,7 @@ def add_review(request, restaurant_id):
             return redirect('reviews:review_card', restaurant_id=restaurant.id)
     return render(request, 'add_review.html', {'restaurant': restaurant})
 
+@csrf_exempt
 @login_required
 def edit_review(request, review_id):
     # Ambil review berdasarkan ID dan pastikan review dimiliki oleh user yang login
@@ -57,6 +59,7 @@ def edit_review(request, review_id):
         return redirect('reviews:review_card', restaurant_id=restaurant.id)
     return render(request, 'edit_review.html', {'review': review})
 
+@csrf_exempt
 @login_required
 def delete_review(request, review_id):
     if request.method == 'POST':

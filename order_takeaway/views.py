@@ -82,6 +82,7 @@ def create_takeaway_order(request):
 
     return JsonResponse({"success": False, "message": "Invalid request"}, status=400)
 
+@csrf_exempt
 @login_required(login_url='/login')
 def edit_takeaway_order(request, id):
     order = TakeawayOrder.objects.get(pk=id)  # Get the specific order
@@ -131,7 +132,7 @@ def edit_takeaway_order(request, id):
 
     return render(request, "create_order_takeaway.html", context)  # Reuse the create template
 
-
+@csrf_exempt
 @login_required(login_url='/login')
 def delete_takeaway_order(request, id):
     order = TakeawayOrder.objects.get(pk=id)
