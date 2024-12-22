@@ -39,7 +39,7 @@ def show_reserve(request):
 
     return render(request, "reserve_page.html", context)
 
-
+@csrf_exempt
 @login_required(login_url='/login')
 def create_reserve_entry(request, id):
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
@@ -109,6 +109,7 @@ def create_reserve_entry_flutter(request, restoId):
     
     return JsonResponse({"status": "error", "message": "Method not allowed"})
    
+@csrf_exempt
 def confirmation_form(request, id):
     restaurant = get_object_or_404(RestaurantEntry, pk=id)
     
