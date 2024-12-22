@@ -50,9 +50,9 @@ def get_wishlist_json(request):
 
 @login_required
 @csrf_exempt
-@require_http_methods(["POST"])
+@require_http_methods(["GET", "POST"])
 def add_wishlist(request, restaurant_id: UUID):
-    """API endpoint to add a wishlist item with plan"""
+    """Handle add wishlist item with plan"""
     try:
         restaurant = get_object_or_404(RestaurantEntry, id=restaurant_id)
         wishlist_item, created = Wishlist.objects.get_or_create(
@@ -67,7 +67,14 @@ def add_wishlist(request, restaurant_id: UUID):
                 return JsonResponse({'success': True})
             return JsonResponse({'success': False, 'errors': form.errors})
         
-        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+        # Handle GET request - return the form HTML
+        form = WishlistForm(instance=wishlist_item)
+        context = {
+            'form': form,
+            'restaurant': restaurant
+        }
+        return render(request, 'add_wishlist_plan_form.html', context)
+        
     except Exception as e:
         logger.error(f"Error in add_wishlist: {str(e)}")
         return JsonResponse({'success': False, 'error': str(e)}, status=500)
@@ -117,7 +124,7 @@ def delete_wishlist(request, restaurant_id: UUID):
 
 @login_required
 @csrf_exempt
-@require_http_methods(["POST"])
+@require_http_methods(["GET", "POST"])
 def edit_wishlist(request, restaurant_id: UUID):
     """API endpoint to edit wishlist item"""
     try:
@@ -134,7 +141,13 @@ def edit_wishlist(request, restaurant_id: UUID):
                 return JsonResponse({'success': True})
             return JsonResponse({'success': False, 'errors': form.errors})
         
-        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+        form = WishlistForm(instance=wishlist_item)
+        context = {
+            'form': form,
+            'wishlist_item': wishlist_item
+        }
+        return render(request, 'edit_wishlist_plan.html', context)
+        
     except Exception as e:
         logger.error(f"Error in edit_wishlist: {str(e)}")
         return JsonResponse({'success': False, 'error': str(e)}, status=500)
