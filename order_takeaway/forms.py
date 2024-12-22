@@ -17,5 +17,10 @@ class TakeawayOrderForm(forms.ModelForm):
         model = TakeawayOrder
         fields = ['restaurant', 'order_items', 'quantity', 'pickup_time']
         widgets = {
-            'pickup_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'})
+            'pickup_time': forms.TimeInput(attrs={'type': 'time', 
+            'class': 'form-control',
+            'placeholder': 'Enter time in HH:MM format'
+                },
+                format='%H:%M'  # Format waktu sebagai HH:MM
+            ),     
         }

@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'wishlist',
     'admin_dashboard',
     'order_takeaway',
-    'django_extensions',
     'corsheaders'
 ]
 
