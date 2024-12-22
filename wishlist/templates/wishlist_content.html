@@ -2,11 +2,11 @@
 <div class="wishlist-card" style="width: 400px; margin: 20px; font-family: 'Abhaya Libre SemiBold';">
     <div class="bg-[#F5E6D3] shadow-md rounded-lg overflow-hidden border relative flex flex-col h-full" style="border: 2px solid rgba(0, 0, 0, 0.2);">
         <div class="absolute top-2 right-2">
-            <a href="{% url 'wishlist:delete_wishlist' item.restaurant.id %}" class="text-red-500 hover:text-red-700">
+            <button onclick="deleteWishlistItem('{{ item.restaurant.id }}')" class="text-red-500 hover:text-red-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
-            </a>
+            </button>
         </div>
         <div class="p-6 flex-grow flex flex-col">
             <div class="w-full text-left flex-grow">

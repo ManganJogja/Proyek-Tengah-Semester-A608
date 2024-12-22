@@ -7,7 +7,7 @@
     <div class="container mx-auto mt-8 p-4">
         <h1 class="text-3xl font-bold mb-4 text-center text-[#3E190E]">Edit Wishlist Plan</h1>
         <div class="bg-[#F5E6D3] shadow-md rounded-lg p-6 w-[500px] mx-auto">
-            <form method="post" class="space-y-4">
+            <form method="post" class="space-y-4" id="editWishlistForm">
                 {% csrf_token %}
                 <div>
                     <label for="{{ form.date_plan.id_for_label }}" class="block text-sm font-medium text-[#3E190E]">Plan Date</label>
@@ -24,5 +24,35 @@
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById('editWishlistForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    
+    fetch(window.location.href, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Redirect back to wishlist page
+            window.location.href = "{% url 'wishlist:show_wishlist' %}";
+        } else {
+            // Handle errors if needed
+            console.error('Error:', data.errors);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
+
 {% include 'footer.html' %}
 {% endblock content %}

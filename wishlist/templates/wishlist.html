@@ -81,11 +81,21 @@ document.getElementById('sortDropdown').addEventListener('change', sortWishlist)
 sortWishlist();
 
 function showAddPlanForm(restaurantId) {
+    console.log('Showing add plan form for restaurant:', restaurantId);
+    
     fetch(`/wishlist/add/${restaurantId}/`)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
         .then(html => {
             document.getElementById('modal').innerHTML = html;
             document.getElementById('overlay').classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error('Error loading add plan form:', error);
         });
 }
 
@@ -93,17 +103,21 @@ function closeModal() {
     document.getElementById('overlay').classList.add('hidden');
 }
 
-document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('add-plan-btn')) {
-        event.preventDefault();
-        showAddPlanForm(event.target.dataset.restaurantId);
-    }
-});
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+        const addPlanBtn = event.target.closest('.add-plan-btn');
+        if (addPlanBtn) {
+            event.preventDefault();
+            const restaurantId = addPlanBtn.dataset.restaurantId;
+            showAddPlanForm(restaurantId);
+        }
+    });
 
-document.getElementById('overlay').addEventListener('click', function(event) {
-    if (event.target === this) {
-        closeModal();
-    }
+    document.getElementById('overlay').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeModal();
+        }
+    });
 });
 
 function submitAddPlanForm(event) {
@@ -118,16 +132,61 @@ function submitAddPlanForm(event) {
             'X-CSRFToken': formData.get('csrfmiddlewaretoken')
         }
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.success) {
             closeModal();
             updateWishlistView();
         } else {
-            // Handle errors
             console.error('Error:', data.errors);
         }
+    })
+    .catch(error => {
+        console.error('Error submitting form:', error);
     });
+}
+
+function deleteWishlistItem(restaurantId) {
+    if (confirm('Are you sure you want to delete this item from your wishlist?')) {
+        fetch(`/wishlist/delete/${restaurantId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateWishlistView();
+            } else {
+                console.error('Error:', data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+// Add this function to get CSRF token
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 </script>
 
