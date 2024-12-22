@@ -91,7 +91,7 @@
             const restaurantDropdown = document.getElementById("id_restaurant");
 
             if (menuId) {
-                const response = await fetch(`/api/restaurants/${menuId}/`);
+                const response = await fetch(`/order-takeaway/api/restaurants/${menuId}/`);
                 const restaurants = await response.json();
 
                 restaurantDropdown.innerHTML = '';

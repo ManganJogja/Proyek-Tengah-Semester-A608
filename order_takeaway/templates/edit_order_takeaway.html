@@ -84,7 +84,7 @@
 
             if (menuId) {
                 try {
-                    const response = await fetch(`/api/restaurants/${menuId}/`);
+                    const response = await fetch(`/order-takeaway/api/restaurants/${menuId}/`);
                     if (!response.ok) {
                         throw new Error(`Failed to fetch restaurants for menu ${menuId}`);
                     }
